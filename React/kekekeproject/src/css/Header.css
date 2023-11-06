@@ -71,9 +71,9 @@
   .Headerlogo {
    
     height: 136px;
-    left: 0;
+    left: -90px;
     position: absolute;
-    top: 0;
+    top: -50px;
     width: 190px;
   }
   
@@ -89,12 +89,7 @@
   width: 100%;
   }
   
-  .index .header-bflogin-wrapper {
- 
-    height: 2224px;
-    width: 1440px;
-  }
-  
+
   
   .index .header-bflogin-all {
     left: 189px !important;
@@ -160,3 +155,31 @@
     top: 0;
     width: 24px;
 }
+
+
+/* 헤더테스트 */
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  #root {
+    width: 100%;
+  }
+  body {
+    min-height: 100vh;
+  
+    -ms-overflow-style: none;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
