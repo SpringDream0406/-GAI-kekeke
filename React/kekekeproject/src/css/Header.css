@@ -1,0 +1,162 @@
+
+
+
+.Header_bflogin-container{
+    height: 136px;
+    width: 1062px;
+  
+    
+}
+  
+.Header_bflogin-container  .Header_bflogin {
+    height: 136px;
+    position: relative;
+ 
+
+  }
+  
+  .Header_bflogin-container .Header_menubar {
+    background-color: #ffffff;
+    border: 10px solid;
+    border-color: #ffdee6;
+    border-radius: 30px;
+    height: 67px;
+    left: 75px;
+    position: absolute;
+    top: 34px;
+    width: 987px; /* left와 position 설정 제거 */
+
+  }
+  
+  .Header_bflogin-container .Header_all {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 55px;
+    left: 482px;
+    position: absolute;
+    top: 56px;
+  }
+  
+  .Header_menu_1_all , .Header_menu_4_all{
+    height: 24px;
+    position: relative;
+    width: 74px;
+  }
+  
+  .Header_menu_1 , .Header_menu_2 , .Header_login  , .Header_join {
+    color: #000000;
+  font-family: 'Pretendard-Regular';
+  font-size: 20px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .Header_menu_2_all {
+    height: 24px;
+    position: relative;
+    width: 148px;
+  }
+  
+  .Header_menu_3_all {
+    height: 24px;
+    position: relative;
+    width: 56px;
+  }
+  
+  .Headerlogo {
+   
+    height: 136px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 190px;
+  }
+  
+
+
+/* App에 보여지는 부분 */
+
+  .index {
+   
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  }
+  
+  .index .header-bflogin-wrapper {
+ 
+    height: 2224px;
+    width: 1440px;
+  }
+  
+  
+  .index .header-bflogin-all {
+    left: 189px !important;
+    position: relative !important;
+    top: 47px !important;
+  }
+  
+
+  /* Header_af */
+
+  .Headeraf_username_all{
+    height: 24px;
+    position: relative;
+    width: 56px;
+  }
+
+  .Headeraf_username{
+    color: #000000;
+    font-family: 'Pretendard-bold';
+    font-size: 20px;
+      left: 0;
+      letter-spacing: 0;
+      line-height: normal;
+      position: absolute;
+      top: 10px;
+      white-space: nowrap;
+  }
+
+  .header_mypage_icon{
+
+  height: 24px;
+  position: relative;
+  width: 24px;
+  }
+
+  .mypage_icon_frame{
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 12px;
+    left: 922px;
+    position: absolute;
+    top: 65px;
+  }
+
+ .message_icon_frame {
+    height: 24px;
+    position: relative;
+    width: 24px;
+ }
+
+ .header_message_icon{
+    height: 24px;
+    left: 1px;
+    position: absolute;
+    top: 0;
+    width: 24px;
+ }
+
+.header_alert_icon{
+    height: 24px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 24px;
+}
