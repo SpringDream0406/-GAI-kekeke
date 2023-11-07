@@ -1,11 +1,13 @@
 import React from 'react'
 
 import '../css/Join.css'
+import GlobalStyle from '../component/GlobalStyle'
 
 
 const Join = () => {
   return (
     <div className='index'>
+     <GlobalStyle/>
        <div className="index">
       <div className="div-7">
         <div className="join">

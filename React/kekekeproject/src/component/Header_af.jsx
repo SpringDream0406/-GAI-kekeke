@@ -1,11 +1,9 @@
-import React from 'react'
-import '../css/Header.css'
+import React, { useState } from 'react' // useState를 한 번에 임포트
 import '../Fonts/Font.css'
-import { useState  } from 'react'
-import { Link, Navigate } from "react-router-dom";
+import GlobalStyle from './GlobalStyle';
+import { Link} from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
 
 
 
@@ -21,7 +19,7 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   
-  background-color: #ffffff;
+
   border: 10px solid;
   border-color: #ffdee6;
   border-radius: 30px;
@@ -99,6 +97,7 @@ const Header_af = () => {
   };
   return (
     <>
+    <GlobalStyle/>
       <StyledHeader >
         <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
