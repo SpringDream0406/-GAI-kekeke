@@ -12,7 +12,7 @@
     overflow: hidden;
     position: relative;
     width: 1440px;
-  } */
+  }
   
   .index .group {
     height: 163px;
@@ -22,14 +22,14 @@
     width: 1440px;
   }
   
-  /* .index .footer {
+  .index .footer {
     background-color: transparent;
     height: 134px;
     left: 6px;
     position: absolute;
     top: 1798px;
     width: 1444px;
-  } */
+  }
   
   .index .overlap-group {
     height: 134px;
@@ -330,7 +330,7 @@
     position: relative;
   }
   
-  /* .index .view-2 {
+   .index .view-2 {
     background-color: #ffffff;
     border: 10px solid;
     border-color: #ffdee6;
@@ -340,7 +340,7 @@
     position: absolute;
     top: 34px;
     width: 987px;
-  } */
+  } 
   
   .index .view-3 {
     align-items: flex-start;
@@ -452,4 +452,4 @@
     top: 0;
     width: 24px;
   }
-  
+   */
