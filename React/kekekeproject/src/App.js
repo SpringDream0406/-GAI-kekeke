@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
+import Mypage from "./pages/Mypage";
 
 function App() {
   const [toggle , setToggle] = useState(false);
@@ -19,10 +20,12 @@ function App() {
         <Header_af toggle={toggle} setToggle={setToggle}/>  
     <Routes>
       <Route path ='/cakes' element={<Cakes />}/>
+      <Route path ='/mypage' element={<Mypage />}/>
       <Route path ='/customcake' element={<CustomCake />}/>
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
+    
     </Routes>
    
     </BrowserRouter>
