@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   
-
+background-color: skyblue;
  
   width: 80%;
   max-width: 1440px;
@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
   border: 10px solid;
   border-color: #ffdee6;
   border-radius: 30px;
-  height: 67px;
+  height: 27px;
   margin: auto;
   position: relative;
   top:30px;

@@ -1,11 +1,13 @@
 import React from 'react'
-
+import GlobalStyle from '../component/GlobalStyle'
 import '../css/Login.css'
 
 
 const Login = () => {
   return (
+    
    <div className='index'>
+    <GlobalStyle/>
     <div className="index">
       <div className="div-7">
       
