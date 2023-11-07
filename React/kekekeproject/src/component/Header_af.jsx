@@ -11,7 +11,7 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
   
 
-
+ 
   width: 80%;
   max-width: 1440px;
   padding: 10px 52px 8px 12px;
@@ -19,11 +19,11 @@ const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   
-
+  background-color: #ffffff;
   border: 10px solid;
   border-color: #ffdee6;
   border-radius: 30px;
-  height: 67px;
+  height: 27px;
   margin: auto;
   position: relative;
   top:30px;
@@ -76,6 +76,7 @@ const NavManu = styled.ul`
   .nav-menu-icon{
     display:block;
     padding:6px  ;
+  }
   }
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};

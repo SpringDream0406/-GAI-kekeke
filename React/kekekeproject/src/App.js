@@ -8,22 +8,21 @@ import CustomCake from "./pages/CustomCake";
 import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Main from "./Main";
-import Mypage from "./pages/Mypage";
+import GlobalStyle from "./component/GlobalStyle";
 
 function App() {
   const [toggle , setToggle] = useState(false);
 
   return (
-    <BrowserRouter>
-      
-        <Header_af toggle={toggle} setToggle={setToggle}/>
-
+    <BrowserRouter>    
+  
+        <Header_af toggle={toggle} setToggle={setToggle}/>  
     <Routes>
       <Route path ='/cakes' element={<Cakes />}/>
       <Route path ='/customcake' element={<CustomCake />}/>
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
-      <Route path='/mypage' element={<Mypage/>}/>
+      <Route path="/" element={<Main/>}/>
     </Routes>
    
     </BrowserRouter>

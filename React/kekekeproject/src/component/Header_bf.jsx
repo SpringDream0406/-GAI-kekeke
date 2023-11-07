@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Header.css'
+
 import '../Fonts/Font.css'
 import { useState  } from 'react'
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   
-background-color: skyblue;
+
  
   width: 80%;
   max-width: 1440px;
