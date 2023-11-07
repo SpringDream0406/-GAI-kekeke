@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Header.css'
+
 import '../css/Join.css'
 
 
@@ -93,17 +93,7 @@ const Join = () => {
             </div>
           </div>
         </div>
-        <footer className="footer">
-          <div className="overlap-4">
-            <div className="rectangle" />
-            <div className="text-wrapper-91">Copyright 2023.kekeke.All rights reserved</div>
-            <img
-              className="kekeke"
-              alt="Kekeke"
-              src="https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654877b599d82c8d5b729daa/img/kekeke--2--2.png"
-            />
-          </div>
-        </footer>
+       
         {/* <DivWrapper className="component-111" /> */}
       </div>
     </div>

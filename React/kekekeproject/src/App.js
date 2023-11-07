@@ -14,18 +14,8 @@ function App() {
 
   return (
     <BrowserRouter>
-<<<<<<< Updated upstream
- 
       
-        <Header_af toggle={toggle} setToggle={setToggle}/>  
-=======
-    <div className="index">
-      {/* <div className="header-bflogin-wrapper"> */}
-        <Header_bf className="header-bflogin-all"/>
-      {/* </div> */}
-
->>>>>>> Stashed changes
-      
+        <Header_bf toggle={toggle} setToggle={setToggle}/>
 
     <Routes>
       <Route path ='/cakes' element={<Cakes />}/>

@@ -99,7 +99,7 @@ const Header_af = () => {
   };
   return (
     <>
-      <StyledHeader>
+      <StyledHeader >
         <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
           <img src={'/assets/images/logo-header.svg'} className='kekekelogo'/>

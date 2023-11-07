@@ -1,27 +1,4 @@
-.index {
-  background-color: #ffffe7;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
 
-.index .div-7 {
-  background-color: #ffffe7;
-  height: 1524px;
-  overflow: hidden;
-  position: relative;
-  width: 1440px;
-}
-
-.index .footer {
-  background-color: transparent;
-  height: 134px;
-  left: -4px;
-  position: absolute;
-  top: 1390px;
-  width: 1444px;
-}
 
 .index .overlap-group-2 {
   height: 134px;

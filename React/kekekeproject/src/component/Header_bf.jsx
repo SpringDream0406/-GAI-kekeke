@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const StyledHeader = styled.header`
   
 
-
+ 
   width: 80%;
   max-width: 1440px;
   padding: 10px 52px 8px 12px;
@@ -91,7 +91,7 @@ const Header_bf = () => {
   };
   return (
     <>
-      <StyledHeader>
+      <StyledHeader >
         <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
           <img src={'/assets/images/logo-header.svg'} className='kekekelogo'/>

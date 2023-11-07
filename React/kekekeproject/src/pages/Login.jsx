@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Header.css'
+
 import '../css/Login.css'
 
 
@@ -8,17 +8,7 @@ const Login = () => {
    <div className='index'>
     <div className="index">
       <div className="div-7">
-        <footer className="footer">
-          <div className="overlap-group-2">
-            <div className="rectangle" />
-            <div className="text-wrapper-2">Copyright 2023.kekeke.All rights reserved</div>
-            <img
-              className="kekeke"
-              alt="Kekeke"
-              src="https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654877b599d82c8d5b729daa/img/kekeke--2--2.png"
-            />
-          </div>
-        </footer>
+      
         <div className="login-area">
           <div className="login-text">
             <div className="text-wrapper-3">로그인</div>
