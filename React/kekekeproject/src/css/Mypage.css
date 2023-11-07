@@ -1,0 +1,455 @@
+/* .index {
+    background-color: #ffffe7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .index .div {
+    background-color: #ffffe7;
+    height: 1935px;
+    overflow: hidden;
+    position: relative;
+    width: 1440px;
+  } */
+  
+  .index .group {
+    height: 163px;
+    left: 0;
+    position: absolute;
+    top: 276px;
+    width: 1440px;
+  }
+  
+  /* .index .footer {
+    background-color: transparent;
+    height: 134px;
+    left: 6px;
+    position: absolute;
+    top: 1798px;
+    width: 1444px;
+  } */
+  
+  .index .overlap-group {
+    height: 134px;
+    position: relative;
+    width: 1444px;
+  }
+  
+  .index .rectangle {
+    background-color: #ffffff;
+    height: 128px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    width: 1444px;
+  }
+  
+  .index .text-wrapper {
+    color: #f73564;
+    font-family: "Roboto Mono", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 551px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 97px;
+  }
+  
+  .index .kekeke {
+    height: 106px;
+    left: 671px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 106px;
+  }
+  
+  .index .overlap {
+    background-color: #ffffff;
+    border-radius: 73px;
+    box-shadow: 2px 6px 6px #0000001a;
+    height: 1155px;
+    left: 90px;
+    position: absolute;
+    top: 547px;
+    width: 1269px;
+  }
+  
+  .index .mypage {
+    height: 1054px;
+    left: 252px;
+    position: relative;
+    top: 51px;
+    width: 775px;
+  }
+  
+  .index .overlap-2 {
+    height: 673px;
+    left: -20px;
+    position: absolute;
+    top: 291px;
+    width: 815px;
+  }
+  
+  .index .mypage-duplication {
+    height: 73px;
+    left: 626px;
+    position: absolute;
+    top: 110px;
+    width: 143px;
+  }
+  
+  .index .overlap-group-2 {
+    height: 73px;
+    position: relative;
+  }
+  
+  .index .div-2 {
+    background-color: #ffffe7;
+    border: 5px solid;
+    border-color: #61a4d5;
+    border-radius: 20px;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 143px;
+  }
+  
+  .index .div-wrapper {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 13px;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .index .text-wrapper-2 {
+    
+    color: #61a4d5;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .index .mypage-nickname {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    left: 9px;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .index .div-wrapper-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .index .text-wrapper-3 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .index .rectangle-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .index .rectangle-2 {
+    background-color: #d1ebff;
+    border-radius: 20px;
+    height: 72px;
+    position: relative;
+    width: 570px;
+  }
+  
+  .index .mypage-password {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 153px;
+  }
+  
+  .index .rectangle-3 {
+    background-color: #d1ebff;
+    border-radius: 20px;
+    height: 72px;
+    position: relative;
+    width: 735px;
+  }
+  
+  .index .mypage-password-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 307px;
+  }
+  
+  .index .mypage-phone-number {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 452px;
+  }
+  
+  .index .mypage-modify-button {
+    height: 83px;
+    left: 217px;
+    position: absolute;
+    top: 971px;
+    width: 302px;
+  }
+  
+  .index .overlap-3 {
+    height: 83px;
+    position: relative;
+  }
+  
+  .index .div-3 {
+    border: 5px solid;
+    border-color: #61a4d5;
+    border-radius: 30px;
+    height: 79px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 302px;
+  }
+  
+  .index .div-wrapper-3 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 79px;
+    padding: 20px;
+    position: absolute;
+    top: 4px;
+  }
+  
+  .index .text-wrapper-4 {
+    color: #61a4d5;
+    font-family: "Inter", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .index .mypage-picture {
+    background-color: #d9d9d9;
+    border-radius: 134.5px;
+    height: 269px;
+    left: 215px;
+    position: absolute;
+    top: 0;
+    width: 269px;
+  }
+  
+  .index .overlap-4 {
+    height: 269px;
+    position: relative;
+  }
+  
+  .index .mask-group {
+    height: 110px;
+    left: 79px;
+    position: absolute;
+    top: 57px;
+    width: 110px;
+  }
+  
+  .index .img {
+    height: 269px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 269px;
+  }
+  
+  .index .mask-group-2 {
+    height: 68px;
+    left: 104px;
+    position: absolute;
+    top: 201px;
+    width: 68px;
+  }
+  
+  .index .view {
+    height: 136px;
+    left: 154px;
+    position: absolute;
+    top: 63px;
+    width: 1062px;
+  }
+  
+  .index .overlap-5 {
+    height: 136px;
+    position: relative;
+  }
+  
+  /* .index .view-2 {
+    background-color: #ffffff;
+    border: 10px solid;
+    border-color: #ffdee6;
+    border-radius: 30px;
+    height: 67px;
+    left: 75px;
+    position: absolute;
+    top: 34px;
+    width: 987px;
+  } */
+  
+  .index .view-3 {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 55px;
+    left: 482px;
+    position: absolute;
+    top: 55px;
+  }
+  
+  .index .div-wrapper-4 {
+    height: 24px;
+    position: relative;
+    width: 74px;
+  }
+  
+  .index .text-wrapper-5 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .index .div-wrapper-5 {
+    height: 24px;
+    position: relative;
+    width: 148px;
+  }
+  
+  .index .div-wrapper-6 {
+    height: 24px;
+    position: relative;
+    width: 56px;
+  }
+  
+  .index .text-wrapper-6 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .index .view-4 {
+    background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654891b2c74ac0464c569734/img/kekeke--2--1@2x.png);
+    background-size: 100% 100%;
+    height: 136px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 190px;
+  }
+  
+  .index .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 12px;
+    left: 922px;
+    position: absolute;
+    top: 55px;
+  }
+  
+  .index .view-5 {
+    background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654995c33aa7774e2d96771e/img/mask-group@2x.png);
+    background-size: 100% 100%;
+    height: 24px;
+    position: relative;
+    width: 24px;
+  }
+  
+  .index .view-6 {
+    height: 24px;
+    position: relative;
+    width: 24px;
+  }
+  
+  .index .mask-group-3 {
+    height: 24px;
+    left: 1px;
+    position: absolute;
+    top: -1px;
+    width: 24px;
+  }
+  
+  .index .mask-group-wrapper {
+    background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654995c33aa7774e2d96771e/img/mask-group-2@2x.png);
+    background-size: 100% 100%;
+    height: 24px;
+    left: 1px;
+    position: relative;
+    top: 1px;
+  }
+  
+  .index .mask-group-4 {
+    height: 24px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 24px;
+  }
+  

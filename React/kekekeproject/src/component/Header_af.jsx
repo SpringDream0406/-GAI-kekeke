@@ -119,7 +119,7 @@ const Header_af = () => {
             </Link>
           </li>
           <li>
-            <Link to={'/'} className="nav-menu-icon">
+            <Link to={'/mypage'} className="nav-menu-icon">
             <img 
                             src={'/assets/images/mypage-icon.svg'}/>
             </Link>
