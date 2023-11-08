@@ -1,470 +1,482 @@
-.index {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .index .tour-contents-wrapper {
-    height: 2000px;
-    width: 1440px;
-  }
-  
-  .index .tour-contents {
-    height: 1415px;
-    left: 210px;
-    position: relative;
-    top: 200px;
-    width: 1020px;
-  }
-  
-  .index .tour-page {
-    height: 34px;
-    left: 318px;
-    position: absolute;
-    top: 1381px;
-    width: 384px;
-  }
-  
-  .index .tour-page-before {
-    height: 34px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 60px;
-  }
-  
-  .index .polygon {
-    height: 25px;
-    left: 15px;
-    position: absolute;
-    top: 5px;
-    width: 22px;
-  }
-  
-  .index .tour-page-num {
-    height: 34px;
-    left: 70px;
-    position: absolute;
-    top: 0;
-    width: 244px;
-  }
-  
-  .index .one {
-    height: 24px;
-    left: 26px;
-    position: absolute;
-    top: 5px;
-    width: 10px;
-  }
-  
-  .index .text-wrapper {
-    color: #61a4d5;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    white-space: nowrap;
-  }
-  
-  .index .two {
-    height: 24px;
-    left: 68px;
-    position: absolute;
-    top: 5px;
-    width: 13px;
-  }
-  
-  .index .three {
-    height: 24px;
-    left: 113px;
-    position: absolute;
-    top: 5px;
-    width: 14px;
-  }
-  
-  .index .four {
-    height: 24px;
-    left: 159px;
-    position: absolute;
-    top: 5px;
-    width: 14px;
-  }
-  
-  .index .five {
-    height: 24px;
-    left: 205px;
-    position: absolute;
-    top: 5px;
-    width: 13px;
-  }
-  
-  .index .tour-page-next {
-    height: 34px;
-    left: 314px;
-    position: absolute;
-    top: 0;
-    transform: rotate(-180deg);
-    width: 60px;
-  }
-  
-  .index .img {
-    height: 25px;
-    left: 15px;
-    position: absolute;
-    top: 5px;
-    transform: rotate(180deg);
-    width: 22px;
-  }
-  
-  .index .tour-cake {
-    height: 1181px;
-    left: 0;
-    position: absolute;
-    top: 130px;
-    width: 1020px;
-  }
-  
-  .index .div {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 30px;
-    position: relative;
-  }
-  
-  .index .element {
-    align-items: center;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 50px;
-    justify-content: center;
-    padding: 10px;
-    position: relative;
-    width: 1020px;
-  }
-  
-  .index .div-2 {
-    height: 363px;
-    position: relative;
-    width: 300px;
-  }
-  
-  .index .rectangle-wrapper {
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .rectangle {
-    height: 280px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .tour-first-cake-name {
-    height: 39px;
-    left: 11px;
-    position: absolute;
-    top: 290px;
-    width: 277px;
-  }
-  
-  .index .text-wrapper-2 {
-    color: #000000;
-    font-family: 'Pretendard-Regular';
-    font-size: 28px;
-    font-weight: 700;
-    left: 60px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .index .div-wrapper {
-    height: 24px;
-    left: 52px;
-    position: absolute;
-    top: 339px;
-    width: 195px;
-  }
-  
-  .index .text-wrapper-3 {
-    color: #565656;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    white-space: nowrap;
-  }
-  
-  .index .tour-second-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-2@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .div-wrapper-2 {
-    height: 39px;
-    left: 26px;
-    position: absolute;
-    top: 290px;
-    width: 248px;
-  }
-  
-  .index .text-wrapper-4 {
-    color: #000000;
-    font-family: 'Pretendard-Regular';
-    font-size: 28px;
-    font-weight: 700;
-    left: 59px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .index .tour-third-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-3@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .element-2 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 50px;
-    padding: 0px 10px;
-    position: relative;
-  }
-  
-  .index .tour-fourth-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-4@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .tour-fiveth-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-6@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .text-wrapper-5 {
-    color: #000000;
-    font-family: 'Pretendard-Regular';
-    font-size: 28px;
-    font-weight: 700;
-    left: 33px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: -1px;
-  }
-  
-  .index .tour-sixth-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-7@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .text-wrapper-6 {
-    color: #000000;
-    font-family: 'Pretendard-Regular';
-    font-size: 28px;
-    font-weight: 700;
-    left: 46px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .index .tour-seventh-cake {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-7-1@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .text-wrapper-7 {
-    color: #000000;
-    font-family: 'Pretendard-Regular';
-    font-size: 28px;
-    font-weight: 700;
-    left: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .index .tour-eighth-cake-img {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/rectangle-10@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .index .rectangle-2 {
-    height: 280px;
-    left: 4px;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 271px;
-  }
-  
-  .index .tour-location {
-    height: 60px;
-    left: 24px;
-    position: absolute;
-    top: 0;
-    width: 395px;
-  }
-  
-  .index .tour-wherelocation {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/tourlocationbutton.svg);
-    background-size: 100% 100%;
-    height: 60px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 204px;
-  }
-  
-  .index .tour-selectlocation {
-    height: 29px;
-    left: 28px;
-    position: relative;
-    top: 15px;
-    width: 148px;
-  }
-  
-  .index .tour-location-shape {
-    height: 23px;
-    left: 0;
-    position: absolute;
-    top: 3px;
-    width: 26px;
-  }
-  
-  .index .polygon-2 {
-    height: 17px;
-    left: 2px;
-    position: absolute;
-    top: 6px;
-    width: 23px;
-  }
-  
-  .index .tour-location-text {
-    height: 29px;
-    left: 36px;
-    position: absolute;
-    top: 0;
-    width: 102px;
-  }
-  
-  .index .text-wrapper-8 {
-    color: #61a4d5;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 600;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    width: 150px;
-  }
-  
-  .index .tour-whereami {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/tourmylocationbutton.svg);
-    background-size: 100% 100%;
-    height: 60px;
-    left: 224px;
-    position: absolute;
-    top: 0;
-    width: 171px;
-  }
-  
-  .index .tour-my-location {
-    height: 41px;
-    left: 22px;
-    position: relative;
-    top: 10px;
-    width: 127px;
-  }
-  
-  .index .div-3 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .index .tour-my-location-2 {
-    background-image: url(https://cdn.animaapp.com/projects/654876b90cf4fc0585cc0afe/releases/65499382895e1774a8288af4/img/mask-group-9@2x.png);
-    background-size: 100% 100%;
-    height: 41px;
-    position: relative;
-    width: 41px;
-  }
-  
-  .index .tour-my-location-3 {
-    height: 29px;
-    position: relative;
-    width: 76px;
-  }
-  
+.tour {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.tour .tour-contents-wrapper {
+  height: 2000px;
+  width: 1440px;
+}
+
+.tour .tour-contents {
+  height: 1415px;
+  left: 210px;
+  position: relative;
+  top: 150px;
+  width: 1020px;
+}
+
+.tour .tour-page {
+  height: 34px;
+  left: 318px;
+  position: absolute;
+  top: 1381px;
+  width: 384px;
+}
+
+.tour .tour-page-before {
+  height: 34px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 60px;
+}
+
+.tour .polygon {
+  height: 25px;
+  left: 15px;
+  position: absolute;
+  top: 5px;
+  width: 22px;
+}
+
+.tour .tour-page-num {
+  height: 34px;
+  left: 70px;
+  position: absolute;
+  top: 0;
+  width: 244px;
+}
+
+.tour .one {
+  height: 24px;
+  left: 26px;
+  position: absolute;
+  top: 5px;
+  width: 10px;
+}
+
+.tour .text-wrapper {
+  color: #61a4d5;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.tour .two {
+  height: 24px;
+  left: 68px;
+  position: absolute;
+  top: 5px;
+  width: 13px;
+}
+
+.tour .three {
+  height: 24px;
+  left: 113px;
+  position: absolute;
+  top: 5px;
+  width: 14px;
+}
+
+.tour .four {
+  height: 24px;
+  left: 159px;
+  position: absolute;
+  top: 5px;
+  width: 14px;
+}
+
+.tour .five {
+  height: 24px;
+  left: 205px;
+  position: absolute;
+  top: 5px;
+  width: 13px;
+}
+
+.tour .tour-page-next {
+  height: 34px;
+  left: 314px;
+  position: absolute;
+  top: 0;
+  transform: rotate(-180deg);
+  width: 60px;
+}
+
+.tour .img {
+  height: 25px;
+  left: 15px;
+  position: absolute;
+  top: 5px;
+  transform: rotate(180deg);
+  width: 22px;
+}
+
+.tour .tour-cake {
+  height: 1181px;
+  left: 0;
+  position: absolute;
+  top: 130px;
+  width: 1020px;
+}
+
+.tour .div {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+.tour .element {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 50px;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  width: 1020px;
+}
+
+.tour .div-2 {
+  height: 363px;
+  position: relative;
+  width: 300px;
+}
+
+.tour .img-wrapper {
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .firstcake-img {
+  height: 280px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .tour-first-cake-name {
+  height: 39px;
+  left: 11px;
+  position: absolute;
+  top: 290px;
+  width: 277px;
+}
+
+.tour .firstcake-name {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.tour .div-wrapper {
+  height: 24px;
+  left: 52px;
+  position: absolute;
+  top: 339px;
+  width: 195px;
+}
+
+.tour .text-wrapper-2 {
+  color: #565656;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.tour .tour-second-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/secondcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .div-wrapper-2 {
+  height: 39px;
+  left: 26px;
+  position: absolute;
+  top: 290px;
+  width: 248px;
+}
+
+.tour .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.tour .tour-third-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/thirdcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .element-2 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 50px;
+  padding: 0px 10px;
+  position: relative;
+}
+
+.tour .tour-fourth-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/fourthcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .tour-fiveth-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/fivethcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .fivethcake-name {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+}
+
+.tour .tour-sixth-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/sixthcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  left: 46px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.tour .tour-seventh-cake {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/seventhcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .seventhcake-name {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.tour .tour-eighth-cake-img {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/eighthcake-img@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 280px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.tour .ninethcake-img {
+  height: 280px;
+  left: 4px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 271px;
+}
+
+.tour .tour-location {
+  height: 60px;
+  left: 24px;
+  position: absolute;
+  top: 0;
+  width: 395px;
+}
+
+.tour .tour-wherelocation {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/tourlocationbutton.svg);
+  background-size: 100% 100%;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 204px;
+}
+
+.tour-wherelocation .tour-selectlocation {
+  height: 29px;
+  left: 28px;
+  position: relative;
+  top: 15px;
+  width: 148px;
+}
+
+.tour-wherelocation .tour-location-shape {
+  height: 23px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 26px;
+}
+
+.tour-wherelocation .polygon {
+  height: 17px;
+  left: 2px;
+  position: absolute;
+  top: 6px;
+  width: 23px;
+}
+
+.tour-wherelocation .tour-location-text {
+  height: 29px;
+  left: 36px;
+  position: absolute;
+  top: 0;
+  width: 102px;
+}
+
+.tour-wherelocation .text-wrapper {
+  color: #61a4d5;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  width: 102px;
+}
+
+.text-wrapper-5 {
+  color: #61a4d5;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  width: 102px;
+}
+
+.tour .tour-whereami {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/tourmylocationbutton.svg);
+  background-size: 100% 100%;
+  height: 60px;
+  left: 224px;
+  position: absolute;
+  top: 0;
+  width: 171px;
+}
+
+.tour .tour-my-location {
+  height: 41px;
+  left: 22px;
+  position: relative;
+  top: 10px;
+  width: 127px;
+}
+
+.tour .div-3 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+}
+
+.tour .tour-my-location-2 {
+  background-image: url(https://c.animaapp.com/YHefgPrk/img/mask-group@2x.png);
+  background-size: 100% 100%;
+  height: 41px;
+  position: relative;
+  width: 41px;
+}
+
+.tour .tour-my-location-3 {
+  height: 29px;
+  position: relative;
+  width: 76px;
+}

@@ -10,6 +10,8 @@ import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
+import TourMain from "./pages/TourMain"
+import TourOrder from "./pages/TourOrder"
 
 
 function App() {
@@ -26,11 +28,13 @@ function App() {
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
+      <Route path="/tourmain" element={<TourMain/>}/>
+      <Route path="/tourorder" element = {<TourOrder/>}/>
     
     </Routes>
-   
+  
     </BrowserRouter>
-   
+  
   );
 }
 
