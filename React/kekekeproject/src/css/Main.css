@@ -1,7 +1,9 @@
 .user_main_container {
     position: relative;
-    min-height: 100vh;
+    top: 300px;
+    left: 20px;
     display: flex;
+    flex-direction: column; /* Flexbox 방향을 세로로 설정 */
     justify-content: center;
     align-items: center;
   }
@@ -9,6 +11,7 @@
   .main_img1 img {
     max-width: 100%;
     height: auto;
+    scale: 1.2;
   }
   
 /* 
@@ -44,19 +47,23 @@
     background-color: #ffd1dc;
     border-radius: 20px;
     box-sizing: border-box;
-    position: absolute;
-    width: 10px; /* 버튼의 너비를 상위 컨테이너의 너비에 대한 백분율로 설정 */
+    position: relative;
+    width: 150px; /* 버튼의 너비를 상위 컨테이너의 너비에 대한 백분율로 설정 */
     height: auto; /* 버튼의 높이를 자동으로 설정하여 내용에 맞춤 */
-    top: 50%; /* 상위 컨테이너로부터의 상단 거리를 백분율로 설정 */
-    left: 20%; /* 상위 컨테이너로부터의 왼쪽 거리를 백분율로 설정 */
-    transform: translateY(250%); /* y축에서 중앙 정렬 보정 */
-    padding: 1.5%; /* 내부 패딩을 백분율로 설정 */
+    top: -50px; /* 상위 컨테이너로부터의 상단 거리를 백분율로 설정 */
+    left: -590px; /* 상위 컨테이너로부터의 왼쪽 거리를 백분율로 설정 */
+    z-index: 9999;
+    padding: 30px; /* 내부 패딩을 백분율로 설정 */
+  }
+
+  .main1_button :hover{
+    color: #ffffe7;
   }
   
   .m1_button_text {
     color: #3d7aa6;
     font-family: "Pretendard-Bold", Helvetica;
-    font-size: 1vw; /* 텍스트의 크기를 뷰포트 너비의 비율로 설정 */
+    font-size: 20px; /* 텍스트의 크기를 뷰포트 너비의 비율로 설정 */
     font-weight: 700;
     position: absolute;
     top: 50%; /* 버튼 내에서 상하 중앙 */
@@ -64,3 +71,290 @@
     transform: translate(-50%, -50%); /* 텍스트를 버튼 내에서 정중앙에 위치시키는 보정 */
     line-height: 1; /* 텍스트의 라인 높이를 기본값(1)로 설정 */
   }
+
+ /* 이미지가 나타나는 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* 이미지와 버튼이 나타나는 애니메이션 */
+@keyframes fadeInSlideUp {
+  from {
+    transform: translateY(20px); /* 초기 상태에서 요소들은 조금 위에 있음 */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0); /* 최종 상태에서 요소들은 원래 위치에 있음 */
+    opacity: 1;
+  }
+}
+
+/* 이미지와 버튼에 동일한 애니메이션 적용 */
+.main_img1 img, .main1_button {
+  animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+/* main2 */
+
+
+
+
+.main2 .main2-group {
+  display: flex;
+  align-items: center;
+  height: 950px;
+  top: 170px;
+  left: -14px;
+  scale: 0.95;
+  position: relative;
+  width: 1440px;
+  z-index: 99999;
+
+}
+
+.main2 .bg {
+  height: 950px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  scale: 1.4;
+  width: 1440px;
+}
+
+.main2 .customtitle {
+  height: 429px;
+  left: 10px;
+  object-fit: cover;
+  position: absolute;
+  top: 276px;
+  scale: 1.4;
+  width: 1440px;
+}
+
+.main2 .cakeimg {
+  height: 590px;
+  left: 453px;
+  object-fit: cover;
+  position: absolute;
+  top: 200px;
+  width: 600px;
+}
+
+.main2 .cakeicon {
+  height: 141px;
+  left: 105px;
+  object-fit: cover;
+  position: absolute;
+  top: 710px;
+  scale: 1.2;
+  width: 519px;
+}
+
+.main2 .drawicon {
+  height: 148px;
+  left: 873px;
+  object-fit: cover;
+  position: absolute;
+  top: 130px;
+  scale: 1.2;
+  width: 450px;
+}
+
+.main2 .m2_button {
+  all: unset;
+  background-color: #ffffe7;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 59px;
+  left: 1370px;
+  position: absolute;
+  top: 700px;
+  width: 151px;
+  z-index: 9999;
+}
+
+.main2 .m2_button :hover{
+  color:#ffd1dc;
+}
+
+.main2 .m2_button_text {
+  color: #3d7aa6;
+  font-family: 'Pretendard-bold' , Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 17px;
+}
+
+
+
+
+/* 요소가 나타나는 애니메이션 */
+@keyframes fadeInSlideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 관찰 대상 요소에 애니메이션 적용할 클래스 */
+.animate {
+  animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+
+
+/* 뷰포트에 진입할 때마다 애니메이션 효과를 주려면,
+   애니메이션을 한 번만 실행하려면 위의 else 부분에서 클래스 제거를 제외합니다. */
+
+
+
+/* 오른쪽에서 슬라이드되어 나오는 애니메이션 */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 왼쪽에서 슬라이드되어 나오는 애니메이션 */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 오른쪽에서 나오는 애니메이션을 적용할 클래스 */
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+/* 왼쪽에서 나오는 애니메이션을 적용할 클래스 */
+.slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+
+
+
+/* main3 */
+
+
+
+.main3-wrapper .m3-group-wrapper {
+  
+  height: 24px;
+  width: 1940px;
+  z-index: 1;
+}
+
+.main3-wrapper .m3-group {
+  background-color: #d1ebff;
+  height: 1238px;
+  position: relative;
+  top: 77px;
+}
+
+.main3-wrapper .m3 {
+  
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 365px;
+  left: 250px;
+  position: absolute;
+  top: 315px;
+  width: 281px;
+}
+
+.main3-wrapper .rvtxt {
+  color: #000000;
+  font-family: "Crimson Text-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 33px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 282px;
+}
+
+.main3-wrapper .rvnick {
+  color: #6d6d6d;
+  font-family: "Anonymous Pro-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 321px;
+  white-space: nowrap;
+}
+
+.main3-wrapper .rvday {
+  color: #6d6d6d;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 78px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 320px;
+  white-space: nowrap;
+}
+
+.main3-wrapper .rvname {
+  color: #6d6d6d;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 194px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 320px;
+  white-space: nowrap;
+}
+
+.main3-wrapper .rvimg {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 219px;
+  left: 27px;
+  position: absolute;
+  top: 24px;
+  width: 219px;
+}
+
+.main3-wrapper .maintitle {
+  height: 105px;
+  left: 852px;
+  object-fit: cover;
+  position: absolute;
+  top: 300px;
+  width: 275px;
+}
