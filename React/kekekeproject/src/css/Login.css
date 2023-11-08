@@ -99,12 +99,19 @@
 
 .index .text-wrapper-4 {
   color: #787878;
-  font-family: "Inter", Helvetica;
+  font-family: 'Pretendard Regular';
+  text-align: left;
+  align-items: stretch;
   font-size: 25px;
   font-weight: 400;
+  border: white 9px;
+  border-radius: 25px;
+  padding-left: 100px;
+
+  background-color: white;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
+  margin-left: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
@@ -144,6 +151,7 @@
 .index .div-wrapper-4 {
   align-items: center;
   display: inline-flex;
+  
   gap: 10px;
   justify-content: center;
   left: 69px;
