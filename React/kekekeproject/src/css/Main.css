@@ -11,7 +11,7 @@
     height: auto;
   }
   
-  /* 모바일 화면에서의 스타일 */
+/* 
   @media (max-width: 768px) {
     .main_img1 {
       min-height: 80vh;
@@ -22,26 +22,19 @@
     }
   
     .main1_button {
-        width: 50%; /* 모바일 화면에서 버튼의 너비 조정 */
-        padding: 2vh; /* 버튼 내부의 공간 조정 */
-        top: 20vh !important; /* 예시 */
-        left: 2%!important ;/* 버튼을 중앙에 배치 */
-        transform: translate(-50%, -10vh); /* x축과 y축에서 중앙 정렬 보정 */
-      }
+        width: 50%; 
+        padding: 2vh; 
+        top: 20vh !important;
+        left: 2%!important ;
+        transform: translate(-50%, -10vh); 
+     
     
       .m1_button_text {
-        font-size: 4vw; /* 모바일 화면에 맞는 텍스트 크기 조정 */
+        font-size: 4vw; 
       }
    
-  }
+  } */
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    /* 노트북 화면 크기에 대한 스타일 */
-    .main1_button {
-        top: 40vh !important; /* 예시 */
-        left: 2%!important ;/* 버튼을 중앙에 배치 */
-    }
-  }
 
 
  
