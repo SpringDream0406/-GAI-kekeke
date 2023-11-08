@@ -11,13 +11,14 @@ import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
 
+
 function App() {
   const [toggle , setToggle] = useState(false);
 
   return (
     <BrowserRouter>    
   
-        <Header_af toggle={toggle} setToggle={setToggle}/>  
+        <Header_bf toggle={toggle} setToggle={setToggle}/>  
     <Routes>
       <Route path ='/cakes' element={<Cakes />}/>
       <Route path ='/mypage' element={<Mypage />}/>
