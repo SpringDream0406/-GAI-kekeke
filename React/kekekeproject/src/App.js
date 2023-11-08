@@ -21,7 +21,7 @@ function App() {
         <Header_bf toggle={toggle} setToggle={setToggle}/>  
     <Routes>
       <Route path ='/cakes' element={<Cakes />}/>
-      <Route path ='/mypage' element={<Mypage />}/>
+      {/* <Route path ='/mypage' element={<Mypage />}/> */}
       <Route path ='/customcake' element={<CustomCake />}/>
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
