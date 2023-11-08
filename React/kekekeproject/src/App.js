@@ -11,6 +11,7 @@ import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
 
+
 function App() {
   const [toggle , setToggle] = useState(false);
 
