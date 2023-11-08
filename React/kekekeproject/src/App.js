@@ -10,6 +10,7 @@ import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
+import TourDet3 from "./pages/TourDet3";
 
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
   return (
     <BrowserRouter>    
   
-        <Header_bf toggle={toggle} setToggle={setToggle}/>  
+        <Header_af toggle={toggle} setToggle={setToggle}/>  
     <Routes>
+      <Route path="TourDet3" element={<TourDet3/>}/>
       <Route path ='/cakes' element={<Cakes />}/>
       {/* <Route path ='/mypage' element={<Mypage />}/> */}
       <Route path ='/customcake' element={<CustomCake />}/>
