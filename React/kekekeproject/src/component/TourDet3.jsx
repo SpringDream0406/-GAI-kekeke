@@ -31,15 +31,15 @@ export const TourDet3 = () => {
 
 
                   <div className="tourdet3-SampleStoreReviewFr"> {/* 샘플케이크, 매장정보, 리뷰 탭 div */}
-                    
-                      <div className="text-tourdet3-Sample">샘플케이크</div>
-                   
-                
-                      <div className="text-tourdet3-StoreDetail">매장정보</div>
-                  
-                    
+                    <div className="div-wrapper">
+                      <div className="text-wrapper">샘플케이크</div>
+                    </div>
+                    <div className="div-wrapper">
+                      <div className="text-wrapper">매장정보</div>
+                    </div>
+                    <div className="div-wrapper">
                       <div className="tour-det-review">리뷰</div>
-                   
+                    </div>
                   </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
                 </div>
               </div>
@@ -54,11 +54,10 @@ export const TourDet3 = () => {
                     alt={CakeName}
                      />{/*가게 로고*/}
                 </div>
-                <div className="tourdet-3">
+                <div className="adfsadf">
+                
                   <div className="tourdet3-CakeStoreNameFrame">
                     <div className="tourdet3-CakeStoreName">{CakeStoreName}</div>{/* 가게 이름 넣는곳*/}
-                  </div>
-                  <div className="tour-det-addr">
                     <div className="tour-det-addr-tx">{StoreAddr}</div>{/* 가게 주소넣는곳*/}
                   </div>
                   <div className="tour-det-det">
@@ -66,6 +65,7 @@ export const TourDet3 = () => {
                     {StoreDetail}{/* 가게 설명넣는곳*/}
                     </p>
                   </div>
+                
                 </div>
                 
                   <div className="overlap-group-2">

@@ -29,7 +29,7 @@ const Login = () => {
     console.log('된다된다');
     try {
       // 여기에 백엔드 인증 API 엔드포인트를 넣으세요
-      const endpoint = 'http://192.168.70.76:3333/login';
+      const endpoint = 'thtp://192.168.70.76:3333/login';
       const data = { user_id : username, user_pw : password };
       const response = await axios.post(endpoint, data);
       console.log(response.data);
