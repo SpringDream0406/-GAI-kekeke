@@ -14,6 +14,8 @@ import TourMain from "./pages/TourMain"
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
 import TourDet2 from "./pages/TourDet2";
+import TourCompleteOrder from "./pages/TourCompleteOrder";
+import SampleCake from "./pages/SampleCake";
 
 
 function App() {
@@ -34,7 +36,9 @@ function App() {
       <Route path="/" element={<Main/>}/>
       <Route path="/tourmain" element={<TourMain/>}/>
       <Route path="/tourorder" element = {<TourOrder/>}/>
-    
+      <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
+      <Route path="/samplecake" element = {<SampleCake/>}/>    
+
     </Routes>
   
     </BrowserRouter>
