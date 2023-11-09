@@ -13,7 +13,7 @@ router.post('/login', (req,res)=>{
     console.log('로그인 시도', req.body);
     let {user_id, user_pw} = req.body
     console.log('비번길이', user_pw.length);
-    let sql = `select id, password_hashed from member where id = ?`
+    let sql = `select cust_id, password from CUSTOMER where cust_id = ?`
     conn.query(sql,[user_id],(err,rows)=>{
         if(err) {
             console.error('로그인 시도 에러', err);
