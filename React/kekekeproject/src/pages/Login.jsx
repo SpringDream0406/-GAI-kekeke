@@ -2,6 +2,8 @@ import React from 'react'
 import GlobalStyle from '../component/GlobalStyle'
 import '../css/Login.css'
 import {useState,useContext} from 'react';
+import { Link } from 'react-router-dom';
+
 
 import axios from 'axios';
 
@@ -45,10 +47,10 @@ const Login = () => {
 
   return (
     
-   <div className='index'>
-    <GlobalStyle/>
+    <div className='login-container'>
     <div className="index">
-      <div className="div-7">
+    <GlobalStyle/>
+     
       
         <div className="login-area">
           <div className="login-text-area">
@@ -88,14 +90,13 @@ const Login = () => {
               <div className="login-if-no-member-text">회원이 아니라면?</div>
             </div>
             <div className="login-to-join">
-              <div className="login-to-join-text" onClick={'/join'}>회원가입</div>
+              <Link className="login-to-join-text" src="/join">회원가입 </Link>
             </div>
           </div>
         </div>
-        {/* <DivWrapper className="component-68" /> */}
       </div>
-    </div>
-   </div>
+      </div>
+ 
   )
 }
 

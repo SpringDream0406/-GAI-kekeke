@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 임포트합니다.
 import './css/Main.css';
 import GlobalStyle from './component/GlobalStyle';
+import ReviewSlider from './component/ReviewSlider'
 
 const Main = () => {
   const navigate = useNavigate();
@@ -88,10 +89,11 @@ const Main = () => {
             <img className="rvimg" src={'/assets/images/m3-rvbg.png'}/>
           </div>
           <img className="maintitle" alt="Maintitle" src={'/assets/images/m3_maintitle.png'} />
+          <ReviewSlider className="main3_slider"/>
         </div>
       </div>
     </div>
-
+   
 
     </div>
   );

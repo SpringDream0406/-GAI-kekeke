@@ -54,6 +54,7 @@
     left: -590px; /* 상위 컨테이너로부터의 왼쪽 거리를 백분율로 설정 */
     z-index: 9999;
     padding: 30px; /* 내부 패딩을 백분율로 설정 */
+    cursor: pointer;
   }
 
   .main1_button :hover{
@@ -168,6 +169,7 @@
 }
 
 .main2 .m2_button {
+  cursor: pointer;
   all: unset;
   background-color: #ffffe7;
   border-radius: 20px;
@@ -181,6 +183,7 @@
 }
 
 .main2 .m2_button :hover{
+  cursor: pointer;
   color:#ffd1dc;
 }
 
@@ -357,4 +360,10 @@
   position: absolute;
   top: 300px;
   width: 275px;
+}
+
+
+.main3_slider{
+ position: relative;
+ top: 300px;
 }
