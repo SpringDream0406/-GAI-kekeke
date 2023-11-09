@@ -1,34 +1,29 @@
+.join-container{
+ display: flex;
+ align-items: center;
+ justify-content: start;
 
-  .index .join {
-    height: 1269px;
-    left: 365px;
-    position: absolute;
-    top: 356px;
-    width: 709px;
-  }
+}
   
-  .index .overlap {
+  .join_bg {
     height: 1269px;
+    left: 620px;
+    top: 175px;
     position: relative;
-  }
-  
-  .index .join-contents {
     height: 1269px;
-    left: 0;
     position: absolute;
-    top: 0;
     width: 709px;
-  }
-  
-  .index .overlap-2 {
     background-color: #ffa0b7;
     border-radius: 50px;
     box-shadow: 0px 4px 4px #00000040;
     height: 1234px;
-    position: relative;
+    & input{
+      font-family: "Pretendard-Regular";
+    }
+
   }
   
-  .index .overlap-3 {
+ .join_overlap {
     height: 850px;
     left: 100px;
     position: absolute;
@@ -36,7 +31,7 @@
     width: 527px;
   }
   
-  .index .view {
+ .view {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
@@ -46,7 +41,7 @@
     top: 200px;
   }
   
-  .index .div-8 {
+ .div-8 {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
@@ -56,16 +51,16 @@
     position: relative;
   }
   
-  .index .div-wrapper-21 {
+ .join_nick-wrapper {
     height: 24px;
     position: relative;
     width: 56px;
   }
   
   
-  .index .text-wrapper-21 {
+ .join_title {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-bold", Helvetica;
     font-size: 20px;
     font-weight: 700;
     left: 0;
@@ -76,7 +71,7 @@
     white-space: nowrap;
   }
   
-  .index .div-9 {
+ .div-9 {
     background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654891b2c74ac0464c569734/img/rectangle-148.svg);
     background-size: 100% 100%;
     height: 79px;
@@ -84,73 +79,134 @@
     width: 507px;
   }
   
-  .index .overlap-group-2 {
-    height: 50px;
-    left: 25px;
-    position: relative;
-    top: 15px;
-    width: 461px;
-  }
+
+
   
-  .index .div-wrapper-31 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 0;
-    padding: 10px 80px 10px 10px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .index .text-wrapper-31 {
+.join_nick_input  {
     color: #787878;
-    font-family: "Inter", Helvetica;
-    font-size: 25px;
-    font-weight: 400;
+    font-family: "Pretendard-Regular";
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+    margin-top: 12px;
+    left: 20px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
   }
+
+ .join_pw_input  {
+    color: #787878;
+    font-family: "Pretendard-Regular";
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -10px;
+    left: -15px;
+    position: relative;
+    white-space: nowrap;
+    width: 300px;
+  }
+
+
+.join_id_input{
+    color: #787878;
+    font-family: "Pretendard-Regular";
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 0px;
+    left: -10px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  .join_nick_input:focus  {
+    border: 2px solid white; /* 테두리 굵기와 스타일을 명시적으로 지정 */
+    color: black;
+    outline: none; /* 브라우저 기본 아웃라인 제거 */
+  }
+  .join_pw_input:focus  {
+    border: 2px solid white; /* 테두리 굵기와 스타일을 명시적으로 지정 */
+    color: black;
+    outline: none; /* 브라우저 기본 아웃라인 제거 */
+  }
   
-  .index .div-wrapper-41 {
-    background-color: #d1ebff;
-    border-radius: 10px;
+  
+
+
+  .join_id_input:focus{
+    border: 2px solid white; /* 테두리 굵기와 스타일을 명시적으로 지정 */
+    color: black;
+    outline: none; /* 브라우저 기본 아웃라인 제거 */
+  }
+ .join_btn_wrapper {
+    
     height: 50px;
-    left: 334px;
+    left: 354px;
+    position: absolute;
+    top: 0;
+    width: 300px;
+  }
+
+
+ .join_btn_wrapper2 {
+    
+    height: 50px;
+    left: 354px;
     position: absolute;
     top: 0;
     width: 127px;
   }
-  
-  .index .div-wrapper-51 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 14px;
-    padding: 10px;
-    position: relative;
-    top: 3px;
-  }
-  
-  .index .text-wrapper-41 {
+
+
+ .join_btn2 {
+    background-color: #d1ebff;
+    border-radius: 13px;
+    padding: 15px;
     color: #ff2d60;
-    font-family: "Inter", Helvetica;
+    cursor: pointer;
+    font-family: "Pretendard-Semibold", Helvetica;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+    margin-top: 0px;
+    left: -5px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
   }
   
-  .index .div-10 {
+  
+  
+  
+  
+.join_btn1 {
+    background-color: #d1ebff;
+    border-radius: 13px;
+    padding: 15px;
+    color: #ff2d60;
+    cursor: pointer;
+    font-family: "Pretendard-Semibold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 12px;
+    left: 25px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+ .div-10 {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
@@ -160,7 +216,7 @@
     position: relative;
   }
   
-  .index .overlap-group-3 {
+ .overlap-group-3 {
     height: 50px;
     left: 25px;
     position: absolute;
@@ -168,7 +224,7 @@
     width: 461px;
   }
   
-  .index .element-wrapper {
+ .element-wrapper {
     height: 18px;
     left: 335px;
     position: absolute;
@@ -176,9 +232,9 @@
     width: 172px;
   }
   
-  .index .element {
+ .join_element {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-Semibold", Helvetica;
     font-size: 15px;
     font-weight: 700;
     left: 0;
@@ -189,7 +245,7 @@
     white-space: nowrap;
   }
   
-  .index .div-11 {
+ .div-11 {
     align-items: center;
     display: inline-flex;
     flex-direction: column;
@@ -199,22 +255,22 @@
     position: relative;
   }
   
-  .index .join-pw {
+ .join-pw {
     height: 24px;
     position: relative;
     width: 489px;
   }
   
-  .index .div-12 {
+ .div-12 {
     align-items: flex-start;
     display: inline-flex;
     gap: 236px;
     position: relative;
   }
   
-  .index .text-wrapper-51 {
+ .join_title_2 {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-bold", Helvetica;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 0;
@@ -225,9 +281,9 @@
     width: fit-content;
   }
   
-  .index .text-wrapper-61 {
+ .join_pw_hint {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-Semibold", Helvetica;
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0;
@@ -238,7 +294,7 @@
     width: fit-content;
   }
   
-  .index .div-wrapper-61 {
+ .div-wrapper-61 {
     align-items: center;
     display: inline-flex;
     gap: 10px;
@@ -249,7 +305,7 @@
     top: 17px;
   }
   
-  .index .div-wrapper-71 {
+.div-wrapper-71 {
     align-items: center;
     display: inline-flex;
     gap: 10px;
@@ -260,7 +316,7 @@
     top: 14px;
   }
   
-  .index .join-img {
+ .join-img {
     background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/6548a50a17c87567913e3911/img/image-40.png);
     background-position: 50% 50%;
     background-size: cover;
@@ -271,9 +327,9 @@
     width: 236px;
   }
   
-  .index .text-wrapper-71 {
+.join_maintitle {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-bold", Helvetica;
     font-size: 45px;
     font-weight: 800;
     left: 270px;
@@ -284,56 +340,59 @@
     white-space: nowrap;
   }
   
-  .index .join-button {
-    background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654891b2c74ac0464c569734/img/rectangle-150.svg);
-    background-size: 100% 100%;
+ .join-button {
+ 
     height: 79px;
-    left: 206px;
+    left: 736px;
     position: absolute;
-    top: 1073px;
+    top: 1300px;
     width: 296px;
   }
   
-  .index .view-2 {
+ .view-2 {
     align-items: center;
     display: inline-flex;
     gap: 10px;
     justify-content: center;
-    left: 82px;
+    left: 102px;
     padding: 10px;
     position: relative;
     top: 11px;
   }
   
-  .index .text-wrapper-81 {
+ .join_joinbtn {
+  cursor: pointer;
+  background-color: #d1ebff;
+  border: 5px solid #d1ebff;
+  border-radius: 20px;
+  padding: 20px 30px;
     color: #ff2d60;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-bold", Helvetica;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+   top: -80px;
+   left: 40px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
   }
   
-  .index .footer {
-    background-color: transparent;
-    height: 134px;
-    left: -4px;
-    position: absolute;
-    top: 1914px;
-    width: 1444px;
+  .join_joinbtn:hover{
+    color: white;
+    background-color: #ffa0b7;
+    border: 5px solid white;
+    color: white;
   }
   
-  .index .overlap-4 {
+ .overlap-4 {
     height: 134px;
     position: relative;
     width: 1444px;
   }
   
-  .index .rectangle {
+ .rectangle {
     background-color: #ffffff;
     height: 128px;
     left: 0;
@@ -342,7 +401,7 @@
     width: 1444px;
   }
   
-  .index .text-wrapper-9 {
+ .text-wrapper-9 {
     color: #f73564;
     font-family: "Roboto Mono", Helvetica;
     font-size: 14px;
@@ -353,8 +412,7 @@
     position: absolute;
     top: 97px;
   }
-  
-  .index .kekeke {
+ .kekeke {
     height: 106px;
     left: 671px;
     object-fit: cover;
@@ -363,7 +421,7 @@
     width: 106px;
   }
   
-  .index .component-111 {
+   .component-111 {
     left: 189px !important;
     position: absolute !important;
     top: 63px !important;

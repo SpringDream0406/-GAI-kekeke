@@ -29,7 +29,10 @@ function App() {
   return (
     <BrowserRouter>    
   
+
+
         <Header_bf toggle={toggle} setToggle={setToggle}/>  
+
     <Routes>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>
