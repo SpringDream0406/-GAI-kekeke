@@ -147,6 +147,9 @@ export const TourDet3 = () => {
 
                   </div>
                 </div>
+
+
+                
                 <div className="pagenumfr">
                   <div className="bfpfr">
                     <img
@@ -173,6 +176,7 @@ export const TourDet3 = () => {
                         <div className="tourdet-numt">5</div>
                       </div>
                     </div>
+                    
                   </div>
                   <div className="ntpfr">
                     <img

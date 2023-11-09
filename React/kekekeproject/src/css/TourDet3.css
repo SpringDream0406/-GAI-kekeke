@@ -232,7 +232,7 @@
     left: 100px;
     padding: 20px;
     position: absolute;
-    top: 110px;
+    top: 60px;
   }
   
   .index .tourdet {
@@ -557,6 +557,7 @@
     width: 244px;
   }
   
+  
   .index .numfr {
     align-items: center;
     display: inline-flex;
@@ -579,11 +580,11 @@
     font-family: "Inter", Helvetica;
     font-size: 20px;
     font-weight: 700;
-    left: 0;
+    left: -160px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: -1px;
+    top: -120px;
     white-space: nowrap;
   }
   
