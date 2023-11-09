@@ -10,7 +10,6 @@ import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
-import TourMain from "./pages/TourMain"
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
 
@@ -46,8 +45,6 @@ function App() {
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
 
-
-      <Route path="/tourmain" element={<TourMain/>}/>
       <Route path="/tourorder" element = {<TourOrder/>}/>
       <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
       <Route path="/samplecake" element = {<SampleCake/>}/>    
