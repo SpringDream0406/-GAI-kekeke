@@ -17,8 +17,8 @@ export const SampleCake = () => {
           <div className="div-wrapper">
             <div className="div-2">
               <div className="div-wrapper-2">
-                <Link className="text-wrapper" to="/touru45detailu45samplecake">
-                  샘플케이크
+                <Link className="text-wrapper" to="/samplecake">
+                     샘플케이크
                 </Link>
               </div>
               <div className="div-wrapper-3">
@@ -287,36 +287,9 @@ export const SampleCake = () => {
         </div>
         <div className="view">
           <div className="overlap-4">
-            <div className="view-2" />
-            <div className="view-3">
-              <div className="div-wrapper-8">
-                <div className="text-wrapper-12">둘러보기</div>
-              </div>
-              <div className="div-wrapper-9">
-                <div className="text-wrapper-12">커스텀케이크주문</div>
-              </div>
-              <div className="div-wrapper-10">
-                <div className="text-wrapper-13">정건식 님</div>
-              </div>
-            </div>
-            <div className="view-4" />
             <div className="frame">
-              <div className="view-5" />
               <div className="view-6">
-                <img
-                  className="mask-group"
-                  alt="Mask group"
-                  src="https://c.animaapp.com/Y86t7ddP/img/mask-group-7@2x.png"
-                />
-              </div>
-              <div className="view-6">
-                <div className="mask-group-wrapper">
-                  <img
-                    className="mask-group-2"
-                    alt="Mask group"
-                    src="https://c.animaapp.com/Y86t7ddP/img/mask-group-5@2x.png"
-                  />
-                </div>
+
               </div>
             </div>
           </div>
