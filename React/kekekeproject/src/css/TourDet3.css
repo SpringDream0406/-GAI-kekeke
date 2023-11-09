@@ -71,6 +71,19 @@
     top: 90px;
     width: 70px;
   }
+  .index .text-TourDet3sampleTx{
+    color: #000000;
+    font-family: 'Pretendard';
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+
+  }
+ 
   
   .index .tourdet3-SampleStoreReviewFr {
     align-items: flex-start;
@@ -79,6 +92,7 @@
     left: 379px;
     position: absolute;
     top: 472px;
+    padding: 20px;
   }
 
   .index .div-CakeName {
@@ -199,11 +213,11 @@
     width: fit-content;
   }
   
-  .index .tour-det-review {
+  .index .tourdet3_ReviewTabTx {
     color: #ff4969;
-    font-family: "Inter", Helvetica;
+    font-family: 'Pretendard-Bold';
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
     margin-top: -1px;
@@ -215,10 +229,10 @@
     align-items: center;
     display: inline-flex;
     gap: 35px;
-    left: 10%;
+    left: 100px;
     padding: 20px;
     position: absolute;
-    top: 120px;
+    top: 110px;
   }
   
   .index .tourdet {
@@ -237,6 +251,7 @@
     height: 221px;
     position: relative;
     width: 249px;
+    top: 70px;
   }
   
   .index .tourdet-3 {
@@ -269,6 +284,7 @@
     height: 64px;
     position: relative;
     width: 157px;
+    
   }
   
   .index .tour-det-addr-tx {
@@ -280,8 +296,10 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 19px;
+    top: 10px;
     white-space: nowrap;
+    
+
   }
   
   .index .tour-det-det {
@@ -303,6 +321,7 @@
     margin-top: -1px;
     position: relative;
     width: 500px;
+    right: 300px;
   }
   
   .index .tour-det-chat-btn {
@@ -349,6 +368,8 @@
     height: 60px;
     position: relative;
     width: 152px;
+    left: 380px;
+    top: 90px;
   }
   
   .index .tour-det-white-fr {
