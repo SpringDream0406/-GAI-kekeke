@@ -18,7 +18,7 @@ app.post('/login', (req,res)=>{
     let {user_id, user_pw} = req.body
     if (user_id === 'kkk01' && user_pw == '11') {
         console.log('로그인 성공');
-        res.send('로그인 성공')
+        res.status(200).send({message:'로그인 성공'})
     }
     else {
         console.log('로그인 실패');

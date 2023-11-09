@@ -11,6 +11,8 @@ import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
 import TourDet3 from "./pages/TourDet3";
+import { AdminLogin } from "./pages/AdminLogin";
+import { AdminJoin } from "./pages/AdminJoin";
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>    
   
-        <Header_af toggle={toggle} setToggle={setToggle}/>  
+        <Header_bf toggle={toggle} setToggle={setToggle}/>  
     <Routes>
       <Route path="TourDet3" element={<TourDet3/>}/>
       <Route path ='/cakes' element={<Cakes />}/>
@@ -28,7 +30,10 @@ function App() {
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
-    
+      <Route path="/adminlogin" element={<AdminLogin/>}/>
+      <Route path="/adminjoin" element={<AdminJoin/>}/>
+
+
     </Routes>
    
     </BrowserRouter>

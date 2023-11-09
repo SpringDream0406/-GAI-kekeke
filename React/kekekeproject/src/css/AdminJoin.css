@@ -1,0 +1,638 @@
+.admin-join {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .admin-join .div-4 {
+    background-color: #ffffff;
+    height: 4000px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .admin-join .bluebox {
+    background-color: #d1ebff;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 3100px;
+    left: 315px;
+    position: absolute;
+    top: 577px;
+    width: 850px;
+  }
+  
+  .admin-join .admin-info-join {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 322px;
+    padding: 20px;
+    position: absolute;
+    top: 72px;
+  }
+  
+  .admin-join .text-wrapper-2 {
+    color: #363636;
+    font-family: "Inter", Helvetica;
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .admin-join .admin-info {
+    height: 540px;
+    left: 48px;
+    position: absolute;
+    top: 215px;
+    width: 725px;
+  }
+  
+  .admin-join .admin-info-name {
+    height: 69px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 716px;
+  }
+  
+  .admin-join .div-wrapper-2 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .text-wrapper-3 {
+    color: #454545;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .admin-join .admin-info-name-2 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 290px 20px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .text-wrapper-4 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .admin-join .admin-info-id {
+    height: 109px;
+    left: 0;
+    position: absolute;
+    top: 88px;
+    width: 725px;
+  }
+  
+  .admin-join .admin-info-id-input {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 180px 20px 20px;
+    position: absolute;
+    top: 30px;
+  }
+  
+  .admin-join .admin-info-id-check {
+    height: 90px;
+    left: 558px;
+    position: absolute;
+    top: 19px;
+    width: 167px;
+  }
+  
+  .admin-join .overlap-group {
+    height: 90px;
+    position: relative;
+  }
+  
+  .admin-join .rectangle-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .rectangle {
+    background-color: #ffa0b7;
+    border-radius: 10px;
+    height: 50px;
+    position: relative;
+    width: 127px;
+  }
+  
+  .admin-join .admin-info-id-check-2 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 24px;
+    padding: 20px;
+    position: absolute;
+    top: 13px;
+  }
+  
+  .admin-join .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .admin-join .admin-info-id-text {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 30px;
+  }
+  
+  .admin-join .element-wrapper {
+    height: 19px;
+    left: 218px;
+    position: absolute;
+    top: 0;
+    width: 184px;
+  }
+  
+  .admin-join .text-wrapper-6 {
+    color: #ff4343;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 19px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .admin-join .admin-info-password {
+    height: 98px;
+    left: 0;
+    position: absolute;
+    top: 206px;
+    width: 716px;
+  }
+  
+  .admin-join .admin-info-password-2 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 29px;
+  }
+  
+  .admin-join .admin-info-password-3 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 236px;
+    padding: 20px 320px 20px 20px;
+    position: absolute;
+    top: 29px;
+  }
+  
+  .admin-join .admin-info-password-4 {
+    height: 19px;
+    left: 217px;
+    position: absolute;
+    top: 0;
+    width: 191px;
+  }
+  
+  .admin-join .admin-info-password-5 {
+    height: 69px;
+    left: 0;
+    position: absolute;
+    top: 353px;
+    width: 719px;
+  }
+  
+  .admin-join .admin-info-password-6 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 300px 20px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .admin-info-number {
+    height: 69px;
+    left: 0;
+    position: absolute;
+    top: 471px;
+    width: 719px;
+  }
+  
+  .admin-join .div-wrapper-3 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 320px 20px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .horizen {
+    height: 1px;
+    left: 68px;
+    position: absolute;
+    top: 822px;
+    width: 699px;
+  }
+  
+  .admin-join .line {
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: -3px;
+    width: 699px;
+  }
+  
+  .admin-join .store-input-area {
+    height: 1980px;
+    left: 59px;
+    position: absolute;
+    top: 891px;
+    width: 731px;
+  }
+  
+  .admin-join .store-name {
+    height: 69px;
+    left: 3px;
+    position: absolute;
+    top: 254px;
+    width: 723px;
+  }
+  
+  .admin-join .store-number {
+    height: 69px;
+    left: 0;
+    position: absolute;
+    top: 1795px;
+    width: 723px;
+  }
+  
+  .admin-join .admin-number {
+    height: 69px;
+    left: 0;
+    position: absolute;
+    top: 1911px;
+    width: 723px;
+  }
+  
+  .admin-join .admin-number-input {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 260px 20px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .store-address {
+    height: 151px;
+    left: 0;
+    position: absolute;
+    top: 1594px;
+    width: 723px;
+  }
+  
+  .admin-join .store-address-input {
+    height: 151px;
+    left: 237px;
+    position: absolute;
+    top: 0;
+    width: 486px;
+  }
+  
+  .admin-join .store-address-city {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px 390px 20px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .store-address-input-2 {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px 370px 20px 20px;
+    position: absolute;
+    top: 82px;
+  }
+  
+  .admin-join .store-explain {
+    height: 199px;
+    left: 3px;
+    position: absolute;
+    top: 370px;
+    width: 723px;
+  }
+  
+  .admin-join .overlap-group-2 {
+    height: 108px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 165px;
+  }
+  
+  .admin-join .store-explain-rule {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 49px;
+  }
+  
+  .admin-join .text-wrapper-7 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .admin-join .store-explain-input {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 320px 150px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .caution {
+    height: 369px;
+    left: 3px;
+    position: absolute;
+    top: 619px;
+    width: 728px;
+  }
+  
+  .admin-join .caution-input {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 280px 320px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .keep-method {
+    height: 369px;
+    left: 0;
+    position: absolute;
+    top: 1046px;
+    width: 726px;
+  }
+  
+  .admin-join .keep-method-input {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 237px;
+    padding: 20px 250px 320px 20px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .business-hours {
+    height: 71px;
+    left: 2px;
+    position: absolute;
+    top: 1473px;
+    width: 724px;
+  }
+  
+  .admin-join .business-hours-input {
+    height: 71px;
+    left: 235px;
+    position: absolute;
+    top: 0;
+    width: 489px;
+  }
+  
+  .admin-join .open-time {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px 60px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .close-time {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 273px;
+    padding: 20px 60px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .admin-join .business-hours-bar {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    left: 217px;
+    padding: 20px;
+    position: absolute;
+    top: 2px;
+  }
+  
+  .admin-join .text-wrapper-8 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .admin-join .store-profile {
+    height: 207px;
+    left: 3px;
+    position: absolute;
+    top: 0;
+    width: 566px;
+  }
+  
+  .admin-join .store-profile-text {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    top: 69px;
+  }
+  
+  .admin-join .store-profile-2 {
+    background-color: #ffffff;
+    border-radius: 103.5px;
+    height: 207px;
+    left: 359px;
+    position: absolute;
+    top: 0;
+    width: 207px;
+  }
+  
+  .admin-join .join-button {
+    background-image: url(https://c.animaapp.com/BePgla5e/img/join-button-area.svg);
+    background-size: 100% 100%;
+    height: 119px;
+    left: 322px;
+    position: absolute;
+    top: 2958px;
+    width: 205px;
+  }
+  
+  .admin-join .join-button-text {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 27px;
+    padding: 20px;
+    position: relative;
+    top: 21px;
+  }
+  
+  .admin-join .text-wrapper-9 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .admin-join .admin-header {
+    left: 88px !important;
+    position: absolute !important;
+    top: 68px !important;
+  }
+  
