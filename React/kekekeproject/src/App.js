@@ -13,7 +13,14 @@ import Mypage from "./pages/Mypage";
 import TourMain from "./pages/TourMain"
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
+
+import { AdminLogin } from "./pages/AdminLogin";
+import { AdminJoin } from "./pages/AdminJoin";
+
 import TourDet2 from "./pages/TourDet2";
+import TourCompleteOrder from "./pages/TourCompleteOrder";
+import SampleCake from "./pages/SampleCake";
+
 
 
 function App() {
@@ -22,7 +29,10 @@ function App() {
   return (
     <BrowserRouter>    
   
-        <Header_af toggle={toggle} setToggle={setToggle}/>  
+
+
+        <Header_bf toggle={toggle} setToggle={setToggle}/>  
+
     <Routes>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>
@@ -32,9 +42,17 @@ function App() {
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
+
+      <Route path="/adminlogin" element={<AdminLogin/>}/>
+      <Route path="/adminjoin" element={<AdminJoin/>}/>
+
+
       <Route path="/tourmain" element={<TourMain/>}/>
       <Route path="/tourorder" element = {<TourOrder/>}/>
-    
+      <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
+      <Route path="/samplecake" element = {<SampleCake/>}/>    
+
+
     </Routes>
   
     </BrowserRouter>

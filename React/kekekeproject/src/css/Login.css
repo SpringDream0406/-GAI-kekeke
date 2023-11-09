@@ -1,37 +1,22 @@
 
 
-.index .overlap-group-2 {
-  height: 134px;
+.login-container{
   position: relative;
-  width: 1444px;
-}
+  display: flex;
+  justify-content: center; /* 가로 방향으로 중앙 정렬 */
+  align-items: center; /* 세로 방향으로 중앙 정렬 */
+  top: -200px;
+  left: 250px;
 
-.index .rectangle {
-  background-color: #ffffff;
-  height: 128px;
-  left: 0;
-  position: absolute;
-  top: 6px;
-  width: 1444px;
 }
+ 
 
-.index .text-wrapper-2 {
-  color: #f73564;
-  font-family: "Roboto Mono", Helvetica;
-  font-size: 14px;
-  font-weight: 400;
-  left: 551px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 97px;
-}
 
 .index .kekeke {
   height: 106px;
   left: 671px;
   object-fit: cover;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 106px;
 }
@@ -57,7 +42,7 @@
 
 .index .login-text {
   color: #ffffff;
-  font-family: "Inter", Helvetica;
+  font-family: "Pretendard-bold", Helvetica;
   font-size: 45px;
   font-weight: 800;
   left: 0;
@@ -105,16 +90,25 @@
   font-size: 25px;
   font-weight: 400;
   border: white 9px;
-  border-radius: 25px;
-  padding-left: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  top: -10px;
+ 
+
 
   background-color: white;
   letter-spacing: 0;
   line-height: normal;
-  margin-left: -1px;
+  margin-left: -9px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
+}
+
+.login-content:focus {
+  border: 2px solid white; /* 테두리 굵기와 스타일을 명시적으로 지정 */
+  border-radius: 18px;
+  outline: none; /* 브라우저 기본 아웃라인 제거 */
 }
 
 .index .login-pw-input {
@@ -139,13 +133,12 @@
 }
 
 .index .login-button-area {
-  background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654891b2c74ac0464c569734/img/rectangle-150.svg);
-  background-size: 100% 100%;
-  height: 79px;
+ 
+  height: 59px;
   left: 206px;
   position: absolute;
-  top: 535px;
-  width: 296px;
+  top: 565px;
+  width: 256px;
 }
 
 .index .login-button {
@@ -157,24 +150,38 @@
   left: 69px;
   padding: 10px;
   position: relative;
-  top: 11px;
+  top: -20px;
 }
 
 .index .login-button-text {
+  border: 3px solid #D1ECFF;
+  background-color: #D1ECFF;
+  padding: 20px 30px;
+  border-radius: 20px;
   color: #ff2d60;
-  font-family: "Inter", Helvetica;
-  font-size: 30px;
+  font-family: "Pretendard-bold", Helvetica;
+  font-size: 25px;
   font-weight: 800;
   letter-spacing: 0;
   /* line-height: normal; */
-  margin-top: -1px;
+
+  margin-top: -8px;
+  left: -20px;
+
+ 
   position: relative;
-  /* white-space: nowrap; */
-  /* width: fit-content; */
-  border: none;
+ 
   cursor:pointer;
-  background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654891b2c74ac0464c569734/img/rectangle-150.svg);
+  background-color: #D1ECFF;
+  
 }
+
+.login-button :hover{
+  background-color: #ffd3de;
+  border: 3px solid white;
+  color: white;
+}
+
 
 .index .login-if {
   height: 44px;
@@ -197,12 +204,12 @@
 
 .index .login-if-no-member-text {
   color: #ffffff;
-  font-family: "Inter", Helvetica;
+  font-family: "Pretendard-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
+  margin-top: 3px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
@@ -221,12 +228,13 @@
 
 .index .login-to-join-text {
   color: #ffffff;
-  font-family: "Inter", Helvetica;
+  font-family: "Pretendard-bold", Helvetica;
+  cursor:pointer;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
+  margin-top: 3px;
   position: relative;
   text-decoration: underline;
   white-space: nowrap;
