@@ -31,14 +31,15 @@ export const TourDet3 = () => {
 
 
                   <div className="tourdet3-SampleStoreReviewFr"> {/* 샘플케이크, 매장정보, 리뷰 탭 div */}
-                 
-                      <div className="text-TourDet3sampleTx">샘플케이크</div>
                     
-                      <div className="text-TourDet3sampleTx">매장정보</div>
+                      <div className="text-tourdet3-Sample">샘플케이크</div>
+                   
+                
+                      <div className="text-tourdet3-StoreDetail">매장정보</div>
                   
                     
-                      <div className="tourdet3_ReviewTabTx">리뷰</div>
-                    
+                      <div className="tour-det-review">리뷰</div>
+                   
                   </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
                 </div>
               </div>
@@ -48,19 +49,18 @@ export const TourDet3 = () => {
 
               <div className="storeinfo"> {/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div*/}
                 <div className="tourdet">
-                  <img className="tourdet3-StoreLogo"
+                  <img className="tourdet3-StoreLog"
                     src={tourdet3_StoreLogo}
                     alt={CakeName}
                      />{/*가게 로고*/}
                 </div>
-                
                 <div className="tourdet-3">
                   <div className="tourdet3-CakeStoreNameFrame">
                     <div className="tourdet3-CakeStoreName">{CakeStoreName}</div>{/* 가게 이름 넣는곳*/}
                   </div>
-                 
+                  <div className="tour-det-addr">
                     <div className="tour-det-addr-tx">{StoreAddr}</div>{/* 가게 주소넣는곳*/}
-                 
+                  </div>
                   <div className="tour-det-det">
                     <p className="tour-det-det-tx" >
                     {StoreDetail}{/* 가게 설명넣는곳*/}
@@ -147,9 +147,6 @@ export const TourDet3 = () => {
 
                   </div>
                 </div>
-
-
-                
                 <div className="pagenumfr">
                   <div className="bfpfr">
                     <img
@@ -176,7 +173,6 @@ export const TourDet3 = () => {
                         <div className="tourdet-numt">5</div>
                       </div>
                     </div>
-                    
                   </div>
                   <div className="ntpfr">
                     <img
