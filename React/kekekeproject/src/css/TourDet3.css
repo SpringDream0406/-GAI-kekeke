@@ -173,6 +173,30 @@
     position: relative;
     width: fit-content;
   }
+  .index .text-tourdet3-Sample {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+
+  .index .text-tourdet3-StoreDetail {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+
 
   .index .div-ReviewRequire {
     align-items: center;
