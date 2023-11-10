@@ -9,7 +9,6 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
-import Mypage from "./pages/Mypage";
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
 
@@ -19,6 +18,7 @@ import { AdminJoin } from "./pages/AdminJoin";
 import TourDet2 from "./pages/TourDet2";
 import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
+import UserMypage from "./pages/UserMypage";
 
 
 
@@ -30,17 +30,17 @@ function App() {
   
 
 
-        <Header_bf toggle={toggle} setToggle={setToggle}/>  
+      <Header_bf toggle={toggle} setToggle={setToggle}/>  
 
     <Routes>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>
       <Route path ='/cakes' element={<Cakes />}/>
-      {/* <Route path ='/mypage' element={<Mypage />}/> */}
       <Route path ='/customcake' element={<CustomCake />}/>
       <Route path ='/login' element={<Login />}/>
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
+      <Route path="/usermypage" element={<UserMypage/>}/>
 
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
