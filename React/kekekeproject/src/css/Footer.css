@@ -1,0 +1,24 @@
+/* App 컴포넌트의 최상위 컨테이너 스타일 */
+.root-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+  min-height: 100vh; 
+}
+  /* Footer.css */
+  .footer-container {
+   
+    bottom: 0; /* 화면의 가장 아래에 위치 */
+    width: 100%; /* 푸터의 너비를 화면 전체 너비로 설정 */
+    background-color: white; /* 배경색이 필요하면 유지 */
+    height: 90px; /* 푸터의 높이 설정 */
+  }
+  
+  .footer-img {
+    width: 100px;
+    margin-left: 900px; /* 필요에 따라 조정 */
+    margin-top: 20px; /* 필요에 따라 조정 */
+    /* position: fixed와 left, bottom 속성 제거 */
+  }
+  

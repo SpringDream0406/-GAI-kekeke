@@ -1,7 +1,7 @@
 .user_main_container {
-    position: relative;
-    top: 300px;
-    left: 20px;
+   
+    margin-top: 300px;
+    margin-left: 20px;
     display: flex;
     flex-direction: column; /* Flexbox 방향을 세로로 설정 */
     justify-content: center;
@@ -205,8 +205,8 @@
 /* 요소가 나타나는 애니메이션 */
 @keyframes fadeInSlideUp {
   from {
-    transform: translateY(30px);
-    opacity: 0;
+    transform: translateY(50px);
+    opacity: 1;
   }
   to {
     transform: translateY(0);

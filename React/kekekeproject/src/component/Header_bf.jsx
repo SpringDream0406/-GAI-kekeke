@@ -120,6 +120,11 @@ const Header_bf = () => {
               회원가입
             </Link>
           </li>
+          <li>
+            <Link to={"/customcake"} className="nav-menu-list">
+              판매자페이지
+            </Link>
+          </li>
         </NavManu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
       </StyledHeader>

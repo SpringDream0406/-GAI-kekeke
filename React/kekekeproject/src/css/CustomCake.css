@@ -1,0 +1,20 @@
+
+
+
+.custom-selectbox{
+    position: relative;
+    top: -670px;
+    left: 20px;
+    font-family: 'Pretendard-bold';
+}
+
+.custom-container{
+margin: auto;
+position: relative;
+top: 100px;
+width: 1500px;
+height: 700px;
+border-radius: 30px;
+border: 3px solid white;
+background-color: white;
+}
