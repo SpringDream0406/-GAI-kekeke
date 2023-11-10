@@ -70,7 +70,7 @@ router.post('/join', (req, res) => {
     console.log('회원가입 시도', req.body);
     let { cust_id, nick_name, password,passwordcheck, phone, user_type } = req.body;
     console.log('비번길이', password.length);
-    if (password.length < 9 || password.length > 20) { // 비밀번호 길이 체크
+    if (password.length < 8 || password.length > 20) { // 비밀번호 길이 체크
         console.log('비밀번호 길이 벗어남', password.length);
         res.status(400).send({ message: '비밀번호 길이 벗어남' })
     } else {
@@ -167,5 +167,6 @@ router.post('/check', (req, res) => {
     }
     
 })
+
 
 module.exports = router;
