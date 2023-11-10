@@ -1,13 +1,35 @@
 import React from 'react'
-import {useState,useContext} from 'react';
-import '../css/Join.css';
+import { useState } from 'react';
 import GlobalStyle from '../component/GlobalStyle';
 import axios from 'axios';
 import API_URL from '../api_url';
+import '../css/Join.css'
 
 
 
 const Join = () => {
+
+  const [imageSrc, setImageSrc] = useState('');
+        
+        
+          
+  const encodeFileToBase64 = (fileBlob) => {
+
+    const reader = new FileReader();
+    reader.readAsDataURL(fileBlob);
+    return new Promise((resolve) => {
+      reader.onload = () => {
+   setImageSrc(reader.result);
+        resolve();
+      };
+    });
+
+  };
+
+
+
+
+
   const [cust_id, setcust_id] = useState('');
   const [password, setPassword] = useState('');
   const [passwordcheck, setPasswordcheck] = useState('');
@@ -67,6 +89,7 @@ const Join = () => {
           console.log(error);
         })
     }
+
 
 
 
@@ -178,8 +201,24 @@ const Join = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="join-img" />
-                </div>
+                 {/* Image upload section */}
+                      <div className="join-img">
+                        {/* Hidden file input */}
+                        <input type="file" onChange={(e) => {
+                          encodeFileToBase64(e.target.files[0]);
+                        }} 
+                        className='join-imgbtn' id="fileInput" style={{ display: 'none' }} />
+
+                        {/* Custom upload button */}
+                        <label htmlFor="fileInput" className="custom-file-upload">
+                          <img src={'/assets/images/camera.png'} className='upload-img'/>
+                        </label>
+
+                        {/* Image preview */}
+                        <div className="preview">
+                          {imageSrc && <img src={imageSrc} alt="preview-img" />}
+                        </div>
+                      </div>
                 <div className="join_maintitle">회원가입</div>
               </div>
             </div>
@@ -191,9 +230,9 @@ const Join = () => {
           </div>
        
       
-     
+     </div>
 
-   
+
   )
 }
 

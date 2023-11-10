@@ -1,9 +1,11 @@
 import React from "react";
 import "../css/TourMain.css";
+import Footer from '../component/Footer'
 
 
 export const Cakes = () => {
   return (
+
     <div className="tour">
       <div className="tour-contents-wrapper">
         <div className="tour-contents">
@@ -159,7 +161,10 @@ export const Cakes = () => {
           </div>
         </div>
       </div>
+      
     </div>
+  
+   
   );
 };
 
