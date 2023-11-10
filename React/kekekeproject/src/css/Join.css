@@ -1,7 +1,6 @@
 .join-container{
- display: flex;
- align-items: center;
- justify-content: start;
+
+  z-index: -9999999999 ;
 
 }
   
@@ -316,15 +315,39 @@
     top: 14px;
   }
   
- .join-img {
-    background-image: url(https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/6548a50a17c87567913e3911/img/image-40.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 214px;
-    left: 136px;
+
+
+.custom-file-upload {
+
+  padding: 70px;
+  border: 3px solid pink;
+  border-radius: 100px;
+  z-index: 9999999;
+  cursor: pointer;
+  position: relative;
+  top: 80px;
+  left: 170px;
+}
+.upload-img{
+  width: 30px;
+  position: relative;
+  top: 5px;
+
+  z-index: 9999999;
+  
+}
+
+
+  .preview img{
+  
+    left: 173px;
     position: absolute;
-    top: 0;
-    width: 236px;
+    top: 20px;
+    width: 170px;
+    height: 167px;
+    background-color: white;
+    border-radius: 100px;
+    z-index:999;
   }
   
 .join_maintitle {
@@ -332,12 +355,13 @@
     font-family: "Pretendard-bold", Helvetica;
     font-size: 45px;
     font-weight: 800;
-    left: 270px;
+    left: 180px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 40px;
+    top: -70px;
     white-space: nowrap;
+    z-index: 999;
   }
   
  .join-button {

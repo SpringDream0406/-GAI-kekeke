@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 임포트합니다.
 import './css/Main.css';
 import GlobalStyle from './component/GlobalStyle';
-import ReviewSlider from './component/ReviewSlider'
+import ReviewSlider from './component/ReviewSlider';
+import Footer from "./component/Footer";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -47,9 +48,14 @@ const Main = () => {
   const handleBrowseClick = () => {
     navigate('/cakes');
   };
+  const handleOrderClick = () => {
+    navigate('/customcake');
+  };
 
 
   return (
+
+      
     <div className="user_main_container">
       <GlobalStyle/>
       <div className='main_img1 animate-on-scroll' ref={refMain1}>
@@ -67,7 +73,7 @@ const Main = () => {
           <img className="cakeimg animate-on-scroll" alt="Cakeimg" src={'/assets/images/main2_cakeimg.png'} />
           <img className="cakeicon animate-on-scroll" alt="Cakeicon" src={'/assets/images/main2_cakeicon.png'} />
           <img className="drawicon animate-on-scroll" alt="Drawicon" src={'/assets/images/drawicon.png'} />
-          <button className="m2_button animate-on-scroll">
+          <button className="m2_button animate-on-scroll" onClick={handleOrderClick}>
             <div className="m2_button_text">주문하기→</div>
           </button>
         </div>
@@ -78,24 +84,16 @@ const Main = () => {
       <div className="m3-group-wrapper">
         <div className="m3-group">
           <div className="m3">
-            <p className="rvtxt">
-              아 케이크 존맛 개미친 개이쁘고 맛있고 이거뭐임?
-              <br />
-              다들 여기서 주문 안하고 뭐해? 아 진짜 감사합니다ⵈ
-            </p>
-            <div className="rvnick">김은호</div>
-            <div className="rvday">2023-10-30</div>
-            <div className="rvname">존맛케이크</div>
-            <img className="rvimg" src={'/assets/images/m3-rvbg.png'}/>
+
           </div>
           <img className="maintitle" alt="Maintitle" src={'/assets/images/m3_maintitle.png'} />
           <ReviewSlider className="main3_slider"/>
         </div>
       </div>
     </div>
-   
 
     </div>
+
   );
 };
 

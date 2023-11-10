@@ -2,9 +2,11 @@ import React from 'react'
 import GlobalStyle from '../component/GlobalStyle'
 import '../css/Login.css'
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import API_URL from '../api_url';
+import Footer from '../component/Footer';
 
 
 const AuthContext = React.createContext(null);
@@ -16,17 +18,22 @@ const AuthContext = React.createContext(null);
 
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
+
+  const [cust_id, setCust_id] = useState('');
+
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = () => {
     const url = `${API_URL}/user/login`;
-    const data = { user_id: username, user_pw: password, user_type : 0 };
+    const data = { cust_id: cust_id, password: password, user_type : 0 };
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
-          console.log(response.data);
+          console.log(response.data.cust_id);
           alert(response.data.message)
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
@@ -40,13 +47,18 @@ const Login = () => {
       });
   };
 
+  const handleJoinClick = () => {
+    navigate('/join');
+  };
+
 
 
   return (
 
-    <div className='index'>
-      <GlobalStyle />
-      <div className="index">
+   <div className='login-container'>
+  
+    
+            <GlobalStyle />
         <div className="div-7">
 
           <div className="login-area">
@@ -59,8 +71,8 @@ const Login = () => {
                   <input className="login-content"
                     type='text'
                     placeholder='아이디를 입력하세요'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={cust_id}
+                    onChange={(e) => setCust_id(e.target.value)}
                   />
                 </div>
               </div>
@@ -87,14 +99,15 @@ const Login = () => {
                 <div className="login-if-no-member-text">회원이 아니라면?</div>
               </div>
               <div className="login-to-join">
-                <div className="login-to-join-text" onClick={'/join'}>회원가입</div>
+                <div className="login-to-join-text"  onClick={handleJoinClick}>회원가입</div>
               </div>
             </div>
           </div>
-          {/* <DivWrapper className="component-68" /> */}
+    
         </div>
+       
       </div>
-    </div>
+    
   )
 }
 
