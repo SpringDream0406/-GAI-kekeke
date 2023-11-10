@@ -16,13 +16,13 @@ const AuthContext = React.createContext(null);
 
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [cust_id, setCust_id] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = () => {
     const url = `${API_URL}/user/login`;
-    const data = { user_id: username, user_pw: password, user_type : 0 };
+    const data = { cust_id: cust_id, password: password, user_type : 0 };
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
@@ -59,8 +59,8 @@ const Login = () => {
                   <input className="login-content"
                     type='text'
                     placeholder='아이디를 입력하세요'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={cust_id}
+                    onChange={(e) => setCust_id(e.target.value)}
                   />
                 </div>
               </div>
