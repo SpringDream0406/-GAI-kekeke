@@ -81,7 +81,6 @@
 
 .frame .div {
   color: #000000;
-  font-family: "Inter-Regular", Helvetica;
   font-size: 24px;
   font-weight: 400;
   left: 0;
@@ -181,31 +180,28 @@
   letter-spacing: 0;
   line-height: normal;
 }
-
 .frame .nick-input-box {
-  background-color: #d1ebff; /* 파란 박스와 같은 색상 설정 */
+  background-color: #d1ebff;
   border-radius: 20px;
   height: 72px;
-  left: 0;
+  width: 576px; /* 바깥 박스와 동일한 너비로 조정 */
   position: absolute;
   top: 56px;
-  width: 576px;
 }
-
-.frame .nick-input-box input.nick_input_text {
-  border: none; /* 입력란의 기본 테두리 제거 */
+.nick-input-box input.nick_input_text {
+  border: none;
   padding: 10px 20px;
   letter-spacing: 0;
   line-height: normal;
   margin-top: 12px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
-  background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+  width: 550px; /* 부모 요소의 너비에 맞게 설정 */
+  background-color: transparent;
   font-family: "Pretendard-Regular";
   font-size: 24px;
   color: #787878;
-  outline: none; /* 포커스 효과 제거 */
+  outline: none;
 }
 
 /* 비밀번호 변경 입력란 스타일 */
@@ -226,7 +222,7 @@
   margin-top: 12px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
+  width: 700px;
   background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
   font-family: "Pretendard-Regular";
   font-size: 24px;
@@ -252,7 +248,8 @@
   margin-top: 12px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
+  width: 700px;
+
   background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
   font-family: "Pretendard-Regular";
   font-size: 24px;
@@ -278,7 +275,7 @@
   margin-top: 12px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
+  width: 700px;
   background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
   font-family: "Pretendard-Regular";
   font-size: 24px;
@@ -337,36 +334,39 @@
 }
 
 /* 파일 미리보기 */
-
 .custom-file-upload {
-
   padding: 70px;
-  border: 3px solid pink;
+  border: 5px solid #d1ebff;
   border-radius: 100px;
   z-index: 9999999;
   cursor: pointer;
   position: relative;
-  top: 80px;
-  left: 170px;
+  left: 270px;
+  background-color: #61a4d5;
 }
-.upload-img{
+
+.custom-file-upload .upload-img {
   width: 30px;
   position: relative;
   top: 5px;
-
-  z-index: 9999999;
-  
 }
 
+.preview img {
+  left: 270px;
+  position: absolute;
+  top: 20px;
+  width: 170px;
+  height: 167px;
+  background-color: white;
+  border-radius: 100px;
+  z-index: 999;
+}
 
-  .preview img{
+.overlap-group .camera-icon {
+  height: 68px;
+  left: 100px;
+  position: absolute;
+  top: 201px;
+  width: 68px;
   
-    left: 173px;
-    position: absolute;
-    top: 20px;
-    width: 170px;
-    height: 167px;
-    background-color: white;
-    border-radius: 100px;
-    z-index:999;
-  }
+}

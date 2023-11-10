@@ -27,25 +27,30 @@ const UserMypage = () => {
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="input-area">
+            {/* 이미지 업로드 섹션 */}
+            <div className="upload-preview-container">
+              {/* 숨겨진 파일 입력 */}
+              <input
+                type="file"
+                onChange={(e) => {
+                  encodeFileToBase64(e.target.files[0]);
+                }}
+                id="fileInput"
+                style={{ display: 'none' }}
+              />
+
+              {/* 커스텀 업로드 버튼 */}
+              <label htmlFor="fileInput" className="custom-file-upload">
+                <img src={'/assets/images/camera.png'} className='upload-img' alt="카메라 아이콘" />
+              </label>
+
+              {/* 이미지 미리보기 */}
+              <div className="preview">
+                {imageSrc && <img src={imageSrc} alt="미리보기 이미지" />}
+              </div>
+            </div>
+
             <div className="overlap-group">
-              {/* Image upload section */}
-                      <div className="join-img">
-                        {/* Hidden file input */}
-                        <input type="file" onChange={(e) => {
-                          encodeFileToBase64(e.target.files[0]);
-                        }} 
-                        className='join-imgbtn' id="fileInput" style={{ display: 'none' }} />
-
-                        {/* Custom upload button */}
-                        <label htmlFor="fileInput" className="custom-file-upload">
-                          <img src={'/assets/images/camera.png'} className='upload-img'/>
-                        </label>
-
-                        {/* Image preview */}
-                        <div className="preview">
-                          {imageSrc && <img src={imageSrc} alt="preview-img" />}
-                        </div>
-                      </div>
             </div>
             <div className="nick-input">
               <div className="nick-input-box">

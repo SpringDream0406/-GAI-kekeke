@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GlobalStyle from '../component/GlobalStyle';
 import axios from 'axios';
 import API_URL from '../api_url';
+import '../css/Join.css'
 
 
 
