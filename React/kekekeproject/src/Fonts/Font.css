@@ -61,3 +61,41 @@
     font-weight:normal;
     src: url('./Pretendard-Thin.woff') format('woff');
 }
+
+.box {
+    height: 103px;
+    width: 410px;
+  }
+  
+  .box .div-wrapper {
+    background-color: #ffa0b7;
+    border-radius: 30px;
+    height: 103px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 410px;
+  }
+  
+  .box .div {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 159px;
+    padding: 20px;
+    position: relative;
+    top: 12px;
+  }
+  
+  .box .text-wrapper {
+    color: #ffffff;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
