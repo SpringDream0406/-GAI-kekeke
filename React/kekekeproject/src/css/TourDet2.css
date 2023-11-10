@@ -164,7 +164,7 @@
   
   .index .TourDet2_text-wrapper {
     color: #000000;
-    font-family: "Inter", Helvetica;
+    font-family: 'Pretendard-Bold';
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 0;
@@ -636,4 +636,422 @@
     transform: rotate(180deg);
     width: 22px;
   }
+  .index .TourDet2_line{
+    border-right : thin solid #000000;
+    height : 950px;
+    width: 0;
+    left: 562px;
+    top: 100px;
+}
+.index .TourDet2_tour-det-map-fr {
+  height: 402px;
+  position: relative;
+  width: 417px;
+}
+
+.index .TourDet2_tour-det-addr-fr {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 140px;
+  padding: 20px;
+  position: absolute;
+  top: 20px;
+}
+
+.index .TourDet2_tour-det-addr-tx {
+  color: #61a4d5;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.index .TourDet2_tour-det-map-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 70px;
+  padding: 20px;
+  position: absolute;
+  top: -280px;
+}
+
+.index .TourDet2_tour-det-map {
+  height: 280px;
+  object-fit: cover;
+  position: relative;
+  width: 364px;
+}
+
+
+.TourDet2_usefr {
+  height: 601px;
+  position: relative;
+  width: 378px;
+  left: -170px;
+  top: 240px;
   
+}
+
+.TourDet2_usefr .TourDet2_useinput {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 4px;
+  padding: 20px;
+  position: absolute;
+  top: 81px;
+}
+
+.TourDet2_usefr .TourDet2_useinputtx {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 334px;
+}
+
+.TourDet2_usefr .TourDet2_text-wrapper {
+  font-weight: 700;
+}
+
+.TourDet2_usefr .TourDet2_span {
+  font-family: 'Pretendard-Light';
+}
+
+.TourDet2_usefr .TourDet2_tourdet-usefr {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_usefr .TourDet2_usefrtx {
+  color: #ff97b0;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.TourDet2_usefr .TourDet2_mask-group {
+  height: 37px;
+  position: relative;
+  width: 37px;
+}
+
+.TourDet2_Introtour {
+  height: 299px;
+  position: relative;
+  width: 526px;
+  left: 100px;
+  top: -330px;
+}
+
+.TourDet2_Introtour .TourDet2_Introdetailfr {
+  height: 228px;
+  left: 0;
+  position: absolute;
+  top: 71px;
+  width: 526px;
+}
+
+.TourDet2_Introtour .TourDet2_Introoverlap-group {
+  height: 228px;
+  position: relative;
+}
+
+.TourDet2_Introtour .TourDet2_Introcallfr {
+  height: 69px;
+  left: 9px;
+  position: absolute;
+  top: 0;
+  width: 517px;
+}
+
+.TourDet2_Introtour .TourDet2_Introcalltx {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: -9px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+
+
+
+.TourDet2_Introtour .TourDet2_Introcallinput {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 330px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.TourDet2_Introtour .TourDet2_Introadvicefr {
+  height: 64px;
+  left: 0;
+  position: absolute;
+  top: 49px;
+  width: 518px;
+}
+
+.TourDet2_Introtour .TourDet2_Introadtx {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_Introtour .TourDet2_Introadinput {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 346px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_Introtour .TourDet2_Intronumfr {
+  height: 66px;
+  left: 0;
+  position: absolute;
+  top: 103px;
+  width: 520px;
+}
+
+
+
+
+.TourDet2_Introtour .TourDet2_Introregnum {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 2px;
+}
+
+.TourDet2_Introtour .TourDet2_Introonerfr {
+  height: 71px;
+  left: 22px;
+  position: absolute;
+  top: 157px;
+  width: 496px;
+}
+
+.TourDet2_Introtour .TourDet2_Introtextfr {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: -22px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_Introtour .TourDet2_Intronamefr {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 7px;
+}
+
+.TourDet2_Introtour .TourDet2_Introintro {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 2px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_Introtour .TourDet2_Introintrotx {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.TourDet2_Introtour .TourDet2_Introreginput {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 330px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 265px;
+  font-size: 20px;
+  font-family: 'Pretendard-Light';;
+}
+.TourDet2_Introtour .TourDet2_Introtext-Oner {
+  color: #000000;
+  font-family:'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  left: 0;
+}
+.TourDet2_Introtour .TourDet2_Introtext-Number {
+  color: #000000;
+  font-family:  'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  left: -70px;
+}
+
+.TourDet2_Introtour .TourDet2_Introtext-Time {
+  color: #000000;
+  font-family:  'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  left: -63px;
+}
+.TourDet2_Introtour .TourDet2_Introtext-Name {
+  color: #000000;
+  font-family:  'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  left: -70px;
+}
+.TourDet2_Introtour .TourDet2_Introtext-wrapper {
+  color: #000000;
+  font-family:  'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+ 
+}
+
+.TourDet2_reserve {
+  height: 661px;
+  position: relative;
+  width: 540px;
+  top: 200px;
+  left: -230px;
+}
+
+
+.TourDet2_reserve .TourDet2_resinputfr {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 70px;
+}
+
+.TourDet2_reserve .TourDet2_resinputtx {
+  color: #000000;
+  font-family: 'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 500px;
+}
+
+.TourDet2_reserve .TourDet2_resfr {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.TourDet2_reserve .TourDet2_restx {
+  color: #ff97b0;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}

@@ -1,5 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
 import "../css/TourOrder.css";
+
 
 export const TourOrder = () => {
   return (
@@ -17,13 +20,17 @@ export const TourOrder = () => {
           </div>
           <div className="div-2">
             <div className="div-3">
-              <div className="text-wrapper">샘플케이크</div>
+            <Link className="order-text-samplecake" to="/samplecake">
+                     샘플케이크
+                </Link>
             </div>
             <div className="div-4">
               <div className="text-wrapper-2">매장정보</div>
             </div>
             <div className="div-5">
-              <div className="text-wrapper-review">리뷰</div>
+            <Link className="order-text-review" to="/tourdet3">
+                     리뷰
+                </Link>
             </div>
           </div>
           <div className="div-6">
