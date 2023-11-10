@@ -1,0 +1,69 @@
+.slider-container{
+    top: 500px;
+    width: 1500px;
+    left: 240px;
+    padding: 30px;
+
+}
+
+
+.slider-img{
+ width: 380px;
+ height: 380px;
+ border-radius: 20px;
+ padding: 30px;
+}
+
+.slider-bg{
+    border: 3px solid white;
+    width:440px !important;
+    height: 630px;
+    background-color: white;
+    border-radius: 20px;
+
+   
+
+    
+}
+
+
+.slider-rvtxt{
+    font-family: 'Pretendard-Regular';
+    font-size: 20px;
+    padding: 10px 45px;
+    width: 350px;
+    height: 80px;
+   
+}
+
+
+.slider-usernick{
+    font-family: 'Pretendard-Regular';
+    font-size: 18px;
+    padding: 25px 45px;
+    color: gray;
+}
+
+.slider-day{
+    font-family: 'Pretendard-Regular';
+    font-size: 18px;
+    position: relative;
+    top: -64px;
+    left: 110px;
+    color: gray;
+}
+
+.slider-cakename{
+    font-family: 'Pretendard-Regular';
+    font-size: 18px;
+    position: relative;
+    top: -103px;
+    left: 320px;
+    color: gray;
+}
+
+
+.slider-hr{
+    margin-top: -90px;
+    width: 400px;
+}

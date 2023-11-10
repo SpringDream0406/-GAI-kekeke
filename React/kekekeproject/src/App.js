@@ -12,7 +12,7 @@ import GlobalStyle from "./component/GlobalStyle";
 import Mypage from "./pages/Mypage";
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
-
+import './css/Footer.css'
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminJoin } from "./pages/AdminJoin";
 
@@ -22,16 +22,18 @@ import SampleCake from "./pages/SampleCake";
 
 
 
+
 function App() {
   const [toggle , setToggle] = useState(false);
 
   return (
+    
     <BrowserRouter>    
   
 
-
+        <GlobalStyle />
         <Header_bf toggle={toggle} setToggle={setToggle}/>  
-
+ 
     <Routes>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>
@@ -51,8 +53,12 @@ function App() {
 
 
     </Routes>
+ 
   
+   
     </BrowserRouter>
+   
+
   
   );
 }

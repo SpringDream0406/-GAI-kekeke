@@ -10,17 +10,7 @@ const Mypage = () => {
           alt="Group"
           src="https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654995c33aa7774e2d96771e/img/group-58.svg"
         />
-        <footer className="footer">
-          <div className="overlap-group">
-            <div className="rectangle" />
-            <div className="text-wrapper">Copyright 2023.kekeke.All rights reserved</div>
-            <img
-              className="kekeke"
-              alt="Kekeke"
-              src="https://cdn.animaapp.com/projects/65487711df11ee569541a3c7/releases/654877b599d82c8d5b729daa/img/kekeke--2--2.png"
-            />
-          </div>
-        </footer>
+      
         <div className="overlap">
           <div className="mypage">
             <div className="overlap-2">
