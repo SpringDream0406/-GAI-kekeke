@@ -20,7 +20,7 @@ import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
 import TourReviewPopup from"./pages/TourReviewPopup";
-import MpOrderList from "./pages/MpOrderList";
+import MpOrderList from "./pages/MpOrderList"; // component의 직접적인 오류는 없습니다... 신경 쓰여도 무시해 주세요 - 유정 -
 
 
 
