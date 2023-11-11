@@ -3,7 +3,8 @@ import '../css/UserMypage.css';
 import GlobalStyle from '../component/GlobalStyle'
 
 const UserMypage = () => {
-
+  
+// 이미지 등록 기능
     const [imageSrc, setImageSrc] = useState('');
         
         

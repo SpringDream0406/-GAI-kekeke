@@ -20,7 +20,7 @@ import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
 import TourReviewPopup from"./pages/TourReviewPopup";
-
+import MpOrderList from "./pages/MpOrderList";
 
 
 
@@ -46,6 +46,7 @@ function App() {
       <Route path ='/join' element={<Join />}/>
       <Route path="/" element={<Main/>}/>
       <Route path="/usermypage" element={<UserMypage/>}/>
+      <Route path="/mporderlist" element={<MpOrderList/>}/>
 
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
