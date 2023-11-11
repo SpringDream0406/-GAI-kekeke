@@ -91,6 +91,7 @@
     line-height: normal;
     margin-top: 12px;
     left: 20px;
+    top: 5px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
@@ -122,6 +123,7 @@
     line-height: normal;
     margin-top: 0px;
     left: -10px;
+    top: 3px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
@@ -404,10 +406,9 @@
   }
   
   .join_joinbtn:hover{
-    color: white;
-    background-color: #ffa0b7;
-    border: 5px solid white;
-    color: white;
+    background-color: #ffd3de;
+  border: 3px solid white;
+  color: white;
   }
   
  .overlap-4 {
