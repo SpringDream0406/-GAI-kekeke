@@ -1,8 +1,38 @@
 import React from "react";
 // import { DivWrapper } from "../../components/DivWrapper";
 import "../css/AdminJoin.css";
+import { useState } from 'react';
+import { AiOutlineCamera } from 'react-icons/ai';
+// import { NONAME } from "dns";
 
 export const AdminJoin = () => {
+
+    const [image, setImage] = useState(null);
+
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+  
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    };
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="admin-join">
       <div className="div-4">
@@ -16,12 +46,17 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">사용자 이름</div>
               </div>
               <div className="admin-info-name-2">
-                <div className="text-wrapper-4">사용자 이름 입력</div>
+                <input className="text-wrapper-4"
+                        type="text"
+                        placeholder="사용자 이름 입력"
+                />
               </div>
             </div>
             <div className="admin-info-id">
               <div className="admin-info-id-input">
-                <div className="text-wrapper-4">아이디 입력</div>
+                <input className="text-wrapper-4"
+                    type="text"
+                    placeholder="아이디 입력"/>
               </div>
               <div className="admin-info-id-check">
                 <div className="overlap-group">
@@ -33,6 +68,7 @@ export const AdminJoin = () => {
                   </div>
                 </div>
               </div>
+              
               <div className="admin-info-id-text">
                 <div className="text-wrapper-3">아이디</div>
               </div>
@@ -45,7 +81,9 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">비밀번호</div>
               </div>
               <div className="admin-info-password-3">
-                <div className="text-wrapper-4">비밀번호 입력</div>
+                <input className="text-wrapper-4"
+                type="password"
+                placeholder="비밀번호 입력"/>
               </div>
               <div className="admin-info-password-4">
                 <div className="text-wrapper-6">문자, 특수문자 포함 8~20자</div>
@@ -56,7 +94,10 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">비밀번호 확인</div>
               </div>
               <div className="admin-info-password-6">
-                <div className="text-wrapper-4">비밀번호 재입력</div>
+                <input className="text-wrapper-4"
+                type="password"
+                placeholder="비밀번호 재입력"
+                />
               </div>
             </div>
             <div className="admin-info-number">
@@ -64,7 +105,9 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">전화번호</div>
               </div>
               <div className="div-wrapper-3">
-                <div className="text-wrapper-4">전화번호 입력</div>
+                <input className="text-wrapper-4"
+                type="tel"
+                placeholder="전화번호 입력"/>
               </div>
             </div>
           </div>
@@ -77,7 +120,9 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">가게 이름</div>
               </div>
               <div className="div-wrapper-3">
-                <div className="text-wrapper-4">가게 이름 입력</div>
+                <input className="text-wrapper-4"
+                type="text"
+                placeholder="가게 이름 입력"/>
               </div>
             </div>
             <div className="store-number">
@@ -85,7 +130,9 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">가게 번호</div>
               </div>
               <div className="div-wrapper-3">
-                <div className="text-wrapper-4">가게 번호 입력</div>
+                <input className="text-wrapper-4"
+                type="text"
+                placeholder="가게 번호 입력"/>
               </div>
             </div>
             <div className="admin-number">
@@ -93,7 +140,9 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">사업자등록번호</div>
               </div>
               <div className="admin-number-input">
-                <div className="text-wrapper-4">사업자등록번호 입력</div>
+                <input className="text-wrapper-4"
+                type="text"
+                placeholder="사업자등록번호 입력"/>
               </div>
             </div>
             <div className="store-address">
@@ -119,23 +168,34 @@ export const AdminJoin = () => {
                 </div>
               </div>
               <div className="store-explain-input">
-                <div className="text-wrapper-4">가게 설명 입력</div>
+                <div >
+                    <textarea className="ad-text-wrapper-4"
+                    type="text"
+                    placeholder="가게 설명 입력"
+                    />
+                </div>
               </div>
             </div>
             <div className="caution">
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">예약 주의사항</div>
               </div>
-              <div className="caution-input">
-                <div className="text-wrapper-4">예약 주의사항 입력</div>
+              <div className="store-explain-input">
+                <textarea className="ad-text-wrapper-50"
+                    type="text"
+                    placeholder="예약 주의사항 입력"
+                />
               </div>
             </div>
             <div className="keep-method">
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">보관 및 이용방법</div>
               </div>
-              <div className="keep-method-input">
-                <div className="text-wrapper-4">보관 및 이용방법 입력</div>
+              <div className="store-explain-input">
+                <textarea className="ad-text-wrapper-60"
+                    type="text"
+                    placeholder="보관 및 이용방법 입력"
+                    />
               </div>
             </div>
             <div className="business-hours">
@@ -158,7 +218,22 @@ export const AdminJoin = () => {
               <div className="store-profile-text">
                 <div className="text-wrapper-3">가게 프로필</div>
               </div>
-              <div className="store-profile-2" />
+              <div className="store-profile-2">
+              {image ? (
+          <img src={image} alt="가게 프로필" className="uploaded-image" />
+        ) : (
+          <label htmlFor="image-upload" className="upload-label">
+            <AiOutlineCamera className="camera-icon" />
+            <span>이미지 업로드</span>
+          </label>
+        )}
+        <input
+          type="file"
+          id="image-upload"
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
+              </div>
             </div>
           </div>
           <div className="join-button">

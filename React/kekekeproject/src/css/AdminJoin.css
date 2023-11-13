@@ -7,7 +7,7 @@
   }
   
   .admin-join .div-4 {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     height: 4000px;
     position: relative;
     width: 1440px;
@@ -95,7 +95,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 290px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -111,6 +111,58 @@
     position: relative;
     width: fit-content;
   }
+
+  /* .admin-join .ad-text-wrapper-4 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 10;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: 300px;
+  } */
+
+  .admin-join .store-explain-input textarea.ad-text-wrapper-4 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 10;
+    line-height: normal;
+    width: 450px; /* 원하는 크기로 조절하세요 */
+    height: 170px; /* 원하는 크기로 조절하세요 */
+    resize: none;
+    border: none;
+  }
+
+  .admin-join .store-explain-input textarea.ad-text-wrapper-50 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 10;
+    line-height: normal;
+    width: 450px; /* 원하는 크기로 조절하세요 */
+    height: 380px; /* 원하는 크기로 조절하세요 */
+    resize: none;
+    border: none;
+  }
+  .admin-join .store-explain-input textarea.ad-text-wrapper-60 {
+    color: #787878;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 10;
+    line-height: normal;
+    width: 450px; /* 원하는 크기로 조절하세요 */
+    height: 380px; /* 원하는 크기로 조절하세요 */
+    resize: none;
+    border: none;
+  }
+
+
   
   .admin-join .admin-info-id {
     height: 109px;
@@ -128,7 +180,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 180px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 30px;
   }
@@ -151,7 +203,7 @@
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
-    left: 0;
+    left: 25px;
     padding: 20px;
     position: absolute;
     top: 0;
@@ -160,7 +212,7 @@
   .admin-join .rectangle {
     background-color: #ffa0b7;
     border-radius: 10px;
-    height: 50px;
+    height: 47px;
     position: relative;
     width: 127px;
   }
@@ -170,10 +222,10 @@
     display: inline-flex;
     gap: 10px;
     justify-content: center;
-    left: 24px;
+    left: 45px;
     padding: 20px;
     position: absolute;
-    top: 13px;
+    top: 18px;
   }
   
   .admin-join .text-wrapper-5 {
@@ -187,6 +239,7 @@
     position: relative;
     white-space: nowrap;
     width: fit-content;
+    
   }
   
   .admin-join .admin-info-id-text {
@@ -248,7 +301,7 @@
     gap: 10px;
     justify-content: center;
     left: 236px;
-    padding: 20px 320px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 29px;
   }
@@ -277,7 +330,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 300px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -298,7 +351,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 320px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -359,7 +412,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 260px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -388,7 +441,7 @@
     gap: 10px;
     justify-content: center;
     left: 0;
-    padding: 20px 390px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -401,7 +454,7 @@
     gap: 10px;
     justify-content: center;
     left: 0;
-    padding: 20px 370px 20px 20px;
+    padding: 20px 30px 20px 20px;
     position: absolute;
     top: 82px;
   }
@@ -454,7 +507,7 @@
     gap: 10px;
     justify-content: center;
     left: 237px;
-    padding: 20px 320px 150px 20px;
+    /* padding: 20px 150px 150px 20px; */
     position: absolute;
     top: 0;
   }
@@ -468,17 +521,19 @@
   }
   
   .admin-join .caution-input {
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 20px;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 237px;
-    padding: 20px 280px 320px 20px;
-    position: absolute;
-    top: 0;
-  }
+    
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 20px;
+        display: inline-flex;
+        gap: 10px;
+        justify-content: center;
+        left: 237px;
+        /* padding: 20px 150px 150px 20px; */
+        position: absolute;
+        top: 0;
+      }
+  
   
   .admin-join .keep-method {
     height: 369px;
@@ -586,7 +641,7 @@
     top: 69px;
   }
   
-  .admin-join .store-profile-2 {
+  /* .admin-join .store-profile-2 {
     background-color: #ffffff;
     border-radius: 103.5px;
     height: 207px;
@@ -594,7 +649,60 @@
     position: absolute;
     top: 0;
     width: 207px;
+  } */
+
+
+  .store-profile-2 {
+    background-color: #ffffff;
+    left : 360px;
+    position: relative;
+    width: 200px; /* 가게 프로필 이미지의 가로 너비 */
+    height: 200px; /* 가게 프로필 이미지의 세로 높이 */
+    overflow: hidden;
+    border-radius: 50%; /* 원형 이미지를 위한 border-radius */
+  
+    .uploaded-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%; /* 업로드된 이미지도 원형으로 표시 */
+    }
+  
+    .upload-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #787878;
+      font-family: "Inter", Helvetica;
+      font-size: 14px;
+    }
+  
+    .camera-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  
+    input[type="file"] {
+      display: none;
+    }
   }
+
+
+
+
+
+
+
+
+
+
+
   
   .admin-join .join-button {
     background-image: url(https://c.animaapp.com/BePgla5e/img/join-button-area.svg);
@@ -618,7 +726,7 @@
   }
   
   .admin-join .text-wrapper-9 {
-    color: #ffffff;
+    color: rgb(13, 13, 13);
     font-family: "Inter", Helvetica;
     font-size: 30px;
     font-weight: 800;

@@ -1,839 +1,899 @@
 .tour-detail {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .tour-detail .div {
-    height: 2424px;
-    position: relative;
-    width: 1440px;
-  }
-  
-  .tour-detail .overlap {
-    height: 1829px;
-    left: 75px;
-    position: absolute;
-    top: 303px;
-    width: 1293px;
-  }
-  
-  .tour-detail .group {
-    height: 1825px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1293px;
-  }
-  
-  .tour-detail .overlap-group {
-    height: 1825px;
-    position: relative;
-  }
-  
-  .tour-detail .group-2 {
-    background-image: url(https://c.animaapp.com/Y86t7ddP/img/mask-group-4.png);
-    background-size: 100% 100%;
-    height: 1823px;
-    left: 0;
-    position: absolute;
-    top: 2px;
-    width: 1293px;
-  }
-  
-  .tour-detail .ellipse {
-    background-color: #d1ebff;
-    border-radius: 82.59px/86.31px;
-    height: 173px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 165px;
-  }
-  
-  .tour-detail .rectangle {
-    background-color: #d1ebff;
-    height: 98px;
-    left: 0;
-    position: absolute;
-    top: 84px;
-    width: 70px;
-  }
-  
-  .tour-detail .div-wrapper {
-    height: 82px;
-    left: 5px;
-    position: absolute;
-    top: 434px;
-    width: 1279px;
-  }
-  
-  .tour-detail .div-2 {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 150px;
-    left: 367px;
-    position: relative;
-    top: 26px;
-  }
-  
-  .tour-detail .div-wrapper-2 {
-    height: 29px;
-    position: relative;
-    width: 111px;
-  }
-  
-  .tour-detail .text-wrapper {
-    color: #ff4969;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour-detail .div-wrapper-3 {
-    height: 29px;
-    position: relative;
-    width: 89px;
-  }
-  
-  .tour-detail .text-wrapper-2 {
-    color: #0a0a0a;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour-detail .div-wrapper-4 {
-    height: 29px;
-    position: relative;
-    width: 45px;
-  }
-  
-  .tour-detail .text-wrapper-3 {
-    color: #0a0a0a;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: -1px;
-  }
-  
-  .tour-detail .overlap-wrapper {
-    height: 74px;
-    left: 524px;
-    position: absolute;
-    top: 1715px;
-    width: 284px;
-  }
-  
-  .tour-detail .overlap-2 {
-    height: 74px;
-    position: relative;
-  }
-  
-  .tour-detail .rectangle-wrapper {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .tour-detail .rectangle-2 {
-    height: 34px;
-    position: relative;
-    width: 244px;
-  }
-  
-  .tour-detail .element {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    left: 202px;
-    padding: 20px;
-    position: absolute;
-    top: 5px;
-  }
-  
-  .tour-detail .text-wrapper-4 {
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .tour-detail .element-2 {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    left: 156px;
-    padding: 20px;
-    position: absolute;
-    top: 5px;
-  }
-  
-  .tour-detail .element-3 {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    left: 110px;
-    padding: 20px;
-    position: absolute;
-    top: 5px;
-  }
-  
-  .tour-detail .element-4 {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    left: 65px;
-    padding: 20px;
-    position: absolute;
-    top: 5px;
-  }
-  
-  .tour-detail .element-5 {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    left: 23px;
-    padding: 20px;
-    position: absolute;
-    top: 5px;
-  }
-  
-  .tour-detail .div-3 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 464px;
-    padding: 20px;
-    position: absolute;
-    top: 1715px;
-  }
-  
-  .tour-detail .rectangle-wrapper-2 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    position: relative;
-  }
-  
-  .tour-detail .rectangle-3 {
-    height: 34px;
-    position: relative;
-    width: 60px;
-  }
-  
-  .tour-detail .polygon-wrapper {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 10px;
-    left: 15px;
-    padding: 20px;
-    position: absolute;
-    top: 3px;
-  }
-  
-  .tour-detail .polygon {
-    height: 25.11px;
-    position: relative;
-    width: 21.75px;
-  }
-  
-  .tour-detail .div-4 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 768px;
-    position: absolute;
-    top: 1715px;
-  }
-  
-  .tour-detail .rectangle-4 {
-    height: 34px;
-    position: relative;
-    transform: rotate(-180deg);
-    width: 60px;
-  }
-  
-  .tour-detail .img-wrapper {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 10px;
-    left: 16px;
-    padding: 20px;
-    position: absolute;
-    top: 2px;
-  }
-  
-  .tour-detail .div-5 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 50px;
-    left: 65px;
-    position: absolute;
-    top: 536px;
-  }
-  
-  .tour-detail .div-6 {
-    align-items: flex-end;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    position: relative;
-  }
-  
-  .tour-detail .element-6 {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: -70px 15px;
-    justify-content: center;
-    padding: 0px 20px;
-    position: relative;
-    width: 286px;
-  }
-  
-  .tour-detail .element-7 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    margin-left: -17.5px;
-    margin-right: -17.5px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .img {
-    height: 241px;
-    object-fit: cover;
-    position: relative;
-    width: 241px;
-  }
-  
-  .tour-detail .element-8 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    margin-left: -70px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .text-wrapper-5 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .tour-detail .text-wrapper-6 {
-    color: #ff8d8d;
-    font-family: "Inter", Helvetica;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .tour-detail .element-9 {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: -77px 15px;
-    justify-content: center;
-    padding: 0px 20px;
-    position: relative;
-    width: 281px;
-  }
-  
-  .tour-detail .element-10 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .best-wrapper {
-    background-image: url(https://c.animaapp.com/Y86t7ddP/img/rectangle-25@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 241px;
-    position: relative;
-    width: 241px;
-  }
-  
-  .tour-detail .best {
-    background-color: #ff4d4d;
-    border-radius: 10px;
-    height: 29px;
-    left: 11px;
-    position: relative;
-    top: 17px;
-    width: 99px;
-  }
-  
-  .tour-detail .text-wrapper-7 {
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 15px;
-    font-weight: 800;
-    left: 31px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 6px;
-    white-space: nowrap;
-  }
-  
-  .tour-detail .element-11 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    margin-left: -77px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .element-12 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .tour-detail .element-13 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .element-14 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .element-15 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    margin-left: -70px;
-    padding: 0px 20px;
-    position: relative;
-  }
-  
-  .tour-detail .div-7 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 63px;
-    padding: 20px;
-    position: absolute;
-    top: 513px;
-  }
-  
-  .tour-detail .rectangle-5 {
-    background-color: #ff4d4d;
-    border-radius: 10px;
-    height: 29px;
-    position: relative;
-    width: 99px;
-  }
-  
-  .tour-detail .best-2 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 49px;
-    padding: 20px;
-    position: absolute;
-    top: 25px;
-  }
-  
-  .tour-detail .text-wrapper-8 {
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .tour-detail .div-8 {
-    height: 263px;
-    left: 169px;
-    position: absolute;
-    top: 151px;
-    width: 1014px;
-  }
-  
-  .tour-detail .overlap-3 {
-    height: 116px;
-    left: 291px;
-    position: absolute;
-    top: 0;
-    width: 188px;
-  }
-  
-  .tour-detail .div-wrapper-5 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 52px;
-  }
-  
-  .tour-detail .text-wrapper-9 {
-    color: #565656;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .tour-detail .div-wrapper-6 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .tour-detail .text-wrapper-10 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .tour-detail .overlap-group-wrapper {
-    height: 69px;
-    left: 862px;
-    position: absolute;
-    top: 52px;
-    width: 152px;
-  }
-  
-  .tour-detail .overlap-group-2 {
-    height: 69px;
-    position: relative;
-  }
-  
-  .tour-detail .div-9 {
-    background-color: #ffffe7;
-    border: 3px solid;
-    border-color: #61a4d5;
-    border-radius: 30px;
-    height: 60px;
-    left: 0;
-    position: absolute;
-    top: 3px;
-    width: 152px;
-  }
-  
-  .tour-detail .element-16 {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    left: 17px;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-    width: 119px;
-  }
-  
-  .tour-detail .text-wrapper-11 {
-    color: #61a4d5;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-left: -1px;
-    margin-right: -1px;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .tour-detail .rectangle-wrapper-3 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 2px;
-  }
-  
-  .tour-detail .rectangle-6 {
-    height: 200px;
-    object-fit: cover;
-    position: relative;
-    width: 200px;
-  }
-  
-  .tour-detail .div-wrapper-7 {
-    align-items: center;
-    display: flex;
-    gap: 10px;
-    height: 97px;
-    justify-content: center;
-    left: 291px;
-    padding: 0px 20px;
-    position: absolute;
-    top: 146px;
-    width: 491px;
-  }
-  
-  .tour-detail .p {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-left: -24.5px;
-    margin-right: -24.5px;
-    margin-top: -0.5px;
-    position: relative;
-    width: 500px;
-  }
-  
-  .tour-detail .view {
-    height: 136px;
-    left: 154px;
-    position: absolute;
-    top: 63px;
-    width: 1062px;
-  }
-  
-  .tour-detail .overlap-4 {
-    height: 136px;
-    position: relative;
-  }
-  
-  .tour-detail .view-2 {
-    background-color: #ffffff;
-    border: 10px solid;
-    border-color: #ffdee6;
-    border-radius: 30px;
-    height: 67px;
-    left: 75px;
-    position: absolute;
-    top: 34px;
-    width: 987px;
-  }
-  
-  .tour-detail .view-3 {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 55px;
-    left: 482px;
-    position: absolute;
-    top: 55px;
-  }
-  
-  .tour-detail .div-wrapper-8 {
-    height: 24px;
-    position: relative;
-    width: 74px;
-  }
-  
-  .tour-detail .text-wrapper-12 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    white-space: nowrap;
-  }
-  
-  .tour-detail .div-wrapper-9 {
-    height: 24px;
-    position: relative;
-    width: 148px;
-  }
-  
-  .tour-detail .div-wrapper-10 {
-    height: 24px;
-    position: relative;
-    width: 56px;
-  }
-  
-  .tour-detail .text-wrapper-13 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    white-space: nowrap;
-  }
-  
-  .tour-detail .view-4 {
-    background-image: url(https://c.animaapp.com/Y86t7ddP/img/kekeke--2--1-1@2x.png);
-    background-size: 100% 100%;
-    height: 136px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 190px;
-  }
-  
-  .tour-detail .frame {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 12px;
-    left: 922px;
-    position: absolute;
-    top: 55px;
-  }
-  
-  .tour-detail .view-5 {
-    background-image: url(https://c.animaapp.com/Y86t7ddP/img/mask-group-8@2x.png);
-    background-size: 100% 100%;
-    height: 24px;
-    position: relative;
-    width: 24px;
-  }
-  
-  .tour-detail .view-6 {
-    height: 24px;
-    position: relative;
-    width: 24px;
-  }
-  
-  .tour-detail .mask-group {
-    height: 24px;
-    left: 1px;
-    position: absolute;
-    top: -1px;
-    width: 24px;
-  }
-  
-  .tour-detail .mask-group-wrapper {
-    background-image: url(https://c.animaapp.com/Y86t7ddP/img/mask-group-6@2x.png);
-    background-size: 100% 100%;
-    height: 24px;
-    left: 1px;
-    position: relative;
-    top: 1px;
-  }
-  
-  .tour-detail .mask-group-2 {
-    height: 24px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 24px;
-  }
-  
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.tour-detail .overlap-wrapper {
+  height: 2424px;
+  width: 1440px;
+
+}
+
+.tour-detail .overlap {
+  height: 1829px;
+  left: 75px;
+  position: relative;
+  top: 0px;
+  width: 1293px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.tour-detail .group {
+  height: 1825px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1293px;
+  
+}
+
+.tour-detail .overlap-group {
+  height: 1825px;
+  position: relative;
+}
+
+.tour-detail .div {
+  background-image: url(https://c.animaapp.com/AyTKNrDN/img/mask-group.png);
+  background-size: 100% 100%;
+  height: 1823px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  width: 1293px;
+}
+
+.tour-detail .ellipse {
+  background-color: #d1ebff;
+  border-radius: 82.59px/86.31px;
+  height: 173px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 165px;
+}
+
+.tour-detail .rectangle {
+  background-color: #d1ebff;
+  height: 98px;
+  left: 0;
+  position: absolute;
+  top: 84px;
+  width: 70px;
+}
+
+.tour-detail .div-2 {
+  height: 82px;
+  left: 5px;
+  position: absolute;
+  top: 434px;
+  width: 1279px;
+}
+
+.tour-detail .div-wrapper {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: -250px;
+  padding: 10px 30px;
+  position: absolute;
+  top: 16px;
+}
+
+.tour-detail .text-wrapper {
+  color: #ff4969;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.tour-detail .frame {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 598px;
+  padding: 0px 30px;
+  position: absolute;
+  top: 26px;
+}
+
+.tour-detail .text-wrapper-2 {
+  color: #0a0a0a;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.tour-detail .frame-2 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 847px;
+  padding: 0px 30px;
+  position: absolute;
+  top: 26px;
+}
+
+.tour-detail .text-wrapper-3 {
+  color: #0a0a0a;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.tour-detail .overlap-group-wrapper {
+  height: 114px;
+  left: 464px;
+  position: absolute;
+  top: 1715px;
+  width: 404px;
+}
+
+.tour-detail .overlap-2 {
+  height: 114px;
+  position: relative;
+}
+
+.tour-detail .overlap-group-wrapper-2 {
+  height: 74px;
+  left: 60px;
+  position: absolute;
+  top: 0;
+  width: 284px;
+}
+
+.tour-detail .overlap-group-2 {
+  height: 74px;
+  position: relative;
+}
+
+.tour-detail .rectangle-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.tour-detail .rectangle-2 {
+  height: 34px;
+  position: relative;
+  width: 244px;
+}
+
+.tour-detail .element {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 202px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.tour-detail .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tour-detail .element-2 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 156px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.tour-detail .element-3 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 110px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.tour-detail .element-4 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 65px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.tour-detail .element-5 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 23px;
+  padding: 20px;
+  position: absolute;
+  top: 5px;
+}
+
+.tour-detail .tour-detail-sample {
+  height: 114px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 140px;
+}
+
+.tour-detail .overlap-3 {
+  height: 91px;
+  left: 15px;
+  position: relative;
+  top: 3px;
+  width: 105px;
+}
+
+.tour-detail .rectangle-wrapper-2 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 17px;
+}
+
+.tour-detail .rectangle-3 {
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.tour-detail .polygon-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.tour-detail .polygon {
+  height: 25.11px;
+  position: relative;
+  width: 21.75px;
+}
+
+.tour-detail .tour-detail-sample-2 {
+  height: 74px;
+  left: 304px;
+  position: absolute;
+  top: 0;
+  width: 100px;
+}
+
+.tour-detail .rectangle-4 {
+  height: 34px;
+  position: relative;
+  transform: rotate(-180deg);
+  width: 60px;
+}
+
+.tour-detail .img-wrapper {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 16px;
+  padding: 20px;
+  position: absolute;
+  top: 2px;
+}
+
+.tour-detail .linktostore{
+  color: black;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.tour-detail .linktoreview{
+  color: black;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.tour-detail .div-wrapper-2 {
+  height: 333px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1159px;
+}
+
+.tour-detail .div-4 {
+  align-items: flex-end;
+  display: inline-flex;
+  gap: 10px;
+  position: relative;
+}
+
+.tour-detail .div-5 {
+  height: 333px;
+  position: relative;
+  width: 286px;
+}
+
+.tour-detail .element-6 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 2px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 0;
+}
+
+.tour-detail .img {
+  height: 241px;
+  object-fit: cover;
+  position: relative;
+  width: 241px;
+}
+
+.tour-detail .element-7 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 48px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tour-detail .element-8 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 60px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 302px;
+}
+
+.tour-detail .text-wrapper-6 {
+  color: #ff8d8d;
+  font-family: "Inter", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tour-detail .div-6 {
+  height: 333px;
+  position: relative;
+  width: 281px;
+}
+
+.tour-detail .element-9 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 0;
+  padding: 0px 20px;
+  position: absolute;
+  top: 0;
+}
+
+.tour-detail .best-wrapper {
+  background-image: url(https://c.animaapp.com/AyTKNrDN/img/rectangle-25@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 241px;
+  position: relative;
+  width: 241px;
+}
+
+.tour-detail .best {
+  background-color: #ff4d4d;
+  border-radius: 10px;
+  height: 29px;
+  left: 11px;
+  position: relative;
+  top: 17px;
+  width: 99px;
+}
+
+.tour-detail .text-wrapper-7 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 800;
+  left: 31px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 6px;
+  white-space: nowrap;
+}
+
+.tour-detail .element-10 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 46px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .element-11 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 58px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 302px;
+}
+
+.tour-detail .element-12 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  padding: 0px 20px;
+  position: absolute;
+  top: 0;
+}
+
+.tour-detail .element-13 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 58px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .element-14 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 58px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 302px;
+}
+
+.tour-detail .element-15 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 46px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .div-7 {
+  height: 333px;
+  left: 0;
+  position: absolute;
+  top: 383px;
+  width: 1159px;
+}
+
+.tour-detail .div-8 {
+  height: 333px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 286px;
+}
+
+.tour-detail .element-16 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 51px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .element-17 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 63px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 302px;
+}
+
+.tour-detail .div-9 {
+  height: 333px;
+  left: 296px;
+  position: absolute;
+  top: 0;
+  width: 281px;
+}
+
+.tour-detail .element-18 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 60px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .div-10 {
+  height: 333px;
+  left: 587px;
+  position: absolute;
+  top: 0;
+  width: 281px;
+}
+
+.tour-detail .element-19 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 48px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .div-11 {
+  height: 333px;
+  left: 878px;
+  position: absolute;
+  top: 0;
+  width: 281px;
+}
+
+.tour-detail .div-12 {
+  height: 333px;
+  left: 0;
+  position: absolute;
+  top: 766px;
+  width: 1159px;
+}
+
+.tour-detail .element-20 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  left: 43px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 256px;
+}
+
+.tour-detail .element-21 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 62px;
+  padding: 0px 20px;
+  position: absolute;
+  top: 302px;
+}
+
+.tour-detail .div-13 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 63px;
+  padding: 20px;
+  position: absolute;
+  top: 513px;
+}
+
+.tour-detail .best-2 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  position: relative;
+}
+
+.tour-detail .rectangle-5 {
+  background-color: #ff4d4d;
+  border-radius: 10px;
+  height: 29px;
+  position: relative;
+  width: 99px;
+}
+
+.tour-detail .best-3 {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  left: 49px;
+  padding: 20px;
+  position: absolute;
+  top: 25px;
+}
+
+.tour-detail .text-wrapper-8 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tour-detail .div-14 {
+  height: 263px;
+  left: 169px;
+  position: absolute;
+  top: 151px;
+  width: 1014px;
+}
+
+.tour-detail .overlap-4 {
+  height: 196px;
+  left: 254px;
+  position: absolute;
+  top: 29px;
+  width: 760px;
+}
+
+.tour-detail .div-15 {
+  height: 196px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 610px;
+}
+
+.tour-detail .div-wrapper-3 {
+  height: 116px;
+  left: 0;
+  position: absolute;
+  top: 80px;
+  width: 610px;
+}
+
+.tour-detail .p {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1px;
+  width: 500px;
+}
+
+.tour-detail .tour-detail-storeadd {
+  height: 24px;
+  left: 0;
+  position: absolute;
+  top: 52px;
+  width: 217px;
+}
+
+.tour-detail .text-wrapper-9 {
+  color: #565656;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.tour-detail .tour-detatil {
+  height: 39px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 248px;
+}
+
+.tour-detail .text-wrapper-10 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 800;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.tour-detail .overlap-group-wrapper-3 {
+  height: 69px;
+  left: 608px;
+  position: absolute;
+  top: 23px;
+  width: 152px;
+}
+
+.tour-detail .overlap-group-3 {
+  height: 69px;
+  position: relative;
+}
+
+.tour-detail .div-16 {
+  background-color: #ffffe7;
+  border: 3px solid;
+  border-color: #61a4d5;
+  border-radius: 30px;
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 152px;
+}
+
+.tour-detail .tour-detail-chattext {
+  height: 69px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 119px;
+}
+
+.tour-detail .element-22 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px;
+  position: relative;
+  width: 120px;
+}
+
+.tour-detail .samplecontainer {
+  height: 1099px;
+  left: 65px;
+  position: absolute;
+  top: 536px;
+  width: 1159px;
+}
+
+.tour-detail .text-wrapper-11 {
+  color: #61a4d5;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.tour-detail .tour-detail-store {
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 2px;
+  width: 240px;
+}
+
+.tour-detail .rectangle-6 {
+  height: 200px;
+  left: 20px;
+  object-fit: cover;
+  position: absolute;
+  top: 20px;
+  width: 200px;
+}
