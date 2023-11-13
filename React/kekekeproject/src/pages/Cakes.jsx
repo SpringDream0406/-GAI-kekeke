@@ -1,8 +1,8 @@
+
 import React , { useState }from "react";
 import "../css/Cake.css";
 import {Link} from 'react-router-dom'
-
-
+import Footer from '../component/Footer'
 
 
 const selectLocation = () => {
