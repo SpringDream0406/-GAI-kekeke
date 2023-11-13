@@ -1,21 +1,26 @@
 import Join from "./pages/Join";
 import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
-import Mypage from "./pages/Mypage";
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
 import './css/Footer.css'
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminJoin } from "./pages/AdminJoin";
-
 import TourDet2 from "./pages/TourDet2";
 import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
 import TourReviewPopup from"./pages/TourReviewPopup";
 import MpOrderList from "./pages/MpOrderList"; // component의 직접적인 오류는 없습니다... 신경 쓰여도 무시해 주세요 - 유정 -
-
-
+import React, { useState } from "react";
+import ReactResponsive, { Mobile, PC } from './component/ReactResponsive'
+import Header_bf from "./component/Header_bf";
+import Header_af from './component/Header_af'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cakes from "./pages/Cakes";
+import CustomCake from "./pages/CustomCake";
+import Login from "./pages/Login";
+import Mypage from "./pages/Mypage";
 
 function App() {
   const [toggle , setToggle] = useState(false);
@@ -27,7 +32,7 @@ function App() {
 
 
         <GlobalStyle />
-        <Header_bf toggle={toggle} setToggle={setToggle}/>  
+        <Header_af toggle={toggle} setToggle={setToggle}/>  
  
     <Routes>
       <Route path="TourReviewPopup" element = {<TourReviewPopup/>}/>

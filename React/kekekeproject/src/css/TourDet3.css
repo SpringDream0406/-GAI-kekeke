@@ -138,7 +138,7 @@
   
   .index .text-ReviewCust {
     color: #000000;
-    font-family: "Inter", Helvetica;
+    font-family:'Pretendard-Bold';
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 0;
@@ -223,7 +223,7 @@
     width: fit-content;
   }
   
-  .index .tour-det-review {
+  .index .TourDet3_reviewtab {
     color: #ff4969;
     font-family: "Inter", Helvetica;
     font-size: 24px;
@@ -297,7 +297,7 @@
   
   .index .tour-det-addr-tx {
     color: #565656;
-    font-family: "Inter", Helvetica;
+    font-family: 'Pretendard-Light';
     font-size: 20px;
     font-weight: 400;
     left: 20px;
@@ -337,7 +337,7 @@
   
   
   
-  .index .tour-det-chatbox {
+  .index button.tour-det-chatbox {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
@@ -345,7 +345,13 @@
     left: 0;
     position: absolute;
     top: 0;
+    background-color: transparent; /* 배경색을 투명으로 설정 */
+    border: none; /* 기본 테두리 제거 */
+    padding: 0; /* 내부 여백 제거 */
+    cursor: pointer; /* 커서를 손가락 모양으로 변경 */
+    
   }
+
   
   .index .tourdet3Chatbox {
     background-color: #ffffe7;
@@ -390,6 +396,7 @@
     height: 1138px;
     position: relative;
     width: 1124px;
+    
   }
   
   .index .wrvlisttxfr {
@@ -412,6 +419,7 @@
     margin-top: -1px;
     position: relative;
     width: fit-content;
+    
   }
   
   .index .wreviewtxfr {
@@ -420,7 +428,7 @@
     flex-direction: column;
     left: 104px;
     position: absolute;
-    top: 182px;
+    top: 150px;
   }
   
   .index .tourdet-5 {
@@ -430,13 +438,16 @@
   }
   
   .index .tourdet-wlistfr {
-    align-items: center;
-    display: inline-flex;
-    gap: 32px;
-    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
     padding: 20px;
-    position: absolute;
-    top: 0;
+    border-radius: 10px;
+  
+  
   }
   
   .index .tourdet-cakeimg {
@@ -446,6 +457,7 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
+    flex: 0 0 auto;
   }
   
   .index .cakeimgbox {
@@ -453,6 +465,7 @@
     object-fit: cover;
     position: relative;
     width: 173px;
+    top: 25px;
   }
   
   .index .cakervfr {
@@ -504,32 +517,44 @@
 
   .index .text-ReviewDetail {
     color: #000000;
-    font-family:'Pretendard-ExtraLight';
+    font-family:'Pretendard-Regular';
     font-size: 24px;
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+    width: 650px;
+    
     position: relative;
-    width: fit-content;
+    max-width: 100%;
+    white-space: normal; /* 줄바꿈이 자동으로 이루어집니다. */
+    margin: 0; /* 기본 마진 제거 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 두 줄만 표시 */
+    -webkit-box-orient: vertical;
+    
+
   }
   
   
   .index .line-wrapper {
-    height: 1px;
-    left: 0;
+    
+    display: flex; /* 라인을 플렉스 아이템으로 설정 */
+    justify-content: center; /* 중앙 정렬 */
+    flex-grow: 1;
+    
     position: absolute;
-    top: 300px;
-    width: 875px;
+    margin-top: 20px;
+    left: -200px;
   }
   
   .index .line {
     height: 1px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: -1px;
-    width: 875px;
+    background-color: #000; /* 선의 색상 */
+    margin-top: 90px; /* 선과 리뷰 내용 사이의 여백 */
+    width:100%;
+    
   }
   
   .index .pagenumfr {
@@ -617,3 +642,13 @@
     transform: rotate(180deg);
     width: 22px;
   }
+
+
+.TourDet3_LinkStyle{
+  color: inherit
+}
+
+.TourDet3_LinkStyle:hover {
+  color: purple; /* 클릭 전 텍스트 색상 사용 */
+  cursor: pointer; /* 커서를 손가락 모양으로 변경 */
+}
