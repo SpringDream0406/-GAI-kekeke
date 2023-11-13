@@ -67,7 +67,7 @@
   width: 70px;
 }
 
-.tour-detail .div-2 {
+.tour-detail .subbar-container {
   height: 82px;
   left: 5px;
   position: absolute;
@@ -75,19 +75,42 @@
   width: 1279px;
 }
 
-.tour-detail .div-wrapper {
+.tour-detail .samplecake-fr {
   align-items: center;
   display: inline-flex;
   gap: 10px;
   justify-content: center;
-  left: -250px;
+  left: 300px;
   padding: 10px 30px;
   position: absolute;
   top: 16px;
 }
 
-.tour-detail .text-wrapper {
+.tour-detail .linktosample {
   color: #ff4969;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+}
+
+.tour-detail .store-fr {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  left: 580px;
+  padding: 0px 30px;
+  position: absolute;
+  top: 26px;
+}
+
+.tour-detail .linktostore{
+  color: black;
   font-family: "Inter", Helvetica;
   font-size: 24px;
   font-weight: 700;
@@ -98,29 +121,7 @@
   width: fit-content;
 }
 
-.tour-detail .frame {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 10px;
-  left: 598px;
-  padding: 0px 30px;
-  position: absolute;
-  top: 26px;
-}
-
-.tour-detail .text-wrapper-2 {
-  color: #0a0a0a;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.tour-detail .frame-2 {
+.tour-detail .review-fr {
   align-items: flex-start;
   display: inline-flex;
   gap: 10px;
@@ -130,18 +131,18 @@
   top: 26px;
 }
 
-.tour-detail .text-wrapper-3 {
-  color: #0a0a0a;
+.tour-detail .linktoreview{
+  color: black;
   font-family: "Inter", Helvetica;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
   margin-top: -1px;
   position: relative;
-  text-align: center;
   width: fit-content;
 }
+
 
 .tour-detail .overlap-group-wrapper {
   height: 114px;
@@ -333,29 +334,7 @@
   top: 2px;
 }
 
-.tour-detail .linktostore{
-  color: black;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
 
-.tour-detail .linktoreview{
-  color: black;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
 
 .tour-detail .div-wrapper-2 {
   height: 333px;

@@ -15,18 +15,18 @@ export const SampleCake = () => {
               <div className="rectangle" />
             </div>
           </div>
-          <div className="div-2">
-            <div className="div-wrapper">
-              <Link className="text-wrapper" to="/samplecake">
+          <div className="subbar-container">
+            <div className="samplecake-fr">
+              <Link className="linktosample" to="/samplecake">
                 샘플케이크
               </Link>
             </div>
-            <div className="frame">
+            <div className="store-fr">
             <Link className="linktostore" to="/tourdet2">
                 매장정보
               </Link>
             </div>
-            <div className="frame-2">
+            <div className="review-fr">
             <Link className="linktoreview" to="/tourdet3">
                 리뷰
               </Link>
