@@ -24,12 +24,12 @@ const Login = () => {
 
   const [cust_id, setCust_id] = useState('');
 
-  const [password, setPassword] = useState('');
+  const [cust_pw, setCust_pw] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = () => {
     const url = `${API_URL}/user/login`;
-    const data = { cust_id: cust_id, password: password, user_type : 0 };
+    const data = { cust_id: cust_id, cust_pw: cust_pw, user_type : 0 };
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
@@ -79,10 +79,10 @@ const Login = () => {
               <div className="login-pw-input">
                 <div className="login-pw-input-area">
                   <input className="login-content"
-                    type='password'
+                    type='cust_pw'
                     placeholder='비밀번호를 입력하세요'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={cust_pw}
+                    onChange={(e) => setCust_pw(e.target.value)}
                   />
                 </div>
               </div>
