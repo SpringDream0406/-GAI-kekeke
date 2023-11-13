@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "../css/Cake.css";
 
 
-import "../css/TourMain.css";
 import Footer from '../component/Footer'
 
 
