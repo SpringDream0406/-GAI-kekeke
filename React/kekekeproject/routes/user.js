@@ -36,10 +36,10 @@ router.post('/login', (req, res) => {
                     //         if (result) {
 
                     md5Hash(password) // crypto 비밀번호 검증
-                    .then((hashed)=>{
-                        const pw_hashed = hashed
-                        if(pw_hashed === rows[0].cust_pw){
-                                console.log('로그인 성공', cust_id);
+                        .then((hashed) => {
+                            const pw_hashed = hashed
+                            if (pw_hashed === rows[0].cust_pw) {
+                                console.log('로그인 성공', cust_id, user_ip);
                                 let data = {
                                     message: '로그인 성공',
                                     cust_id: rows[0].cust_id,
@@ -53,14 +53,14 @@ router.post('/login', (req, res) => {
                             }
                             else {
                                 console.log('로그인 실패 - 비밀번호 다름');
-                                console.log('받은 비번', password);
+                                console.log('받은 비번', password, user_ip);
                                 // console.log('비번 검증', result);
-                                res.status(200).send({ message: '로그인 실패' })
+                                res.status(400).send({ message: '로그인 실패' })
                             }
                         })
                 }
                 else {
-                    console.log('로그인 실패 - 데이터 없음');
+                    console.log('로그인 실패 - 데이터 없음', user_ip);
                     res.status(200).send({ message: '로그인 데이터 없음' })
                 }
             }
@@ -68,116 +68,123 @@ router.post('/login', (req, res) => {
     }
     else if (user_type === 1) {
 
-}
+    }
 
 })
 
 
 // 회원가입
 router.post('/join', (req, res) => {
-    console.log('회원가입 시도', req.body);
-    let { cust_id, nick_name, password,passwordcheck, phone, user_type } = req.body;
-    console.log('비번길이', password.length);
-    if (password.length < 8 || password.length > 20) { // 비밀번호 길이 체크
-        console.log('비밀번호 길이 벗어남', password.length);
-        res.status(400).send({ message: '비밀번호 길이 벗어남' })
-    } else {
-        console.log('비번 체크', password, passwordcheck);
-        if (password !== passwordcheck) { // 비밀번호 불일치 체크
-            res.status(400).send({ message : '비밀번호 불일치' })
-        }
-        else {
-            console.log('회원가입 비밀번호 헤싱');
-            // hashPassword(password) // bcrypt 방법
-            // .then((hashed)=>{
-            //     console.log(hashed);
-            //     const pw_hashed = hashed;
-            md5Hash(password)
-            .then((hashed)=>{
-                console.log(hashed);
-                const pw_hashed = hashed
-            
-                if (user_type === 0){
-                    let sql = `insert into TB_CUSTOMER (cust_id, cust_pw, phone, nick_name)
-                               values (?,?,?,?)`
-                    conn.query(sql,[cust_id, pw_hashed, phone, nick_name], (err,rows)=>{
-                        if(err){
-                            console.error('커스터머 회원가입 에러', err);
-                            res.status(500).send({message : '커스터머 회원가입 에러'})
-                        }
-                        else {
-                            if(rows.affectedRows > 0){
-                                console.log('커스터머 회원가입 성공', cust_id);
-                                res.status(200).send({message : '회원가입 성공'})
-                            }
-                            else{
-                                console.log('커스터머 회원가입 실패', rows);
-                                res.status(500).send({message : '회원가입 실패'})
-                            }
+    console.log('회원가입 시도');
+    let { user_type } = req.body
+    if (user_type === 0) {
+        console.log('커스터머 회원가입 시도', req.body);
+        let { cust_id, nick_name, password, passwordcheck, phone, profile_img } = req.body;
+        console.log('비번길이', password.length);
+        if (password.length < 8 || password.length > 20) { // 비밀번호 길이 체크
+            console.log('비밀번호 길이 벗어남', password.length);
+            res.status(400).send({ message: '비밀번호 길이 벗어남' })
+        } else {
+            console.log('비번 체크', password, passwordcheck);
+            if (password !== passwordcheck) { // 비밀번호 불일치 체크
+                res.status(400).send({ message: '비밀번호 불일치' })
+            }
+            else {
+                console.log('회원가입 비밀번호 헤싱');
+                // hashPassword(password) // bcrypt 방법
+                // .then((hashed)=>{
+                //     console.log(hashed);
+                //     const pw_hashed = hashed;
+                md5Hash(password)
+                    .then((hashed) => {
+                        console.log(hashed);
+                        const pw_hashed = hashed
+
+                        if (!profile_img) {
+                            profile_img = 'eunho.jpg'
+                            let sql = `insert into TB_CUSTOMER (cust_id, cust_pw, phone, nick_name, profile_img)
+                                   values (?,?,?,?,?)`
+                            conn.query(sql, [cust_id, pw_hashed, phone, nick_name, profile_img], (err, rows) => {
+                                if (err) {
+                                    console.error('커스터머 회원가입 에러', err);
+                                    res.status(500).send({ message: '커스터머 회원가입 에러' })
+                                }
+                                else {
+                                    if (rows.affectedRows > 0) {
+                                        console.log('커스터머 회원가입 성공', cust_id);
+                                        res.status(201).send({ message: '회원가입 성공' })
+                                    }
+                                    else {
+                                        console.log('커스터머 회원가입 실패', rows);
+                                        res.status(500).send({ message: '회원가입 실패' })
+                                    }
+                                }
+                            })
                         }
                     })
-                }
-            })
-            .catch((error)=>{
-                console.error('회원가입 비밀번호 헤싱 에러', error);
-            })
+                    .catch((error) => {
+                        console.error('회원가입 비밀번호 헤싱 에러', error);
+                        res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' })
+                    })
+            }
         }
     }
+
 })
 
 
 // 회원가입 중복체크
 router.post('/check', (req, res) => {
     console.log('중복확인', req.body);
-    let { nick_name, cust_id, user_type} = req.body;
+    let { nick_name, cust_id, user_type } = req.body;
     if (user_type === 0) {
         console.log('커스터머');
-        if(nick_name){
+        if (nick_name) {
             console.log('닉네임 중복 체크', nick_name);
             let sql = `select nick_name 
-                       from CUSTOMER
+                       from TB_CUSTOMER
                        where nick_name = ?`
-            conn.query(sql,[nick_name],(err, rows)=>{
-                if(err){
+            conn.query(sql, [nick_name], (err, rows) => {
+                if (err) {
                     console.error('닉네임 중복확인 에러', err);
-                    res.status(500).send({message : '닉네임 중복확인 에러'})
+                    res.status(500).send({ message: '닉네임 중복확인 에러' })
                 }
                 else {
-                    if(rows.length > 0) {
+                    if (rows.length > 0) {
                         console.log('닉네임 중복', rows);
-                        res.status(200).send({message : '닉네임 중복'})
+                        res.status(200).send({ message: '닉네임 중복' })
                     }
                     else {
                         console.log('닉네임 사용 가능', nick_name);
-                        res.status(200).send({message : '닉네임 사용 가능'})
+                        res.status(200).send({ message: '닉네임 사용 가능' })
                     }
                 }
             })
         }
-        else if (cust_id){
+        else if (cust_id) {
             console.log('아이디 중복체크', cust_id);
             let sql = `select cust_id
-                       from CUSTOMER
+                       from TB_CUSTOMER
                        where cust_id = ?`
-            conn.query(sql,[cust_id],(err,rows)=>{
-                if(err){
+            conn.query(sql, [cust_id], (err, rows) => {
+                if (err) {
                     console.error('아이디 중복체크 에러', err);
-                    res.status(500).send({message : '커스터머 아이디 중복체크 에러'})
+                    res.status(500).send({ message: '커스터머 아이디 중복체크 에러' })
                 }
                 else {
-                    if(rows.length > 0) {
+                    if (rows.length > 0) {
                         console.log('아이디 중복', rows);
-                        res.status(200).send({message : '아이디 중복'})
+                        res.status(200).send({ message: '아이디 중복' })
                     }
                     else {
                         console.log('아이디 사용 가능', cust_id);
-                        res.status(200).send({message : '아이디 사용 가능'})
+                        res.status(200).send({ message: '아이디 사용 가능' })
                     }
                 }
             })
         }
     }
-    
+
 })
 
 
