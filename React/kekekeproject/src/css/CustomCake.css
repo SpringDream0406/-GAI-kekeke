@@ -1,20 +1,132 @@
 
 
 
+.tool-selector{
+    position: relative;
+    
+    border-radius: 20px;
+    width: 1350px;
+    height: 20px;
+    top: 0px;
+    padding: 15px;
+    left: 120px;
+    cursor: pointer;
+    color: gray;
+    display: flex;
+    gap: 20px; /* 아이콘 사이에 10px의 간격을 추가 */
+}
+
+
+
+.color-picker{
+    background-color:white;
+    border-radius: 5px;
+    border: 2px solid white;
+    
+  width:40px;
+
+   height: 30px;
+    position: relative;
+    top: -5px;
+    left: -20px;
+}
+
+
+.color-txt{
+    font-family: 'Pretendard-Semibold';
+    position: relative;
+    top: 35px;
+    left: 30px;
+    color: gray;
+}
 .custom-selectbox{
     position: relative;
-    top: -670px;
-    left: 20px;
+    top: -780px;
+    left: 30px;
     font-family: 'Pretendard-bold';
+
 }
 
 .custom-container{
 margin: auto;
 position: relative;
-top: 100px;
+top: 150px;
 width: 1500px;
 height: 700px;
 border-radius: 30px;
-border: 3px solid white;
+border: 5px solid lightgray;
 background-color: white;
+
+}
+.text-input{
+    position: relative;
+    left: 30px;
+    padding: 5px;
+   padding-right: 50px;
+   font-family: 'Pretendard-Regular';
+    border: 2px solid lightgrey;
+border-radius: 5px;
+}
+
+.custom-hr{
+    border-style: dashed ;
+    color: lightgrey;
+}
+
+.tooltxt{
+    font-family: 'Pretendard-Regular';
+    position: relative;
+    left: 750px;
+    color: lightgray;
+    top: 10px;
+}
+
+.custom-nextbutton{
+    border-radius: 10px;
+    font-family: 'Pretendard-Semibold';
+    font-size: 20px;
+    padding: 10px 40px;
+    background-color: #FFA0B7;
+    border: 1px solid #FFA0B7;
+    color: white;
+    cursor: pointer;
+}
+
+.next-button-container{
+    position: relative;
+    left: 500px;
+    top: -130px;
+    padding: 200px;
+}
+
+.custom-nextbutton:hover{
+    background-color: #f67999;
+}
+
+.txt-plusbtn{
+    position: relative;
+    top: -45px;
+    left: 280px;
+    padding: 5px;
+    background-color: lightgray;
+    border: 3px solid lightgray;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Pretendard-Medium';
+}
+
+.delete-text{
+    position: relative;
+    top: -70px;
+    left: 380px;
+    color: lightgray;
+}
+
+.doubletxt{
+    font-family: 'Pretendard-Regular';
+    font-size: 10px;
+    color: gray;
+    position: relative;
+    top: 10px;
+  left: 35px;
 }
