@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
+   font-family: 'Pretendard-Regular', sans-serif; /* 폰트 적용 */
 }
 
 .frame .overlap-wrapper {
@@ -370,3 +371,4 @@
   width: 68px;
   
 }
+

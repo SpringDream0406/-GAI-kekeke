@@ -1,0 +1,113 @@
+/* ReviewPopup.css */
+.review-popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .review-popup {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .review-header {
+    display: block; /* flex를 block으로 변경 */
+    width: 100%; /* 전체 너비를 사용하도록 설정 */
+  }
+
+  .image-placeholder {
+    flex: 0 0 auto; /* Flex item is fully inflexible */
+    width: 120px; /* Fixed width, you can adjust this */
+    height: 120px; /* Fixed height to maintain aspect ratio */
+    background: #eaeaea;
+    border: dashed 2px #cccccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: block; /* 인라인 블록 요소로 변경 */
+    margin-left: auto; /* 왼쪽 마진을 자동으로 설정 */
+    margin-right: auto; /* 오른쪽 마진을 자동으로 설정 */
+  }
+  
+  
+  .review-details {
+    flex-grow: 1;
+    margin: 10px;
+    
+  }
+  
+  .review-detail-item {
+    margin-bottom: 10px;
+    
+  }
+  
+  .review-detail-title {
+      font-weight: bold;
+      font-family: 'Pretendard-Regular';
+
+  }
+  
+  .review-detail-info {
+    margin-top: 10px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Pretendard-Regular';
+  }
+  
+  .review-text-input textarea {
+    width: 96%;
+    margin-top: 20px;
+    height: 150px;
+    border: solid 1px #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    font-family: 'Pretendard-Regular';
+  }
+  
+  .input-guide {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 14px;
+    font-family: 'Pretendard-Regular';
+  }
+  
+  .review-submit {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .submit-button,
+  .close-button {
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+      font-family: 'Pretendard-Regular';
+
+  }
+  
+  .submit-button {
+    background-color: #ff4081;
+    color: white;
+  }
+  
+  .close-button {
+    background-color: #cccccc;
+    color: black;
+  }
+  
