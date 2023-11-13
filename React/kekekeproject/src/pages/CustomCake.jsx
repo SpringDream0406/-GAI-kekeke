@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Stage, Layer, Line, Text } from 'react-konva';
-import '../css/CustomCake.css'
+import { FaPencilAlt, FaEraser } from 'react-icons/fa';
+
 const CustomCake = () => {
   const [tool, setTool] = React.useState('pen');
   const [lines, setLines] = React.useState([]);
