@@ -3,6 +3,7 @@ const express = require('express') // 미들웨어인 express
 const router = express.Router() // express 기능 중 router 기능
 const conn = require('../config/database'); // DB 연결
 const { hashPassword, comparePasswords } = require('../config/bcrypt'); // 비밀번호 암호화/복호화
+const { md5Hash } = require('../config/crypto');
 
 
 
@@ -16,7 +17,9 @@ router.post('/login', (req, res) => {
     console.log(user_ip);
     if (user_type === 0) {
         console.log('커스터머');
-        let sql = `select cust_id, password, join_dy, phone, nick_name, profill_img from CUSTOMER where cust_id = ?`
+        let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img 
+                   from TB_CUSTOMER 
+                   where cust_id = ?`
         // console.log(sql);
         conn.query(sql, [cust_id], (err, rows) => {
             // console.log(rows);
@@ -26,19 +29,24 @@ router.post('/login', (req, res) => {
             }
             else {
                 if (rows.length > 0) { // id 결과가 있으면
-                    // console.log(rows);
-                    comparePasswords(password, rows[0].password) // 비밀번호 검증
-                        .then((result) => {
-                            // console.log('비번검증', result);
-                            if (result) {
+                    console.log(rows);
+                    // comparePasswords(password, rows[0].password) // bcrypt 비밀번호 검증
+                    //     .then((result) => {
+                    //         // console.log('비번검증', result);
+                    //         if (result) {
+
+                    md5Hash(password) // crypto 비밀번호 검증
+                    .then((hashed)=>{
+                        const pw_hashed = hashed
+                        if(pw_hashed === rows[0].cust_pw){
                                 console.log('로그인 성공', cust_id);
                                 let data = {
                                     message: '로그인 성공',
                                     cust_id: rows[0].cust_id,
-                                    join_dy: rows[0].join_dy,
+                                    joined_at: rows[0].joined_at,
                                     phone: rows[0].phone,
                                     nick_name: rows[0].nick_name,
-                                    profill_img: rows[0].profill_img
+                                    profile_img: rows[0].profile_img
                                 }
                                 // console.log('res',data);
                                 res.status(200).send(data)
@@ -46,7 +54,7 @@ router.post('/login', (req, res) => {
                             else {
                                 console.log('로그인 실패 - 비밀번호 다름');
                                 console.log('받은 비번', password);
-                                console.log('비번 검증', result);
+                                // console.log('비번 검증', result);
                                 res.status(200).send({ message: '로그인 실패' })
                             }
                         })
@@ -80,13 +88,17 @@ router.post('/join', (req, res) => {
         }
         else {
             console.log('회원가입 비밀번호 헤싱');
-            hashPassword(password)
+            // hashPassword(password) // bcrypt 방법
+            // .then((hashed)=>{
+            //     console.log(hashed);
+            //     const pw_hashed = hashed;
+            md5Hash(password)
             .then((hashed)=>{
                 console.log(hashed);
-                const pw_hashed = hashed;
-                
+                const pw_hashed = hashed
+            
                 if (user_type === 0){
-                    let sql = `insert into CUSTOMER (cust_id, password, phone, nick_name)
+                    let sql = `insert into TB_CUSTOMER (cust_id, cust_pw, phone, nick_name)
                                values (?,?,?,?)`
                     conn.query(sql,[cust_id, pw_hashed, phone, nick_name], (err,rows)=>{
                         if(err){
