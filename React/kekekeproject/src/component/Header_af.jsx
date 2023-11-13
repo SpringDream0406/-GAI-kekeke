@@ -215,6 +215,7 @@ const Header_af = () => {
               커스텀케이크주문
             </Link>
           </li>
+       
           
           <div ref={myPageRef}>
           <li>
@@ -224,6 +225,7 @@ const Header_af = () => {
             </Link>
               
           </li>
+          
         
         {myPageIsOpen && (
           <Menu>
@@ -241,6 +243,7 @@ const Header_af = () => {
             </Ul>
           </Menu>
         )}
+        
       </div>
           
           <li>
@@ -264,6 +267,7 @@ src={'/assets/images/alert-icon.svg'}
               
            
           </li>
+         
         </NavMenu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
       </StyledHeader>

@@ -1,0 +1,374 @@
+.frame {
+  background-color: #ffffe7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+   font-family: 'Pretendard-Regular', sans-serif; /* 폰트 적용 */
+}
+
+.frame .overlap-wrapper {
+  background-color: #ffffe7;
+  height: 1935px;
+  width: 1440px;
+}
+
+.frame .overlap {
+  background-color: #ffffff;
+  border-radius: 73px;
+  box-shadow: 2px 6px 6px #0000001a;
+  height: 1255px;
+  left: 76px;
+  position: relative;
+  top: 531px;
+  width: 1269px;
+}
+
+.frame .input-area {
+  height: 1109px;
+  left: 286px;
+  position: relative;
+  top: 67px;
+  width: 735px;
+}
+
+.frame .modify-btn {
+  border: 5px solid;
+  border-color: #61a4d5;
+  border-radius: 30px;
+  height: 79px;
+  left: 197px;
+  position: absolute;
+  top: 1030px;
+  width: 302px;
+  position: absolute;
+  margin-top: 50px;
+  left: 50%; /* 가로 중앙에 배치 */
+  transform: translate(-50%, 0);
+}
+
+.frame .modifytxt {
+  height: 39px;
+  left: 87px;
+  position: relative;
+  top: 15px;
+  width: 118px;
+}
+
+.frame .text-wrapper {
+  color: #61a4d5;
+  font-size: 32px;
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+  top: -1px;
+}
+
+.frame .phone-input {
+  height: 128px;
+  left: 0;
+  position: absolute;
+  top: 817px;
+  width: 735px;
+}
+
+.frame .phonetxt {
+  height: 29px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 89px;
+}
+
+.frame .div {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -1px;
+}
+
+.frame .div-2 {
+  background-color: #d1ebff;
+  border-radius: 20px;
+  height: 72px;
+  left: 0;
+  position: absolute;
+  top: 56px;
+  width: 735px;
+}
+
+.frame .pw-cheak-input {
+  height: 128px;
+  left: 0;
+  position: absolute;
+  top: 656px;
+  width: 735px;
+}
+
+.frame .pwcheaktxt {
+  height: 29px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 140px;
+}
+
+.frame .pw-input {
+  height: 128px;
+  left: 0;
+  position: absolute;
+  top: 495px;
+  width: 735px;
+}
+
+.frame .pwtxt {
+  height: 29px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 142px;
+}
+
+.frame .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.frame .nick-input {
+  height: 128px;
+  left: 0;
+  position: absolute;
+  top: 334px;
+  width: 735px;
+}
+
+.frame .duplicate-btn {
+  background-color: #ffffe7;
+  border: 5px solid #61a4d5;
+  border-radius: 20px;
+  height: 70px;
+  left: 592px;
+  position: absolute;
+  top: 56px;
+  width: 143px;
+  display: flex; /* Flexbox를 사용하여 내부 요소를 정렬합니다. */
+  justify-content: center; /* 가로 축에서 중앙에 정렬합니다. */
+  align-items: center; /* 세로 축에서 중앙에 정렬합니다. */
+}
+
+
+.frame .duplicatetxt {
+  height: 29px;
+  width: 91px;
+}
+
+.frame .text-wrapper-3 {
+  color: #61a4d5;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+}
+.frame .nick-input-box {
+  background-color: #d1ebff;
+  border-radius: 20px;
+  height: 72px;
+  width: 576px; /* 바깥 박스와 동일한 너비로 조정 */
+  position: absolute;
+  top: 56px;
+}
+.nick-input-box input.nick_input_text {
+  border: none;
+  padding: 10px 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  position: relative;
+  white-space: nowrap;
+  width: 550px; /* 부모 요소의 너비에 맞게 설정 */
+  background-color: transparent;
+  font-family: "Pretendard-Regular";
+  font-size: 24px;
+  color: #787878;
+  outline: none;
+}
+
+/* 비밀번호 변경 입력란 스타일 */
+.pw-input-box {
+  background-color: #d1ebff; /* 파란 박스와 같은 색상 설정 */
+  border-radius: 20px;
+  height: 72px;
+  width: 735px;
+  position: absolute;
+  top: 56px;
+}
+
+.pw-input-box input.pw-input-text {
+  border: none; /* 입력란의 기본 테두리 제거 */
+  padding: 10px 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  position: relative;
+  white-space: nowrap;
+  width: 700px;
+  background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+  font-family: "Pretendard-Regular";
+  font-size: 24px;
+  color: #787878;
+  outline: none; /* 포커스 효과 제거 */
+}
+
+/* 비밀번호 확인 입력란 스타일 */
+.pw-cheak-box {
+  background-color: #d1ebff; /* 파란 박스와 같은 색상 설정 */
+  border-radius: 20px;
+  height: 72px;
+  width: 735px;
+  position: absolute;
+  top: 56px;
+}
+
+.pw-cheak-box input.pw-cheak-text {
+  border: none; /* 입력란의 기본 테두리 제거 */
+  padding: 10px 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  position: relative;
+  white-space: nowrap;
+  width: 700px;
+
+  background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+  font-family: "Pretendard-Regular";
+  font-size: 24px;
+  color: #787878;
+  outline: none; /* 포커스 효과 제거 */
+}
+
+/* 전화번호 입력란 스타일 */
+.phone-input-box {
+  background-color: #d1ebff; /* 파란 박스와 같은 색상 설정 */
+  border-radius: 20px;
+  height: 72px;
+  width: 735px;
+  position: absolute;
+  top: 56px;
+}
+
+.phone-input-box input.phone-input-text {
+  border: none; /* 입력란의 기본 테두리 제거 */
+  padding: 10px 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  position: relative;
+  white-space: nowrap;
+  width: 700px;
+  background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+  font-family: "Pretendard-Regular";
+  font-size: 24px;
+  color: #787878;
+  outline: none; /* 포커스 효과 제거 */
+}
+
+.frame .nicktxt {
+  height: 29px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 118px;
+}
+
+.frame .overlap-group {
+  /* background-image: url(./photo-icon.png); */
+  background-size: 100% 100%;
+  height: 269px;
+  left: 214px;
+  position: absolute;
+  top: 0;
+  width: 269px;
+}
+
+.frame .camera-icon {
+  height: 68px;
+  left: 100px;
+  position: absolute;
+  top: 201px;
+  width: 68px;
+}
+
+.frame .div,
+.frame .phonetxt,
+.frame .pwcheaktxt,
+.frame .pwtxt,
+.frame .text-wrapper-2,
+.frame .text-wrapper-3,
+.frame .nicktxt {
+  font-size: 22px;
+  letter-spacing: 0;
+  text-align: center;
+  font-family: 'Pretendard-bold';
+}
+.frame .duplicatetxt,
+.frame .modifytxt {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%; /* 버튼 너비 전체를 차지하도록 설정 */
+  background-color: transparent; /* 배경 색상 제거 */
+  border: none; /* 테두리 제거 */
+  cursor: pointer; /* 마우스 오버 시 포인터로 변경 */
+  pointer-events: auto; /* 클릭 가능하도록 설정 */
+}
+
+/* 파일 미리보기 */
+.custom-file-upload {
+  padding: 70px;
+  border: 5px solid #d1ebff;
+  border-radius: 100px;
+  z-index: 9999999;
+  cursor: pointer;
+  position: relative;
+  left: 270px;
+  background-color: #61a4d5;
+}
+
+.custom-file-upload .upload-img {
+  width: 30px;
+  position: relative;
+  top: 5px;
+}
+
+.preview img {
+  left: 270px;
+  position: absolute;
+  top: 20px;
+  width: 170px;
+  height: 167px;
+  background-color: white;
+  border-radius: 100px;
+  z-index: 999;
+}
+
+.overlap-group .camera-icon {
+  height: 68px;
+  left: 100px;
+  position: absolute;
+  top: 201px;
+  width: 68px;
+  
+}
+
