@@ -28,7 +28,7 @@ const Login = () => {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    const url = `${API_URL}/user/login`;
+    const url = `${API_URL}/cust/login`;
     const data = { cust_id: cust_id, cust_pw: cust_pw, user_type : 0 };
 
     axios.post(url, data)
