@@ -19,6 +19,7 @@
   width: 1293px;
 }
 
+
 .tour-detail-order .group-wrapper {
   height: 2008px;
   left: 0;
@@ -349,6 +350,121 @@
   top: 644px;
 }
 
+.tour-detail-order .reservename{
+color: #787878;
+font-family: 'Pretendard Regular';
+text-align: left;
+align-items: stretch;
+font-size: 25px;
+font-weight: 400;
+border: white 9px;
+border-radius: 10px;
+padding: 20px;
+top: -10px;
+width: 400px;
+}
+
+.order-reservename{
+  color: #939393;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  top: 650px;
+  left: 650px;
+}
+
+.tour-detail-order .reservenum{
+  color: #787878;
+  font-family: 'Pretendard Regular';
+  text-align: left;
+  align-items: stretch;
+  font-size: 25px;
+  font-weight: 400;
+  border: white 9px;
+  border-radius: 10px;
+  padding: 20px;
+  top: -10px;
+  width: 400px;
+  }
+  
+  .order-reservenum{
+    color: #939393;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+    top: 720px;
+    left: 650px;
+  }
+
+  .tour-detail-order .reservetxt{
+    color: #787878;
+    font-family: 'Pretendard Regular';
+    text-align: left;
+    align-items: stretch;
+    font-size: 25px;
+    font-weight: 400;
+    border: white 9px;
+    border-radius: 10px;
+    padding: 20px;
+    top: -10px;
+    width: 400px;
+    }
+    .tour-detail-order .reservereq{
+      color: #787878;
+      font-family: 'Pretendard Regular';
+      text-align: left;
+      align-items: stretch;
+      font-size: 25px;
+      font-weight: 400;
+      border: white 9px;
+      border-radius: 10px;
+      padding: 20px;
+      top: -10px;
+      width: 400px;
+      }
+      
+      .order-reservereq{
+        color: #939393;
+        font-family: "Inter", Helvetica;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        margin-top: -1px;
+        position: relative;
+        white-space: nowrap;
+        width: fit-content;
+        top: 1520px;
+        left: 650px;
+      }
+    
+    .order-reservetext{
+      color: #939393;
+      font-family: "Inter", Helvetica;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: normal;
+      margin-top: -1px;
+      position: relative;
+      white-space: nowrap;
+      width: fit-content;
+      top: 1450px;
+      left: 650px;
+    }
+
 .tour-detail-order .text-wrapper-8 {
   color: #939393;
   font-family: "Inter", Helvetica;
@@ -578,10 +694,12 @@
 }
 
 .tour-detail-order .view {
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  left: 693px;
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
   padding: 10px;
   position: absolute;
   top: 959px;
@@ -602,10 +720,12 @@
 }
 
 .tour-detail-order .element-2 {
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  left: 703px;
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
   padding: 10px;
   position: absolute;
   top: 1013px;
@@ -625,10 +745,12 @@
 }
 
 .tour-detail-order .element-3 {
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  left: 703px;
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
   padding: 10px;
   position: absolute;
   top: 1064px;
@@ -636,10 +758,12 @@
 }
 
 .tour-detail-order .element-wrapper {
-  align-items: center;
-  display: flex;
-  gap: 30px;
-  left: 703px;
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
   padding: 10px;
   position: absolute;
   top: 1114px;
@@ -773,8 +897,8 @@
 .tour-detail-order .view-2 {
   align-items: center;
   display: flex;
-  gap: 30px;
-  left: 703px;
+  gap: 10px;
+  left: 650px;
   padding: 10px;
   position: absolute;
   top: 1295px;
@@ -784,9 +908,9 @@
 .tour-detail-order .view-3 {
   align-items: center;
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  left: 650px;
   justify-content: center;
-  left: 702px;
   padding: 10px;
   position: absolute;
   top: 1343px;
@@ -796,9 +920,9 @@
 .tour-detail-order .view-4 {
   align-items: center;
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  left: 650px;
   justify-content: center;
-  left: 702px;
   padding: 10px;
   position: absolute;
   top: 1393px;
@@ -808,9 +932,9 @@
 .tour-detail-order .view-5 {
   align-items: center;
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  left: 650px;
   justify-content: center;
-  left: 702px;
   padding: 10px;
   position: absolute;
   top: 1452px;

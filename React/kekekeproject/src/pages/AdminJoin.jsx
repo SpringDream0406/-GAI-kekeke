@@ -236,11 +236,14 @@ export const AdminJoin = () => {
               </div>
             </div>
           </div>
+         
           <div className="join-button">
-            <div className="join-button-text">
-              <div className="text-wrapper-9">가입하기</div>
-            </div>
+            <div className="qq">가입하기</div>
+            
+            
+              
           </div>
+          
         </div>
         {/* <DivWrapper className="admin-header" /> */}
       </div>

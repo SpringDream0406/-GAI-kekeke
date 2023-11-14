@@ -2,9 +2,11 @@
 import React , { useState }from "react";
 import "../css/Cake.css";
 
-import {Link} from 'react-router-dom'
 
 import Footer from '../component/Footer'
+
+import {Link} from 'react-router-dom'
+
 
 
 const selectLocation = () => {
@@ -51,10 +53,15 @@ const selectLocation = () => {
 export const Cakes = () => {
 
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
+  const [myLocation, setMyLocation] = useState(false);
 
   const toggleLocationModal = () => {
     setLocationModalOpen(!isLocationModalOpen);
   };
+  
+  const toggleMyLocation = () => {
+    setMyLocation(!myLocation);
+  }
 
 
   return (
@@ -212,7 +219,7 @@ export const Cakes = () => {
 
           <div className="location-container">
         <div className="tour-locationbutton">
-        <button
+            <button
                   className="locationbutton"
                   onClick={toggleLocationModal}
                   style={{ backgroundColor: isLocationModalOpen ? "#61a4d5" : "" , color: isLocationModalOpen ? "white" : "", }}
@@ -221,9 +228,9 @@ export const Cakes = () => {
                 </button>
                 {isLocationModalOpen && <selectLocation />}
                 <button
-                  className="locationbutton"
-                  onClick={toggleLocationModal}
-                  style={{ backgroundColor: isLocationModalOpen ? "#61a4d5" : "" , color: isLocationModalOpen ? "white" : "", }}
+                  className="mylocationbutton"
+                  onClick={toggleMyLocation}
+                  style={{ backgroundColor: myLocation ? "#61a4d5" : "" , color: myLocation ? "white" : "", }}
                 >
                   내 주변
                 </button>

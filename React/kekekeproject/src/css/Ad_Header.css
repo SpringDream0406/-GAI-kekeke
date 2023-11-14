@@ -1,0 +1,95 @@
+.div-wrapper {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* .div-wrapper .div {
+    background-color: #ffffff;
+    height: 1824px;
+    overflow: hidden;
+    position: relative;
+    width: 1440px;
+  } */
+  
+  .div-wrapper .view {
+    height: 157px;
+    left: 109px;
+    position: absolute;
+    top: 38px;
+    width: 1221px;
+  }
+  
+  .div-wrapper .div-2 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 940px;
+    padding: 10px;
+    position: absolute;
+    top: 49px;
+  }
+  
+  .div-wrapper .text-wrapper {
+    color: #000000;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .div-wrapper .view-2 {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 831px;
+    padding: 10px;
+    position: absolute;
+    top: 49px;
+  }
+  
+  .div-wrapper .view-3 {
+    background-image: url(./KeKeKeadlogo.png);
+    background-size: 100% 100%;
+    height: 157px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 224px;
+  }
+  
+  .div-wrapper .ellipse-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 10px;
+    left: 1100px;
+    padding: 10px;
+    position: absolute;
+    top: 18px;
+  }
+  
+  .div-wrapper .ellipse {
+    background-color: #d9d9d9;
+    border-radius: 50.5px;
+    height: 101px;
+    position: relative;
+    width: 101px;
+  }
+  
+  .div-wrapper .menubar {
+    height: 195px;
+    left: -5206px;
+    object-fit: cover;
+    position: absolute;
+    top: -8744px;
+    width: 134px;
+  }
+  

@@ -1,6 +1,7 @@
-import React from "react";
+import React , {useState} from "react";
 import {Link} from "react-router-dom";
 import "../css/TourOrder.css";
+
 
 
 export const TourOrder = () => {
@@ -60,19 +61,20 @@ export const TourOrder = () => {
           <div className="div-5" />
           <div className="div-wrapper-6">
             <div className="text-wrapper-6">예약자성함</div>
+            
           </div>
           <div className="div-wrapper-7">
             <div className="text-wrapper-7">티아라케이크</div>
           </div>
-          <div className="div-wrapper-8">
-            <div className="text-wrapper-8">예) 홍길동</div>
+          <div className="order-reservename">
+          <input className="reservename"
+                    type='text'
+                    placeholder='예) 홍길동'
+                  />
           </div>
           <div className="div-wrapper-9">
-            <div className="text-wrapper-6">예약자성함</div>
           </div>
-          <div className="div-wrapper-10">
-            <div className="text-wrapper-8">예) 홍길동</div>
-          </div>
+
           <div className="div-wrapper-11">
             <div className="text-wrapper-6">가격</div>
           </div>
@@ -101,41 +103,51 @@ export const TourOrder = () => {
           <div className="div-wrapper-17">
             <div className="text-wrapper-6">예약자 번호</div>
           </div>
-          <div className="div-wrapper-18">
-            <div className="text-wrapper-8">예) 010-1234-1234</div>
+          <div className="order-reservenum">
+          <input className="reservenum"
+                    type='text'
+                    placeholder='예) 010-1234-1234'
+                  />
           </div>
           <div className="div-wrapper-19">
             <div className="text-wrapper-6">케이크 위 문구</div>
           </div>
-          <div className="div-wrapper-20">
-            <div className="text-wrapper-8">예) 생일축하해 ㅇㅇ아~</div>
+          <div className="order-reservetext">
+          <input className="reservetxt"
+                    type='text'
+                    placeholder='예) 생일축하해 0 0 아'
+                  />
           </div>
           <div className="div-wrapper-19">
             <div className="text-wrapper-6">케이크 위 문구</div>
-          </div>
-          <div className="div-wrapper-20">
-            <div className="text-wrapper-8">예) 생일축하해 ㅇㅇ아~</div>
           </div>
           <div className="div-wrapper-21">
             <div className="text-wrapper-6">케이크 추가 요청사항</div>
           </div>
-          <div className="div-wrapper-22">
-            <div className="text-wrapper-8">없으면&nbsp;&nbsp;안적으셔도 됩니당</div>
+          <div className="order-reservereq">
+          <input className="reservereq"
+                    type='text'
+                    placeholder='예) 없으면 안적으셔도 됩니당'
+                  />
           </div>
           <div className="div-wrapper-23">
             <div className="text-wrapper-6">케이크 크기 선택</div>
           </div>
           <div className="div-6" />
           <div className="view">
+            <Checkbox></Checkbox>
             <div className="text-wrapper-11">도시락</div>
           </div>
           <div className="element-2">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-12">1호</div>
           </div>
           <div className="element-3">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-12">2호</div>
           </div>
           <div className="element-wrapper">
+          <Checkbox></Checkbox>
             <div className="element-4">3호</div>
           </div>
           <div className="rectangle-3" />
@@ -154,15 +166,19 @@ export const TourOrder = () => {
           </div>
           <div className="div-7" />
           <div className="view-2">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-11">바닐라</div>
           </div>
           <div className="view-3">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-11">초콜릿</div>
           </div>
           <div className="view-4">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-11">오레오</div>
           </div>
           <div className="view-5">
+          <Checkbox></Checkbox>
             <div className="text-wrapper-11">딸기</div>
           </div>
           <img className="img-2" alt="Img" src="https://c.animaapp.com/wXTv1PcE/img/------1---1.png" />
@@ -184,3 +200,25 @@ export const TourOrder = () => {
 
 
 export default TourOrder;
+
+function Checkbox() {
+  // 상태 초기화: 체크박스의 기본 상태는 false로 설정
+  const [isChecked, setIsChecked] = useState(false);
+
+  // 체크박스 상태가 변경될 때 실행되는 이벤트 핸들러
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // 현재 상태의 반대 값을 설정
+  };
+
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked} // 현재 상태를 반영
+          onChange={handleCheckboxChange}
+        />
+      </label>
+    </div>
+  );
+}
