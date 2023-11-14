@@ -40,7 +40,7 @@ const Join = () => {
 
 
   const handleJoin = () => {
-    const url = `${API_URL}/user/join`;
+    const url = `${API_URL}/cust/join`;
     const data = { nick_name: nick_name, cust_id: cust_id, password: password, user_type : 0 , phone: phone, passwordcheck: passwordcheck };
    
     axios.post(url, data)
