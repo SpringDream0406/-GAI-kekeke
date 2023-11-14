@@ -195,17 +195,7 @@
 }
 
 
-.ToureRvPop .ToureRvPop_box_div-wrapper {
-  background-color: #ffa0b7;
-  border-radius: 30px;
-  height: 103px;
-  left: 150px;
-  position:  relative;
-  top: 10px;
-  width: 410px;
- 
 
-}
 
 .ToureRvPop .div {
   align-items: center;
@@ -218,22 +208,7 @@
   top: 12px;
 }
 
-.ToureRvPop .ToureRvPop_box_text-wrapper {
-  color: #ffffff;
-  font-family: "Inter-Bold", Helvetica;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-  left: 160px;
-  align-items: center;
-  display: inline-flex;
-  top: 30px;
-  
-}
+
 
 .ToureRvPop .ToureRvPop_div-3{
   align-items: flex-start;
@@ -386,4 +361,32 @@
   position: absolute;
   top: 0;
   width: 180px;
+}
+
+.ToureRvPop .ToureRvPop_box_text-wrapper {
+  color: #ffffff;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+
+  top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.ToureRvPop .ToureRvPop_box_div-wrapper {
+  background-color: #ffa0b7;
+  border-radius: 30px;
+  height: 103px;
+  left: 150px;
+  position: relative;
+  top: 10px;
+  width: 410px;
+  display: flex;
+  justify-content: center;
 }

@@ -11,6 +11,7 @@ export const TourReviewPopup = () => {
     
     const RvCust = "홍길동"
     const RvDate = "2023.10.20"
+    const RvCakeImg = "https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet3-cakeimgbox1.png"
 
     
     return (
@@ -33,7 +34,7 @@ export const TourReviewPopup = () => {
                      <img 
                           className="ToureRvPop_cakeimgbox" 
                           alt="Cakeimgbox"
-                          src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet3-cakeimgbox1.png"
+                          src={RvCakeImg}
                         />
                     <div className="ToureRvPop_cakeimFr">
                         <div className="ToureRvPop_cakeimFr_div">
@@ -91,12 +92,9 @@ export const TourReviewPopup = () => {
                         </div>{/* 사용자리뷰박스 */}
 
                        
-                            <div className="ToureRvPop_box_div-wrapper">{/* 확인버튼 */}
-                            <div className="ToureRvPop_box_div">
+                            <button  className="ToureRvPop_box_div-wrapper">{/* 확인버튼 */}
                                 <div className="ToureRvPop_box_text-wrapper">확인</div>
-                            </div>  {/* 확인버튼 끝 */}
-                            
-                        </div>
+                            </button > {/* 확인버튼 끝 */}
             </div>
            
 
