@@ -31,8 +31,8 @@ const Join = () => {
 
 
   const [cust_id, setcust_id] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordcheck, setPasswordcheck] = useState('');
+  const [cust_pw, setcust_pw] = useState('');
+  const [cust_pw_check, setcust_pw_check] = useState('');
   const [nick_name,setUsernickname] = useState('');
   const [phone,setphone]=useState('');
   const [error, setError] = useState('');
@@ -40,8 +40,10 @@ const Join = () => {
 
 
   const handleJoin = () => {
-    const url = `${API_URL}/user/join`;
-    const data = { nick_name: nick_name, cust_id: cust_id, password: password, user_type : 0 , phone: phone, passwordcheck: passwordcheck };
+    const url = `${API_URL}/cust/join`;
+
+    const data = { nick_name: nick_name, cust_id: cust_id, cust_pw : cust_pw , phone: phone, cust_pw_check: cust_pw_check };
+
    
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
@@ -64,7 +66,7 @@ const Join = () => {
     }
 
     const handlechecknick = () => {
-      const url = `${API_URL}/user/check`;
+      const url = `${API_URL}/cust/check`;
       const data = {nick_name : nick_name , user_type : 0}
 
       axios.post(url,data)
@@ -77,7 +79,7 @@ const Join = () => {
         })
     }
     const handlecheckid = () => {
-      const url = `${API_URL}/user/check`;
+      const url = `${API_URL}/cust/check`;
       const data = {cust_id : cust_id , user_type : 0}
 
       axios.post(url,data)
@@ -168,8 +170,8 @@ const Join = () => {
                         <input className="join_pw_input"
                                     type='text'
                                     placeholder='비밀번호를 입력하세요'
-                                    value={password}
-                                    onChange={(e)=>setPassword(e.target.value)}
+                                    value={cust_pw}
+                                    onChange={(e)=>setcust_pw(e.target.value)}
                                     />
                         </div>
                       </div>
@@ -181,8 +183,8 @@ const Join = () => {
                         <input className="join_pw_input"
                                     type='text'
                                     placeholder='비밀번호를 다시 입력하세요'
-                                    value={passwordcheck}
-                                    onChange={(e)=>setPasswordcheck(e.target.value)}
+                                    value={cust_pw_check}
+                                    onChange={(e)=>setcust_pw_check(e.target.value)}
                                     />
                         </div>
                       </div>

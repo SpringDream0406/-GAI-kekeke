@@ -1,0 +1,100 @@
+/* App.css */
+.app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* ChatRoom.css */
+  .chat-room {
+    width: 100%;
+    background-color: #fff; /* 오른쪽 패널의 배경색 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-list {
+    flex-grow: 1;
+    overflow-y: auto; /* 스크롤 가능 */
+  }
+  
+  .message {
+    /* 메시지 스타일 */
+    background-color: #f9f9f9; /* 메시지 배경색 */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .message-input {
+    /* 입력란 스타일 */
+    display: flex;
+  }
+  
+  .input-field {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+/* ChatRoom.css */
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    max-width: 40%;
+    word-wrap: break-word;
+  }
+  
+  /* 현재 사용자의 메시지 스타일 */
+  .my-message {
+    background-color: #FFEDAE;
+    margin-left: auto; /* 오른쪽 정렬 */
+    /* 기타 스타일 */
+  }
+  
+  /* 다른 사람의 메시지 스타일 */
+  .other-message {
+    background-color: #f1f0f0; /* 다른 배경색 */
+    margin-right: auto; /* 왼쪽 정렬 */
+    /* 기타 스타일 */
+  }
+  
+  /* 채팅방 전체 레이아웃 스타일 */
+  .chat-room {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .message-list {
+    flex-grow: 1;
+    overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  }
+  
+  .message-input {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .input-field {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    height: 26px;
+  }
+  
+  .send-button {
+    padding: 10px 20px;
+    background-color: #4e97d8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+  
