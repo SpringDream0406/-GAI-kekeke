@@ -32,7 +32,7 @@ function App() {
 
 
         <GlobalStyle />
-        <Header_af toggle={toggle} setToggle={setToggle}/>  
+        <Header_bf toggle={toggle} setToggle={setToggle}/>  
  
     <Routes>
       <Route path="TourReviewPopup" element = {<TourReviewPopup/>}/>
