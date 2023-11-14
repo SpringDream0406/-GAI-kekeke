@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-// import Ad_Menubar from './component/Ad_Menubar';
-// import Ad_Header from './component/Ad_Header';
+
+import Footer from './component/Footer';
+import Header_bf from './component/Header_bf';
 import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 
+
     <App />
+
+
 
 
 );

@@ -170,8 +170,15 @@
     line-height: normal;
     margin-top: -1px;
     position: relative;
+    right : 10px;
+    bottom : 3px;
     white-space: nowrap;
     width: fit-content;
+    border : none;
+    cursor: pointer;
+    background-image: url(https://c.animaapp.com/OdmOh5DZ/img/admin-login-button-background.svg);
+    
+
   }
   
   .admin-login .admin-header {
