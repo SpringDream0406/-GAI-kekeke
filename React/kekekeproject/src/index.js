@@ -8,12 +8,14 @@ import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+
+  
     {/* <Ad_Header/>
     <Ad_Menubar/> */}
     <App />
+
+
    
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,658 +1,9 @@
-.TourDet2_index {
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-
 .index .TourDet2_tourFrame {
-
-    background-color: #ffffe7;
-    height: 2247px;
-    width: 1440px;
-    align-self: center
-  }
-  
-  .index .TourDet2_bluebox {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 10px;
-    height: 1766px;
-    left: 73px;
-    position: relative;
-    top: 305px;
-  }
-  
-  .index .TourDet2_bodyfr {
-    height: 1768px;
-    margin-bottom: -2px;
-    position: relative;
-    width: 1293px;
-  }
-  
-  .index .TourDet2_overlap-group {
-    height: 1768px;
-    position: relative;
-  }
-  
-  .index .TourDet2_group {
-    height: 1768px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1293px;
-  }
-  
-  .index .TourDet2_div {
-    background-image: url(https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/mask-group.png);
-    background-size: 100% 100%;
-    height: 1766px;
-    left: 0;
-    position: absolute;
-    top: 2px;
-    width: 1293px;
-  }
-  
-  .index .TourDet2_ellipse {
-    background-color: #d1ebff;
-    border-radius: 82.59px/91.84px;
-    height: 184px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 165px;
-  }
-  
-  .index .TourDet2_rectangle {
-    background-color: #d1ebff;
-    height: 104px;
-    left: 0;
-    position: absolute;
-    top: 90px;
-    width: 70px;
-  }
-  
-  .index .TourDet2_tourdet3-SampleStoreReviewFr {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 85px;
-    left: 379px;
-    position: absolute;
-    top: 472px;
-  }
-
-  .index .TourDet2_div-CakeName {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  .index .TourDet2_text-CakeName {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-
-  .index .TourDet2_div-ReviewDate {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-
-  .index .TourDet2_text-ReviewDate {
-    color: #a8a8a8;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .index .TourDet2_div-ReviewCust {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  
-  .index .TourDet2_text-ReviewCust {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
- 
-
-
-  
-  .index .TourDet2_div-wrapper {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-
-  
-  .index .TourDet2_text-wrapper {
-    color: #000000;
-    font-family: 'Pretendard-Bold';
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  .index .TourDet2_text-tourdet3-Sample {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-
-  .index .TourDet2_text-tourdet3-StoreDetail {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-
-
-  .index .TourDet2_div-ReviewRequire {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  
- 
-  
-  .index .TourDet2_text-ReviewRequire {
-    color: #a8a8a8;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-  }
-  
-  .index .TourDet2_tour-det-review {
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .index .TourDet2_storeinfo {
-    align-items: center;
-    display: inline-flex;
-    gap: 35px;
-    left: 150px;
-    padding: 20px;
-    position: absolute;
-    top: 120px;
-  }
-  
-  .index .TourDet2_tourdet {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-  }
-  
-  .index .TourDet2_tourdet3-StoreLogo {
-    background-color: #d9d9d9;
-    height: 221px;
-    position: relative;
-    width: 249px;
-  }
-  
-  .index .TourDet2_tourdet-3 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .index .TourDet2_tourdet3-CakeStoreNameFrame {
-    height: 79px;
-    position: relative;
-    width: 188px;
-  }
-  
-  .index .TourDet2_tourdet3-CakeStoreName {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 32px;
-    font-weight: 800;
-    left: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 45px;
-  }
-  
-  .index .TourDet2_tour-det-addr {
-    height: 64px;
-    position: relative;
-    width: 157px;
-  }
-  
-  .index .TourDet2_tour-det-addr-tx {
-    color: #565656;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 19px;
-    white-space: nowrap;
-  }
-  
-  .index .TourDet2_tour-det-det {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    padding: 1px 0px;
-    position: relative;
-  }
-  
-  .index .TourDet2_tour-det-det-tx {
-    color: #000000;
-    font-family: "Pretendard-Bold";
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: 500px;
-  }
-  
-  .index .TourDet2_tour-det-chat-btn {
-    height: 60px;
-    position: relative;
-    width: 152px;
-  }
-  
-  
-  
-  .index .TourDet2_tour-det-chatbox {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 10px;
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
-  
-  .index .TourDet2_tourdet3Chatbox {
-    background-color: #ffffe7;
-    border: 3px solid;
-    border-color: #61a4d5;
-    border-radius: 30px;
-    height: 60px;
-    position: relative;
-    width: 152px;
-  }
-  
-  .index .TourDet2_tourdet3ChatboxTx {
-    color: #61a4d5;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 600;
-    left: 35px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 16px;
-  }
-
-  .index .TourDet2_text-tourdet3-StoreE{
-    color: #ff4969;
-    font-family: "Inter", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-
-  }
-
-  .index .TourDet2_overlap-group-2{
-    height: 60px;
-    position: relative;
-    width: 152px;
-  }
-  
-  .index .TourDet2_tour-det-white-fr {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    left: -1220px;
-    position: absolute;
-    top: 586px;
-    background-color: #ffffff;
-    border-radius: 57px;
-    height: 1138px;
-    position: relative;
-    width: 1124px;
-    
-  }
-  
-  .index .TourDet2_tour-det-white-rec {
-    background-color: #ffffff;
-    border-radius: 57px;
-    height: 1138px;
-    position: relative;
-    width: 1124px;
-  }
-  
-  .index .TourDet2_wrvlisttxfr {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 10px;
-    left: 104px;
-    padding: 20px;
-    position: absolute;
-    top: 38px;
-  }
-  
-  .index .TourDet2_tour-det-rv-list {
-    color: #ff97b0;
-    font-family: "Inter", Helvetica;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .index .TourDet2_wreviewtxfr {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    left: 104px;
-    position: absolute;
-    top: 182px;
-  }
-  
-  .index .TourDet2_tourdet-5 {
-    height: 273px;
-    position: relative;
-    width: 875px;
-  }
-  
-  .index .TourDet2_tourdet-wlistfr {
-    align-items: center;
-    display: inline-flex;
-    gap: 32px;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .index .TourDet2_tourdet-cakeimg {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-  }
-  
-  .index .TourDet2_cakeimgbox {
-    height: 162px;
-    object-fit: cover;
-    position: relative;
-    width: 173px;
-  }
-  
-  .index .TourDet2_cakervfr {
-    height: 233px;
-    position: relative;
-    width: 630px;
-  }
-  
-  .index .TourDet2_cakervdetfr {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
-  
-  .index .TourDet2_tourdet-6 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 84px;
-    position: relative;
-  }
-  
-  
-  
-  .index .TourDet2_tourdet-7 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 135px;
-  }
-
-  .index .TourDet2_div-ReviewDetail {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    top: 135px;
-  }
-
-  .index .TourDet2_text-ReviewDetail {
-    color: #000000;
-    font-family:'Pretendard-ExtraLight';
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  
-  .index .TourDet2_line-wrapper {
-    height: 1px;
-    left: 0;
-    position: absolute;
-    top: 300px;
-    width: 875px;
-  }
-  
-  .index .TourDet2_line {
-    height: 1px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: -1px;
-    width: 875px;
-  }
-  
-  .index .TourDet2_pagenumfr {
-    align-items: flex-start;
-    display: inline-flex;
-    left: 380px;
-    position: absolute;
-    top: 1066px;
-  }
-  
-  .index .TourDet2_bfpfr {
-    height: 34px;
-    position: relative;
-    width: 60px;
-  }
-  
-  .index .TourDet2_nextpicon {
-    height: 25px;
-    left: 15px;
-    position: absolute;
-    top: 5px;
-    width: 22px;
-  }
-  
-  .index .TourDet2_nextpnumfr {
-    height: 34px;
-    position: relative;
-    width: 244px;
-  }
-  
-  .index .TourDet2_numfr {
-    align-items: center;
-    display: inline-flex;
-    gap: 32px;
-    justify-content: center;
-    left: 6px;
-    padding: 0px 20px;
-    position: relative;
-    top: 5px;
-  }
-  
-  .index .TourDet2_tourdet-num {
-    height: 24px;
-    position: relative;
-    width: 10px;
-  }
-  
-  .index .TourDet2_tourdet-numt {
-    color: #ffd1dc;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-    white-space: nowrap;
-  }
-  
-  .index .TourDet2_tourdet-numt-wrapper {
-    height: 24px;
-    position: relative;
-    width: 13px;
-  }
-  
-  .index .TourDet2_tourdet-num-2 {
-    height: 24px;
-    position: relative;
-    width: 14px;
-  }
-  
-  .index .TourDet2_ntpfr {
-    height: 34px;
-    position: relative;
-    transform: rotate(-180deg);
-    width: 60px;
-  }
-  
-  .index .TourDet2_ntpicon {
-    height: 25px;
-    left: 15px;
-    position: absolute;
-    top: 5px;
-    transform: rotate(180deg);
-    width: 22px;
-  }
-  .index .TourDet2_line{
-    border-right : thin solid #000000;
-    height : 950px;
-    width: 0;
-    left: 562px;
-    top: 100px;
-}
-.index .TourDet2_tour-det-map-fr {
-  height: 402px;
-  position: relative;
-  width: 417px;
 
   background-color: #ffffe7;
   height: 2247px;
   width: 1440px;
   align-self: center
-
 }
 
 .index .TourDet2_bluebox {
@@ -676,7 +27,6 @@
   height: 1768px;
   position: relative;
 }
-
 .index .TourDet2_group {
   height: 1768px;
   left: 0;
@@ -684,192 +34,69 @@
   top: 0;
   width: 1293px;
 }
-
 .index .TourDet2_div {
-  background-image: url(https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/mask-group.png);
-  background-size: 100% 100%;
-  height: 1766px;
-  left: 0;
-  position: absolute;
-  top: 2px;
-  width: 1293px;
-}
+background-image: url(https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/mask-group.png);
+background-size: 100% 100%;
+height: 1766px;
+left: 0;
+position: absolute;
+top: 2px;
+width: 1293px;
+} 
 
 .index .TourDet2_ellipse {
-  background-color: #d1ebff;
-  border-radius: 82.59px/91.84px;
-  height: 184px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 165px;
+background-color: #d1ebff;
+border-radius: 82.59px/91.84px;
+height: 184px;
+left: 0;
+position: absolute;
+top: 0;
+width: 165px;
 }
 
 .index .TourDet2_rectangle {
-  background-color: #d1ebff;
-  height: 104px;
-  left: 0;
-  position: absolute;
-  top: 90px;
-  width: 70px;
+background-color: #d1ebff;
+height: 104px;
+left: 0;
+position: absolute;
+top: 90px;
+width: 70px;
 }
-
 .index .TourDet2_tourdet3-SampleStoreReviewFr {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 85px;
-  left: 379px;
-  position: absolute;
-  top: 472px;
-}
-
-.index .TourDet2_div-CakeName {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-.index .TourDet2_text-CakeName {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.index .TourDet2_div-ReviewDate {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-
-.index .TourDet2_text-ReviewDate {
-  color: #a8a8a8;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.index .TourDet2_div-ReviewCust {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-
-.index .TourDet2_text-ReviewCust {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-
-
-
-.index .TourDet2_div-wrapper {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-
-
-.index .TourDet2_text-wrapper {
-  color: #000000;
-  font-family: 'Pretendard-Bold';
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
+align-items: flex-start;
+display: inline-flex;
+gap: 85px;
+left: 379px;
+position: absolute;
+top: 472px;
 }
 .index .TourDet2_text-tourdet3-Sample {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
+color: #000000;
+font-family: "Inter", Helvetica;
+font-size: 24px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+width: fit-content;
 }
 
-.index .TourDet2_text-tourdet3-StoreDetail {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-
-.index .TourDet2_div-ReviewRequire {
-  align-items: center;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  position: relative;
-}
-
-
-
-.index .TourDet2_text-ReviewRequire {
-  color: #a8a8a8;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.index .TourDet2_tour-det-review {
+.index .TourDet2_text-tourdet3-Store{
   color: #ff4969;
   font-family: "Inter", Helvetica;
   font-size: 24px;
   font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+
+}
+.index .TourDet2_tour-det-review {
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
@@ -882,13 +109,12 @@
   align-items: center;
   display: inline-flex;
   gap: 35px;
-  left: 125px;
+  left: 130px;
   padding: 20px;
   position: absolute;
   top: 120px;
 }
-
-.index .TourDet2_tourdet {
+ .index .TourDet2_tourdet {
   align-items: flex-start;
   display: inline-flex;
   flex: 0 0 auto;
@@ -897,7 +123,7 @@
   justify-content: center;
   padding: 20px;
   position: relative;
-}
+} 
 
 .index .TourDet2_tourdet3-StoreLogo {
   background-color: #d9d9d9;
@@ -913,14 +139,12 @@
   flex-direction: column;
   position: relative;
 }
-
 .index .TourDet2_tourdet3-CakeStoreNameFrame {
   height: 79px;
   position: relative;
   width: 188px;
 }
-
-.index .TourDet2_tourdet3-CakeStoreName {
+ .index .TourDet2_tourdet3-CakeStoreName {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 32px;
@@ -932,26 +156,15 @@
   top: 45px;
 }
 
+
+
 .index .TourDet2_tour-det-addr {
   height: 64px;
   position: relative;
   width: 157px;
 }
 
-.index .TourDet2_tour-det-addr-tx {
-  color: #565656;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  left: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 19px;
-  white-space: nowrap;
-}
-
-.index .TourDet2_tour-det-det {
+  .index .TourDet2_tour-det-det {
   align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
@@ -959,8 +172,7 @@
   padding: 1px 0px;
   position: relative;
 }
-
-.index .TourDet2_tour-det-det-tx {
+  .index .TourDet2_tour-det-det-tx {
   color: #000000;
   font-family: "Pretendard-Bold";
   font-size: 20px;
@@ -971,327 +183,62 @@
   position: relative;
   width: 500px;
 }
-
-.index .TourDet2_tour-det-chat-btn {
-  height: 60px;
-  position: relative;
-  width: 152px;
-}
-
-
-
-.index .TourDet2_tour-det-chatbox {
-  align-items: flex-start;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 10px;
-  left: 0;
-  position: absolute;
-  top: 0;
-}
-
-.index .TourDet2_tourdet3Chatbox {
-  background-color: #ffffe7;
-  border: 3px solid;
-  border-color: #61a4d5;
-  border-radius: 30px;
-  height: 60px;
-  position: relative;
-  width: 152px;
-}
-
-.index .TourDet2_tourdet3ChatboxTx {
-  color: #61a4d5;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 600;
-  left: 35px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 16px;
-}
-
-.index .TourDet2_text-tourdet3-StoreE{
-  color: #000000;
-  color: #ff4969;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-
-}
-
 .index .TourDet2_overlap-group-2{
   height: 60px;
   position: relative;
   width: 152px;
 }
-
-.index .TourDet2_tour-det-white-fr {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  left: -1220px;
-  position: absolute;
-  top: 586px;
-  background-color: #ffffff;
-  border-radius: 57px;
-  height: 1138px;
-  position: relative;
-  width: 1124px;
-  
-}
-
-.index .TourDet2_tour-det-white-rec {
-  background-color: #ffffff;
-  border-radius: 57px;
-  height: 1138px;
-  position: relative;
-  width: 1124px;
-}
-
-.index .TourDet2_wrvlisttxfr {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 10px;
-  left: 104px;
-  padding: 20px;
-  position: absolute;
-  top: 38px;
-}
-
-.index .TourDet2_tour-det-rv-list {
-  color: #ff97b0;
-  font-family: "Inter", Helvetica;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .TourDet2_wreviewtxfr {
+.index button.TourDet2_tour-det-chatbox {
   align-items: flex-start;
   display: inline-flex;
   flex-direction: column;
-  left: 104px;
-  position: absolute;
-  top: 182px;
-}
-
-.index .TourDet2_tourdet-5 {
-  height: 273px;
-  position: relative;
-  width: 875px;
-}
-
-.index .TourDet2_tourdet-wlistfr {
-  align-items: center;
-  display: inline-flex;
-  gap: 32px;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-}
-
-.index .TourDet2_tourdet-cakeimg {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  flex-direction: column;
   gap: 10px;
-  position: relative;
-}
-
-.index .TourDet2_cakeimgbox {
-  height: 162px;
-  object-fit: cover;
-  position: relative;
-  width: 173px;
-}
-
-.index .TourDet2_cakervfr {
-  height: 233px;
-  position: relative;
-  width: 630px;
-}
-
-.index .TourDet2_cakervdetfr {
-  align-items: flex-start;
-  display: inline-flex;
-  flex-direction: column;
   left: 0;
   position: absolute;
   top: 0;
+  background-color: transparent; /* 배경색을 투명으로 설정 */
+  border: none; /* 기본 테두리 제거 */
+  padding: 0; /* 내부 여백 제거 */
+  cursor: pointer; /* 커서를 손가락 모양으로 변경 */
+
 }
 
-.index .TourDet2_tourdet-6 {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 84px;
-  position: relative;
-}
-
-
-
-.index .TourDet2_tourdet-7 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 135px;
-}
-
-.index .TourDet2_div-ReviewDetail {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 135px;
-}
-
-.index .TourDet2_text-ReviewDetail {
-  color: #000000;
-  font-family:'Pretendard-ExtraLight';
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-
-.index .TourDet2_line-wrapper {
-  height: 1px;
-  left: 0;
-  position: absolute;
-  top: 300px;
-  width: 875px;
-}
-
-.index .TourDet2_line {
-  height: 1px;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  top: -1px;
-  width: 875px;
-}
-
-.index .TourDet2_pagenumfr {
-  align-items: flex-start;
-  display: inline-flex;
-  left: 380px;
-  position: absolute;
-  top: 1066px;
-}
-
-.index .TourDet2_bfpfr {
-  height: 34px;
-  position: relative;
-  width: 60px;
-}
-
-.index .TourDet2_nextpicon {
-  height: 25px;
-  left: 15px;
-  position: absolute;
-  top: 5px;
-  width: 22px;
-}
-
-.index .TourDet2_nextpnumfr {
-  height: 34px;
-  position: relative;
-  width: 244px;
-}
-
-.index .TourDet2_numfr {
-  align-items: center;
-  display: inline-flex;
-  gap: 32px;
-  justify-content: center;
-  left: 6px;
-  padding: 0px 20px;
-  position: relative;
-  top: 5px;
-}
-
-.index .TourDet2_tourdet-num {
-  height: 24px;
-  position: relative;
-  width: 10px;
-}
-
-.index .TourDet2_tourdet-numt {
-  color: #ffd1dc;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 700;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: -1px;
-  white-space: nowrap;
-}
-
-.index .TourDet2_tourdet-numt-wrapper {
-  height: 24px;
-  position: relative;
-  width: 13px;
-}
-
-.index .TourDet2_tourdet-num-2 {
-  height: 24px;
-  position: relative;
-  width: 14px;
-}
-
-.index .TourDet2_ntpfr {
-  height: 34px;
-  position: relative;
-  transform: rotate(-180deg);
-  width: 60px;
-}
-
-.index .TourDet2_ntpicon {
-  height: 25px;
-  left: 15px;
-  position: absolute;
-  top: 5px;
-  transform: rotate(180deg);
-  width: 22px;
-}
-.index .TourDet2_line{
-  border-right : thin solid #000000;
-  height : 950px;
-  width: 0;
-  left: 562px;
-  top: 100px;
-}
-.index .TourDet2_tour-det-map-fr {
-height: 402px;
+.index .TourDet2_tourdet3Chatbox {
+background-color: #ffffe7;
+border: 3px solid;
+border-color: #61a4d5;
+border-radius: 30px;
+height: 60px;
 position: relative;
-width: 417px;
+width: 152px;
 }
+.index .TourDet2_tourdet3ChatboxTx {
+color: #61a4d5;
+font-family: "Inter", Helvetica;
+font-size: 24px;
+font-weight: 600;
+left: 35px;
+letter-spacing: 0;
+line-height: normal;
+position: absolute;
+top: 16px;
+}
+.index .TourDet2_tour-det-white-fr {
+align-items: center;
+display: inline-flex;
+gap: 10px;
+left: -1220px;
+position: absolute;
+top: 586px;
+background-color: #ffffff;
+border-radius: 57px;
+height: 1138px;
+position: relative;
+width: 1124px;
+
+}
+
+
 
 .index .TourDet2_tour-det-addr-fr {
 align-items: center;
@@ -1304,19 +251,6 @@ position: absolute;
 top: 20px;
 }
 
-.index .TourDet2_tour-det-addr-tx {
-color: #61a4d5;
-font-family: "Inter-Bold", Helvetica;
-font-size: 16px;
-font-weight: 700;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-}
-
 .index .TourDet2_tour-det-map-wrapper {
 align-items: flex-start;
 display: inline-flex;
@@ -1327,23 +261,21 @@ padding: 20px;
 position: absolute;
 top: -280px;
 }
-
 .index .TourDet2_tour-det-map {
 height: 280px;
 object-fit: cover;
 position: relative;
 width: 364px;
 }
-
-
 .TourDet2_usefr {
 height: 601px;
 position: relative;
 width: 378px;
 left: -170px;
-top: 240px;
+top: 180px;
 
 }
+
 
 .TourDet2_usefr .TourDet2_useinput {
 align-items: center;
@@ -1355,27 +287,32 @@ left: 4px;
 padding: 20px;
 position: absolute;
 top: 81px;
-}
 
+
+}
 .TourDet2_usefr .TourDet2_useinputtx {
-color: #000000;
-font-family: "Inter-Bold", Helvetica;
-font-size: 18px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-width: 334px;
+  color: #000000;
+  font-family: 'Pretendard-Light';
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 450px;
+  height: 500px;
+  left: -25px;
+  top: -10px;
+  white-space: pre-wrap;
+  margin: 0; /* 기본 마진 제거 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
-.TourDet2_usefr .TourDet2_text-wrapper {
-font-weight: 700;
-}
 
-.TourDet2_usefr .TourDet2_span {
-font-family: 'Pretendard-Light';
-}
+
+
 
 .TourDet2_usefr .TourDet2_tourdet-usefr {
 align-items: center;
@@ -1391,18 +328,13 @@ top: 0;
 .TourDet2_usefr .TourDet2_usefrtx {
 color: #ff97b0;
 font-family: "Inter-Bold", Helvetica;
-font-size: 20px;
+font-size: 22px;
 font-weight: 700;
 letter-spacing: 0;
 line-height: normal;
 position: relative;
 width: fit-content;
-}
-
-.TourDet2_usefr .TourDet2_mask-group {
-height: 37px;
-position: relative;
-width: 37px;
+left: -20px;
 }
 
 .TourDet2_Introtour {
@@ -1433,7 +365,6 @@ position: absolute;
 top: 0;
 width: 517px;
 }
-
 .TourDet2_Introtour .TourDet2_Introcalltx {
 align-items: center;
 display: inline-flex;
@@ -1446,7 +377,19 @@ top: 0;
 }
 
 
+.TourDet2_Introtour .TourDet2_Introtext-wrapper {
+color: #000000;
+font-family:  'Pretendard-Light';
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+white-space: nowrap;
+width: fit-content;
 
+}
 
 .TourDet2_Introtour .TourDet2_Introcallinput {
 align-items: center;
@@ -1459,6 +402,19 @@ position: absolute;
 top: 5px;
 }
 
+.TourDet2_Introtour .TourDet2_Introtext-Number {
+color: #000000;
+font-family:  'Pretendard-Light';
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+white-space: nowrap;
+width: fit-content;
+left: -70px;
+}
 .TourDet2_Introtour .TourDet2_Introadvicefr {
 height: 64px;
 left: 0;
@@ -1466,7 +422,6 @@ position: absolute;
 top: 49px;
 width: 518px;
 }
-
 .TourDet2_Introtour .TourDet2_Introadtx {
 align-items: center;
 display: inline-flex;
@@ -1477,7 +432,6 @@ padding: 20px;
 position: absolute;
 top: 0;
 }
-
 .TourDet2_Introtour .TourDet2_Introadinput {
 align-items: center;
 display: inline-flex;
@@ -1488,7 +442,19 @@ padding: 20px;
 position: absolute;
 top: 0;
 }
-
+.TourDet2_Introtour .TourDet2_Introtext-Time {
+color: #000000;
+font-family:  'Pretendard-Light';
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+white-space: nowrap;
+width: fit-content;
+left: -63px;
+}
 .TourDet2_Introtour .TourDet2_Intronumfr {
 height: 66px;
 left: 0;
@@ -1496,10 +462,19 @@ position: absolute;
 top: 103px;
 width: 520px;
 }
-
-
-
-
+.TourDet2_Introtour .TourDet2_Introreginput {
+align-items: center;
+display: inline-flex;
+gap: 10px;
+justify-content: center;
+left: 330px;
+padding: 20px;
+position: absolute;
+top: 0;
+left: 265px;
+font-size: 20px;
+font-family: 'Pretendard-Light';;
+}
 .TourDet2_Introtour .TourDet2_Introregnum {
 align-items: center;
 display: inline-flex;
@@ -1510,7 +485,6 @@ padding: 20px;
 position: absolute;
 top: 2px;
 }
-
 .TourDet2_Introtour .TourDet2_Introonerfr {
 height: 71px;
 left: 22px;
@@ -1518,7 +492,6 @@ position: absolute;
 top: 157px;
 width: 496px;
 }
-
 .TourDet2_Introtour .TourDet2_Introtextfr {
 align-items: center;
 display: inline-flex;
@@ -1529,7 +502,19 @@ padding: 20px;
 position: absolute;
 top: 0;
 }
-
+.TourDet2_Introtour .TourDet2_Introtext-Oner {
+color: #000000;
+font-family:'Pretendard-Light';
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+white-space: nowrap;
+width: fit-content;
+left: 0;
+}
 .TourDet2_Introtour .TourDet2_Intronamefr {
 align-items: center;
 display: inline-flex;
@@ -1540,7 +525,19 @@ padding: 20px;
 position: absolute;
 top: 7px;
 }
-
+.TourDet2_Introtour .TourDet2_Introtext-Name {
+color: #000000;
+font-family:  'Pretendard-Light';
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0;
+line-height: normal;
+margin-top: -1px;
+position: relative;
+white-space: nowrap;
+width: fit-content;
+left: -70px;
+}
 .TourDet2_Introtour .TourDet2_Introintro {
 align-items: center;
 display: inline-flex;
@@ -1564,86 +561,6 @@ position: relative;
 white-space: nowrap;
 width: fit-content;
 }
-.TourDet2_Introtour .TourDet2_Introreginput {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 330px;
-padding: 20px;
-position: absolute;
-top: 0;
-left: 265px;
-font-size: 20px;
-font-family: 'Pretendard-Light';;
-}
-.TourDet2_Introtour .TourDet2_Introtext-Oner {
-color: #000000;
-font-family:'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-left: 0;
-}
-.TourDet2_Introtour .TourDet2_Introtext-Number {
-color: #000000;
-font-family:  'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-left: -70px;
-}
-
-.TourDet2_Introtour .TourDet2_Introtext-Time {
-color: #000000;
-font-family:  'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-left: -63px;
-}
-.TourDet2_Introtour .TourDet2_Introtext-Name {
-color: #000000;
-font-family:  'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-left: -70px;
-}
-.TourDet2_Introtour .TourDet2_Introtext-wrapper {
-color: #000000;
-font-family:  'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-
-}
-
 .TourDet2_reserve {
 height: 661px;
 position: relative;
@@ -1651,8 +568,6 @@ width: 540px;
 top: 200px;
 left: -230px;
 }
-
-
 .TourDet2_reserve .TourDet2_resinputfr {
 align-items: center;
 display: inline-flex;
@@ -1664,19 +579,23 @@ padding: 20px;
 position: absolute;
 top: 70px;
 }
-
 .TourDet2_reserve .TourDet2_resinputtx {
 color: #000000;
 font-family: 'Pretendard-Light';
-font-size: 20px;
+font-size: 18px;
 font-weight: 400;
 letter-spacing: 0;
 line-height: normal;
 margin-top: -1px;
 position: relative;
 width: 500px;
+white-space: pre-wrap;
+margin: 0; /* 기본 마진 제거 */
+overflow: hidden;
+text-overflow: ellipsis;
+height: 500px;
+max-width: 100%;
 }
-
 .TourDet2_reserve .TourDet2_resfr {
 align-items: center;
 display: inline-flex;
@@ -1699,3 +618,53 @@ margin-top: -1px;
 position: relative;
 width: fit-content;
 }
+
+.index .TourDet2_tour-det-map-fr {
+height: 402px;
+position: relative;
+width: 417px;
+}
+
+.index .TourDet2_line{
+  border-right : thin solid #000000;
+  height : 950px;
+  width: 0;
+  left: 562px;
+  top: 100px;
+  object-fit: cover;
+  position: absolute;
+}
+.index .TourDet2_tour-det-addr-tx {
+  color: #565656;
+  font-family: 'Pretendard-Light';
+  font-size: 20px;
+  font-weight: 400;
+  left: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 19px;
+  white-space: nowrap;
+}
+
+.index .TourDet2_mapAddr {
+  color: #61a4d5;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  }
+
+  .TourDet2_LinkStyle{
+    color: inherit
+  }
+  
+  .TourDet2_LinkStyle:hover {
+    color: purple; /* 클릭 전 텍스트 색상 사용 */
+    cursor: pointer; /* 커서를 손가락 모양으로 변경 */
+  }

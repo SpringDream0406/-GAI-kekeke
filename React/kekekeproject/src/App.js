@@ -20,8 +20,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
 import Login from "./pages/Login";
+
 import Ad_Header from "./component/Ad_Header"
 import Mypage from "./pages/Mypage";
+
+
 
 
 
@@ -34,9 +37,14 @@ function App() {
   
 
 
+
        <GlobalStyle />
         <Header_bf toggle={toggle} setToggle={setToggle}/>   
       
+
+        <GlobalStyle />
+        <Header_af toggle={toggle} setToggle={setToggle}/>  
+
  
     <Routes>
       <Route path="TourReviewPopup" element = {<TourReviewPopup/>}/>
