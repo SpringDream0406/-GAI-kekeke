@@ -41,7 +41,9 @@ const Join = () => {
 
   const handleJoin = () => {
     const url = `${API_URL}/cust/join`;
+
     const data = { nick_name: nick_name, cust_id: cust_id, cust_pw : cust_pw , phone: phone, cust_pw_check: cust_pw_check };
+
    
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
