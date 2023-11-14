@@ -44,12 +44,14 @@ function App() {
 
 
 
-       <GlobalStyle />
-        <Header_bf toggle={toggle} setToggle={setToggle}/>   
-      
+        <GlobalStyle />
+        <Header_bf toggle={toggle} setToggle={setToggle}/>  
+
+       
 
         {/* <GlobalStyle />
         <Header_af toggle={toggle} setToggle={setToggle}/>   */}
+
 
  
     <Routes>
