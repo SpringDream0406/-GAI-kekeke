@@ -10,6 +10,12 @@ import '../css/Join.css'
 const Join = () => {
 
   const [imageSrc, setImageSrc] = useState('');
+  const [cust_id, setcust_id] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordcheck, setPasswordcheck] = useState('');
+  const [nick_name, setUsernickname] = useState('');
+  const [phone, setphone] = useState('');
+  const [error, setError] = useState('');
         
         
           
@@ -29,21 +35,28 @@ const Join = () => {
 
 
 
-
-  const [cust_id, setcust_id] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordcheck, setPasswordcheck] = useState('');
-  const [nick_name,setUsernickname] = useState('');
-  const [phone,setphone]=useState('');
-  const [error, setError] = useState('');
-  
-
-
   const handleJoin = () => {
     const url = `${API_URL}/user/join`;
-    const data = { nick_name: nick_name, cust_id: cust_id, password: password, user_type : 0 , phone: phone, passwordcheck: passwordcheck };
-   
-    axios.post(url, data)
+    const formData = new FormData();
+
+    const fileInput = document.getElementById('fileInput');
+    if (fileInput && fileInput.files[0]) {
+      formData.append('file', fileInput.files[0]);
+    }
+
+    formData.append('nick_name', nick_name);
+    formData.append('cust_id', cust_id);
+    formData.append('password', password);
+    formData.append('user_type', 0);
+    formData.append('phone', phone);
+    formData.append('passwordcheck', passwordcheck);
+  
+    axios.post(url, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+
       .then(response => { // status(200) 인 경우
           console.log(response.data);
           alert(response.data.message);
@@ -61,7 +74,13 @@ const Join = () => {
           alert('비밀번호 불일치')
         }
       });
+          
+   
+  for (let [key, value] of formData.entries()) {
+    console.log(`${key}:`, value);
+  }
     }
+
 
     const handlechecknick = () => {
       const url = `${API_URL}/user/check`;

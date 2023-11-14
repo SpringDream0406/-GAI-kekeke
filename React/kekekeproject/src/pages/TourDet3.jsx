@@ -79,14 +79,31 @@ export const TourDet3 = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
 
+    const reviewpageNum = [];
+    for (let i = 1; i <= Math.ceil(Reviews.length / itemsPerPage); i++) {
+      reviewpageNum.push(i);
+    }
 
     // 1:1 채팅 클릭시 새로운 팝업등장
     const handleChatBoxClick =() =>{
       window.open('/TourReviewPopup', '_blank');
     }
    
+    const handlePgClick = (event, number) => {
+      event.preventDefault(); // 페이지 새로고침 방지
+      setCurrentPage(number);
+    };
     
-    
+      /*이전페이지로 가는 로직 */
+  const goToPrervPage = () => {
+    setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
+  };
+
+    /*다음페이지로 가는 로직 */
+    const goToNextrvPage = () => {
+      setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
+    };
+  
 
     
     
@@ -158,10 +175,6 @@ return (
           </div>{/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div끝*/}
 
 
-
-
-
-
           <div className="tour-det-white-fr">{/*리뷰목록 있는하얀색 블록 div시작*/}
             <div className="tour-det-white-rec" />
             <div className="wrvlisttxfr">
@@ -170,12 +183,10 @@ return (
             <div className="wreviewtxfr">
               <div className="tourdet-5">
 
-                
+            
 
-
-
-              {Reviews.map(review => (
-                  <div key={review.DEAL_ID} className="tourdet-wlistfr"> {/* 케이크리스트 목록 div */}
+              {currentItems.map(review => (
+                  <div key={Reviews.DEAL_ID} className="tourdet-wlistfr"> {/* 케이크리스트 목록 div */}
                     <div className="tourdet-cakeimg">
                       {/* 케이크 이미지 넣는 곳 */}
                       <img 
@@ -220,50 +231,24 @@ return (
                 ))}
 
 
-
-
-
-                
-
-
               </div>
             </div>
-            <div className="pagenumfr">
-              <div className="bfpfr">
-                <img
-                  className="nextpicon"
-                  alt="Nextpicon"
-                  src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-leftbtniconfr.svg"
-                />
+            <div className="tour-review-page">
+              <div className="review-page-before" onClick={goToPrervPage}>
+                <img className="polygon1" alt="이전 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-leftbtniconfr.svg" />
               </div>
-              <div className="nextpnumfr">
-                <div className="numfr">
-                  <div className="tourdet-num">
-                    <div className="tourdet-numt">1</div>
-                  </div>
-                  <div className="tourdet-numt-wrapper">
-                    <div className="tourdet-numt">2</div>
-                  </div>
-                  <div className="tourdet-num-2">
-                    <div className="tourdet-numt">3</div>
-                  </div>
-                  <div className="tourdet-num-2">
-                    <div className="tourdet-numt">4</div>
-                  </div>
-                  <div className="tourdet-numt-wrapper">
-                    <div className="tourdet-numt">5</div>
-                  </div>
-                </div>
+              <div className="pagefr">
+                  {reviewpageNum.map(num => (
+              <a key={num} onClick={(e) => handlePgClick(e, num)} href="!#">
+                {num}
+              </a>
+            ))}
               </div>
-              <div className="ntpfr">
-                <img
-                  className="ntpicon"
-                  alt="Ntpicon"
-                  src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-rightbtniconfr.svg"
-                />
-              </div>
+            <div className="review-page-next" onClick={goToNextrvPage}>
+              <img className="polygon2" alt="다음 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-rightbtniconfr.svg" />
             </div>
-          </div>{/*리뷰목록 있는하얀색 블록 div끝*/}
+          </div>
+        </div>{/*리뷰목록 있는하얀색 블록 div끝*/}
 
 
 
