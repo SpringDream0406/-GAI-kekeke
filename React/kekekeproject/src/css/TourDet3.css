@@ -8,9 +8,9 @@
 
 .index .tourFrame {
     background-color: #ffffe7;
-    height: 2247px;
+    height: 1000px;
     width: 1440px;
-    align-self: center
+    align-items: flex-start;
   }
   
   .index .bluebox {
@@ -382,8 +382,9 @@
   }
   
   .index .tour-det-white-fr {
-    align-items: center;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+   
     gap: 10px;
     left: 84px;
     position: absolute;
@@ -651,4 +652,81 @@
 .TourDet3_LinkStyle:hover {
   color: purple; /* 클릭 전 텍스트 색상 사용 */
   cursor: pointer; /* 커서를 손가락 모양으로 변경 */
+}
+
+
+.tour-review-page {
+
+  display: flex;         /* Flexbox를 활성화합니다 */
+  align-items: center;   /* 내부 요소들을 수직 방향으로 가운데 정렬합니다 */
+  justify-content: center; /* 내부 요소들을 수평 방향으로 가운데 정렬합니다 */
+  height: 34px;
+  left: 35%;
+  position: absolute;
+  top: 92%;
+  width: 384px;
+}
+
+.review-page-before {
+  height: 34px;
+  left: 10px;
+  position: absolute;
+  top: 0;
+  width: 60px;
+}
+
+.polygon1 {
+  height: 25px;
+  left: 15px;
+  position: absolute;
+  top: 5px;
+  width: 22px;
+  
+}
+
+.pagefr {
+  display: flex;          /* Flexbox를 활성화합니다 */
+  align-items: center;    /* 내부 요소들을 수직 방향으로 가운데 정렬합니다 */
+  justify-content: center; /* 내부 요소들을 수평 방향으로 가운데 정렬합니다 */
+}    /* 필요에 따라 마진 추가 */
+
+
+.pagefr a {
+  display: inline-block;      /* 인라인 블록 요소로 설정 */
+  margin: 5px;               /* 각 링크 주변의 여백 */
+  padding: 8px 16px;         /* 안쪽 여백: 상하 8px, 좌우 16px */
+  color: #61a4d5;       /* 글자 색상 */
+  font-family: "Pretendard-Bold";     
+  text-decoration: none;     /* 링크 밑줄 제거 */
+  font-size: 20px;           /* 글자 크기 */
+  border-radius: 5px;        /* 테두리 둥글게 */
+  white-space: nowrap;
+  top: -1px;
+  letter-spacing: 0;
+}
+
+.pagefr a:hover {
+  color: #ddd;
+  font-size: 24px;    /* 마우스 오버 시 배경 색상 변경 */
+  font-family: "Pretendard-Bold";   
+}
+
+
+.review-page-next {
+  height: 34px;
+  left: 314px;
+  position: absolute;
+  top: 0;
+  transform: rotate(-180deg);
+  width: 60px;
+  
+}
+
+.polygon2 {
+  height: 25px;
+  left: 15px;
+  position: absolute;
+  top: 5px;
+  transform: rotate(180deg);
+  width: 22px;
 }

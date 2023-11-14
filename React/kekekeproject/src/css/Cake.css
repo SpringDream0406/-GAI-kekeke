@@ -40,7 +40,7 @@
   width: 202px;
 }
 
-.div-wrapper .text-wrapper {
+.div-wrapper .tour-location-gj {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -52,7 +52,7 @@
   top: 10px;
 }
 
-.div-wrapper .text-wrapper-2 {
+.div-wrapper .tour-location-gu {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -111,67 +111,34 @@
     top: 5px;
     width: 22px;
   }
-  
-  .tour .tour-page-num {
-    height: 34px;
-    left: 70px;
-    position: absolute;
-    top: 0;
-    width: 244px;
+  .pagination {
+    display: flex;             /* Flexbox 컨테이너로 설정 */
+    justify-content: center; /* 내부 항목을 오른쪽으로 정렬 */
+    margin-bottom: 20px;       /* 필요에 따라 마진 추가 */
   }
-  
-  .tour .one {
-    height: 24px;
-    left: 26px;
-    position: absolute;
-    top: 5px;
-    width: 10px;
-  }
-  
-  .tour .text-wrapper {
-    color: #61a4d5;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
+
+  .pagination a {
+    display: inline-block;      /* 인라인 블록 요소로 설정 */
+    margin: 5px;               /* 각 링크 주변의 여백 */
+    padding: 8px 16px;         /* 안쪽 여백: 상하 8px, 좌우 16px */
+    color: #61a4d5;       /* 글자 색상 */
+    font-family: "Pretendard-Bold";     
+    text-decoration: none;     /* 링크 밑줄 제거 */
+    font-size: 20px;           /* 글자 크기 */
+    border-radius: 5px;        /* 테두리 둥글게 */
     white-space: nowrap;
+    top: -1px;
+    letter-spacing: 0;
   }
   
-  .tour .two {
-    height: 24px;
-    left: 68px;
-    position: absolute;
-    top: 5px;
-    width: 13px;
+  .pagination a:hover {
+    color: #ddd;
+    font-size: 24px;    /* 마우스 오버 시 배경 색상 변경 */
+    font-family: "Pretendard-Bold";   
   }
   
-  .tour .three {
-    height: 24px;
-    left: 113px;
-    position: absolute;
-    top: 5px;
-    width: 14px;
-  }
+
   
-  .tour .four {
-    height: 24px;
-    left: 159px;
-    position: absolute;
-    top: 5px;
-    width: 14px;
-  }
-  
-  .tour .five {
-    height: 24px;
-    left: 205px;
-    position: absolute;
-    top: 5px;
-    width: 13px;
-  }
   
   .tour .tour-page-next {
     height: 34px;
@@ -208,8 +175,9 @@
   }
   
   .tour .tour-element1 {
-    align-items: center;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 각 항목 사이의 간격을 균등하게 설정 */
     flex: 0 0 auto;
     gap: 50px;
     justify-content: center;
@@ -217,27 +185,18 @@
     position: relative;
     width: 1020px;
   }
-  
+
+
   .tour .tour-cake-container {
+    width: calc(33.333% - 10px); /* 화면 너비의 1/3에서 여백을 빼줍니다 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
     height: 363px;
     position: relative;
     width: 300px;
   }
   
 
-  .tour .tour-first-cake-img{
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/firstcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .tour-nine-cake-img{
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/ninethcake-img@2x.png);
+  .tour .tourcakeimg{
     background-position: 50% 50%;
     background-size: cover;
     height: 280px;
@@ -255,9 +214,9 @@
     width: 277px;
   }
   
-  .tour .firstcake-name {
+  .tour .tourcakename {
     color: #000000;
-    font-family: "Inter", Helvetica;
+    font-family: "pretendard-Bold";
     font-size: 28px;
     font-weight: 700;
     left: 60px;
@@ -277,10 +236,10 @@
   
   .tour .cake-address {
     color: #565656;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
+    font-family: "pretendard-Regular";
+    font-size: 24px;
     font-weight: 400;
-    left: 30px;
+    left: 20px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -288,221 +247,6 @@
     white-space: nowrap;
   }
   
-  .tour .tour-second-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/secondcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .tour-cake-name2 {
-    height: 39px;
-    left: 26px;
-    position: absolute;
-    top: 290px;
-    width: 248px;
-  }
-
-  .tour .secondcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 59px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .thirdcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 59px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .fourthcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 59px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .sixthcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .eighthcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 40px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .ninethcake-name{
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-
-  .tour .tour-third-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/thirdcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .element-2 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 50px;
-    padding: 0px 10px;
-    position: relative;
-  }
-  
-  .tour .tour-fourth-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/fourthcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .tour-fiveth-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/fivethcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .fivethcake-name {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 33px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: -1px;
-  }
-  
-  .tour .tour-sixth-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/sixthcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .text-wrapper-4 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 46px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour .tour-seventh-cake {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/seventhcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .seventhcake-name {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 28px;
-    font-weight: 700;
-    left: 20px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour .tour-eighth-cake-img {
-    background-image: url(https://c.animaapp.com/YHefgPrk/img/eighthcake-img@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 280px;
-    left: 10px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-  }
-  
-  .tour .ninethcake-img {
-    height: 280px;
-    left: 4px;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 271px;
-  }
-  
- 
-  
-
   .tour .tour-locationbutton {
     display: flex; /* Flex 컨테이너 설정 */
     justify-content: flex-start; /* 자식 요소들을 오른쪽 끝으로 정렬 */
@@ -551,3 +295,15 @@
     background-color: #61a4d5; /* 호버 시 배경색 변경 */
     color: #ffffff; /* 호버 시 글씨 색상 변경 */
   }
+
+/* 기본적으로 숨겨집니다 */
+.tour-location-container {
+  display: none;
+  /* 필요한 스타일 추가 */
+}
+
+/* 활성화되었을 때 보여줍니다 */
+.tour-location-container.active {
+  display: block;
+  /* 필요한 스타일 추가 */
+}

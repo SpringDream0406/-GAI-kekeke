@@ -35,6 +35,7 @@ const Join = () => {
 
 
 
+
   const handleJoin = () => {
     const url = `${API_URL}/cust/join`;
     const formData = new FormData();
@@ -83,7 +84,7 @@ const Join = () => {
 
 
     const handlechecknick = () => {
-      const url = `${API_URL}/cust/check`;
+      const url = `${API_URL}/user/check`;
       const data = {nick_name : nick_name , user_type : 0}
 
       axios.post(url,data)
@@ -96,7 +97,7 @@ const Join = () => {
         })
     }
     const handlecheckid = () => {
-      const url = `${API_URL}/cust/check`;
+      const url = `${API_URL}/user/check`;
       const data = {cust_id : cust_id , user_type : 0}
 
       axios.post(url,data)
