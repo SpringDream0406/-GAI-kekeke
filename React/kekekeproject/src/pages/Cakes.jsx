@@ -187,20 +187,20 @@ export const Cakes = () => {
         >
           지역 선택
         </button>
-      </div>
-    </div>
-
-    {/* 드롭다운 효과를 위한 div, 상태에 따라 클래스명을 변경합니다. */}
-    <div className={`tour-location-container ${isLocationModalOpen ? "active" : ""}`}>
-      <SelectLocation />
-    </div>
-                <button
+        <button
                   className="mylocationbutton"
                   onClick={toggleMyLocation}
                   style={{ backgroundColor: myLocation ? "#61a4d5" : "" , color: myLocation ? "white" : "", }}
                 >
                   내 주변
                 </button>
+      </div>
+      
+    </div>
+    {/* 드롭다운 효과를 위한 div, 상태에 따라 클래스명을 변경합니다. */}
+    <div className={`tour-location-container ${isLocationModalOpen ? "active" : ""}`}>
+      <SelectLocation />
+    </div>
         </div>
       </div>
     </div>  

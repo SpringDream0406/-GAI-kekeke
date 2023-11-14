@@ -247,8 +247,8 @@
     white-space: nowrap;
   }
   
-  .tour .tour-locationbutton {
-    display: flex; /* Flex 컨테이너 설정 */
+  .tour .tour-locationbutton {  display: flex;         /* Flexbox를 활성화합니다 */
+    align-items: center;   /* 내부 요소들을 수직 방향으로 가운데 정렬합니다 */
     justify-content: flex-start; /* 자식 요소들을 오른쪽 끝으로 정렬 */
     gap: 30px;
 }
@@ -297,13 +297,13 @@
   }
 
 /* 기본적으로 숨겨집니다 */
-.tour-location-container {
-  display: none;
+.tour-location-container {  display: none;
   /* 필요한 스타일 추가 */
 }
 
 /* 활성화되었을 때 보여줍니다 */
 .tour-location-container.active {
+  
   display: block;
   /* 필요한 스타일 추가 */
 }

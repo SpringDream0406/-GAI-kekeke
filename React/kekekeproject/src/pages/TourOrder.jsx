@@ -5,59 +5,86 @@ import "../css/TourOrder.css";
 
 
 export const TourOrder = () => {
+
+  const CakeStoreName = '랑랑케이크';
+    const StoreAddr = '강남구 도곡동';
+    const StoreDetail = '강남구 도곡동에 위치한 주문제작 및 클래스 공방입니다. 사랑과 정성이 깃든 수제케이크로 당신의 소중한 순간을 더욱 특별하게 만들어드립니다! 달콤한 순간을 케이크와 함께 최상의 재료와 정성이 담긴 수제케이크로 당신을 맞이합니다.';
+    const CakeName = '티아라케이크' ;
+    const tourdet3_StoreLogo = "https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG.theyoon_cake/%25EB%25A1%259C%25EA%25B3%25A0.png?type=w161";
+
+    const handleChatBoxClick =() =>{
+      window.open('/TourReviewPopup', '_blank');
+    }
+
   return (
-    <div className="tour-detail-order">
-      <div className="overlap-wrapper">
-        <div className="overlap">
-          <div className="group-wrapper">
-            <div className="group">
-              <div className="overlap-group">
-                <div className="div" />
-                <div className="ellipse" />
-                <div className="rectangle" />
+    <div className="index">
+    <div className="TourDet2_tourFrame">
+      <div className="TourDet2_bluebox">
+        <div className="TourDet2_bodyfr">
+          <div className="TourDet2_overlap-group">
+            <div className="TourDet2_group">
+              <div className="TourDet2_overlap-group">
+                <div className="Tourorder_div" />
+                <div className="TourDet2_ellipse" />
+                <div className="TourDet2_rectangle" />
               </div>
             </div>
-          </div>
-          <div className="div-2">
-            <div className="div-wrapper">
-              <div className="text-wrapper">샘플케이크</div>
-            </div>
-            <div className="div-wrapper-2">
-              <div className="text-wrapper-2">매장정보</div>
-            </div>
-            <div className="div-wrapper-3">
-              <div className="text-wrapper">리뷰</div>
-            </div>
-          </div>
-          <div className="div-3">
-            <div className="overlap-2">
-              <div className="div-wrapper-4">
-                <div className="text-wrapper-3">강남구 도곡동</div>
-              </div>
-              <div className="div-wrapper">
-                <div className="text-wrapper-4">랑랑케이크</div>
-              </div>
-            </div>
-            <div className="overlap-group-wrapper">
-              <div className="overlap-group-2">
-                <div className="div-4" />
-                <div className="element">
-                  <div className="text-wrapper-5">1:1 채팅</div>
+
+
+
+            <div className="TourDet2_tourdet3-SampleStoreReviewFr"> {/* 샘플케이크, 매장정보, 리뷰 탭 div */}
+              
+                <div className="TourDet2_text-tourdet3-Sample">
+                <Link to="/SampleCake"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">샘플케이크</Link>
                 </div>
-              </div>
+             
+          
+                <div className="TourDet2_text-tourdet3-Store">
+                매장정보
+                </div>
+            
+              
+                <div className="TourDet2_tour-det-review">
+                <Link to="/TourDet3"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">리뷰</Link>
+                </div>
+             
+            </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
+          </div>
+        </div>
+
+
+
+
+        <div className="TourDet2_storeinfo"> {/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div*/}
+          <div className="TourDet2_tourdet">
+            <img className="TourDet2_tourdet3-StoreLogo"
+              src={tourdet3_StoreLogo}
+              alt={CakeName}
+               />{/*가게 로고*/}
+          </div>
+          <div className="TourDet2_tourdet-3">
+            <div className="TourDet2_tourdet3-CakeStoreNameFrame">
+              <div className="TourDet2_tourdet3-CakeStoreName">{CakeStoreName}</div>{/* 가게 이름 넣는곳*/}
             </div>
-            <div className="rectangle-wrapper">
-              <div className="rectangle-2" />
+            <div className="TourDet2_tour-det-addr">
+              <div className="TourDet2_tour-det-addr-tx">{StoreAddr}</div>{/* 가게 주소넣는곳*/}
             </div>
-            <div className="div-wrapper-5">
-              <p className="p">
-                강남구 도곡동에 위치한 주문제작 및 클래스 공방입니다.
-                <br />
-                사랑과 정성이 깃든 수제케이크로 당신의 소중한 순간을 더욱 특별하게 만들어드립니다! 달콤한 순간을
-                케이크와 함께 최상의 재료와 정성이 담긴 수제케이크로 당신을 맞이합니다.
+            <div className="TourDet2_tour-det-det">
+              <p className="TourDet2_tour-det-det-tx" >
+              {StoreDetail}{/* 가게 설명넣는곳*/}
               </p>
             </div>
           </div>
+          
+            <div className="TourDet2_overlap-group-2">
+          
+              <button className="TourDet2_tour-det-chatbox"  onClick = {handleChatBoxClick}> {/* 1:1 채팅*/}
+                <div className="TourDet2_tourdet3Chatbox" />
+                <div className="TourDet2_tourdet3ChatboxTx" >1:1 채팅</div>
+              </button>
+            
+          </div>
+        </div>{/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div끝*/}
           <div className="div-5" />
           <div className="div-wrapper-6">
             <div className="text-wrapper-6">예약자성함</div>
