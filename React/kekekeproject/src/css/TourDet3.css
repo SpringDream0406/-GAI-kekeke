@@ -8,9 +8,9 @@
 
 .index .tourFrame {
     background-color: #ffffe7;
-    height: 2247px;
+    height: 1000px;
     width: 1440px;
-    align-self: center
+    align-items: flex-start;
   }
   
   .index .bluebox {
@@ -384,7 +384,7 @@
   .index .tour-det-white-fr {
     display: flex;
     flex-direction: column;
-    height: 100%; /* 전체 높이를 활용하기 위해 높이를 100%로 설정 */
+   
     gap: 10px;
     left: 84px;
     position: absolute;
@@ -655,20 +655,19 @@
 }
 
 
-.tour .tour-review-page {
+.tour-review-page {
 
   display: flex;         /* Flexbox를 활성화합니다 */
   align-items: center;   /* 내부 요소들을 수직 방향으로 가운데 정렬합니다 */
   justify-content: center; /* 내부 요소들을 수평 방향으로 가운데 정렬합니다 */
-
   height: 34px;
-  left: 318px;
+  left: 35%;
   position: absolute;
-  top: 1381px;
+  top: 92%;
   width: 384px;
 }
 
-.tour .review-page-before {
+.review-page-before {
   height: 34px;
   left: 10px;
   position: absolute;
@@ -676,7 +675,7 @@
   width: 60px;
 }
 
-.tour .polygon1 {
+.polygon1 {
   height: 25px;
   left: 15px;
   position: absolute;
@@ -684,13 +683,13 @@
   width: 22px;
   
 }
-.pagefr {
+
 .pagefr {
   display: flex;          /* Flexbox를 활성화합니다 */
   align-items: center;    /* 내부 요소들을 수직 방향으로 가운데 정렬합니다 */
   justify-content: center; /* 내부 요소들을 수평 방향으로 가운데 정렬합니다 */
 }    /* 필요에 따라 마진 추가 */
-}
+
 
 .pagefr a {
   display: inline-block;      /* 인라인 블록 요소로 설정 */
@@ -713,7 +712,7 @@
 }
 
 
-.tour .review-page-next {
+.review-page-next {
   height: 34px;
   left: 314px;
   position: absolute;
@@ -723,7 +722,7 @@
   
 }
 
-.tour .polygon2 {
+.polygon2 {
   height: 25px;
   left: 15px;
   position: absolute;

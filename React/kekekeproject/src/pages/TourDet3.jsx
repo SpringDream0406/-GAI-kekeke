@@ -67,6 +67,8 @@ export const TourDet3 = () => {
         
       
       },
+      
+      
      
    
     ];
@@ -233,10 +235,10 @@ return (
 
               </div>
             </div>
-            <div className="tour-review-page">
-              <div className="review-page-before" onClick={goToPrervPage}>
+            <div className="tour-review-page"> {/*페이지 버튼*/}
+              <div className="review-page-before" onClick={goToPrervPage}> {/*이전페이지버튼*/}
                 <img className="polygon1" alt="이전 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-leftbtniconfr.svg" />
-              </div>
+              </div>{/*이전페이지버튼 끝*/}
               <div className="pagefr">
                   {reviewpageNum.map(num => (
               <a key={num} onClick={(e) => handlePgClick(e, num)} href="!#">
@@ -244,10 +246,11 @@ return (
               </a>
             ))}
               </div>
-            <div className="review-page-next" onClick={goToNextrvPage}>
+            <div className="review-page-next" onClick={goToNextrvPage}>{/*다음페이지버튼*/}
               <img className="polygon2" alt="다음 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-rightbtniconfr.svg" />
-            </div>
-          </div>
+            </div>{/*다음페이지버튼끝*/}
+          </div>{/*페이지 버튼*/}
+
         </div>{/*리뷰목록 있는하얀색 블록 div끝*/}
 
 
