@@ -200,7 +200,7 @@ export const TourDet2 = () => {
                     <div className="TourDet2_reserve">{/*예약주의사항시작*/}
                     <div className="TourDet2_resinputfr">
                       <p className="TourDet2_resinputtx">
-                        {orderinfo}
+                                          {orderinfo}
                       </p>
                     </div>
                     <div className="TourDet2_resfr">
