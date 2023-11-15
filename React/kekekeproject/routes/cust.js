@@ -84,7 +84,7 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
             profile_img = profile_img || 'eunho.jpg'; // 프로필 이미지 첨부 안했으면 기본값인 은호로 등록
 
             let sql = `insert into TB_CUSTOMER (cust_id, cust_pw, phone, nick_name, profile_img)
-                                   values (?,?,?,?,?)`
+                                    values (?,?,?,?,?)`
             conn.query(sql, [cust_id, pw_hashed, phone, nick_name, profile_img], (err, rows) => {
                 if (err) {
                     console.error('커스터머 회원가입 에러', err);

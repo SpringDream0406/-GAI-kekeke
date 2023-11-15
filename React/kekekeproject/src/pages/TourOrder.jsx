@@ -1,10 +1,18 @@
-import React , {useState} from "react";
+import React, { useState,  forwardRef } from 'react';
 import {Link} from "react-router-dom";
 import "../css/TourOrder.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 
 export const TourOrder = () => {
+
+
+  
+  const [startedDate, setStartedDate] = useState(new Date());
 
   const CakeStoreName = '랑랑케이크';
     const StoreAddr = '강남구 도곡동';
@@ -16,9 +24,16 @@ export const TourOrder = () => {
       window.open('/TourReviewPopup', '_blank');
     }
 
+    const OrderInput = forwardRef(({ value, onClick }, ref) => (
+      <button className="example-order-input co-day" onClick={onClick} ref={ref}>
+        {value}
+        <FontAwesomeIcon icon={faCalendarAlt} className='co-day-icon' onClick={onClick} />
+      </button>
+    ));
+
   return (
     <div className="index">
-    <div className="TourDet2_tourFrame">
+    <div className="TourOrder_tourFrame">
       <div className="TourDet2_bluebox">
         <div className="TourDet2_bodyfr">
           <div className="TourDet2_overlap-group">
@@ -37,7 +52,7 @@ export const TourOrder = () => {
                 <div className="TourDet2_text-tourdet3-Sample">
                 <Link to="/SampleCake"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">샘플케이크</Link>
                 </div>
-             
+            
           
                 <div className="TourDet2_text-tourdet3-Store">
                 매장정보
@@ -47,7 +62,7 @@ export const TourOrder = () => {
                 <div className="TourDet2_tour-det-review">
                 <Link to="/TourDet3"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">리뷰</Link>
                 </div>
-             
+            
             </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
           </div>
         </div>
@@ -60,7 +75,7 @@ export const TourOrder = () => {
             <img className="TourDet2_tourdet3-StoreLogo"
               src={tourdet3_StoreLogo}
               alt={CakeName}
-               />{/*가게 로고*/}
+              />{/*가게 로고*/}
           </div>
           <div className="TourDet2_tourdet-3">
             <div className="TourDet2_tourdet3-CakeStoreNameFrame">
@@ -113,6 +128,13 @@ export const TourOrder = () => {
           </div>
           <div className="div-wrapper-14">
             <div className="text-wrapper-6">픽업날짜</div>
+            <DatePicker 
+        selected={startedDate} 
+        onChange={(date) => setStartedDate(date)} 
+        className="co-day"
+        dateFormat="yyyy/MM/dd"
+        customInput={<OrderInput />} // 여기에 커스텀 인풋을 추가합니다.
+      />
           </div>
           <div className="div-wrapper-15">
             <div className="text-wrapper-6">케이크 설명</div>

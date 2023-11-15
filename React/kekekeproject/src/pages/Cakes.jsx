@@ -1,7 +1,6 @@
 
-import React , { useState }from "react";
+import React , { useState, useEffect }from "react";
 import "../css/Cake.css";
-import Footer from '../component/Footer'
 import {Link} from 'react-router-dom'
 
 
@@ -72,86 +71,91 @@ export const Cakes = () => {
     },
   ]
 
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [filteredCakes, setFilteredCakes] = useState(cakeList);// 필터링된 케이크 목록을 위한 상태
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
   const [myLocation, setMyLocation] = useState(false);
 
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+
+  useEffect(() => {
+    if (selectedLocation) {
+      // 선택된 지역과 일치하는 케이크 목록 필터링
+      const filtered = cakeList.filter(cake => cake.Cake_Add.includes(selectedLocation));
+      setFilteredCakes(filtered);
+    } else {
+      // 선택된 지역이 없는 경우 전체 목록 표시
+      setFilteredCakes(cakeList);
+    }
+    setCurrentPage(1); //필터링 후 페이지 번호를 첫 페이지로 초기화
+  }, [selectedLocation]);
+
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCakes = filteredCakes.slice(indexOfFirstItem, indexOfLastItem);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(filteredCakes.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
   const toggleLocationModal = () => {
-    if (myLocation == true) {
+    if (myLocation === true) {
       setMyLocation(false);
       setLocationModalOpen(!isLocationModalOpen);
     }else{
     setLocationModalOpen(!isLocationModalOpen);}
   };
   
-  const toggleMyLocation = () => {
-    if (isLocationModalOpen == true) {
-      setLocationModalOpen(false);
-      setMyLocation(!myLocation);
-    }else{
-    setMyLocation(!myLocation);}
-  }
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCakes = cakeList.slice(indexOfFirstItem, indexOfLastItem);
-
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(cakeList.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
   const handlePageClick = (event, number) => {
     event.preventDefault(); // 페이지 새로고침 방지
     setCurrentPage(number);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
   /*이전페이지로 가는 로직 */
   const goToPrevPage = () => {
     setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
   /*다음페이지로 가는 로직 */
   const goToNextPage = () => {
     setCurrentPage(prev => prev < pageNumbers.length ? prev + 1 : pageNumbers.length);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
 
-
-
-
-
   return (
-
     <div className="tour">
       <div className="tour-contents-fr">
         <div className="tour-contents">
-          {/* 하단 페이지 구역 */}
-          <div className="tour-page">
-  <div className="tour-page-before" onClick={goToPrevPage}>
-    <img className="polygon" alt="이전 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3.svg" />
-  </div>
-          {/* 페이지네이션 */}
-          <div className="pagination">
-            {pageNumbers.map(number => (
-              <a key={number} onClick={(e) => handlePageClick(e, number)} href="!#">
-                {number}
-              </a>
-            ))}
-          </div>
-          <div className="tour-page-next" onClick={goToNextPage}>
-    <img className="img" alt="다음 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3-1.svg" />
-  </div>
-          </div>
+          {/* 상단 지역 선택 */}
+      <div className="tour-locationbutton">
+        <button
+          className="locationbutton"
+          onClick={toggleLocationModal}
+          style={{
+            backgroundColor: isLocationModalOpen ? "#61a4d5" : "",
+            color: isLocationModalOpen ? "white" : "",
+          }}
+        >
+          지역 선택
+        </button>
+        {isLocationModalOpen ? (<SelectLocation 
+        selectedLocation={selectedLocation}
+        setSelectedLocation={setSelectedLocation}
+        setLocationModalOpen={setLocationModalOpen}/>) : null}
+      </div>
 
           {/* 중앙 케이크 지역 */}
           <div className="tour-cake">
   <div className="tour-container">
-    <div className="tour-element1">
-      {currentCakes.map(cakeList => (
-        <Link to={'/TourOrder'} key={cakeList.Cake_Id}>
+    {currentCakes.map((cakeList) => (
+  <Link to={'/TourOrder'} key={cakeList.Cake_Id}>
           <div className="tour-cake-container">
             <div className="tour-cake-img">
               <img 
@@ -167,83 +171,69 @@ export const Cakes = () => {
               <div className="cake-address">{cakeList.Cake_Add}</div>
             </div>
           </div>
+          
         </Link>
       ))}
+      {/* 빈 요소 추가 */}
+{Array(9 - currentCakes.length).fill().map((_, index) => (
+  <div key={`empty-${index}`} className="tour-cake-container empty"></div>
+))}
     </div>
-  </div>
 </div>
-
-
-          {/* 상단 지역 선택 */}
-          <div className="location-container">
-      <div className="tour-locationbutton">
-        <button
-          className="locationbutton"
-          onClick={toggleLocationModal}
-          style={{
-            backgroundColor: isLocationModalOpen ? "#61a4d5" : "",
-            color: isLocationModalOpen ? "white" : "",
-          }}
-        >
-          지역 선택
-        </button>
-        <button
-                  className="mylocationbutton"
-                  onClick={toggleMyLocation}
-                  style={{ backgroundColor: myLocation ? "#61a4d5" : "" , color: myLocation ? "white" : "", }}
-                >
-                  내 주변
-                </button>
+          
+                {/* 하단 페이지 구역 */}
+                <div className="tour-page">
+  <div className="tour-page-before" onClick={goToPrevPage}>
+    <img className="polygon" alt="이전 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3.svg" />
+  </div>
+          {/* 페이지네이션 */}
+          <div className="pagination">
+            {pageNumbers.map(number => (
+              <a key={number} onClick={(e) => handlePageClick(e, number)} href="!#">
+                {number}
+              </a>
+            ))}
+          </div>
+          <div className="tour-page-next" onClick={goToNextPage}>
+    <img className="img" alt="다음 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3-1.svg" />
+  </div>
+          </div>
       </div>
-      
     </div>
-    {/* 드롭다운 효과를 위한 div, 상태에 따라 클래스명을 변경합니다. */}
-    <div className={`tour-location-container ${isLocationModalOpen ? "active" : ""}`}>
-      <SelectLocation />
-    </div>
-        </div>
-      </div>
-    </div>  
+  </div>  
 
-  
   );
 };
 
-
 export default Cakes
 
+const SelectLocation = ({selectedLocation, setSelectedLocation, isLocationModalOpen, setLocationModalOpen}) => {
 
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    setLocationModalOpen(false);
+  };
 
-const SelectLocation = () => {
-
-  return(
-    <div className="tour-location-container">
+  return (
+    <div className="cake-location">
       <div className="tour-select-location" />
-      <div className="tour-loaction-fr">
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gj">광주광역시</div>
-        </div>
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gu">남구</div>
-        </div>
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gu">서구</div>
-        </div>
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gu">광산구</div>
-        </div>
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gu">동구</div>
-        </div>
-        <div className="tour-select-location-2">
-          <img className="vector" alt="Vector" src="https://c.animaapp.com/b3lWoGsb/img/vector-461-5.svg" />
-          <div className="tour-location-gu">북구</div>
-        </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시")}>
+        <div className="select-gj">광주광역시</div>
+      </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 남구")}>
+        <div className="select-gu">남구</div>
+      </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 서구")}>
+        <div className="select-gu">서구</div>
+      </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 광산구")}>
+        <div className="select-gu">광산구</div>
+      </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 동구")}>
+        <div className="select-gu">동구</div>
+      </div>
+      <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 북구")}>
+        <div className="select-gu">북구</div>
       </div>
     </div>
   );
