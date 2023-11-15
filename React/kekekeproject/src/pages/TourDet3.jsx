@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/TourDet3.css";
 import TourDetContainer from '../component/TourDetContainer'
+import PageButton from "./PageButton";
 
 export const TourDet3 = () => {
   
@@ -21,6 +22,7 @@ export const TourDet3 = () => {
       {
         DEAL_ID: 2,
         IMG_NAME: '/assets/images/cake3.jpg',
+        CAKE_NAME: '곰도리',
         CREATED_AT: '2023-11-14',
         CUST_NICK: '서유정',
         CAKE_SIZE: '도시락',
@@ -53,10 +55,6 @@ export const TourDet3 = () => {
         
       
       },
-      
-      
-     
-   
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -64,7 +62,6 @@ export const TourDet3 = () => {
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = Reviews.slice(indexOfFirstItem, indexOfLastItem);
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
 
     const reviewpageNum = [];
@@ -77,17 +74,15 @@ export const TourDet3 = () => {
     //   window.open('/TourReviewPopup', '_blank');
     // }
    
-    const handlePgClick = (event, number) => {
-      event.preventDefault(); // 페이지 새로고침 방지
-      setCurrentPage(number);
-    };
     
       /*이전페이지로 가는 로직 */
+      
   const goToPrervPage = () => {
     setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
   };
 
     /*다음페이지로 가는 로직 */
+
     const goToNextrvPage = () => {
       setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
     };
@@ -150,22 +145,22 @@ return (
         ))}
       </div>
       <div className="pagination">
-        <button className="prev-page" onClick={goToPrervPage}>
-          {/* 이전 페이지 아이콘 */}
-        </button>
-        <div className="page-numbers">
-          {reviewpageNum.map(num => (
-            <a key={num} onClick={(e) => handlePgClick(e, num)} href="#!">
-              {num}
-            </a>
-          ))}
-        </div>
-        <button className="next-page" onClick={goToNextrvPage}>
-          {/* 다음 페이지 아이콘 */}
-        </button>
-      </div>
-    </div>
+                        <PageButton type="prev" onClick={goToPrervPage} />
+                        
+                        {/* 페이지 번호들 렌더링 */}
+                        {reviewpageNum.map(num => (
+                            <button
+                                key={num}
+                                onClick={() => setCurrentPage(num)}
+                                className={`page-number ${currentPage === num ? 'active' : ''}`}
+                            >
+                                {num}
+                            </button>
+                        ))}
 
+                        <PageButton type="next" onClick={goToNextrvPage} />
+                    </div>
+                </div>
     </TourDetContainer>
   </div>
 
