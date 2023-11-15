@@ -1,0 +1,98 @@
+.tour-detail-container {
+    background-image: url('/public/assets/images/bluebox.png');
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 305px auto 0;
+    height: 1766px;
+    width: 1293px;
+    margin-bottom: 200px;
+    position: relative; /* 부모 요소에 상대적인 위치 설정 */
+  }
+
+  .frameTour{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* 부모의 전체 너비를 차지하도록 설정 */
+    z-index: 10; /* 다른 요소 위에 보이도록 z-index 설정 */
+    margin-top: 30px;
+  }
+  
+  .store-info-section {
+    display: flex; /* 플렉스박스 레이아웃 적용 */
+    align-items: center; /* 세로축에서 중앙 정렬 */
+    width: 85%;
+    padding: 50px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .store-logo {
+    width: 250px;
+    height: 250px;
+    /* margin-right: 100px; */
+    margin: 100px
+  }
+  
+  .store-text-content {
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 나열 */
+    justify-content: center; /* 세로축에서 중앙 정렬 */
+    
+  }
+  
+  .Tour-store-name {
+    color: #333;
+    font-size: 34px;
+    font-family: 'Pretendard-Bold'
+  }
+  
+  .store-address {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  .store-description {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .chat-button {
+    background-color: #FFFFE7;
+    font-family: 'Pretendard-Bold';
+    font-size: 16px;
+    color: #61A5D6;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 60px; /* 채팅 버튼과 텍스트 컨텐츠 사이의 간격 */
+    white-space: nowrap; /* 버튼 텍스트가 줄바꿈 되지 않도록 설정 */
+    border: 3px solid #61A5D6
+  }
+  
+  .sub-bar {
+    display: flex;
+    justify-content: center;
+    margin-right: 50px;
+  }
+  
+  .sub-bar-item {
+    padding: 10px 20px;
+    margin: 0 100px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid transparent; /* 추가 */
+  }
+  
+  .sub-bar-item:hover {
+    color: #61a4d5;
+    border-bottom: 2px solid #61a4d5; /* 변경된 색상으로 호버 상태를 표시 */
+  }
+  
+  .chat-text {
+    display: block;
+  }
