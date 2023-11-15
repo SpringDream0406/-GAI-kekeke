@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/TourDet3.css";
 import { Link } from 'react-router-dom';
+import Blue_Box from "../component/Blue_Box";
 
 
 export const TourDet3 = () => {
@@ -237,7 +238,7 @@ return (
             </div>
             <div className="tour-review-page"> {/*페이지 버튼*/}
               <div className="review-page-before" onClick={goToPrervPage}> {/*이전페이지버튼*/}
-                <img className="polygon1" alt="이전 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-leftbtniconfr.svg" />
+                <img className="polygon1" alt="이전 페이지" src={'/assets/images/TourDet3Btn1.png'} />
               </div>{/*이전페이지버튼 끝*/}
               <div className="pagefr">
                   {reviewpageNum.map(num => (
@@ -247,7 +248,7 @@ return (
             ))}
               </div>
             <div className="review-page-next" onClick={goToNextrvPage}>{/*다음페이지버튼*/}
-              <img className="polygon2" alt="다음 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-rightbtniconfr.svg" />
+              <img className="polygon2" alt="다음 페이지" src={'/assets/images/TourDet3Btn2.png'}/>
             </div>{/*다음페이지버튼끝*/}
           </div>{/*페이지 버튼*/}
 

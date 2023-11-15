@@ -282,7 +282,7 @@
     font-family: "Inter", Helvetica;
     font-size: 32px;
     font-weight: 800;
-    left: 16px;
+
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -300,7 +300,7 @@
     font-family: 'Pretendard-Light';
     font-size: 20px;
     font-weight: 400;
-    left: 20px;
+
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -680,7 +680,7 @@
   left: 15px;
   position: absolute;
   top: 5px;
-  width: 22px;
+  width: 32px;
   
 }
 
@@ -728,5 +728,5 @@
   position: absolute;
   top: 5px;
   transform: rotate(180deg);
-  width: 22px;
+  width: 32px;
 }

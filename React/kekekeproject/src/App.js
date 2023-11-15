@@ -16,7 +16,7 @@ import React, { useState } from "react";
 import ReactResponsive, { Mobile, PC } from './component/ReactResponsive'
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
 import Login from "./pages/Login";
@@ -26,6 +26,7 @@ import Ad_Header from "./component/Ad_Header"
 
 import Mypage from "./pages/Mypage";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
+import Blue_box from "./component/Blue_Box";
 
 
 
@@ -52,6 +53,7 @@ function App() {
 
  
     <Routes>
+    <Route path="BlueBox" element = {<Blue_box/>}/>
       <Route path="TourReviewPopup" element = {<TourReviewPopup/>}/>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>
