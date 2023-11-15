@@ -1,5 +1,5 @@
 import React, { useState, useEffect, forwardRef } from 'react';
-
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
 import DatePicker from "react-datepicker";
@@ -11,6 +11,7 @@ const CustomCakeOrder = () => {
 
   
   const [startDate, setStartDate] = useState(new Date());
+  const [pickupTime, setPickupTime] = useState(new Date());
 
   const location = useLocation();
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
@@ -26,6 +27,12 @@ const CustomCakeOrder = () => {
     }
   };
 
+  const TimeInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="example-time-input-time co-timetitle" onClick={onClick} ref={ref}>
+      {value}
+      <FontAwesomeIcon icon={faClock} className='co-time-icon' onClick={onClick} />
+    </button>
+  ));
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="example-custom-input co-day" onClick={onClick} ref={ref}>
@@ -80,8 +87,11 @@ const CustomCakeOrder = () => {
                    
                   />
       <div className="co-time">픽업 시간</div>
-      <div className="co-timetitle" />
-      <div className="co-daytitle">픽업 날짜</div>
+    <div className='co-timetitle'/>
+   
+   
+      <div className="co-daytitle">픽업 날짜</div> 
+      
       <DatePicker 
         selected={startDate} 
         onChange={(date) => setStartDate(date)} 
@@ -89,6 +99,7 @@ const CustomCakeOrder = () => {
         dateFormat="yyyy/MM/dd"
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
       />
+      
       <p className="co-omgtitle">참고할 케이크 이미지 사진 첨부(택)</p>
       <div className="co-imgpic" >
       <label htmlFor="cakeImage" className='cakeImage'>이미지 첨부하기</label>
@@ -121,7 +132,7 @@ const CustomCakeOrder = () => {
                   />
           </div>
      
-    </div>
+          </div>
  
 
   )

@@ -1,0 +1,17 @@
+.blueboxindex {
+    background-image: url('/public/assets/images/bluebox.png');
+    background-size: 100% 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin: 305px auto 0; 
+    
+    height: 1766px;
+    width: 1293px;
+
+  }
+
+
+
+  
