@@ -24,6 +24,9 @@ import UserMessage from "./pages/UserMessage";
 
 import Ad_Header from "./component/Ad_Header"
 
+import Mypage from "./pages/Mypage";
+import CustomCakeOrder from "./pages/CustomCakeOrder";
+
 
 
 
@@ -41,17 +44,11 @@ function App() {
     
     <BrowserRouter>    
   
-
-
-
-        <GlobalStyle />
-        <Header_bf toggle={toggle} setToggle={setToggle}/>  
-
-       
+       <GlobalStyle />
+        <Header_bf toggle={toggle} setToggle={setToggle}/>   
 
         {/* <GlobalStyle />
-        <Header_af toggle={toggle} setToggle={setToggle}/>   */}
-
+        <Header_bf toggle={toggle} setToggle={setToggle}/>   */}
 
  
     <Routes>
@@ -66,10 +63,9 @@ function App() {
       <Route path="/" element={<Main/>}/>
       <Route path="/usermypage" element={<UserMypage/>}/>
       <Route path="/mporderlist" element={<MpOrderList/>}/>
-
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
-
+      <Route path="/customcake/order" element={<CustomCakeOrder /> }/>
       <Route path="/tourorder" element = {<TourOrder/>}/>
       <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
       <Route path="/samplecake" element = {<SampleCake/>}/>    

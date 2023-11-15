@@ -3,8 +3,12 @@ import React from "react";
 import "../css/AdminJoin.css";
 import { useState } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
+import axios from 'axios';
+import API_URL from '../api_url';
 import { event } from "jquery";
+// import { ADDRCONFIG } from "dns";
 // import { NONAME } from "dns";
+
 
 export const AdminJoin = () => {
 
@@ -35,12 +39,65 @@ export const AdminJoin = () => {
     const [Strg_use, setStrg_use] = useState('');
     const [Business_num, setBusiness_num] = useState('');
 
+    const [User_name, setUser_name] = useState('');
 
 
     const [Phone, setphone] = useState('');
 
 
+    const [Start_time, setStart_time] = useState('');
+    const [End_time, setEnd_time] = useState('');
 
+
+
+
+
+    const handleJoin = () => {
+      const url = `${API_URL}/seller/join`;
+  
+      const data = { Seller_id: Seller_id, Seller_PW: Seller_PW,
+                     Seller_PW_Check: Seller_PW_Check, Store_name: Store_name,
+                     Store_detail: Store_detail, Shop_tel: Shop_tel,
+                     Add_detail: Add_detail, Strg_use: Strg_use,
+                     Business_num: Business_num, Phone: Phone,
+                     Start_time: Start_time, End_time: End_time};
+  
+     
+      axios.post(url, data)
+        .then(response => { // status(200) 인 경우
+            console.log(response.data);
+            alert(response.data.message);
+            
+            // 성공적으로 로그인되었을 때 처리
+            // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
+            // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+        })
+        .catch(error => { // status(200)이 아닌 경우 ex status(500)
+          console.error('에러', error, error.response.data);
+          if (error.response.data.message == '비밀번호 길이 벗어남') {
+            alert('비밀번호 길이 벗어남')
+          }
+          else if (error.response.data.message == '비밀번호 불일치'){
+            alert('비밀번호 불일치')
+          }
+        });
+      }
+
+
+
+      const handlecheckid = () => {
+        const url = `${API_URL}/seller/check`;
+        const data = {Seller_id : Seller_id }
+  
+        axios.post(url,data)
+          .then(response=>{
+            console.log(response.data);
+            alert(response.data.message)
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      }
 
 
 
@@ -64,6 +121,8 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                         type="text"
                         placeholder="사용자 이름 입력"
+                        value={User_name}
+                        onChange={(event)=>setUser_name(event.target.value)}
                 />
               </div>
             </div>
@@ -81,7 +140,7 @@ export const AdminJoin = () => {
                     <div className="rectangle" />
                   </div>
                   <div className="admin-info-id-check-2">
-                    <div className="text-wrapper-5">중복 확인</div>
+                    <div className="text-wrapper-5" onClick={handlecheckid} >중복 확인</div>
                   </div>
                 </div>
               </div>
@@ -243,10 +302,20 @@ export const AdminJoin = () => {
               </div>
               <div className="business-hours-input">
                 <div className="open-time">
-                  <div className="text-wrapper-4">오픈 시간</div>
+                  <input 
+                    className="text-wrapper-4"
+                    type="time"
+                    value={Start_time}
+                    onChange={(event)=>setStart_time(event.target.value)}
+                  />
                 </div>
                 <div className="close-time">
-                  <div className="text-wrapper-4">마감 시간</div>
+                  <input
+                    className="text-wrapper-4"
+                    type="time"
+                    value={End_time}
+                    onChange={(event)=>setEnd_time(event.target.value)}
+                  />
                 </div>
                 <div className="business-hours-bar">
                   <div className="text-wrapper-8">~</div>
@@ -277,7 +346,7 @@ export const AdminJoin = () => {
           </div>
          
           <div className="join-button">
-            <div className="qq">가입하기</div>
+            <div className="qq" onClick={handleJoin}>가입하기</div>
             
             
               

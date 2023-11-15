@@ -110,6 +110,7 @@
     margin-top: -1px;
     position: relative;
     width: fit-content;
+    border: none;
   }
 
   /* .admin-join .ad-text-wrapper-4 {
@@ -242,8 +243,12 @@
     position: relative;
     white-space: nowrap;
     width: fit-content;
-    
+    cursor: pointer;
   }
+  .admin-join .text-wrapper-5:hover {
+    color: blue; /* 마우스 오버 시 글자 색상 */
+}
+  
   
   .admin-join .admin-info-id-text {
     align-items: center;
@@ -582,8 +587,8 @@
     display: inline-flex;
     gap: 10px;
     justify-content: center;
-    left: -10px;
-    padding: 20px 60px;
+    left: -30px;
+    padding: 20px 40px;
     position: absolute;
     top: 0;
   }
@@ -596,7 +601,7 @@
     gap: 10px;
     justify-content: center;
     left: 260px;
-    padding: 20px 60px;
+    padding: 20px 40px;
     position: absolute;
     top: 0;
   }
@@ -712,6 +717,10 @@
     font-weight: 800;
     letter-spacing: 0;
     line-height: normal;
+    cursor: pointer;
+  }
+  .qq:hover{
+    color :blue
   }
 
 

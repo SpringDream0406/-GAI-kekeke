@@ -1,73 +1,69 @@
-.tour-detail-order {
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
+.index .TourDet2_tourFrame {
 
-.tour-detail-order .overlap-wrapper {
-  height: 2524px;
+  background-color: #ffffe7;
+  height: 2247px;
   width: 1440px;
+  align-self: center
 }
 
-.tour-detail-order .overlap {
-  height: 2008px;
-  left: 75px;
+.index .TourDet2_bluebox {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  height: 1766px;
+  left: 73px;
   position: relative;
-  top: 303px;
+  top: 305px;
+}
+
+.index .TourDet2_bodyfr {
+  height: 1768px;
+  margin-bottom: -2px;
+  position: relative;
   width: 1293px;
 }
 
-
-.tour-detail-order .group-wrapper {
-  height: 2008px;
+.index .TourDet2_overlap-group {
+  height: 1768px;
+  position: relative;
+}
+.index .TourDet2_group {
+  height: 1768px;
   left: 0;
   position: absolute;
   top: 0;
   width: 1293px;
 }
+.index .Tourorder_div {
+background-image: url(https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/mask-group.png);
+background-size: 100% 100%;
+height: 1960px;
+left: 0;
+position: absolute;
+top: 2px;
+width: 1293px;
+} 
 
-.tour-detail-order .group {
-  height: 2008px;
+.index .TourDet2_ellipse {
+background-color: #d1ebff;
+border-radius: 82.59px/91.84px;
+height: 184px;
+left: 0;
+position: absolute;
+top: 0;
+width: 165px;
 }
 
-.tour-detail-order .overlap-group {
-  height: 2008px;
-  position: relative;
-  width: 1293px;
+.index .TourDet2_rectangle {
+background-color: #d1ebff;
+height: 104px;
+left: 0;
+position: absolute;
+top: 90px;
+width: 70px;
 }
 
-.tour-detail-order .div {
-  background-image: url(https://c.animaapp.com/wXTv1PcE/img/mask-group.png);
-  background-size: 100% 100%;
-  height: 2006px;
-  left: 0;
-  position: absolute;
-  top: 2px;
-  width: 1293px;
-}
-
-.tour-detail-order .ellipse {
-  background-color: #d1ebff;
-  border-radius: 82.59px/94.97px;
-  height: 190px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 165px;
-}
-
-.tour-detail-order .rectangle {
-  background-color: #d1ebff;
-  height: 108px;
-  left: 0;
-  position: absolute;
-  top: 93px;
-  width: 70px;
-}
-
-.tour-detail-order .div-2 {
+.index .div-2 {
   height: 69px;
   left: 377px;
   position: absolute;
@@ -75,7 +71,7 @@
   width: 535px;
 }
 
-.tour-detail-order .div-wrapper {
+.index .div-wrapper {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -86,7 +82,7 @@
   top: 0;
 }
 
-.tour-detail-order .text-wrapper {
+.index .text-wrapper {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -99,7 +95,7 @@
 
 }
 
-.tour-detail-order .div-wrapper-2 {
+.index .div-wrapper-2 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -110,7 +106,7 @@
   top: 0;
 }
 
-.tour-detail-order .text-wrapper-2 {
+.index .text-wrapper-2 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -122,7 +118,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-3 {
+.index .div-wrapper-3 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -133,7 +129,7 @@
   top: 0;
 }
 
-.tour-detail-order .div-3 {
+.index .div-3 {
   height: 263px;
   left: 138px;
   position: absolute;
@@ -141,7 +137,7 @@
   width: 1014px;
 }
 
-.tour-detail-order .overlap-2 {
+.index .overlap-2 {
   height: 116px;
   left: 291px;
   position: absolute;
@@ -149,7 +145,7 @@
   width: 188px;
 }
 
-.tour-detail-order .div-wrapper-4 {
+.index .div-wrapper-4 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -160,7 +156,7 @@
   top: 52px;
 }
 
-.tour-detail-order .text-wrapper-3 {
+.index .text-wrapper-3 {
   color: #565656;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -173,7 +169,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .text-wrapper-4 {
+.index .text-wrapper-4 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 32px;
@@ -185,7 +181,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .overlap-group-wrapper {
+.index .overlap-group-wrapper {
   height: 69px;
   left: 862px;
   position: absolute;
@@ -193,12 +189,12 @@
   width: 152px;
 }
 
-.tour-detail-order .overlap-group-2 {
+.index .overlap-group-2 {
   height: 69px;
   position: relative;
 }
 
-.tour-detail-order .div-4 {
+.index .div-4 {
   background-color: #ffffe7;
   border: 3px solid;
   border-color: #61a4d5;
@@ -210,7 +206,7 @@
   width: 152px;
 }
 
-.tour-detail-order .element {
+.index .element {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -222,7 +218,7 @@
   width: 119px;
 }
 
-.tour-detail-order .text-wrapper-5 {
+.index .text-wrapper-5 {
   color: #61a4d5;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -236,7 +232,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .rectangle-wrapper {
+.index .rectangle-wrapper {
   align-items: flex-start;
   display: inline-flex;
   flex-direction: column;
@@ -247,14 +243,14 @@
   top: 2px;
 }
 
-.tour-detail-order .rectangle-2 {
+.index .rectangle-2 {
   background-color: #d9d9d9;
   height: 221px;
   position: relative;
   width: 249px;
 }
 
-.tour-detail-order .div-wrapper-5 {
+.index .div-wrapper-5 {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -266,7 +262,7 @@
   width: 491px;
 }
 
-.tour-detail-order .p {
+.index .p {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -280,7 +276,7 @@
   width: 500px;
 }
 
-.tour-detail-order .div-5 {
+.index .div-5 {
   background-color: #ffffff;
   border: 10px solid;
   border-color: #61a4d5;
@@ -291,7 +287,7 @@
   width: 414px;
 }
 
-.tour-detail-order .div-wrapper-6 {
+.index .div-wrapper-6 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -302,7 +298,7 @@
   top: 580px;
 }
 
-.tour-detail-order .text-wrapper-6 {
+.index .text-wrapper-6 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -314,7 +310,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-7 {
+.index .div-wrapper-7 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -325,7 +321,7 @@
   top: 889px;
 }
 
-.tour-detail-order .text-wrapper-7 {
+.index .text-wrapper-7 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 32px;
@@ -337,7 +333,7 @@
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-8 {
+.index .div-wrapper-8 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -350,7 +346,7 @@
   top: 644px;
 }
 
-.tour-detail-order .reservename{
+.index .reservename{
 color: #787878;
 font-family: 'Pretendard Regular';
 text-align: left;
@@ -360,7 +356,7 @@ font-weight: 400;
 border: white 9px;
 border-radius: 10px;
 padding: 20px;
-top: -10px;
+top: 2000px;
 width: 400px;
 }
 
@@ -376,10 +372,10 @@ width: 400px;
   white-space: nowrap;
   width: fit-content;
   top: 650px;
-  left: 650px;
+  left: -650px;
 }
 
-.tour-detail-order .reservenum{
+.index .reservenum{
   color: #787878;
   font-family: 'Pretendard Regular';
   text-align: left;
@@ -404,11 +400,11 @@ width: 400px;
     position: relative;
     white-space: nowrap;
     width: fit-content;
-    top: 720px;
-    left: 650px;
+    top: 790px;
+    left: -1100px;
   }
 
-  .tour-detail-order .reservetxt{
+  .index .reservetxt{
     color: #787878;
     font-family: 'Pretendard Regular';
     text-align: left;
@@ -420,8 +416,9 @@ width: 400px;
     padding: 20px;
     top: -10px;
     width: 400px;
+    
     }
-    .tour-detail-order .reservereq{
+    .index .reservereq{
       color: #787878;
       font-family: 'Pretendard Regular';
       text-align: left;
@@ -446,8 +443,8 @@ width: 400px;
         position: relative;
         white-space: nowrap;
         width: fit-content;
-        top: 1520px;
-        left: 650px;
+        top: 1750px;
+        left: -2000px;
       }
     
     .order-reservetext{
@@ -461,11 +458,11 @@ width: 400px;
       position: relative;
       white-space: nowrap;
       width: fit-content;
-      top: 1450px;
-      left: 650px;
+      top: 1590px;
+      left: -1550px;
     }
 
-.tour-detail-order .text-wrapper-8 {
+.index .text-wrapper-8 {
   color: #939393;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -478,7 +475,7 @@ width: 400px;
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-9 {
+.index .div-wrapper-9 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -489,7 +486,7 @@ width: 400px;
   top: 1526px;
 }
 
-.tour-detail-order .div-wrapper-10 {
+.index .div-wrapper-10 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -502,7 +499,7 @@ width: 400px;
   top: 1590px;
 }
 
-.tour-detail-order .div-wrapper-11 {
+.index .div-wrapper-11 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -514,7 +511,7 @@ width: 400px;
 }
 
 
-.tour-detail-order .div-wrapper-12 {
+.index .div-wrapper-12 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -527,7 +524,7 @@ width: 400px;
   top: 1738px;
 }
 
-.tour-detail-order .text-wrapper-9 {
+.index .text-wrapper-9 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 24px;
@@ -540,7 +537,7 @@ width: 400px;
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-13 {
+.index .div-wrapper-13 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -553,7 +550,7 @@ width: 400px;
   top: 1445px;
 }
 
-.tour-detail-order .div-wrapper-14 {
+.index .div-wrapper-14 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -564,7 +561,7 @@ width: 400px;
   top: 1382px;
 }
 
-.tour-detail-order .div-wrapper-15 {
+.index .div-wrapper-15 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -575,7 +572,7 @@ width: 400px;
   top: 1123px;
 }
 
-.tour-detail-order .div-wrapper-16 {
+.index .div-wrapper-16 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -588,7 +585,7 @@ width: 400px;
   top: 1175px;
 }
 
-.tour-detail-order .text-wrapper-10 {
+.index .text-wrapper-10 {
   color: #939393;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -600,7 +597,7 @@ width: 400px;
   width: fit-content;
 }
 
-.tour-detail-order .div-wrapper-17 {
+.index .div-wrapper-17 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -611,7 +608,7 @@ width: 400px;
   top: 726px;
 }
 
-.tour-detail-order .div-wrapper-18 {
+.index .div-wrapper-18 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -624,7 +621,7 @@ width: 400px;
   top: 790px;
 }
 
-.tour-detail-order .div-wrapper-19 {
+.index .div-wrapper-19 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -635,7 +632,7 @@ width: 400px;
   top: 1532px;
 }
 
-.tour-detail-order .div-wrapper-20 {
+.index .div-wrapper-20 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -648,7 +645,7 @@ width: 400px;
   top: 1596px;
 }
 
-.tour-detail-order .div-wrapper-21 {
+.index .div-wrapper-21 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -659,7 +656,7 @@ width: 400px;
   top: 1679px;
 }
 
-.tour-detail-order .div-wrapper-22 {
+.index .div-wrapper-22 {
   align-items: center;
   background-color: #ffffff;
   border-radius: 20px;
@@ -672,7 +669,7 @@ width: 400px;
   top: 1743px;
 }
 
-.tour-detail-order .div-wrapper-23 {
+.index .div-wrapper-23 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -683,7 +680,7 @@ width: 400px;
   top: 871px;
 }
 
-.tour-detail-order .div-6 {
+.index .div-6 {
   background-color: #ffffff;
   border-radius: 20px;
   height: 254px;
@@ -693,7 +690,7 @@ width: 400px;
   width: 448px;
 }
 
-.tour-detail-order .view {
+.index .view {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -706,7 +703,7 @@ width: 400px;
   width: 76px;
 }
 
-.tour-detail-order .text-wrapper-11 {
+.index .text-wrapper-11 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -719,7 +716,7 @@ width: 400px;
   width: fit-content;
 }
 
-.tour-detail-order .element-2 {
+.index .element-2 {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -732,7 +729,7 @@ width: 400px;
   width: 51px;
 }
 
-.tour-detail-order .text-wrapper-12 {
+.index .text-wrapper-12 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -744,7 +741,7 @@ width: 400px;
   width: 50px;
 }
 
-.tour-detail-order .element-3 {
+.index .element-3 {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -757,7 +754,7 @@ width: 400px;
   width: 51px;
 }
 
-.tour-detail-order .element-wrapper {
+.index .element-wrapper {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -770,7 +767,7 @@ width: 400px;
   width: 53px;
 }
 
-.tour-detail-order .element-4 {
+.index .element-4 {
   color: #000000;
   font-family: "Inter", Helvetica;
   font-size: 20px;
@@ -782,7 +779,7 @@ width: 400px;
   width: 33px;
 }
 
-.tour-detail-order .rectangle-3 {
+.index .rectangle-3 {
   background-color: #ffffff;
   height: 128px;
   left: 153px;
@@ -791,7 +788,7 @@ width: 400px;
   width: 128px;
 }
 
-.tour-detail-order .rectangle-4 {
+.index .rectangle-4 {
   background-color: #ffffff;
   height: 128px;
   left: 296px;
@@ -800,7 +797,7 @@ width: 400px;
   width: 128px;
 }
 
-.tour-detail-order .rectangle-5 {
+.index .rectangle-5 {
   background-color: #ffffff;
   height: 128px;
   left: 439px;
@@ -809,7 +806,7 @@ width: 400px;
   width: 128px;
 }
 
-.tour-detail-order .img {
+.index .img {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -817,7 +814,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .image {
+.index .image {
   height: 39px;
   left: 912px;
   position: absolute;
@@ -825,7 +822,7 @@ width: 400px;
   width: 155px;
 }
 
-.tour-detail-order .element-5 {
+.index .element-5 {
   height: 39px;
   left: 912px;
   position: absolute;
@@ -833,7 +830,7 @@ width: 400px;
   width: 155px;
 }
 
-.tour-detail-order .element-6 {
+.index .element-6 {
   height: 39px;
   left: 912px;
   position: absolute;
@@ -841,7 +838,7 @@ width: 400px;
   width: 155px;
 }
 
-.tour-detail-order .element-7 {
+.index .element-7 {
   height: 39px;
   left: 912px;
   position: absolute;
@@ -849,7 +846,7 @@ width: 400px;
   width: 155px;
 }
 
-.tour-detail-order .element-8 {
+.index .element-8 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -857,7 +854,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .element-9 {
+.index .element-9 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -865,7 +862,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .element-10 {
+.index .element-10 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -873,7 +870,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .div-wrapper-24 {
+.index .div-wrapper-24 {
   align-items: center;
   display: inline-flex;
   gap: 10px;
@@ -884,7 +881,7 @@ width: 400px;
   top: 1207px;
 }
 
-.tour-detail-order .div-7 {
+.index .div-7 {
   background-color: #ffffff;
   border-radius: 20px;
   height: 251px;
@@ -894,7 +891,7 @@ width: 400px;
   width: 448px;
 }
 
-.tour-detail-order .view-2 {
+.index .view-2 {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -905,7 +902,7 @@ width: 400px;
   width: 76px;
 }
 
-.tour-detail-order .view-3 {
+.index .view-3 {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -917,7 +914,7 @@ width: 400px;
   width: 76px;
 }
 
-.tour-detail-order .view-4 {
+.index .view-4 {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -929,7 +926,7 @@ width: 400px;
   width: 76px;
 }
 
-.tour-detail-order .view-5 {
+.index .view-5 {
   align-items: center;
   display: flex;
   gap: 10px;
@@ -941,7 +938,7 @@ width: 400px;
   width: 61px;
 }
 
-.tour-detail-order .img-2 {
+.index .img-2 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -949,7 +946,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .element-11 {
+.index .element-11 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -957,7 +954,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .element-12 {
+.index .element-12 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -965,7 +962,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .element-13 {
+.index .element-13 {
   height: 39px;
   left: 786px;
   position: absolute;
@@ -973,7 +970,7 @@ width: 400px;
   width: 88px;
 }
 
-.tour-detail-order .tour-detail {
+.index .tour-detail {
   height: 103px;
   left: 416px;
   position: absolute;
@@ -981,12 +978,12 @@ width: 400px;
   width: 458px;
 }
 
-.tour-detail-order .group-2 {
+.index .group-2 {
   height: 103px;
   width: 460px;
 }
 
-.tour-detail-order .overlap-group-3 {
+.index .overlap-group-3 {
   background-color: #ffa0b7;
   border-radius: 30px;
   height: 103px;
@@ -994,7 +991,7 @@ width: 400px;
   width: 458px;
 }
 
-.tour-detail-order .text-wrapper-13 {
+.index .text-wrapper-13 {
   color: #ffffff;
   font-family: "Inter", Helvetica;
   font-size: 32px;
