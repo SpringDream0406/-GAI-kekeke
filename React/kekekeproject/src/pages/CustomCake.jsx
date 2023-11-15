@@ -2,9 +2,13 @@ import React, { useState, useRef } from 'react';
 import { Stage, Layer, Line, Rect, Circle, Path, Text } from 'react-konva';
 import { FaPencilAlt, FaEraser, FaPaintBrush, FaSquare, FaFont, FaHeart, FaCircle, FaTrash } from 'react-icons/fa';
 import '../css/CustomCake.css';
+import {Link } from 'react-router-dom'
+import html2canvas from 'html2canvas';
+import { useNavigate } from 'react-router-dom';
 
-const CustomCake = () => {
-  const [tool, setTool] = React.useState('pen');
+const CustomCake = (props) => {
+  const navigate = useNavigate();
+  const [tool, setTool] = React.useState(null); // 'pen'을 null로 변경
   const [elements, setElements] = React.useState([]);
   const isDrawing = React.useRef(false);
   const [color, setColor] = React.useState('#df4b26');
@@ -16,6 +20,20 @@ const CustomCake = () => {
   const nextId = useRef(0);
   const [isTextEditing, setIsTextEditing] = useState(false);
   const [selectedTextIndex, setSelectedTextIndex] = useState(-1); // 선택된 텍스트 엘리먼트의 인덱스 추가
+  const stageRef = useRef(null);
+const [savedImage, setSavedImage] = useState(null);
+
+const handleSave = () => {
+  if (stageRef.current) {
+    html2canvas(stageRef.current.content, { useCORS: true }).then((canvas) => {
+      const dataURL = canvas.toDataURL('image/png');
+      localStorage.setItem('savedImage', dataURL); // 로컬 스토리지에 저장
+      navigate('/customcake/order');
+    });
+  }
+};
+console.log(savedImage , '이미지저장')
+
 
   const handleTextClick = (index) => {
     if (!isTextEditing) {
@@ -36,14 +54,26 @@ const CustomCake = () => {
   };
 
   const handleMouseDown = (e) => {
-    isDrawing.current = true;
-    const pos = e.target.getStage().getPointerPosition();
-    if (['pen', 'brush', 'eraser'].includes(tool)) {
-      setElements([...elements, { tool, points: [pos.x, pos.y], color, lineWidth }]);
-    } else {
-      setElements([...elements, { tool, type: tool, x: pos.x, y: pos.y, color, lineWidth, width: 0, height: 0 }]);
+    if (tool) {
+      const pos = e.target.getStage().getPointerPosition();
+      const newElement = {
+        id: nextId.current.toString(), // ID를 문자열로 변환하여 할당
+        tool,
+        type: tool,
+        points: [pos.x, pos.y],
+        color,
+        lineWidth,
+        x: pos.x,
+        y: pos.y,
+        width: 0,
+        height: 0,
+      };
+      setElements([...elements, newElement]);
+      nextId.current += 1; // ID 증가
+      isDrawing.current = true;
     }
   };
+  
 
   const handleMouseMove = (e) => {
     if (!isDrawing.current) {
@@ -61,7 +91,8 @@ const CustomCake = () => {
     setElements(elements.slice(0, -1).concat(lastElement));
   };
 
-  const handleDragEnd = (e, id) => {
+  const handleDragEnd = (e) => {
+    const id = e.target.id(); // Konva는 id를 문자열로 처리합니다. 필요에 따라 parseInt(id, 10)을 사용하세요.
     const { x, y } = e.target.position();
     setElements((prevElements) =>
       prevElements.map((elem) => {
@@ -81,15 +112,13 @@ const CustomCake = () => {
   const handleColorChange = (e) => {
     setColor(e.target.value);
   };
-
   const handleLineWidthChange = (e) => {
-    setLineWidth(e.target.value);
+    setLineWidth(Number(e.target.value)); // 두께를 숫자로 변환하여 상태를 업데이트
   };
 
   const selectTool = (selectedTool) => {
-    setTool(selectedTool);
+    setTool((currentTool) => currentTool === selectedTool ? null : selectedTool);
   };
-
   const clearAll = () => {
     setElements([]);
   };
@@ -115,6 +144,15 @@ const CustomCake = () => {
     }
   };
   
+  // 이미지로 변환하는 함수
+  const convertToImage = () => {
+    if (stageRef.current) {
+      html2canvas(stageRef.current.content, { useCORS: true }).then(function (canvas) {
+        const dataURL = canvas.toDataURL('image/png');
+        setSavedImage(dataURL); // 이미지 데이터를 상태에 저장합니다.
+      });
+    }
+  };
 
   return (
     <div className="custom-container">
@@ -122,8 +160,16 @@ const CustomCake = () => {
       <div className="tool-selector">
         <input type="color" value={color} onChange={handleColorChange} className="color-picker" />
         <FaPencilAlt className={tool === 'pen' ? 'selected-tool' : ''} onClick={() => selectTool('pen')} size={20} />
-        <FaPaintBrush className={tool === 'brush' ? 'selected-tool' : ''} onClick={() => selectTool('brush')} size={20} />
+       
         <FaEraser className={tool === 'eraser' ? 'selected-tool' : ''} onClick={() => selectTool('eraser')} size={20} />
+        <input
+    type="range"
+    min="1"
+    max="50"
+    value={lineWidth}
+    onChange={handleLineWidthChange}
+    className="line-width-slider"
+  />
         <FaFont
             className={isTextEditing ? 'selected-tool' : ''}
             onClick={handleTextIconClick}
@@ -132,9 +178,13 @@ const CustomCake = () => {
         <FaSquare className={tool === 'rectangle' ? 'selected-tool' : ''} onClick={() => selectTool('rectangle')} size={20} />
         <FaCircle className={tool === 'circle' ? 'selected-tool' : ''} onClick={() => selectTool('circle')} size={20} />
         <FaHeart className={tool === 'heart' ? 'selected-tool' : ''} onClick={() => selectTool('heart')} size={20} />
-    
+
        
         <FaTrash className="delete-tool" onClick={clearAll} size={20} title="전체 지우기" />
+        <button className="custom-save-button" onClick={convertToImage}>저장하기
+      </button>
+      {/* 저장된 이미지를 표시하고 싶다면 다음과 같이 이미지 태그를 사용할 수 있습니다. */}
+      {savedImage && <img src={savedImage} alt="Saved" />}
         <div className="tooltxt">※ 툴 선택시 더블클릭 해주세요</div>
       </div>
       {isTextEditing && (
@@ -151,7 +201,8 @@ const CustomCake = () => {
         }
       }}
     />
-    <div className='doubletxt'>※더블클릭시에 삭제가 가능합니다</div>
+    
+    <div className='doubletxt'>※텍스트 클릭시에 삭제가 가능합니다</div>
     <button onClick={handleAddText } className='txt-plusbtn'>텍스트 추가</button> {/* 텍스트 추가 버튼 */}
   </div>
   
@@ -170,7 +221,9 @@ const CustomCake = () => {
               return <Line key={i} points={elem.points} stroke={elem.color} strokeWidth={elem.lineWidth} tension={0.5} lineCap="round" lineJoin="round" globalCompositeOperation={elem.tool === 'eraser' ? 'destination-out' : 'source-over'} />;
             } else if (elem.type === 'rectangle') {
               return (
+                
                 <Rect
+                id={elem.id}
                   key={i}
                   x={elem.x}
                   y={elem.y}
@@ -186,6 +239,7 @@ const CustomCake = () => {
             } else if (elem.type === 'circle') {
               return (
                 <Circle
+                id={elem.id}
                   key={i}
                   x={elem.x + elem.width / 2}
                   y={elem.y + elem.height / 2}
@@ -201,6 +255,7 @@ const CustomCake = () => {
               const heartPath = "M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z";
               return (
                 <Path
+                id={elem.id}
                   key={i}
                   data={heartPath}
                   x={elem.x}
@@ -227,11 +282,16 @@ const CustomCake = () => {
               onDragEnd={(e) => handleTextDragEnd(e, i)}
             />
           ))}
+   
         </Layer>
       </Stage>
-      <div className="next-button-container">
-        <button className="custom-nextbutton">다음</button>
-      </div>
+      <Link className="next-button-container" to='/customcake/order'>
+        <button className="custom-nextbutton" onClick={handleSave}>저장하고 계속</button>
+      </Link>
+      {/* 저장된 이미지를 표시하고 싶다면 다음과 같이 이미지 태그를 사용할 수 있습니다. */}
+      {savedImage && <img src={savedImage} alt="Saved" />}
+      
+ 
     </div>
   );
 };

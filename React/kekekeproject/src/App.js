@@ -3,7 +3,7 @@ import Main from "./Main";
 import GlobalStyle from "./component/GlobalStyle";
 import TourOrder from "./pages/TourOrder"
 import TourDet3 from "./pages/TourDet3";
-import './css/Footer.css'
+// import './css/Footer.css'
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminJoin } from "./pages/AdminJoin";
 import TourDet2 from "./pages/TourDet2";
@@ -20,9 +20,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
 import Login from "./pages/Login";
+import UserMessage from "./pages/UserMessage";
 
 import Ad_Header from "./component/Ad_Header"
+
 import Mypage from "./pages/Mypage";
+import CustomCakeOrder from "./pages/CustomCakeOrder";
 
 
 
@@ -31,19 +34,21 @@ import Mypage from "./pages/Mypage";
 function App() {
   const [toggle , setToggle] = useState(false);
 
+  const [messages, setMessages] = useState([]);
+
+  const addMessage = (message) => {
+    setMessages([...messages, message]);
+  };
+  
   return (
     
     <BrowserRouter>    
   
-
-
-
        <GlobalStyle />
         <Header_bf toggle={toggle} setToggle={setToggle}/>   
-      
 
         {/* <GlobalStyle />
-        <Header_af toggle={toggle} setToggle={setToggle}/>   */}
+        <Header_bf toggle={toggle} setToggle={setToggle}/>   */}
 
  
     <Routes>
@@ -58,14 +63,16 @@ function App() {
       <Route path="/" element={<Main/>}/>
       <Route path="/usermypage" element={<UserMypage/>}/>
       <Route path="/mporderlist" element={<MpOrderList/>}/>
-
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
-
+      <Route path="/customcake/order" element={<CustomCakeOrder /> }/>
       <Route path="/tourorder" element = {<TourOrder/>}/>
       <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
       <Route path="/samplecake" element = {<SampleCake/>}/>    
-
+      <Route
+          path="/usermessage"
+          element={<UserMessage messages={messages} addMessage={addMessage} />}
+        />
 
     </Routes>
  

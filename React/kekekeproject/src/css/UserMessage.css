@@ -1,0 +1,182 @@
+.chatContainer {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 2px 6px 6px #0000001a;
+    height: 869px;
+    width: 1400px;
+    margin-bottom: 400px; /* 하단에 50px의 여백을 추가 */
+    border-radius: 20px; /* 디자인에 맞게 둥근 모서리를 추가할 수 있습니다. */
+    overflow: hidden; /* 둥근 모서리 적용 시 내부 요소가 넘치는 것을 방지 */
+    margin-top: 540px;
+  }
+  
+  .chatSidebar {
+    width: 35%;
+    background-color: #d1ebff;
+    padding: 20px;
+    box-sizing: border-box;
+    
+  }
+  
+  .sidebarHeader {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .sidebarTitle {
+    margin: 0;
+    color: #333;
+  }
+  
+  .sidebarStatusMessage {
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .sidebarChatList {
+    overflow-y: auto;
+  }
+  
+  .chatListItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #f2faff;
+  }
+  
+  .chatListItem:hover {
+    background-color: #C0D8E6;
+    
+  }
+  
+  .chatItemLogo {
+    border-radius: 50%;
+    width: 100px;
+    height:100px;
+    margin-right: 10px;
+  }
+  
+  .chatItemDetails {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 추가된 부분 - 요소가 가능한 큰 공간을 차지하도록 설정 */
+    margin-left: 15px;
+  }
+  
+  .chatItemName {
+    margin: 0; /* 추가된 부분 - 기본 마진 제거 */
+    color: #333;
+    font-weight: bold; /* 추가된 부분 - 글씨를 더 강조하기 위해 폰트 굵기 증가 */
+  }
+  
+  .chatItemLastMessage {
+    margin: 10px 0; /* 변경된 부분 - 상단 마진을 늘리고 하단 마진을 추가 */
+    color: #666;
+  }
+  
+  .chatItemDate {
+    color: #999;
+  margin-top: auto; /* 변경된 부분 - 자동으로 남은 공간을 차지하도록 설정 */
+  }
+  
+  .chatMain {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .chatHeaderMain {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .chatMainTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chatRoomName {
+    margin: 0;
+    color: #333;
+  }
+  
+  .chatRoomAvailability {
+    color: #666;
+  }
+  
+  .chatMessages {
+    padding: 20px; /* 내부 여백 추가 */
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  .chatForm {
+    display: flex;
+    padding-top: 20px;
+  }
+  
+  .chatInputField {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  
+  .chatSendButton {
+    padding: 10px 20px;
+    background-color: #4e97d8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .chatSidebar,
+.chatMain {
+  padding: 60px; /* 패딩을 20px에서 40px로 늘림 */
+}
+
+
+/* 반응형 */
+/* 기존 스타일을 유지하면서, 화면 크기가 매우 작을 때 적용할 미디어 쿼리를 추가합니다. */
+
+@media (max-width: 1024px) {
+  /* 화면이 768px 아래로 내려가면 텍스트 정보를 숨기고 로고만 표시합니다. */
+  .chatItemDetails {
+    display: none; /* 텍스트 정보를 담고 있는 컨테이너를 숨깁니다. */
+  }
+
+  .chatListItem {
+    justify-content: center; /* 로고를 리스트 아이템 중앙에 위치시킵니다. */
+    padding: 20px; /* 아이템 내부의 패딩을 조정합니다. */
+  }
+
+  .chatItemLogo {
+    /* 로고 크기를 화면 크기에 따라 조정할 수 있습니다. */
+    width: 80px; /* 로고의 크기를 줄입니다. */
+    height: 80px; /* 로고의 크기를 줄입니다. */
+  }
+  
+  /* 채팅방 전체 컨테이너에 대한 스타일링도 조정할 수 있습니다. */
+  .chatContainer {
+    flex-direction: column; /* 채팅방 목록과 메인 채팅 영역을 세로로 쌓습니다. */
+    width: 100%; /* 컨테이너의 너비를 100%로 조정합니다. */
+  }
+
+  .chatSidebar {
+    width: 100%; /* 사이드바의 너비를 100%로 조정합니다. */
+    margin-bottom: 20px; /* 사이드바와 메인 채팅 영역 사이의 여백을 추가합니다. */
+  }
+
+  .chatMain {
+    width: 100%; /* 메인 채팅 영역의 너비를 100%로 조정합니다. */
+    padding: 20px; /* 메인 채팅 영역의 패딩을 조정합니다. */
+  }
+}

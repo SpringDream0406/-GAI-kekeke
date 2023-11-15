@@ -21,7 +21,7 @@
 
 .ToureRvPop .ToureRvPop_text-wrapper {
   color: #000000;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: 'Pretendard-ExtraBold';
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
@@ -30,7 +30,7 @@
   position: relative;
   white-space: nowrap;
   width: fit-content;
-  top: 140px;
+  top: 110px;
 }
 
 .ToureRvPop .ToureRvPop_div-2 {
@@ -40,7 +40,7 @@
   flex-direction: column;
   gap: 10px;
   position: relative;
-  top: 30px;
+  top: 10px;
 }
 
 .ToureRvPop .ToureRvPop_rectangle {
@@ -50,17 +50,10 @@
   position: relative;
   width: 670px;
   top: 90px;
+  padding: auto;
 }
 
-.ToureRvPopr .ToureRvPop_div-3 {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 221px;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 67px;
-}
+
 
 .ToureRvPop .ToureRvPop_div-4 {
   align-items: flex-start;
@@ -105,23 +98,29 @@
   gap: 10px;
   padding: 20px;
   position: relative;
-  top: -10px;
+  top: -20px;
   left: 20px;
   
 }
 
 .ToureRvPop .ToureRvPop_p {
   color: #000000;
-  font-family: 'Pretendard-Bold';
+  font-family:'Pretendard-Bold';
   font-size: 18px;
   font-weight: 400;
-  letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
   position: relative;
-  text-align: right;
-  width: fit-content;
-  padding: 20px;
+  max-width: 100%;
+  white-space: normal; /* 줄바꿈이 자동으로 이루어집니다. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 두 줄만 표시 */
+  -webkit-box-orient: vertical;
+  top: -100px;
+  left: 180%;
+  width: 220px;
+  
 }
 
 .ToureRvPop .ToureRvPop_div-5 {
@@ -131,7 +130,7 @@
   left: 0;
   padding: 20px;
   position: absolute;
-  top: 150px;
+  top: 130px;
 }
 
 .ToureRvPop .ToureRvPop_text-wrapper-3 {
@@ -154,25 +153,15 @@
   left: 0;
   padding: 20px;
   position: absolute;
-  top: 120px;
+  top: 100px;
 }
 
 
-.ToureRvPop .ToureRvPop_divTextCakeFr {
-  align-items: flex-start;
-  display: inline-flex;
-  flex: 0 0 auto;
-  gap: 10px;
-  padding: 20px;
-  position: relative;
-  top: -110px;
-  left: 355px;
-  
-}
+
 
 .ToureRvPop .ToureRvPop_text-userRivew {
   color: #000000;
-  font-family: "Inter-SemiBold", Helvetica;
+  font-family: 'Pretendard-ExtraBold';
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
@@ -182,7 +171,7 @@
   white-space: nowrap;
   width: fit-content;
   left: 25px;
-  top: -50px;
+  top: -40px;
 }
 
 .ToureRvPop .ToureRvPop_userPinkbox {
@@ -206,17 +195,7 @@
 }
 
 
-.ToureRvPop .ToureRvPop_box_div-wrapper {
-  background-color: #ffa0b7;
-  border-radius: 30px;
-  height: 103px;
-  left: 150px;
-  position:  relative;
-  top: 10px;
-  width: 410px;
- 
 
-}
 
 .ToureRvPop .div {
   align-items: center;
@@ -229,22 +208,7 @@
   top: 12px;
 }
 
-.ToureRvPop .ToureRvPop_box_text-wrapper {
-  color: #ffffff;
-  font-family: "Inter-Bold", Helvetica;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-  left: 160px;
-  align-items: center;
-  display: inline-flex;
-  top: 30px;
-  
-}
+
 
 .ToureRvPop .ToureRvPop_div-3{
   align-items: flex-start;
@@ -397,4 +361,32 @@
   position: absolute;
   top: 0;
   width: 180px;
+}
+
+.ToureRvPop .ToureRvPop_box_text-wrapper {
+  color: #ffffff;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+
+  top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.ToureRvPop .ToureRvPop_box_div-wrapper {
+  background-color: #ffa0b7;
+  border-radius: 30px;
+  height: 103px;
+  left: 150px;
+  position: relative;
+  top: 10px;
+  width: 410px;
+  display: flex;
+  justify-content: center;
 }
