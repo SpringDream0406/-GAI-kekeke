@@ -25,7 +25,6 @@
     align-items: center; /* 세로축에서 중앙 정렬 */
     width: 85%;
     padding: 50px;
-    border-bottom: 1px solid #eaeaea;
   }
   
   .store-logo {
