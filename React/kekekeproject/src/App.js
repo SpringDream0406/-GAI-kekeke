@@ -27,7 +27,7 @@ import Ad_Header from "./component/Ad_Header"
 
 import Mypage from "./pages/Mypage";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
-import Blue_box from "./component/Blue_Box";
+import SampleCakeList from "./component/SampleCakeList";
 
 
 
@@ -54,7 +54,7 @@ function App() {
 
  
     <Routes>
-    <Route path="BlueBox" element = {<Blue_box/>}/>
+    <Route path="SampleCakeList" element = {<SampleCakeList/>}/>
       <Route path="TourReviewPopup" element = {<TourReviewPopup/>}/>
       <Route path="TourDet2" element={<TourDet2/>}/>
       <Route path="TourDet3" element={<TourDet3/>}/>

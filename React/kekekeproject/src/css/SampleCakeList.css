@@ -1,0 +1,39 @@
+/* SampleCakeList.css */
+.Sam_CakeFr {
+    height: 333px;
+    width: 286px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .Sam_CakeFr .Sam_CakeFrimgFr {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .Sam_CakeFr .Sam_img {
+    height: 241px;
+    width: 241px;
+    object-fit: cover;
+  }
+  
+  .Sam_CakeFr .Sam_cakeNameFrTx {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 10px; /* 또는 필요에 따라 조정 */
+  }
+  
+  .Sam_CakeFr .Sam_cakePriceTx {
+    color: #ff8d8d;
+    font-family: "Inter", Helvetica;
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 5px; /* 또는 필요에 따라 조정 */
+  }
