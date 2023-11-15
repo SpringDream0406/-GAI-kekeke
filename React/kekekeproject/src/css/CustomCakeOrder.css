@@ -214,13 +214,18 @@ width: 440px;
 }
 
 .co-container .co-timetitle {
+  font-family: 'Pretendard-bold';
+  font-size: 15px;
+  cursor: pointer;
   background-color: #ffffff;
   border-radius: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   height: 63px;
   left: 177px;
   position: absolute;
   top: 1808px;
-  width: 498px;
+  width: 428px;
 }
 
 .co-container .co-daytitle {
@@ -287,6 +292,7 @@ width: 440px;
   left: 184px;
 }
 
+
 .co-selected-image{
   border-radius: 44px;
   width: 489px;
@@ -306,7 +312,17 @@ width: 440px;
 }
 
 .co-container .co-custompic {
-  background-color: #ffffff;
+
+  border-radius: 44px;
+  height: 398px;
+  left: 177px;
+  position: absolute;
+  top: 711px;
+  width: 489px;
+  z-index: 99999;
+}
+.white-bg{
+  background-color: white;
   border-radius: 44px;
   height: 398px;
   left: 177px;
@@ -314,7 +330,6 @@ width: 440px;
   top: 611px;
   width: 489px;
 }
-
 .co-container .co-usernametitle {
   color: #000000;
   font-family: 'Pretendard-bold';
@@ -361,4 +376,120 @@ width: 440px;
 .react-datepicker__header {
   background-color: #ff85a3;
   color: #ff85a3;
+}
+
+
+/* 체크박스 */
+
+.co-check-container{
+  position: absolute;
+  left: 170px;
+  top: 0px;
+  z-index: 999;
+}
+
+
+
+.co-check-1{
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
+  padding: 10px;
+  position: absolute;
+  top: 959px;
+  width: 76px;
+}
+
+
+.co-check1-txt {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+
+.co-check-txt1{
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+
+.co-check-2 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 650px;
+  padding: 10px;
+  position: absolute;
+  top: 1023px;
+  width: 51px;
+}
+.co-check-txt2 {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 50px;
+}
+
+.co-check-3 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 880px;
+  padding: 10px;
+  position: absolute;
+  top: 959px;
+  width: 51px;
+}
+
+
+.co-check-4 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 880px;
+  padding: 10px;
+  position: absolute;
+  top: 1023px;
+  width: 53px;
+}
+
+.co-check-txt3 {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 33px;
 }
