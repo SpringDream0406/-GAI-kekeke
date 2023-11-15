@@ -15,7 +15,7 @@ export const TourReviewPopup = () => {
         productName: '곰돌이케이크',
         request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
         customerName: '홍길동',
-        reviewContent: '케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
+        reviewContent: '사장님이 친절하구 어쩌구쩌쩌구저쩌구 저쩌구해요 곰돌이기여워 곰돌이 맛있어 케이크 맛있어 케이크 귀여워 케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
         reviewDate: '2023.10.30'
      });
 
@@ -77,8 +77,12 @@ const DetailReviewPopup = ({ onClose, reviewData }) => {
                 <p>케이크 맛: {reviewData.flavor}</p>
                 <p>요청사항: {reviewData.request}</p>
             </div>
+
+            <div className='reviewtexttitle'>
+            <p>리뷰 내용</p>
+            </div>
             <div className="review-content">
-                <p>리뷰 내용: {reviewData.reviewContent}</p>
+                <p> {reviewData.reviewContent}</p>
             </div>
             <div className="review-close-button-container">
                 <button className="review-close-button" onClick={onClose}>닫기</button>
