@@ -1,11 +1,4 @@
 
-*:hover{
-    border: none;
-    outline: none;
-}
-*{
-    outline: none;
-}
 .custom-container:hover{
    outline: none;
     border: none;
