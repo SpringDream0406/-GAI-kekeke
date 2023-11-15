@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/TourDetContainer.css'
 
-const TourDetContainer = ({ children }) => {
+const TourDetContainer = ({ children, containerHeight }) => {
+
+
+    const containerStyle = {
+        height: containerHeight || 'auto', // prop으로 받은 높이 또는 기본값 'auto'
+      };
 
     const storeInfo = {
         StoreLogo: '/assets/images/cakelogo1.jpg',
@@ -32,7 +37,7 @@ const TourDetContainer = ({ children }) => {
 
     return (
         <div className="frame">
-                <div className="tour-detail-container">
+                <div className="tour-detail-container" style={containerStyle}>
             <div className="frameTour">
 
                     <div className="tour-detail-content">

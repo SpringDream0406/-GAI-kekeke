@@ -1,13 +1,13 @@
 
 
 .review-section {
-  padding: 20px;
+  padding: 100px;
 }
 
 .review-list-title {
   font-size: 20px;
-  color: #333;
-  margin-bottom: 20px;
+  color: #666;
+  margin-bottom: 40px;
 }
 
 .review-list {
@@ -18,30 +18,35 @@
   background-color: #f8f8f8;
   padding: 15px;
   border-radius: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
 .review-image {
-  width: 100px; /* Adjust based on your image size */
+  width: 200px; /* Adjust based on your image size */
   height: auto;
   border-radius: 10px;
+  margin: 30px;
 }
 
-.review-content {
+.tour-review-content {
   flex-grow: 1;
+
 }
 
-.review-cake-name {
-  font-size: 18px;
+.tour-review-cake-name {
+  font-size: 20px;
   color: #333;
-  margin-bottom: 5px;
 }
 
-.review-date, .review-customer, .review-details, .review-message {
-  font-size: 14px;
+.tour-review-details {
+font-size: 16px;
+color: #666;
+}
+
+.tour-review-date, .tour-review-customer, .tour-review-message {
+  font-size: 16px;
   color: #666;
 }
 

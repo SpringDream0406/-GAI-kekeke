@@ -8,8 +8,7 @@ export const TourDet3 = () => {
     const Reviews = [
       {
         DEAL_ID: 1,
-        IMG_NAME: 'https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG',
-        IMG_ORIGINAL_NAME :'.theyoon_cake/로고.png?type=w161',
+        IMG_NAME: "/assets/images/cake1.jpg",
         CAKE_NAME: '티아라케이크',
         CREATED_AT: '2023-11-15',
         CUST_NICK: '김은호',
@@ -21,21 +20,18 @@ export const TourDet3 = () => {
       },
       {
         DEAL_ID: 2,
-        IMG_NAME: 'https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG',
-        IMG_ORIGINAL_NAME :'.theyoon_cake/로고.png?type=w161',
-        CAKE_NAME: '티아라케이크',
-        CREATED_AT: '2023-11-15',
-        CUST_NICK: '김은호',
-        CAKE_SIZE: '1',
-        CAKE_FLAVOR :'바닐라',
-        REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
+        IMG_NAME: '/assets/images/cake3.jpg',
+        CREATED_AT: '2023-11-14',
+        CUST_NICK: '서유정',
+        CAKE_SIZE: '도시락',
+        CAKE_FLAVOR :'쿠키앤크림',
+        REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증...',
         
       
       },
       {
         DEAL_ID: 3,
-        IMG_NAME: 'https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG',
-        IMG_ORIGINAL_NAME :'.theyoon_cake/로고.png?type=w161',
+        IMG_NAME: '/assets/images/cakelogo3.jpg',
         CAKE_NAME: '티아라케이크',
         CREATED_AT: '2023-11-15',
         CUST_NICK: '김은호',
@@ -47,8 +43,7 @@ export const TourDet3 = () => {
       },
       {
         DEAL_ID: 4,
-        IMG_NAME: 'https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG',
-        IMG_ORIGINAL_NAME :'.theyoon_cake/로고.png?type=w161',
+        IMG_NAME: '/assets/images/cakelogo2.jpg',
         CAKE_NAME: '티아라케이크',
         CREATED_AT: '2023-11-15',
         CUST_NICK: '김은호',
@@ -132,24 +127,24 @@ export const TourDet3 = () => {
 return (
   <div>
 
-  <TourDetContainer>
+  <TourDetContainer containerHeight="1900px">
 
     <div className="review-section">
-      <h2 className="review-list-title">리뷰목록</h2>
+      <h2 className="review-list-title">리뷰 목록</h2>
       <div className="review-list">
         {currentItems.map(review => (
           <div key={review.DEAL_ID} className="review-item">
             <img 
               className="review-image" 
               alt={`Review ${review.DEAL_ID}`}
-              src={`${review.IMG_NAME}${review.IMG_ORIGINAL_NAME}`} 
+              src={review.IMG_NAME} 
             />
-            <div className="review-content">
-              <h3 className="review-cake-name">{review.CAKE_NAME}</h3>
-              <p className="review-date">{review.CREATED_AT}</p>
-              <p className="review-customer">{review.CUST_NICK} 님</p>
-              <p className="review-details">{`호수: ${review.CAKE_SIZE}호 맛: ${review.CAKE_FLAVOR}`}</p>
-              <p className="review-message">{review.REVIEW_MSG}</p>
+            <div className="tour-review-content">
+              <h3 className="tour-review-cake-name">{review.CAKE_NAME}</h3>
+              <p className="tour-review-date">{review.CREATED_AT}</p>
+              <p className="tour-review-customer">{review.CUST_NICK} 님</p>
+              <p className="tour-review-details">{`호수: ${review.CAKE_SIZE}호 맛: ${review.CAKE_FLAVOR}`}</p>
+              <p className="tour-review-message">{review.REVIEW_MSG}</p>
             </div>
           </div>
         ))}
