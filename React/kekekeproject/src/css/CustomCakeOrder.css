@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
- 
+  height: auto;
   margin-top: -300px;
 }
 
 .co-container .co-div {
 
-
+height: auto;
   position: relative;
   width: 1439px;
 }
@@ -212,6 +212,10 @@ width: 440px;
   position: absolute;
   top: 1748px;
 }
+.co-time-container{
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+}
 
 .co-container .co-timetitle {
   background-color: #ffffff;
@@ -222,6 +226,7 @@ width: 440px;
   top: 1808px;
   width: 498px;
 }
+
 
 .co-container .co-daytitle {
   color: #000000;
@@ -236,9 +241,24 @@ width: 440px;
 }
 
 .co-day-icon{
-  position: absolute;
+  
   width: 30px;
   left: 20px;
+}
+
+
+
+.example-time-input-time {
+  /* .co-day 클래스의 스타일을 이곳에 추가 */
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-family: 'Pretendard-bold';
+  font-size: 16px;
+ 
+ position: relative;
+
+ top: 160px;
+
 }
 
 
@@ -249,9 +269,9 @@ width: 440px;
   font-family: 'Pretendard-bold';
   font-size: 16px;
   height: 63px;
-  left: 177px;
-  position: absolute;
-  top: 1644px;
+  margin-left: 170px;
+ 
+  margin-top: 1640px;
   width: 488px;
 }
 .co-container .co-omgtitle {
@@ -347,12 +367,13 @@ width: 440px;
 
 }
 
-
+.react-datepicker-popper{
+  margin-top: -320px;
+  margin-left: 290px;
+}
 .react-datepicker__month-container{
-  position: absolute;
+  
   cursor: pointer;
-  top: 1380px;
-  left: 200px;
   background-color: white;
   border: 2px solid lightgray;
   border-radius: 20px;

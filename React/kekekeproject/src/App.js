@@ -21,6 +21,7 @@ import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
 import Login from "./pages/Login";
 import UserMessage from "./pages/UserMessage";
+import Capture from "./pages/Capture";
 
 import Ad_Header from "./component/Ad_Header"
 
@@ -46,7 +47,7 @@ function App() {
     <BrowserRouter>    
   
        <GlobalStyle />
-        <Header_bf toggle={toggle} setToggle={setToggle}/>   
+        <Header_af toggle={toggle} setToggle={setToggle}/>   
 
         {/* <GlobalStyle />
         <Header_bf toggle={toggle} setToggle={setToggle}/>   */}
@@ -68,6 +69,8 @@ function App() {
       <Route path="/adminlogin" element={<AdminLogin/>}/>
       <Route path="/adminjoin" element={<AdminJoin/>}/>
       <Route path="/customcake/order" element={<CustomCakeOrder /> }/>
+      <Route path="/capture" element={<Capture /> }/>
+
       <Route path="/tourorder" element = {<TourOrder/>}/>
       <Route path="/tourcompleteorder" element = {<TourCompleteOrder/>}/>
       <Route path="/samplecake" element = {<SampleCake/>}/>    
