@@ -54,6 +54,76 @@ export const TourDet3 = () => {
         REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
         
       
+      },{
+        DEAL_ID: 5,
+        IMG_NAME: "/assets/images/cake1.jpg",
+        CAKE_NAME: '티아라케이크',
+        CREATED_AT: '2023-11-15',
+        CUST_NICK: '김은호',
+        CAKE_SIZE: '1',
+        CAKE_FLAVOR :'바닐라',
+        REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
+        
+        
+      },
+      {
+        DEAL_ID: 6,
+        IMG_NAME: '/assets/images/cake3.jpg',
+        CAKE_NAME: '곰도리',
+        CREATED_AT: '2023-11-14',
+        CUST_NICK: '서유정',
+        CAKE_SIZE: '도시락',
+        CAKE_FLAVOR :'쿠키앤크림',
+        REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증...',
+        
+      
+      },
+      {
+        DEAL_ID: 7,
+        IMG_NAME: '/assets/images/cakelogo3.jpg',
+        CAKE_NAME: '티아라케이크',
+        CREATED_AT: '2023-11-15',
+        CUST_NICK: '김은호',
+        CAKE_SIZE: '1',
+        CAKE_FLAVOR :'바닐라',
+        REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
+        
+      
+      },{
+        DEAL_ID: 8,
+        IMG_NAME: "/assets/images/cake1.jpg",
+        CAKE_NAME: '티아라케이크',
+        CREATED_AT: '2023-11-15',
+        CUST_NICK: '김은호',
+        CAKE_SIZE: '1',
+        CAKE_FLAVOR :'바닐라',
+        REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
+        
+        
+      },
+      {
+        DEAL_ID: 9,
+        IMG_NAME: '/assets/images/cake3.jpg',
+        CAKE_NAME: '곰도리',
+        CREATED_AT: '2023-11-14',
+        CUST_NICK: '서유정',
+        CAKE_SIZE: '도시락',
+        CAKE_FLAVOR :'쿠키앤크림',
+        REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증...',
+        
+      
+      },
+      {
+        DEAL_ID: 10,
+        IMG_NAME: '/assets/images/cakelogo3.jpg',
+        CAKE_NAME: '티아라케이크',
+        CREATED_AT: '2023-11-15',
+        CUST_NICK: '김은호',
+        CAKE_SIZE: '1',
+        CAKE_FLAVOR :'바닐라',
+        REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜...',
+        
+      
       },
     ];
 
