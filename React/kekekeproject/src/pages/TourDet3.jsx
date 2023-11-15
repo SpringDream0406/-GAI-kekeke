@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/TourDet3.css";
 import { Link } from 'react-router-dom';
+import Blue_Box from "../component/Blue_Box";
 
 
 export const TourDet3 = () => {
@@ -107,41 +108,86 @@ export const TourDet3 = () => {
     };
   
 
-    
-    
+    // 리뷰 팝업 임시 데이터
+       
+    const [reviewData] = useState({
+      id: 1,
+      thumbnail: '/assets/images/cake1.jpg',
+      status: '주문완료',
+      orderDate: '2023.10.29',
+      pickupDate: '2023.10.31',
+      size: '도시락',
+      flavor: '초콜릿',
+      storeName: '주주케이크',
+      productName: '곰돌이케이크',
+      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
+      customerName: '홍길동',
+      reviewContent: '케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
+      reviewDate: '2023.10.30'
+   });
+
+   // 리뷰 팝업을 위한 상태 추가
+   const [showDetailReview, setShowDetailReview] = useState(false);
+
+   // 리뷰 팝업을 표시하는 함수
+   const handleShowDetailReview = () => {
+       setShowDetailReview(true);
+   };
+
+   // 리뷰 팝업을 닫는 함수
+   const handleCloseDetailReview = () => {
+       setShowDetailReview(false);
+   };
+   
 return (
-    <div className="index">
-      <div className="tourFrame">
-        <div className="bluebox">
-          <div className="bodyfr">
-            <div className="overlap-group">
-              <div className="group">
-                <div className="overlap-group">
-                  <div className="div" />
-                  <div className="ellipse" />
-                  <div className="rectangle" />
-                </div>
-              </div>
+  <div className="frame">
+  <div className="tour-detail-container">
+  <div className="tour-detail-content">
+    <div className="store-info-section">
+      <img className="store-logo"
+        src={tourdet3_StoreLogo}
+        alt={CakeStoreName}
+      />
+      <div className="store-text-content">
+        <h1 className="store-name">{CakeStoreName}</h1>
+        <p className="store-address">{StoreAddr}</p>
+        <p className="store-description">{StoreDetail}</p>
+      </div>
+      <button className="chat-button" onClick={handleChatBoxClick}>
+        <span className="chat-text">1:1 채팅</span>
+      </button>
+    </div>
 
-
-
-              <div className="tourdet3-SampleStoreReviewFr"> {/* 샘플케이크, 매장정보, 리뷰 탭 div */}
-                
-                  <div className="text-tourdet3-Sample">
-                  <Link to="/SampleCake" style={{textDecoration: 'none'}} className="TourDet3_LinkStyle" >샘플케이크</Link>
-                  </div>
-                
-            
-                  <div className="text-tourdet3-StoreDetail">
-                  <Link to="/TourDet2" style={{textDecoration: 'none'}} className="TourDet3_LinkStyle" >매장정보</Link>
-                  </div>
-              
-                
-                  <div className="TourDet3_reviewtab">리뷰</div>
-                
-              </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
+    <div className="review-section">
+      <h2 className="review-list-title">리뷰목록</h2>
+      <div className="review-list">
+        {currentItems.map(review => (
+          <div key={review.DEAL_ID} className="review-item">
+            <img 
+              className="review-image" 
+              alt={`Review ${review.DEAL_ID}`}
+              src={`${review.IMG_NAME}${review.IMG_ORIGINAL_NAME}`} 
+            />
+            <div className="review-content">
+              <h3 className="review-cake-name">{review.CAKE_NAME}</h3>
+              <p className="review-date">{review.CREATED_AT}</p>
+              <p className="review-customer">{review.CUST_NICK} 님</p>
+              <p className="review-details">{`호수: ${review.CAKE_SIZE}호 맛: ${review.CAKE_FLAVOR}`}</p>
+              <p className="review-message">{review.REVIEW_MSG}</p>
             </div>
           </div>
+        ))}
+      </div>
+      <div className="pagination">
+        <button className="prev-page" onClick={goToPrervPage}>
+          {/* 이전 페이지 아이콘 */}
+        </button>
+        <div className="page-numbers">
+          {reviewpageNum.map(num => (
+            <a key={num} onClick={(e) => handlePgClick(e, num)} href="#!">
+              {num}
+            </a>
+          ))}
 
 
 
@@ -237,7 +283,7 @@ return (
             </div>
             <div className="tour-review-page"> {/*페이지 버튼*/}
               <div className="review-page-before" onClick={goToPrervPage}> {/*이전페이지버튼*/}
-                <img className="polygon1" alt="이전 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-leftbtniconfr.svg" />
+                <img className="polygon1" alt="이전 페이지" src={'/assets/images/TourDet3Btn1.png'} />
               </div>{/*이전페이지버튼 끝*/}
               <div className="pagefr">
                   {reviewpageNum.map(num => (
@@ -247,7 +293,7 @@ return (
             ))}
               </div>
             <div className="review-page-next" onClick={goToNextrvPage}>{/*다음페이지버튼*/}
-              <img className="polygon2" alt="다음 페이지" src="https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet-rightbtniconfr.svg" />
+              <img className="polygon2" alt="다음 페이지" src={'/assets/images/TourDet3Btn2.png'}/>
             </div>{/*다음페이지버튼끝*/}
           </div>{/*페이지 버튼*/}
 
@@ -258,8 +304,14 @@ return (
 
 
         </div>
+        <button className="next-page" onClick={goToNextrvPage}>
+          {/* 다음 페이지 아이콘 */}
+        </button>
       </div>
     </div>
+  </div>
+</div>
+</div>
   );
 };
     

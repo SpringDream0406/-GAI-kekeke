@@ -13,10 +13,16 @@ export const TourDet2 = () => {
     const tourdet3_StoreLogo = "https://blogpfthumb-phinf.pstatic.net/MjAyMDA4MTNfMTQ4/MDAxNTk3MzA4MTg4MzQx._OxSWKBpTMPUkFOlAc0UUAWfeUVEzn-FStcvdwlxxFcg.fc00U8MAeCw9QDqNML0a6XGWcmgdn57fCjTu5dO1vnkg.PNG.theyoon_cake/%25EB%25A1%259C%25EA%25B3%25A0.png?type=w161";
 
     // 예약주의사항 변수 임시
-    const orderinfo = "주문은 최소 7일전에 부탁합니다. 하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.주문제작 특성상 제작 순서는 입금순으로 정해집니다"
-    const Refund = "당일 100%환불 주문 다음날 부터 ~ 픽업 5일전 50% 환불픽업 3일전 30% 환불픽업 1~2일전 환불 불가"
-    const deliveryinfo = "직접 픽업을 원칙으로 합니다고객님께서 퀵업체를 픽업시간에 맞추어 공방으로 보내주시기 바랍니다. (퀵요금 현금 선불입니다.)배송요청시 구매자가 파손면책 동의한 것으로 간주되며 발송후 어떠한 문제에 대하여 책임지지 않습니다."
-    
+    const orderinfo = " 주문관련\n" +
+      "주문은 최소 7일전에 부탁합니다. 하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.주문제작 특성상 제작 순서는 입금순으로 정해집니다\n" +
+      "주문은 최소 7일전에 부탁합니다. 하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.주문제작 특성상 제작 순서는 입금순으로 정해집니다\n" +
+      "주문은 최소 7일전에 부탁합니다. 하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.주문제작 특성상 제작 순서는 입금순으로 정해집니다\n" +
+      "주문은 최소 7일전에 부탁합니다. 하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.주문제작 특성상 제작 순서는 입금순으로 정해집니다\n" +
+      "환불규정\n" +
+      "당일 100%환불 주문 다음날 부터 ~ 픽업 5일전 50% 환불픽업 3일전 30% 환불픽업 1~2일전 환불 불가\n" +
+      "배송관련\n" +
+      "직접 픽업을 원칙으로 합니다고객님께서 퀵업체를 픽업시간에 맞추어 공방으로 보내주시기 바랍니다. (퀵요금 현금 선불입니다.)배송요청시 구매자가 파손면책 동의한 것으로 간주되며 발송후 어떠한 문제에 대하여 책임지지 않습니다\n";
+      
     //보관 및 이용방법 변수 임시
     const use1 =  "1. 떡 및 앙금제품:\n" +
                   "1. 떡 및 앙금제품:\n" +
@@ -194,24 +200,7 @@ export const TourDet2 = () => {
                     <div className="TourDet2_reserve">{/*예약주의사항시작*/}
                     <div className="TourDet2_resinputfr">
                       <p className="TourDet2_resinputtx">
-                        {" "}
-                        주문관련 
-                        <br />
-                        <br />
                         {orderinfo}
-                        <br />
-                        <br />
-                        <br />
-                        환불규정
-                        <br />
-                        <br />
-                        {Refund}
-                        <br />
-                        <br />
-                        배송관련
-                        <br />
-                        <br />
-                        {deliveryinfo}
                       </p>
                     </div>
                     <div className="TourDet2_resfr">

@@ -37,8 +37,8 @@
 }
 
 .detail-review-title {
-  /* ...필요한 스타일... */
   font-size: 24px;
+  color: #ff4081;
 }
 
 .detail-review-image {
@@ -61,7 +61,7 @@
   text-align: right;
   padding: 10px;
   margin-right: 20px;
-
+  color: #797979
 }
 
 .review-content-container {
@@ -128,8 +128,8 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 20px;
   width: 90%;
+  font-size: 18px;
 
 }
 
@@ -139,4 +139,12 @@
   padding: 20px;
   margin-top: 40px;
   width: 90%;
+  font-size: 18px;
+}
+
+.reviewtexttitle{
+  font-size: 18px;
+  align-self: start;
+  margin-top: 10px;
+  padding: 10px;
 }
