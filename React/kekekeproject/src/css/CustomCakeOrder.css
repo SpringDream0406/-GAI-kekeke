@@ -1,10 +1,32 @@
+* :hover{
+  border: none;
+}
+
+.co-bg-container {
+  background-image: url('/public/assets/images/bluebox.png');
+  background-size: 100% 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin: 305px auto 0; 
+  margin-bottom: 200px;
+  
+  height: 1766px;
+  width: 1293px;
+  z-index: 0
+}
+
+
+
+
 .co-container {
  
   display: flex;
   flex-direction: row;
   justify-content: center;
  
-  margin-top: -300px;
+  margin-top: -2300px;
 }
 
 .co-container .co-div {
@@ -246,8 +268,19 @@ width: 440px;
   left: 20px;
 }
 
+.co-time-icon{
+  position: absolute;
+  width: 30px;
+  left: 20px;
+}
+input {
+  border: none; /* 테두리 제거 */
+  outline: none; /* 포커스 시 나타나는 윤곽선(outline) 제거 */
+}
 
 .example-custom-input {
+  outline: none;
+  border: none; 
   /* .co-day 클래스의 스타일을 이곳에 추가 */
   background-color: #ffffff;
   border-radius: 30px;
@@ -256,8 +289,24 @@ width: 440px;
   height: 63px;
   left: 177px;
   position: absolute;
-  top: 1644px;
+  top: 1614px;
   width: 488px;
+}
+
+.example-time-input {
+  outline: none;
+  border: none; 
+  /* .co-day 클래스의 스타일을 이곳에 추가 */
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-family: 'Pretendard-bold';
+  font-size: 16px;
+  height: 63px;
+  left: 177px;
+  position: absolute;
+  top: 1794px;
+  width: 488px;
+  z-index: 999;
 }
 .co-container .co-omgtitle {
   color: #000000;
@@ -343,6 +392,7 @@ width: 440px;
 }
 
 .co-container .co-username {
+
   background-color: #ffffff;
   font-family: 'Pretendard-Regular';
   border-radius: 30px;
@@ -361,22 +411,96 @@ width: 440px;
 
 
 }
+.react-datepicker__time-container .react-datepicker__header--time--only{
+  display: none;
+}
+
+.react-datepicker__triangle{
+  display: none;
+}
+
+.react-datepicker button{
+  left: 267px;
+  position: absolute;
+  top: 1370px;
+}
+.react-datepicker__navigation--previous {
+  margin-right: 50px; /* 오른쪽 마진 추가 */
+}
+
+/* 다음 버튼에 대한 스타일 */
+.react-datepicker__navigation--next {
+  margin-left: 255px; /* 왼쪽 마진 추가 */
+}
+.react-datepicker__time{
+  width: 300px;
+  
+}
+
+.react-datepicker__time-list-item {
+  font-family: 'Pretendard-bold';
+  font-size: 20px;
+  color: white;
+ 
+  background-color: #ffa0b7;
+}
+.react-datepicker__time-list-item:hover{
+  color: #ff85a3;
+}
+
+.react-datepicker__time-list  {
+  width: 300px;
+  border-radius: 20px;
+  position: absolute;
+  top: 1530px;
+  left: 270px;
+  background-color: white;
+}
+.co-day {
+
+  height: 63px;
+  left: 177px;
+  position: absolute;
+}
+
+.co-timepicker-container {
+  position: absolute;
+  top: 1818px; /* 실제 위치에 맞게 조정해야 할 수 있음 */
+  left: 177px;
+  z-index: 999; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+}
 
 
 .react-datepicker__month-container{
   position: absolute;
   cursor: pointer;
-  top: 1380px;
-  left: 200px;
-  background-color: white;
-  border: 2px solid lightgray;
+  top: 1340px;
+  left: 260px;
+  color: white;
+  border: 2px solid #ff85a3;
   border-radius: 20px;
 }
-
 .react-datepicker__header {
-  background-color: #ff85a3;
-  color: #ff85a3;
+  border-top-left-radius: 10px;
+  padding: 0px;
+  background-color: #761b1b;;
 }
+:global(.react-datepicker__month-container) {
+  /* 전역 스타일 적용 */
+ border-radius: 20px;
+  /* ... */
+}
+
+
+.react-datepicker__month-container{
+  width: 300px;
+  color: white;
+  background-color: #ffb6c8;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+}
+
+
 
 
 /* 체크박스 */

@@ -5,6 +5,9 @@ import '../css/CustomCake.css';
 import { useNavigate,Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 
+
+
+
 const CustomCake = () => {
 
 
@@ -306,7 +309,7 @@ const captureImage = () => {
         </Layer>
       </Stage>
       <Link className="next-button-container" to={`/customcake/order?image=${encodeURIComponent(capturedImage)}`}>
-      <button onClick={handleSave}>저장하고 계속</button>
+      <button onClick={handleSave} className='custom-nextbutton'>저장하고 계속</button>
       {savedImage && <img src={savedImage} alt="Saved" />}
       </Link>
     

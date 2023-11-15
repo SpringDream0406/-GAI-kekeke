@@ -63,6 +63,7 @@ const NavMenu = styled.ul`
     left :-10px;
     &:hover {
       cursor: pointer;
+      width: auto;
       background-color : pink;
 
     }
@@ -127,7 +128,8 @@ const Li = styled.li`
   margin-left: 0;
 `;
 
-const LinkWrapper = styled.a`
+const LinkWrapper = styled(Link)`
+color: black;
   text-align: center;
   position: relative;
   font-size: 16px;
@@ -182,9 +184,94 @@ const Menu = styled.div`
 
 
 
+const AlertMenu = styled.div`
+   background-color: white;
+  text-align : center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+ width: 350px;
+ max-height: 400px; /* 최대 높이 설정 */
+   overflow-y: auto; /* 내용이 max-height를 초과하면 세로 스크롤바 표시 */
+  transform: translate(-50%, -20px);
+  transition: opacity 0.8s ease, transform 0.4s ease, visibility 0.4s;
+  position: absolute;
+  top: 85px;
+  right: -30px;
+  z-index: 10;
+
+
+  &:after {
+    content: '';
+    
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 12px solid transparent;
+    
+    border-bottom-color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    position:relatvie;
+    left:-80px;
+    text-align:center;
+    width: 134px;
+  }
+  
+  ${({ isDropped }) =>
+    isDropped &&
+    css`
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+      left: 50%;
+    `};
+`;
+
+
+const StyledImage = styled.img`
+  width: 70px; 
+  height: 70px;
+  border-radius: 100px;
+  
+  margin-top: 30px;
+  margin-left: -250px;
+  /* 여기에 원하는 스타일을 추가 */
+`;
+const StyledMT = styled.div`
+font-size: 14px;
+color: black;
+  font-family: 'Pretendard-bold';
+  margin-top: -60px;
+  margin-left: 70px;
+  
+`
+
+const StyledST = styled.div`
+  font-family: 'Pretendard-Regular';
+  font-size: 12px;
+
+  margin-top: 10px;
+  color: black;
+  margin-left: 70px;
+  text-decoration: none;
+`
+const StyledHR =styled.hr`
+    margin-top: 30px;
+    margin-left: -30px;
+    color: #ececec;
+    background-color: #ececec;
+    
+`
+
+
+
+
+
 const Header_af = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
-
+  const [alertIsOpen, alertRef, alertHandler] = useDetectClose(false)
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
   };
@@ -219,7 +306,7 @@ const Header_af = () => {
           
           <div ref={myPageRef}>
           <li>
-            <Link to={'/mypage'} className="nav-menu-icon" onClick={myPageHandler}>
+            <Link to={'/'} className="nav-menu-icon" onClick={myPageHandler}>
             <img 
                             src={'/assets/images/mypage-icon.svg'}/>
             </Link>
@@ -232,13 +319,13 @@ const Header_af = () => {
             {/* 드롭다운 메뉴 내용 */}
             <Ul>
               <Li>
-               <LinkWrapper>주문내역</LinkWrapper>
+               <LinkWrapper to={'/mporderlist'}>주문내역</LinkWrapper>
               </Li>
               <Li>
-              <LinkWrapper>내 정보수정</LinkWrapper>
+              <LinkWrapper to={'/usermypage'}>내 정보수정</LinkWrapper>
               </Li>
               <Li>
-              <LinkWrapper > 로그아웃</LinkWrapper>
+              <LinkWrapper to="#"> 로그아웃</LinkWrapper>
               </Li>
             </Ul>
           </Menu>
@@ -247,7 +334,7 @@ const Header_af = () => {
       </div>
           
           <li>
-            <Link to={'/'} className="nav-menu-icon">
+            <Link to={'/usermessage'} className="nav-menu-icon">
             <img
                         src={'/assets/images/message-icon.svg'}
                         />
@@ -257,16 +344,52 @@ const Header_af = () => {
           </li>
 
        
-          <li>
-            <Link to={'/'} className="nav-menu-icon">
-            <img
-                        
-src={'/assets/images/alert-icon.svg'}
-                        />
-            </Link>
-              
-           
-          </li>
+          <div ref={alertRef}>
+    <li onClick={alertHandler}>
+      <Link to={'/'} className="nav-menu-icon">
+        <img src={'/assets/images/alert-icon.svg'}/>
+      </Link>
+    </li>
+
+
+
+    {alertIsOpen && (
+      <AlertMenu isDropped={alertIsOpen}>
+    
+        <Ul>
+      
+            <LinkWrapper to="/" >
+              <StyledImage src={'/assets/images/cakelogo2.jpg'} />
+              <StyledMT>건식케이크에서 제안이 왔어요!</StyledMT>
+              <StyledST>지금 바로 확인해보세요 !</StyledST>
+              <StyledHR />
+            </LinkWrapper>
+        
+            <LinkWrapper to="/login">
+              <StyledImage src={'/assets/images/cakelogo1.jpg'} />
+              <StyledMT>건식케이크에서 제안이 왔어요!</StyledMT>
+              <StyledST>지금 바로 확인해보세요 !</StyledST>
+              <StyledHR />
+            </LinkWrapper>
+         
+            <LinkWrapper to="/join">
+             <StyledImage src={'/assets/images/cakelogo3.jpg'} />
+              <StyledMT>건식케이크 픽업 하루 전이에요!</StyledMT>
+              <StyledST>날짜/시간을 확인해보세요 !</StyledST>
+              <StyledHR />
+            </LinkWrapper>
+
+            <LinkWrapper to="/join">
+             <StyledImage src={'/assets/images/cakelogo2.jpg'} />
+              <StyledMT>건식케이크 픽업 하루 전이에요!</StyledMT>
+              <StyledST>날짜/시간을 확인해보세요 !</StyledST>
+              <StyledHR />
+            </LinkWrapper>
+        
+        </Ul>
+      </AlertMenu>
+    )}
+  </div>
          
         </NavMenu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />
