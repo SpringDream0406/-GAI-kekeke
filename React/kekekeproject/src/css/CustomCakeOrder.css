@@ -1,0 +1,364 @@
+.co-container {
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ 
+  margin-top: -300px;
+}
+
+.co-container .co-div {
+
+
+  position: relative;
+  width: 1439px;
+}
+
+.co-container .co-cakeflavortitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1141px;
+}
+
+.co-cakeflovor{
+
+  font-family: 'Pretendard-Regular';
+  font-size: 20px;
+border-radius: 30px;
+border: 1px solid white;
+padding: 20px;
+width: 440px;
+  left: -5px;
+  
+  position: absolute;
+  top: 60px;
+}
+
+
+
+.co-container .co-btntxt {
+  color: #000000;
+  font-family: 'Pretendard-Regular';
+  font-size: 24px;
+  font-weight: 400;
+  left: 800px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1730px;
+}
+
+.co-container .co-reqbtn {
+  height: 103px;
+  left: 790px;
+  position: absolute;
+  top: 1800px;
+  width: 460px;
+}
+
+.co-container .co-overlap-group {
+  cursor: pointer;
+  background-color: #ffa0b7;
+  border-radius: 30px;
+  height: 103px;
+  position: relative;
+  width: 458px;
+}
+
+.co-reqbtn :hover{
+  background-color: #ff85a3;
+}
+
+.co-container .co-reqtxt {
+  color: #ffffff;
+  font-family: 'Pretendard-bold';
+  font-size: 32px;
+  font-weight: 700;
+  left: 170px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 32px;
+}
+
+.co-container .co-cakeplusttitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1454px;
+}
+
+.co-container .co-cakeplus {
+  background-color: #ffffff;
+  border-radius: 30px;
+  
+  left: 772px;
+  position: absolute;
+  top: 1514px;
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+  padding-left: 20px;
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 140px;
+ 
+}
+
+
+
+.co-container .co-caketxttitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1301px;
+}
+
+.co-container .co-caketxt {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 63px;
+  left: 772px;
+  position: absolute;
+  top: 1361px;
+ 
+
+    
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+ padding-left: 20px;
+  left: 772px;
+  font-size: 20px;
+}
+
+.co-container .co-cakesizetitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 866px;
+}
+
+.co-container .rectangle {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 178px;
+  left: 772px;
+  position: absolute;
+  top: 926px;
+  width: 458px;
+}
+
+.co-container .co-userphonetitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 709px;
+
+
+  
+}
+
+.co-container .co-userphone {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 63px;
+  left: 772px;
+  position: absolute;
+  top: 769px;
+
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+ padding-left: 20px;
+  left: 772px;
+  font-size: 20px;
+}
+
+.co-container .co-time {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1748px;
+}
+
+.co-container .co-timetitle {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 63px;
+  left: 177px;
+  position: absolute;
+  top: 1808px;
+  width: 498px;
+}
+
+.co-container .co-daytitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1584px;
+}
+
+.co-day-icon{
+  position: absolute;
+  width: 30px;
+  left: 20px;
+}
+
+
+.example-custom-input {
+  /* .co-day 클래스의 스타일을 이곳에 추가 */
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-family: 'Pretendard-bold';
+  font-size: 16px;
+  height: 63px;
+  left: 177px;
+  position: absolute;
+  top: 1644px;
+  width: 488px;
+}
+.co-container .co-omgtitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1037px;
+}
+
+.co-container .co-imgpic {
+  background-color: #ffffff;
+  border-radius: 44px;
+  height: 398px;
+  left: 177px;
+  position: absolute;
+  top: 1127px;
+  width: 489px;
+  cursor: pointer;
+}
+
+.cakeImage{
+  font-family: 'Pretendard-Medium';
+  color: lightgray;
+  position: absolute;
+  top: 199px;
+  cursor: pointer;
+  padding: 20p;
+  left: 184px;
+}
+
+.co-selected-image{
+  border-radius: 44px;
+  width: 489px;
+  height: 398px;
+}
+
+.co-container .co-costomtitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 551px;
+}
+
+.co-container .co-custompic {
+  background-color: #ffffff;
+  border-radius: 44px;
+  height: 398px;
+  left: 177px;
+  position: absolute;
+  top: 611px;
+  width: 489px;
+}
+
+.co-container .co-usernametitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 558px;
+}
+
+.co-container .co-username {
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+  border-radius: 30px;
+ padding-left: 20px;
+  height: 63px;
+  left: 772px;
+  position: absolute;
+  top: 618px;
+  width: 438px;
+
+
+  
+ 
+  font-size: 20px;
+
+
+
+}
+
+
+.react-datepicker__month-container{
+  position: absolute;
+  cursor: pointer;
+  top: 1380px;
+  left: 200px;
+  background-color: white;
+  border: 2px solid lightgray;
+  border-radius: 20px;
+}
+
+.react-datepicker__header {
+  background-color: #ff85a3;
+  color: #ff85a3;
+}
