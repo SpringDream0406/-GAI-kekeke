@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef,} from 'react';
 
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
@@ -9,23 +9,27 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 const CustomCakeOrder = () => {
 
-  
-  const [startDate, setStartDate] = useState(new Date());
-
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const imageUrl = searchParams.get('image');
+  const [startDate, setStartDate] = useState(new Date());
+  const [savedImage, setSavedImage] = useState(null);
+  const [pickupTime, setPickupTime] = useState(''); // 픽업 시간 상태
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null); // 이미지 URL 상태를 추가합니다.
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setSelectedImage(file); // 파일 자체를 상태에 저장합니다.
-      setImageUrl(objectUrl); // 생성된 URL을 상태에 저장합니다.
+      const imageSrc = URL.createObjectURL(file);
+      setSelectedImage(imageSrc); // 이미지 경로를 selectedImage 상태에 저장
     }
   };
-
+  
+  const handlePickupTimeChange = (e) => {
+    setPickupTime(e.target.value); // 시간 상태 업데이트
+  };
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="example-custom-input co-day" onClick={onClick} ref={ref}>
@@ -34,14 +38,15 @@ const CustomCakeOrder = () => {
     </button>
   ));
 
+
   useEffect(() => {
-    // selectedImage가 변경될 때마다 이전 이미지 URL을 해제합니다.
-    return () => {
-      if (imageUrl) {
-        URL.revokeObjectURL(imageUrl);
-      }
-    };
-  }, [imageUrl]); // imageUrl에 대한 의존성을 추가합니다.
+    const image = localStorage.getItem('savedImage');
+    if (image) {
+      setSavedImage(image);
+    }
+  }, []);
+
+
   return (
     <div className="co-container">
     <div className="co-div">
@@ -72,6 +77,25 @@ const CustomCakeOrder = () => {
                    
                   />
       <div className="co-cakesizetitle">케이크 크기선택</div>
+   
+       <div className='co-check-container'>
+          <div className="co-check-1">
+            <Checkbox></Checkbox>
+            <div className="co-check1-txt">도시락</div>
+          </div>
+          <div className="co-check-2">
+          <Checkbox></Checkbox>
+            <div className="co-check-txt1">1호</div>
+          </div>
+          <div className="co-check-3">
+          <Checkbox></Checkbox>
+            <div className="co-check-txt2">2호</div>
+          </div>
+          <div className="co-check-4">
+          <Checkbox></Checkbox>
+            <div className="co-check-txt3">3호</div>
+          </div>
+       </div>
       <div className="rectangle" />
       <div className="co-userphonetitle">예약자 번호</div>
       <input className="co-userphone"
@@ -80,7 +104,17 @@ const CustomCakeOrder = () => {
                    
                   />
       <div className="co-time">픽업 시간</div>
-      <div className="co-timetitle" />
+    
+
+    <div onChange={handlePickupTimeChange}>
+      
+      <input
+          type="time"
+          value={pickupTime}
+          
+          className="co-timetitle"
+        />
+        </div>
       <div className="co-daytitle">픽업 날짜</div>
       <DatePicker 
         selected={startDate} 
@@ -99,19 +133,34 @@ const CustomCakeOrder = () => {
             accept="image/*"
             onChange={handleImageChange} // 파일 선택 시 핸들러 호출
           />
-          {/* 이미지가 선택되었을 때 이미지를 표시 */}
-         {/* 이미지 URL이 있을 때 이미지를 표시합니다. */}
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt="Selected Cake Image"
-            className="co-selected-image"
-          />
-        )}
+     {selectedImage && (
+  <img
+    src={selectedImage}
+    className='co-selected-image'
+    alt="Uploaded Cake"
+    style={{ maxWidth: '100%' }}
+  />
+)}
+
+
       </div>
       <div className="co-costomtitle">내가 만든 커스텀케이크</div>
-      <div className="co-custompic">
-  {selectedImage && <img src={selectedImage} alt="Custom Cake" />}
+    
+      {savedImage && (
+  <img
+    src={savedImage}
+     className='co-custompic'
+    alt="Custom Cake Preview"
+    style={{ maxWidth: '100%', height: 'auto' }} // 이미지 스타일 조정
+  />
+)}
+<div className='white-bg'/>
+
+
+
+
+
+  <div className="co-custompic">
 </div>
       <div className="co-usernametitle">예약자 성함</div>
       <input className="co-username"
@@ -128,3 +177,27 @@ const CustomCakeOrder = () => {
 }
 
 export default CustomCakeOrder
+
+
+
+function Checkbox() {
+  // 상태 초기화: 체크박스의 기본 상태는 false로 설정
+  const [isChecked, setIsChecked] = useState(false);
+
+  // 체크박스 상태가 변경될 때 실행되는 이벤트 핸들러
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // 현재 상태의 반대 값을 설정
+  };
+
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked} // 현재 상태를 반영
+          onChange={handleCheckboxChange}
+        />
+      </label>
+    </div>
+  );
+}

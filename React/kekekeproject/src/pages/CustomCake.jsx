@@ -1,12 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Stage, Layer, Line, Rect, Circle, Path, Text } from 'react-konva';
-import { FaPencilAlt, FaEraser, FaPaintBrush, FaSquare, FaFont, FaHeart, FaCircle, FaTrash } from 'react-icons/fa';
+import { FaPencilAlt, FaEraser, FaSquare, FaFont, FaHeart, FaCircle, FaTrash } from 'react-icons/fa';
 import '../css/CustomCake.css';
-import {Link } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
-import { useNavigate } from 'react-router-dom';
 
-const CustomCake = (props) => {
+const CustomCake = () => {
+
+
+
   const navigate = useNavigate();
   const [tool, setTool] = React.useState(null); // 'pen'을 null로 변경
   const [elements, setElements] = React.useState([]);
@@ -22,17 +24,40 @@ const CustomCake = (props) => {
   const [selectedTextIndex, setSelectedTextIndex] = useState(-1); // 선택된 텍스트 엘리먼트의 인덱스 추가
   const stageRef = useRef(null);
 const [savedImage, setSavedImage] = useState(null);
+const [capturedImage, setCapturedImage] = useState(null);
+
 
 const handleSave = () => {
+  const uri = stageRef.current.toDataURL(); // toDataURL()을 사용하여 데이터 URL을 가져옴
+  console.log(uri); // 콘솔에 데이터 URL 로깅
+  localStorage.setItem('savedImage', uri); // 로컬 스토리지에 저장
+  setSavedImage(uri); // 이미지 데이터를 상태에 저장
+  navigate('/customcake/order', { state: { image: uri } }); // 이미지 데이터와 함께 네비게이트
+};
+
+
+useEffect(() => {
+  // 캔버스에 변화가 있을 때 실행될 로직
+  if (elements.length > 0 || textElements.length > 0) {
+    // 캔버스의 상태가 변화하면 이미지 캡처 함수를 호출
+    captureImage();
+  }
+}, [elements, textElements]); // elements 혹은 textElements 상태가 바뀔 때마다 useEffect가 실행됩니다.
+
+const captureImage = () => {
   if (stageRef.current) {
-    html2canvas(stageRef.current.content, { useCORS: true }).then((canvas) => {
-      const dataURL = canvas.toDataURL('image/png');
-      localStorage.setItem('savedImage', dataURL); // 로컬 스토리지에 저장
-      navigate('/customcake/order');
-    });
+    html2canvas(stageRef.current.getStage(), { useCORS: true })
+      .then((canvas) => {
+        const dataURL = canvas.toDataURL('image/png');
+        setCapturedImage(dataURL); // 캡처된 이미지의 데이터 URL을 상태에 저장
+      })
+      .catch((error) => {
+        console.error('An error occurred while capturing the image:', error);
+      });
   }
 };
-console.log(savedImage , '이미지저장')
+
+
 
 
   const handleTextClick = (index) => {
@@ -40,9 +65,6 @@ console.log(savedImage , '이미지저장')
       setIsTextEditing(true);
     }
     setSelectedTextIndex(index); // 클릭한 텍스트 엘리먼트의 인덱스를 저장
-  };
-  const handleTextChange = (e) => {
-    setText(e.target.value);
   };
 
   const handleAddText = () => {
@@ -54,6 +76,7 @@ console.log(savedImage , '이미지저장')
   };
 
   const handleMouseDown = (e) => {
+    console.log('Mouse Down Event', e);
     if (tool) {
       const pos = e.target.getStage().getPointerPosition();
       const newElement = {
@@ -72,10 +95,12 @@ console.log(savedImage , '이미지저장')
       nextId.current += 1; // ID 증가
       isDrawing.current = true;
     }
+    
   };
   
 
   const handleMouseMove = (e) => {
+    
     if (!isDrawing.current) {
       return;
     }
@@ -89,9 +114,11 @@ console.log(savedImage , '이미지저장')
       lastElement.height = point.y - lastElement.y;
     }
     setElements(elements.slice(0, -1).concat(lastElement));
+   
   };
 
   const handleDragEnd = (e) => {
+    console.log('DragEnd', e);
     const id = e.target.id(); // Konva는 id를 문자열로 처리합니다. 필요에 따라 parseInt(id, 10)을 사용하세요.
     const { x, y } = e.target.position();
     setElements((prevElements) =>
@@ -103,10 +130,13 @@ console.log(savedImage , '이미지저장')
         return elem;
       })
     );
+
   };
 
   const handleMouseUp = () => {
+   
     isDrawing.current = false;
+
   };
 
   const handleColorChange = (e) => {
@@ -143,16 +173,6 @@ console.log(savedImage , '이미지저장')
       setSelectedTextIndex(-1); // 선택 취소
     }
   };
-  
-  // 이미지로 변환하는 함수
-  const convertToImage = () => {
-    if (stageRef.current) {
-      html2canvas(stageRef.current.content, { useCORS: true }).then(function (canvas) {
-        const dataURL = canvas.toDataURL('image/png');
-        setSavedImage(dataURL); // 이미지 데이터를 상태에 저장합니다.
-      });
-    }
-  };
 
   return (
     <div className="custom-container">
@@ -181,8 +201,8 @@ console.log(savedImage , '이미지저장')
 
        
         <FaTrash className="delete-tool" onClick={clearAll} size={20} title="전체 지우기" />
-        <button className="custom-save-button" onClick={convertToImage}>저장하기
-      </button>
+        
+      
       {/* 저장된 이미지를 표시하고 싶다면 다음과 같이 이미지 태그를 사용할 수 있습니다. */}
       {savedImage && <img src={savedImage} alt="Saved" />}
         <div className="tooltxt">※ 툴 선택시 더블클릭 해주세요</div>
@@ -214,7 +234,7 @@ console.log(savedImage , '이미지저장')
 
 
       <hr className="custom-hr" />
-      <Stage width={1500} height={620} onMouseDown={handleMouseDown} onMousemove={handleMouseMove} onMouseup={handleMouseUp}>
+      <Stage ref={stageRef} width={1500} height={620} onMouseDown={handleMouseDown} onMousemove={handleMouseMove} onMouseup={handleMouseUp}>
         <Layer>
           {elements.map((elem, i) => {
             if (['pen', 'brush', 'eraser'].includes(elem.tool)) {
@@ -285,11 +305,11 @@ console.log(savedImage , '이미지저장')
    
         </Layer>
       </Stage>
-      <Link className="next-button-container" to='/customcake/order'>
-        <button className="custom-nextbutton" onClick={handleSave}>저장하고 계속</button>
-      </Link>
-      {/* 저장된 이미지를 표시하고 싶다면 다음과 같이 이미지 태그를 사용할 수 있습니다. */}
+      <Link className="next-button-container" to={`/customcake/order?image=${encodeURIComponent(capturedImage)}`}>
+      <button onClick={handleSave}>저장하고 계속</button>
       {savedImage && <img src={savedImage} alt="Saved" />}
+      </Link>
+    
       
  
     </div>

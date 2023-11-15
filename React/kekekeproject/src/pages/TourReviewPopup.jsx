@@ -1,107 +1,94 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "../css/TourReviewPopup.css";
 
 export const TourReviewPopup = () => {
-    const RvCakeSize = "2호 케이크"
-    const RvCakeFlavor = "바닐라"
-    const RvRequire =  "이제야 목적지를 정했지만 가려한 날 막아서네 난 갈 길이 먼데 새빨간 얼굴로 화를 냈던 친구가 생각나네 이미 난 발걸음을 떼었지만 가려한 날 재촉하네 걷기도 힘든데 새파랗게 겁에 질려 도망간 친구가 뇌에 멤"
-    const Rvshopname = "라라케이크"
-    const RvCakeName = "티아라케이크"
-    const RvReview = "이제야 목적지를 정했지만 가려한 날 막아서네 난 갈 길이 먼데 새빨간 얼굴로 화를 냈던 친구가 생각나네 이미 난 발걸음을 떼었지만 가려한 날 재촉하네 걷기도 힘든데 새파랗게 겁에 질려 도망간 친구가 뇌에 멤도네"
-    
-    const RvCust = "홍길동"
-    const RvDate = "2023.10.20"
-    const RvCakeImg = "https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/tourdet3-cakeimgbox1.png"
+      
+    const [reviewData] = useState({
+        id: 1,
+        thumbnail: '/assets/images/cake1.jpg',
+        status: '주문완료',
+        orderDate: '2023.10.29',
+        pickupDate: '2023.10.31',
+        size: '도시락',
+        flavor: '초콜릿',
+        storeName: '주주케이크',
+        productName: '곰돌이케이크',
+        request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
+        customerName: '홍길동',
+        reviewContent: '사장님이 친절하구 어쩌구쩌쩌구저쩌구 저쩌구해요 곰돌이기여워 곰돌이 맛있어 케이크 맛있어 케이크 귀여워 케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
+        reviewDate: '2023.10.30'
+     });
+
+     // 리뷰 팝업을 위한 상태 추가
+     const [showDetailReview, setShowDetailReview] = useState(false);
+ 
+     // 리뷰 팝업을 표시하는 함수
+     const handleShowDetailReview = () => {
+         setShowDetailReview(true);
+     };
+ 
+     // 리뷰 팝업을 닫는 함수
+     const handleCloseDetailReview = () => {
+         setShowDetailReview(false);
+     };
+ 
 
     
-    return (
-            <div className="ToureRvPop"> {/* 전체 프레임 */}
-
-                <div className="ToureRvPoptopFr">{/* 작성자 작성일 출우을발 */}
-                    <div className="ToureRvPoptop_div1">
-                        <div className="text-wrapper">{RvDate}</div>
-                        <div className="text-wrapper-2">작성일 :</div>
-                    </div>
-                    <div className="ToureRvPoptop_div2">
-                        <div className="text-wrapper">{RvCust} 님</div>
-                        <div className="text-wrapper-2">작성자 :</div>
-                    </div>
-                    </div>{/* 작성자 작성일끝 */}
-
-
-
-                <div className="ToureRvPop_cakeimg"> {/* 케이크이미지 */}
-                     <img 
-                          className="ToureRvPop_cakeimgbox" 
-                          alt="Cakeimgbox"
-                          src={RvCakeImg}
-                        />
-                    <div className="ToureRvPop_cakeimFr">
-                        <div className="ToureRvPop_cakeimFr_div">
-                        <div className="ToureRvPop_cakeimFr_text-wrapper">{Rvshopname}</div>
-                        </div>
-                        <div className="ToureRvPop_cakeimFr_div-2">
-                        <div className="ToureRvPop_cakeimFr_text-wrapper-2">{RvCakeName}</div>
-                        </div>
-                    </div>
-                    
-                    </div>{/* 케이크이미지 끝*/}
-
-
-
-
-                    <div className="ToureRvPop_div"> 
-                        <div className="ToureRvPop_text-wrapper">케이크 주문내역</div>{/*케이크 주문내역텍스트 */}
-                    </div>
-                    <div className="ToureRvPop_div-2">{/* 케이크주문내역시작 */}
-                        <div className="ToureRvPop_div-2">
-                        <div className="ToureRvPop_rectangle" />
-                        </div>
-                        <div className="ToureRvPop_div-3">
-                        <div className="ToureRvPop_textDetCakeFr">
-                            <div className="ToureRvPop_textDetCake">케이크 요청사항 :</div>
-                        </div>
-                       
-                            <p className="ToureRvPop_p">
-                            {RvRequire}
-                            </p>
-                       
-                        </div>
-                        <div className="ToureRvPop_div-5">
-                        <div className="ToureRvPop_div-4">
-                            <div className="ToureRvPop_text-wrapper-2">케이크 맛 :</div>
-                        </div>
-                        <div className="ToureRvPop_div-4">
-                            <div className="ToureRvPop_text-wrapper-3">{RvCakeFlavor}</div>
-                        </div>
-                        </div>
-                        <div className="ToureRvPop_div-6">
-                        <div className="ToureRvPop_CakeSize">
-                            <div className="ToureRvPop_text-wrapper-2">케이크 크기 :</div>
-                        </div>
-                        <div className="ToureRvPop_CakeSize">
-                            <div className="ToureRvPop_text-wrapper-3">{RvCakeSize}</div>
-                        </div>
-                        </div>
-                    </div>   {/* 케이무주문내역끝 */}    
-                        <div className="ToureRvPop_text-userRivew">사용자 리뷰</div>{/* 사용자리뷰텍스트 */}
-                        <div className='ToureRvPop_userPinkbox'>
-                        <div className ='ToureRvPop_userPinkboxRivewFr'>
-                            {RvReview}
-                        </div>
-                        </div>{/* 사용자리뷰박스 */}
-
-                       
-                            <button  className="ToureRvPop_box_div-wrapper">{/* 확인버튼 */}
-                                <div className="ToureRvPop_box_text-wrapper">확인</div>
-                            </button > {/* 확인버튼 끝 */}
+     return (
+            <div className="ToureRvPop">
+                <button onClick={handleShowDetailReview}>리뷰 상세 보기</button>
+                {showDetailReview && <DetailReviewPopup onClose={handleCloseDetailReview} reviewData={reviewData} />}
             </div>
-           
-
-
-
-            
     );
 };
 
 export default TourReviewPopup;
+
+const DetailReviewPopup = ({ onClose, reviewData }) => {
+    const [isOpen, setIsOpen] = React.useState(true);
+
+      
+    const handleClose = () => {
+        setIsOpen(false);
+        onClose();
+      };
+  
+    if (!isOpen) return null;
+  
+      return (
+        <div className='frame'>
+        <div className="detail-review-popup-container">
+        <div className="detail-review-popup">
+            <div className="detail-review-header">
+                <div className="detail-review-title">
+                    <h3>{reviewData.productName}</h3>
+                </div>
+                <div className='detail-review-img'>
+                <img src={reviewData.thumbnail} alt="케이크 이미지" className="detail-review-image" />
+                </div>
+                <div className="detail-review-userinfo">
+                    <p>작성자: {reviewData.customerName}</p>
+                    <p>작성일: {reviewData.reviewDate}</p>
+                </div>
+            </div>
+            <div className="order-details">
+                <p>가게 이름: {reviewData.storeName}</p>
+                <p>케이크 크기: {reviewData.size}</p>
+                <p>케이크 맛: {reviewData.flavor}</p>
+                <p>요청사항: {reviewData.request}</p>
+            </div>
+
+            <div className='reviewtexttitle'>
+            <p>리뷰 내용</p>
+            </div>
+            <div className="review-content">
+                <p> {reviewData.reviewContent}</p>
+            </div>
+            <div className="review-close-button-container">
+                <button className="review-close-button" onClick={onClose}>닫기</button>
+            </div>
+        </div>
+    </div>
+    </div>
+      );
+    };

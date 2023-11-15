@@ -1,0 +1,28 @@
+.blubox_index .bluediv {
+    background-image: url('/public/assets/images/bluebox.png');
+    background-size: 100% 100%;
+    height: 1766px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 1293px;
+  }
+   
+  .blubox_index .ellipse {
+    background-color: #d1ebff;
+    border-radius: 82.59px/91.84px;
+    height: 184px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 165px;
+  }
+  .blubox_index .rectangle {
+    background-color: #d1ebff;
+    height: 104px;
+    left: 0;
+    position: absolute;
+    top: 90px;
+    width: 70px;
+  }
+

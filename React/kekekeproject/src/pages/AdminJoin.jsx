@@ -29,24 +29,24 @@ export const AdminJoin = () => {
 
 
 
-    const [Seller_id, setSeller_id] = useState('');
-    const [Seller_PW, setSeller_PW] = useState('');
-    const [Seller_PW_Check, setSeller_PW_Check] = useState('');
-    const [Store_name, setStore_name] = useState('');
-    const [Store_detail, setStore_detail] = useState('');
-    const [Shop_tel, setShop_tel] = useState('');
-    const [Add_detail, setAdd_detail] = useState('');
-    const [Strg_use, setStrg_use] = useState('');
-    const [Business_num, setBusiness_num] = useState('');
+    const [seller_id, setSeller_id] = useState('');
+    const [seller_PW, setSeller_PW] = useState('');
+    const [seller_PW_Check, setSeller_PW_Check] = useState('');
+    const [store_name, setStore_name] = useState('');
+    const [store_detail, setStore_detail] = useState('');
+    const [shop_tel, setShop_tel] = useState('');
+    const [add_detail, setAdd_detail] = useState('');
+    const [strg_use, setStrg_use] = useState('');
+    const [business_num, setBusiness_num] = useState('');
 
-    const [User_name, setUser_name] = useState('');
-
-
-    const [Phone, setphone] = useState('');
+    const [user_name, setUser_name] = useState('');
 
 
-    const [Start_time, setStart_time] = useState('');
-    const [End_time, setEnd_time] = useState('');
+    const [phone, setphone] = useState('');
+
+
+    const [start_time, setStart_time] = useState('');
+    const [end_time, setEnd_time] = useState('');
 
 
 
@@ -55,12 +55,12 @@ export const AdminJoin = () => {
     const handleJoin = () => {
       const url = `${API_URL}/seller/join`;
   
-      const data = { Seller_id: Seller_id, Seller_PW: Seller_PW,
-                     Seller_PW_Check: Seller_PW_Check, Store_name: Store_name,
-                     Store_detail: Store_detail, Shop_tel: Shop_tel,
-                     Add_detail: Add_detail, Strg_use: Strg_use,
-                     Business_num: Business_num, Phone: Phone,
-                     Start_time: Start_time, End_time: End_time};
+      const data = { seller_id: seller_id, seller_PW: seller_PW,
+                     seller_PW_Check: seller_PW_Check, store_name: store_name,
+                     store_detail: store_detail, shop_tel: shop_tel,
+                     add_detail: add_detail, strg_use: strg_use,
+                     business_num: business_num, phone: phone,
+                     start_time: start_time, end_time: end_time};
   
      
       axios.post(url, data)
@@ -87,7 +87,7 @@ export const AdminJoin = () => {
 
       const handlecheckid = () => {
         const url = `${API_URL}/seller/check`;
-        const data = {Seller_id : Seller_id }
+        const data = {seller_id : seller_id }
   
         axios.post(url,data)
           .then(response=>{
@@ -121,7 +121,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                         type="text"
                         placeholder="사용자 이름 입력"
-                        value={User_name}
+                        value={user_name}
                         onChange={(event)=>setUser_name(event.target.value)}
                 />
               </div>
@@ -131,7 +131,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                     type="text"
                     placeholder="아이디 입력"
-                    value={Seller_id}
+                    value={seller_id}
                     onChange={(event)=>setSeller_id(event.target.value)} />
               </div>
               <div className="admin-info-id-check">
@@ -160,7 +160,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="password"
                 placeholder="비밀번호 입력"
-                value={Seller_PW}
+                value={seller_PW}
                 onChange={(event)=>setSeller_PW(event.target.value)} />
               </div>
               <div className="admin-info-password-4">
@@ -175,7 +175,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="password"
                 placeholder="비밀번호 재입력"
-                value={Seller_PW_Check}
+                value={seller_PW_Check}
                 onChange={(event)=>setSeller_PW_Check(event.target.value)}
                 />
               </div>
@@ -188,7 +188,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="tel"
                 placeholder="전화번호 입력"
-                value={Phone}
+                value={phone}
                 onChange={(event)=>setphone(event.target.value)} />
               </div>
             </div>
@@ -205,7 +205,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="text"
                 placeholder="가게 이름 입력"
-                value={Store_name}
+                value={store_name}
                 onChange={(event)=>setStore_name(event.target.value)} />
               </div>
             </div>
@@ -217,7 +217,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="text"
                 placeholder="가게 번호 입력"
-                value={Shop_tel}
+                value={shop_tel}
                 onChange={(event)=>setShop_tel(event.target.value)} />
 
               </div>
@@ -230,7 +230,7 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="text"
                 placeholder="사업자등록번호 입력"
-                value={Business_num}
+                value={business_num}
                 onChange={(event)=>setBusiness_num(event.target.value)} />
 
               </div>
@@ -262,7 +262,7 @@ export const AdminJoin = () => {
                     <textarea className="ad-text-wrapper-4"
                     type="text"
                     placeholder="가게 설명 입력"
-                    value={Store_detail}
+                    value={store_detail}
                     onChange={(event)=>setStore_detail(event.target.value)}
                     />
                 </div>
@@ -276,7 +276,7 @@ export const AdminJoin = () => {
                 <textarea className="ad-text-wrapper-50"
                     type="text"
                     placeholder="예약 주의사항 입력"
-                    value={Add_detail}
+                    value={add_detail}
                     onChange={(event)=>setAdd_detail(event.target.value)}
 
                 />
@@ -290,7 +290,7 @@ export const AdminJoin = () => {
                 <textarea className="ad-text-wrapper-60"
                     type="text"
                     placeholder="보관 및 이용방법 입력"
-                    value={Strg_use}
+                    value={strg_use}
                     onChange={(event)=>setStrg_use(event.target.value)}
 
                     />
@@ -305,7 +305,7 @@ export const AdminJoin = () => {
                   <input 
                     className="text-wrapper-4"
                     type="time"
-                    value={Start_time}
+                    value={start_time}
                     onChange={(event)=>setStart_time(event.target.value)}
                   />
                 </div>
@@ -313,7 +313,7 @@ export const AdminJoin = () => {
                   <input
                     className="text-wrapper-4"
                     type="time"
-                    value={End_time}
+                    value={end_time}
                     onChange={(event)=>setEnd_time(event.target.value)}
                   />
                 </div>
