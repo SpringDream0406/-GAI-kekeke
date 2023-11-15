@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/SampleCake.css";
-
+import "../component/TourDetContainer"
+import TourDetContainer from "../component/TourDetContainer";
 
 
 
@@ -99,34 +100,34 @@ export const SampleCake = () => {
   const indexOfFirstCake = indexOfLastCake - cakesPerPage;
   const currentCakes = cakeData.slice(indexOfFirstCake, indexOfLastCake);
 
-  // 페이지 번호 배열 생성
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(cakeData.length / cakesPerPage); i++) {
-    pageNumbers.push(i);
-  }
 
-  /*다음페이지로 가는 로직 */
-  const goToNextrvPage = () => {
-      setCurrentPage(prev => prev < cakeData.length ? prev + 1 : cakeData.length);
-    };
-     // 페이지 번호 변경 함수
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+ // 페이지 번호 배열 생성
+ const pageNumbers = [];
+ for (let i = 1; i <= Math.ceil(cakeData.length / cakesPerPage); i++) {
+   pageNumbers.push(i);
+ }
 
-  // 이전 페이지 이동 함수
-  const goToPrevPage = () => {
-    setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
-  };
+ // 페이지 번호 변경 함수
+ const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  // 다음 페이지 이동 함수
-  const goToNextPage = () => {
-    const totalPages = Math.ceil(cakeData.length / cakesPerPage);
-    setCurrentPage(prev => prev < totalPages ? prev + 1 : totalPages);
-  };
+ // 이전 페이지 이동 함수
+ const goToPrevPage = () => {
+   setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
+ };
+
+ // 다음 페이지 이동 함수
+ const goToNextPage = () => {
+   const totalPages = Math.ceil(cakeData.length / cakesPerPage);
+   setCurrentPage(prev => prev < totalPages ? prev + 1 : totalPages);
+ };
+
   
 
   
   return (
-    <div className="Sam_index">
+    <div className="Sample__Container">
+      <TourDetContainer containerHeight='2000px'>
+    <div className="Sam_index"> 
        
       <div className="Sam_samplecontainer">
         {currentCakes.map(cake => (
@@ -140,22 +141,25 @@ export const SampleCake = () => {
       
      {/* 페이지네이션 버튼 */}
      <div className="Sam_page-numbers">
-        <div className="Sam_page-numbers-before" onClick={goToPrevPage}>
-          <img className="polygon1" alt="이전 페이지" src={'/assets/images/TourDet3Btn1.png'} />
-        </div>
-        <div className="pagefr">
+        <button className="Sam_page-numbers-before" onClick={goToPrevPage}>
+        <img src={'../assets/images/TourDet3Btn1.png'} alt="이전 페이지" className="Sam_btn1"/>
+         
+        </button>
+        <div className="Sam_pagenum">
           {pageNumbers.map(num => (
             <a key={num} onClick={() => paginate(num)} href="#!">
               {num}
             </a>
           ))}
         </div>
-        <div className="Sam_page-numbers-before-next" onClick={goToNextPage}>
-          <img className="polygon2" alt="다음 페이지" src={'/assets/images/TourDet3Btn2.png'}/>
-        </div>
+        <button className="Sam_page-numbers-before-next" onClick={goToNextPage}>
+        <img src={'../assets/images/TourDet3Btn2.png'} alt="이전 페이지"  className="Sam_btn1" />
+        </button>
       </div>
     </div>
-  
+    </TourDetContainer>
+    
+    </div>
   );
 };
 

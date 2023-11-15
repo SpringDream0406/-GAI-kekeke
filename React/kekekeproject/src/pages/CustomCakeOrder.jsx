@@ -1,14 +1,16 @@
 import React, { useState, useEffect, forwardRef,} from 'react';
-
+import Blue_Box from '../component/Blue_Box.jsx'
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+
 
 const CustomCakeOrder = () => {
-
+  const [pickupDateTime, setPickupDateTime] = useState(new Date()); // 픽업 날짜와 시간 상태
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const imageUrl = searchParams.get('image');
@@ -17,7 +19,10 @@ const CustomCakeOrder = () => {
   const [pickupTime, setPickupTime] = useState(''); // 픽업 시간 상태
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
+  const [pickupDate, setPickupDate] = useState(new Date()); // 날짜 선택을 위한 상태
 
+
+  
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -31,13 +36,20 @@ const CustomCakeOrder = () => {
     setPickupTime(e.target.value); // 시간 상태 업데이트
   };
 
+  const TimeInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="example-time-input timetitle" onClick={onClick} ref={ref}>
+      {value}
+      <FontAwesomeIcon icon={faClock} className='co-time-icon' onClick={onClick} />
+    </button>
+  ));
+
+ 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className="example-custom-input co-day" onClick={onClick} ref={ref}>
       {value}
       <FontAwesomeIcon icon={faCalendarAlt} className='co-day-icon' onClick={onClick} />
     </button>
   ));
-
 
   useEffect(() => {
     const image = localStorage.getItem('savedImage');
@@ -48,6 +60,7 @@ const CustomCakeOrder = () => {
 
 
   return (
+    <div className='co-bg-container'>
     <div className="co-container">
     <div className="co-div">
       <div className="co-cakeflavortitle">케이크 맛 선택
@@ -104,25 +117,33 @@ const CustomCakeOrder = () => {
                    
                   />
       <div className="co-time">픽업 시간</div>
-    
-
-    <div onChange={handlePickupTimeChange}>
+      <DatePicker
+  selected={pickupDateTime}
+  onChange={(date) => setPickupDateTime(date)}
+  showTimeSelect
+  showTimeSelectOnly // Add this prop to only show the time picker
+  timeFormat="HH:mm"
+  timeIntervals={15}
+  timeCaption="Time"
+  dateFormat="h:mm aa"
+  className="co-timepicker"
+  customInput={<TimeInput />} // Use the TimeInput component for time picker
+/>
       
-      <input
-          type="time"
-          value={pickupTime}
-          
-          className="co-timetitle"
-        />
-        </div>
+   
+
+
       <div className="co-daytitle">픽업 날짜</div>
+      <div className='co-datepicker-container'>
       <DatePicker 
-        selected={startDate} 
-        onChange={(date) => setStartDate(date)} 
+        selected={pickupDate} 
+        onChange={(date) => setPickupDate(date)}
         className="co-day"
+        
         dateFormat="yyyy/MM/dd"
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
       />
+      </div>
       <p className="co-omgtitle">참고할 케이크 이미지 사진 첨부(택)</p>
       <div className="co-imgpic" >
       <label htmlFor="cakeImage" className='cakeImage'>이미지 첨부하기</label>
@@ -171,8 +192,8 @@ const CustomCakeOrder = () => {
           </div>
      
     </div>
+    </div>
  
-
   )
 }
 

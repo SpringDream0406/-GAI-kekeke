@@ -1,0 +1,44 @@
+/* PageButton.css */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+
+  }
+  
+
+  .page-button svg {
+    width: 22px;
+    height: 22px;
+    color: #61a4d5;
+  }
+  
+  .page-number {
+    font-family: 'Pretendard-bold';
+    background-color: transparent;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .page-number.active {
+    color: #61a4d5;
+    text-decoration: underline;
+  }
+
+  
+  

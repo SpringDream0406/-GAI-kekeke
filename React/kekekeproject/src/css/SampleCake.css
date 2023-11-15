@@ -1,3 +1,5 @@
+
+
 .Sam_index {
   display: flex;
   justify-content: center;
@@ -8,9 +10,9 @@
 .Sam_samplecontainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4개의 열 */
-  grid-gap: 20px; /* 그리드 항목 간의 간격 */
-  max-width: 800px;
-  margin-top: 230px;
+  grid-gap: 60px; /* 그리드 항목 간의 간격 */
+  max-width: 100%;
+  margin-top: 110px;
   margin-bottom: 30px;
   
 }
@@ -26,10 +28,10 @@
 }
 
 .Sam_img {
-  width: 100%;
+  width: 200px;
   object-fit: cover;
-  height: 150px; 
-  border-radius: 20%;
+  height: 230px; 
+  border-radius: 10%;
 }
 
 .Sam_cake-name,
@@ -38,39 +40,57 @@
   margin: 5px 0;
 }
 
-.Sam_page-numbers {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+
 
 .Sam_page-numbers button {
   padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  top: -1200px;
+}
+
+
+.Sam_page-numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+
+
+
+}
+
+.Sam_page-numbers-before, .Sam_page-numbers-before-next {
+  padding: 8px 12px;
   margin: 0 5px;
   background-color: #61a4d5;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;
+
 }
 
-.Sam_page-numbers button:focus {
-  outline: none;
-  background-color: #ff4969;
+.Sam_pagenum a {
+  color: #61a4d5;
+  text-decoration: none;
+  padding: 5px 10px;
 }
-.polygon2 {
-  height: 25px;
-  left: 15px;
-  position: absolute;
-  top: 5px;
-  transform: rotate(180deg);
-  width: 32px;
+
+.Sam_pagenums a:hover {
+  text-decoration: underline;
+  background-color: #4a93c2;
+  transform: scale(1.1);
 }
-.polygon1 {
-  height: 25px;
-  left: 15px;
-  position: absolute;
-  top: 5px;
-  width: 32px;
-  
+
+.Sam_btn1{
+  width: 30px;
+  height: 20px;
+  border:none;
+
+
 }
