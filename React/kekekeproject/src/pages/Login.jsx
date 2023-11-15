@@ -28,12 +28,15 @@ const Login = () => {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    const url = `${API_URL}/user/login`;
-    const data = { cust_id: cust_id, cust_pw: cust_pw, user_type : 0 };
+    const url = `${API_URL}/cust/login`;
+
+    const data = { cust_id: cust_id, cust_pw: cust_pw};
+
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
           console.log(response.data.cust_id);
+          console.log(response.data);
           alert(response.data.message)
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장

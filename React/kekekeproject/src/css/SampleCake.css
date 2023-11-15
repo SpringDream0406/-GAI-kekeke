@@ -1,70 +1,66 @@
-.tour-detail {
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
+.index .TourDet2_tourFrame {
 
-.tour-detail .overlap-wrapper {
-  height: 2424px;
+  background-color: #ffffe7;
+  height: 2247px;
   width: 1440px;
-
+  align-self: center
 }
 
-.tour-detail .overlap {
-  height: 1829px;
-  left: 75px;
+.index .TourDet2_bluebox {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 10px;
+  height: 1766px;
+  left: 73px;
   position: relative;
-  top: 0px;
-  width: 1293px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
+  top: 305px;
 }
 
-.tour-detail .group {
-  height: 1825px;
+.index .TourDet2_bodyfr {
+  height: 1768px;
+  margin-bottom: -2px;
+  position: relative;
+  width: 1293px;
+}
+
+.index .TourDet2_overlap-group {
+  height: 1768px;
+  position: relative;
+}
+.index .TourDet2_group {
+  height: 1768px;
   left: 0;
   position: absolute;
   top: 0;
   width: 1293px;
-  
+}
+.index .TourDet2_div {
+background-image: url(https://cdn.animaapp.com/projects/654a0c7461a415cac322d4c9/releases/654a0c7dc209185e0a9adad7/img/mask-group.png);
+background-size: 100% 100%;
+height: 1766px;
+left: 0;
+position: absolute;
+top: 2px;
+width: 1293px;
+} 
+
+.index .TourDet2_ellipse {
+background-color: #d1ebff;
+border-radius: 82.59px/91.84px;
+height: 184px;
+left: 0;
+position: absolute;
+top: 0;
+width: 165px;
 }
 
-.tour-detail .overlap-group {
-  height: 1825px;
-  position: relative;
-}
-
-.tour-detail .div {
-  background-image: url(https://c.animaapp.com/AyTKNrDN/img/mask-group.png);
-  background-size: 100% 100%;
-  height: 1823px;
-  left: 0;
-  position: absolute;
-  top: 2px;
-  width: 1293px;
-}
-
-.tour-detail .ellipse {
-  background-color: #d1ebff;
-  border-radius: 82.59px/86.31px;
-  height: 173px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 165px;
-}
-
-.tour-detail .rectangle {
-  background-color: #d1ebff;
-  height: 98px;
-  left: 0;
-  position: absolute;
-  top: 84px;
-  width: 70px;
+.index .TourDet2_rectangle {
+background-color: #d1ebff;
+height: 104px;
+left: 0;
+position: absolute;
+top: 90px;
+width: 70px;
 }
 
 .tour-detail .subbar-container {

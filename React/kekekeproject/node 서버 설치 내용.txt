@@ -6,3 +6,5 @@ npm i cors
 npm i mysql2
 npm i bcrypt
 npm i crypto
+npm i multer
+npm i path

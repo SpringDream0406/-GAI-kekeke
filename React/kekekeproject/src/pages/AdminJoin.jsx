@@ -3,6 +3,7 @@ import React from "react";
 import "../css/AdminJoin.css";
 import { useState } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
+import { event } from "jquery";
 // import { NONAME } from "dns";
 
 export const AdminJoin = () => {
@@ -23,6 +24,20 @@ export const AdminJoin = () => {
     };
 
 
+
+    const [Seller_id, setSeller_id] = useState('');
+    const [Seller_PW, setSeller_PW] = useState('');
+    const [Seller_PW_Check, setSeller_PW_Check] = useState('');
+    const [Store_name, setStore_name] = useState('');
+    const [Store_detail, setStore_detail] = useState('');
+    const [Shop_tel, setShop_tel] = useState('');
+    const [Add_detail, setAdd_detail] = useState('');
+    const [Strg_use, setStrg_use] = useState('');
+    const [Business_num, setBusiness_num] = useState('');
+
+
+
+    const [Phone, setphone] = useState('');
 
 
 
@@ -56,7 +71,9 @@ export const AdminJoin = () => {
               <div className="admin-info-id-input">
                 <input className="text-wrapper-4"
                     type="text"
-                    placeholder="아이디 입력"/>
+                    placeholder="아이디 입력"
+                    value={Seller_id}
+                    onChange={(event)=>setSeller_id(event.target.value)} />
               </div>
               <div className="admin-info-id-check">
                 <div className="overlap-group">
@@ -83,7 +100,9 @@ export const AdminJoin = () => {
               <div className="admin-info-password-3">
                 <input className="text-wrapper-4"
                 type="password"
-                placeholder="비밀번호 입력"/>
+                placeholder="비밀번호 입력"
+                value={Seller_PW}
+                onChange={(event)=>setSeller_PW(event.target.value)} />
               </div>
               <div className="admin-info-password-4">
                 <div className="text-wrapper-6">문자, 특수문자 포함 8~20자</div>
@@ -97,6 +116,8 @@ export const AdminJoin = () => {
                 <input className="text-wrapper-4"
                 type="password"
                 placeholder="비밀번호 재입력"
+                value={Seller_PW_Check}
+                onChange={(event)=>setSeller_PW_Check(event.target.value)}
                 />
               </div>
             </div>
@@ -107,7 +128,9 @@ export const AdminJoin = () => {
               <div className="div-wrapper-3">
                 <input className="text-wrapper-4"
                 type="tel"
-                placeholder="전화번호 입력"/>
+                placeholder="전화번호 입력"
+                value={Phone}
+                onChange={(event)=>setphone(event.target.value)} />
               </div>
             </div>
           </div>
@@ -122,7 +145,9 @@ export const AdminJoin = () => {
               <div className="div-wrapper-3">
                 <input className="text-wrapper-4"
                 type="text"
-                placeholder="가게 이름 입력"/>
+                placeholder="가게 이름 입력"
+                value={Store_name}
+                onChange={(event)=>setStore_name(event.target.value)} />
               </div>
             </div>
             <div className="store-number">
@@ -132,7 +157,10 @@ export const AdminJoin = () => {
               <div className="div-wrapper-3">
                 <input className="text-wrapper-4"
                 type="text"
-                placeholder="가게 번호 입력"/>
+                placeholder="가게 번호 입력"
+                value={Shop_tel}
+                onChange={(event)=>setShop_tel(event.target.value)} />
+
               </div>
             </div>
             <div className="admin-number">
@@ -142,7 +170,10 @@ export const AdminJoin = () => {
               <div className="admin-number-input">
                 <input className="text-wrapper-4"
                 type="text"
-                placeholder="사업자등록번호 입력"/>
+                placeholder="사업자등록번호 입력"
+                value={Business_num}
+                onChange={(event)=>setBusiness_num(event.target.value)} />
+
               </div>
             </div>
             <div className="store-address">
@@ -172,6 +203,8 @@ export const AdminJoin = () => {
                     <textarea className="ad-text-wrapper-4"
                     type="text"
                     placeholder="가게 설명 입력"
+                    value={Store_detail}
+                    onChange={(event)=>setStore_detail(event.target.value)}
                     />
                 </div>
               </div>
@@ -184,6 +217,9 @@ export const AdminJoin = () => {
                 <textarea className="ad-text-wrapper-50"
                     type="text"
                     placeholder="예약 주의사항 입력"
+                    value={Add_detail}
+                    onChange={(event)=>setAdd_detail(event.target.value)}
+
                 />
               </div>
             </div>
@@ -195,6 +231,9 @@ export const AdminJoin = () => {
                 <textarea className="ad-text-wrapper-60"
                     type="text"
                     placeholder="보관 및 이용방법 입력"
+                    value={Strg_use}
+                    onChange={(event)=>setStrg_use(event.target.value)}
+
                     />
               </div>
             </div>
