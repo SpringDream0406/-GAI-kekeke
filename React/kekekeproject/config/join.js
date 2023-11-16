@@ -11,7 +11,7 @@ const join_check = (user_id, user_pw, user_pwcheck) => {
 
     // 비번 복잡도 체크
     if (!validatePassword_midLv(user_pw)) {
-      reject({ message: '비밀번호 복잡도 부족' });
+      reject({ message: '비밀번호 길이 or 복잡도 부족' });
       return;
     }
 

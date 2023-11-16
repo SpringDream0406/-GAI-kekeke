@@ -208,7 +208,7 @@ router.post('/check', (req, res) => {
     let { seller_id } = req.body;
 
     let sql = `select seller_id 
-               from SELLER 
+               from TB_SELLER 
                where seller_id = ?`
     conn.query(sql, [seller_id], (err, rows) => {
         check_func(err, rows, res, '셀러 아이디')

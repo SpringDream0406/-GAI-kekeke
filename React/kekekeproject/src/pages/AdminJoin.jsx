@@ -55,8 +55,8 @@ export const AdminJoin = () => {
     const handleJoin = () => {
       const url = `${API_URL}/seller/join`;
   
-      const data = { seller_id: seller_id, seller_PW: seller_PW,
-                     seller_PW_Check: seller_PW_Check, store_name: store_name,
+      const data = { seller_id: seller_id, seller_pw: seller_PW,
+                     seller_pwcheck: seller_PW_Check, store_name: store_name,
                      store_detail: store_detail, shop_tel: shop_tel,
                      add_detail: add_detail, strg_use: strg_use,
                      business_num: business_num, phone: phone,
