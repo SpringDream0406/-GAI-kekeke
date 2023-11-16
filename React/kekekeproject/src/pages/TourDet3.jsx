@@ -128,6 +128,7 @@ export const TourDet3 = () => {
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
     const itemsPerPage = 3; // 한 페이지에 표시할 아이템 수
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -149,12 +150,16 @@ export const TourDet3 = () => {
       
   const goToPrervPage = () => {
     setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
+
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
     /*다음페이지로 가는 로직 */
 
     const goToNextrvPage = () => {
       setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
+
+      window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
     };
   
 
@@ -223,8 +228,10 @@ return (
                                 key={num}
                                 onClick={() => setCurrentPage(num)}
                                 className={`page-number ${currentPage === num ? 'active' : ''}`}
+                                
                             >
                                 {num}
+                                
                             </button>
                         ))}
 
