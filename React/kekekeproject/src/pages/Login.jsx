@@ -95,7 +95,7 @@ const Login = () => {
               <div className="login-pw-input">
                 <div className="login-pw-input-area">
                   <input className="login-content"
-                    type='cust_pw'
+                    type='password'
                     placeholder='비밀번호를 입력하세요'
                     value={cust_pw}
                     onChange={(e) => setCust_pw(e.target.value)}
