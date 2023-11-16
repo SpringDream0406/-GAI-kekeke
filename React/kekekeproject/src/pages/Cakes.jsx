@@ -216,7 +216,7 @@ const SelectLocation = ({selectedLocation, setSelectedLocation, isLocationModalO
 
   return (
     <div className="cake-location">
-      <div className="tour-select-location" />
+    
       <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시")}>
         <div className="select-gj">광주광역시</div>
       </div>
@@ -227,7 +227,7 @@ const SelectLocation = ({selectedLocation, setSelectedLocation, isLocationModalO
         <div className="select-gu">서구</div>
       </div>
       <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 광산구")}>
-        <div className="select-gu">광산구</div>
+        <div className="select-gu-gu">광산구</div>
       </div>
       <div className="tour-select-location-2" onClick={() => handleLocationSelect("광주광역시 동구")}>
         <div className="select-gu">동구</div>
@@ -236,5 +236,6 @@ const SelectLocation = ({selectedLocation, setSelectedLocation, isLocationModalO
         <div className="select-gu">북구</div>
       </div>
     </div>
+    
   );
 };
