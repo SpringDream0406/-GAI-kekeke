@@ -35,22 +35,20 @@ const Join = () => {
 
 
 
-
   const handleJoin = () => {
     const url = `${API_URL}/cust/join`;
     const formData = new FormData();
-   
-    formData.append('nick_name', nick_name);
-    formData.append('cust_id', cust_id);
-    formData.append('cust_pw', password);
-    formData.append('phone', phone);
-    formData.append('cust_pwcheck', passwordcheck);
 
     const fileInput = document.getElementById('fileInput');
     if (fileInput && fileInput.files[0]) {
       formData.append('profile_img', fileInput.files[0]);
     }
 
+    formData.append('nick_name', nick_name);
+    formData.append('cust_id', cust_id);
+    formData.append('cust_pw', password);
+    formData.append('phone', phone);
+    formData.append('cust_pwcheck', passwordcheck);
   
     axios.post(url, formData, {
       headers: {

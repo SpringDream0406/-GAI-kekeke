@@ -3,7 +3,8 @@
   background-color: #ffffe7;
   height: 2247px;
   width: 1440px;
-  align-self: center
+  align-self: center;
+  
 }
 
 .index .TourDet2_bluebox {
@@ -11,9 +12,9 @@
   display: inline-flex;
   gap: 10px;
   height: 1766px;
-  left: 73px;
+  left: 300px;
   position: relative;
-  top: 305px;
+  top: 10;
 }
 
 .index .TourDet2_bodyfr {
@@ -65,10 +66,11 @@ width: 70px;
 .index .TourDet2_tourdet3-SampleStoreReviewFr {
 align-items: flex-start;
 display: inline-flex;
-gap: 85px;
-left: 379px;
+gap: 200px;
+left: 289px;
 position: absolute;
 top: 472px;
+
 }
 .index .TourDet2_text-tourdet3-Sample {
 color: #000000;
@@ -80,6 +82,9 @@ line-height: normal;
 margin-top: -1px;
 position: relative;
 width: fit-content;
+
+
+
 }
 
 .index .TourDet2_text-tourdet3-Store{
@@ -149,7 +154,7 @@ width: fit-content;
   font-family: "Inter", Helvetica;
   font-size: 32px;
   font-weight: 800;
- 
+  left: 16px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -639,7 +644,7 @@ width: 417px;
   font-family: 'Pretendard-Light';
   font-size: 20px;
   font-weight: 400;
-  
+  left: 20px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;

@@ -1,6 +1,8 @@
 
-
-
+.custom-container:hover{
+   outline: none;
+    border: none;
+}
 .tool-selector{
     position: relative;
     
@@ -54,7 +56,7 @@ top: 150px;
 width: 1500px;
 height: 700px;
 border-radius: 30px;
-border: 5px solid lightgray;
+
 background-color: white;
 
 }
