@@ -1,314 +1,115 @@
-.tour-detail {
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .tour-detail .tour-detail-wrapper {
-    height: 2424px;
-    width: 1440px;
-  }
-  
-  .tour-detail .overlap-wrapper {
-    height: 1823px;
-    left: 75px;
-    position: relative;
-    top: 200px;
-    width: 1293px;
-  }
-  
-  .tour-detail .overlap-group {
-    height: 1823px;
-    position: relative;
-  }
-  
-  .tour-detail .group {
-    height: 1823px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1293px;
-  }
-  
-  .tour-detail .div {
-    background-image: url(https://c.animaapp.com/AY2TImHi/img/mask-group.png);
-    background-size: 100% 100%;
-    height: 1821px;
-    left: 0;
-    position: absolute;
-    top: 2px;
-    width: 1293px;
-  }
-  
-  .tour-detail .ellipse {
-    background-color: #d1ebff;
-    border-radius: 82.59px/94.97px;
-    height: 190px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 165px;
-  }
-  
-  .tour-detail .rectangle {
-    background-color: #d1ebff;
-    height: 108px;
-    left: 0;
-    position: absolute;
-    top: 93px;
-    width: 70px;
-  }
-  
-  .tour-detail .rectangle-2 {
-    background-color: #ffffff;
-    border-radius: 30px;
-    height: 1147px;
-    left: 236px;
-    position: absolute;
-    top: 357px;
-    width: 820px;
-  }
-  
-  .tour-detail .div-2 {
-    align-items: center;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 50px;
-    left: 414px;
-    position: absolute;
-    top: 453px;
-  }
-  
-  .tour-detail .div-3 {
-    background-image: url(https://c.animaapp.com/AY2TImHi/img/rectangle-35@2x.png);
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 344px;
-    position: relative;
-    width: 460px;
-  }
-  
-  .tour-detail .div-wrapper {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px 50px;
-    position: relative;
-  }
-  
-  .tour-detail .text-wrapper {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .tour-detail .div-4 {
-    align-items: flex-start;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    flex-wrap: wrap;
-    gap: 50px 50px;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-  }
-  
-  .tour-detail .div-wrapper-2 {
-    flex: 1;
-    flex-grow: 1;
-    height: 408px;
-    position: relative;
-  }
-  
-  .tour-detail .div-wrapper-3 {
-    align-items: center;
-    display: inline-flex;
-    gap: 100px;
-    position: relative;
-  }
-  
-  .tour-detail .div-5 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 30px;
-    position: relative;
-  }
-  
-  .tour-detail .div-wrapper-4 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 200px;
-    padding: 0px 10px;
-    position: relative;
-  }
-  
-  .tour-detail .div-wrapper-5 {
-    height: 29px;
-    position: relative;
-    width: 131px;
-  }
-  
-  .tour-detail .text-wrapper-2 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 22px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour-detail .view {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    padding: 0px 10px;
-    position: relative;
-  }
-  
-  .tour-detail .text-wrapper-3 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: 0px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .tour-detail .div-wrapper-6 {
-    align-items: center;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 0px 10px;
-    position: relative;
-  }
-  
-  .tour-detail .div-wrapper-7 {
-    height: 408px;
-    position: relative;
-    width: 205px;
-  }
-  
-  .tour-detail .div-wrapper-8 {
-    align-items: center;
-    display: inline-flex;
-    gap: 100px;
-    justify-content: center;
-    left: 6px;
-    position: relative;
-  }
-  
-  .tour-detail .div-6 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .tour-detail .tour-order-text {
-    height: 58px;
-    left: 405px;
-    position: absolute;
-    top: 245px;
-    width: 480px;
-  }
-  
-  .tour-detail .text-wrapper-4 {
-    color: #000000;
-    font-family: "Inter", Helvetica;
-    font-size: 40px;
-    font-weight: 700;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: -1px;
-  }
-  
-  .tour-detail .tour-detail-button {
-    height: 103px;
-    left: 233px;
-    position: absolute;
-    top: 1564px;
-    width: 823px;
-  }
-  
-  .tour-detail .div-wrapper-9 {
-    background-color: #ffa0b7;
-    border-radius: 30px;
-    height: 103px;
-    left: 365px;
-    position: absolute;
-    top: 0;
-    width: 458px;
-  }
-  
-  .tour-detail .div-wrapper-10 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 189px;
-    padding: 10px;
-    position: relative;
-    top: 22px;
-  }
-  
-  .tour-detail .text-wrapper-5 {
-    color: #ffffff;
-    font-family: "Inter", Helvetica;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .tour-detail .div-wrapper-11 {
-    background-color: #d9d9d9;
-    border-radius: 30px;
-    height: 103px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 315px;
-  }
-  
-  .tour-detail .div-wrapper-12 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 88px;
-    padding: 10px;
-    position: relative;
-    top: 22px;
-  }
-  
+.tour-detail-container {
+  background-image: url('/public/assets/images/bluebox.png');
+  background-size: 100% 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin: 305px auto 0; 
+  height: 1840px;
+  width: 1293px;
+}
+
+.tco-mt{
+  font-family: 'Pretendard-bold';
+  font-size: 50px;
+  position: absolute;
+  top: 220px;
+}
+
+.tco-cakeimg{
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 400px;
+  border-radius: 20px;
+}
+
+.tco-st-container{
+  position: absolute;
+  text-align: right;
+  font-family: 'Pretendard-Regular';
+  font-size: 24px;
+  display: flex; /* or display: grid; depending on your layout */
+  flex-direction: column; /* Stack children vertically */
+  gap: 50px; /* Adjust the gap size as needed */
+  z-index: 9999;
+  top: 1100px;
+  left: 730px;
+}
+
+
+.tco-mt-container{
+  position: absolute;
+  text-align: left;
+  font-family: 'Pretendard-Semibold';
+  font-size: 24px;
+  display: flex; /* or display: grid; depending on your layout */
+  flex-direction: column; /* Stack children vertically */
+  gap: 50px; /* Adjust the gap size as needed */
+  z-index: 999;
+  top: 1100px;
+  left: 230px;
+}
+
+.tco-st-6 .tco-st-7{
+  margin-bottom: 90px;
+}
+.tco-st-6 {
+  width: 400px;
+  height: 150px;
+}
+
+.tco-mt-6{
+  height: 150px;
+}
+.tco-st-7 {
+  margin-bottom: 0;
+}
+
+/* 버튼코드 */
+.tco-btn-container{
+  display: flex;
+  text-decoration: none;
+  position: absolute;
+  justify-content: space-around;
+  top: 1900px;
+  margin: 20px;
+  padding-bottom: 300px;
+}
+
+.tco-msgbtn{
+  margin-right: 20px;
+  text-decoration: none;
+  font-family: 'Pretendard-Semibold';
+  font-size: 20px;
+  color: rgb(185, 184, 184);
+  padding: 30px 50px;
+  border: 3px solid rgb(229, 229, 229);
+  background-color: rgb(229, 229, 229);
+  border-radius: 20px;
+
+}
+
+.tco-okbtn{
+  text-decoration: none;
+  font-family: 'Pretendard-Semibold';
+  font-size: 24px;
+  color: white;
+  padding: 26px 100px;
+  border: 3px solid #FFA0B7;
+  background-color: #FFA0B7;
+  border-radius: 20px;
+}
+
+.tco-okbtn:hover{
+  border: 3px solid #f37896;
+  background-color: #f37896;
+  color: white;
+}
+
+.tco-msgbtn:hover{
+  border: 3px solid rgb(188, 188, 188);
+  background-color: rgb(188, 188, 188);
+  color: white;
+}

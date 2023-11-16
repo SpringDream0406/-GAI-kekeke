@@ -1,981 +1,281 @@
-.index .TourOrder_tourFrame {
 
-  background-color: #ffffe7;
-  height: 2247px;
-  width: 1440px;
-  align-self: center
-}
-
-.index .TourDet2_bluebox {
-  align-items: flex-start;
-  display: inline-flex;
-  gap: 10px;
-  height: 1766px;
-  left: 73px;
-  position: relative;
-  top: 305px;
-}
-
-.index .TourDet2_bodyfr {
-  height: 1768px;
-  margin-bottom: -2px;
-  position: relative;
-  width: 1293px;
-}
-
-.index .TourDet2_overlap-group {
-  height: 1768px;
-  position: relative;
-}
-.index .TourDet2_group {
-  height: 1768px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1293px;
-}
-
-
-.index .TourDet2_ellipse {
-background-color: #d1ebff;
-border-radius: 82.59px/91.84px;
-height: 184px;
-left: 0;
-position: absolute;
-top: 0;
-width: 165px;
-}
-
-.index .TourDet2_rectangle {
-background-color: #d1ebff;
-height: 104px;
-left: 0;
-position: absolute;
-top: 90px;
-width: 70px;
-}
-
-.index .div-2 {
-  height: 69px;
-  left: 377px;
-  position: absolute;
-  top: 476px;
-  width: 535px;
-}
-
-.index .div-wrapper {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-}
-
-.index .text-wrapper {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: 150px;
-
-}
-
-.index .div-wrapper-2 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 236px;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-}
-
-.index .text-wrapper-2 {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .div-wrapper-3 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 450px;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-}
-
-.index .div-3 {
-  height: 263px;
-  left: 138px;
-  position: absolute;
-  top: 166px;
-  width: 1014px;
-}
-
-.index .overlap-2 {
-  height: 116px;
-  left: 291px;
-  position: absolute;
-  top: 0;
-  width: 188px;
-}
-
-.index .div-wrapper-4 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 16px;
-  padding: 20px;
-  position: absolute;
-  top: 52px;
-}
-
-.index .text-wrapper-3 {
-  color: #565656;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-}
-
-.index .text-wrapper-4 {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .overlap-group-wrapper {
-  height: 69px;
-  left: 862px;
-  position: absolute;
-  top: 52px;
-  width: 152px;
-}
-
-.index .overlap-group-2 {
-  height: 69px;
-  position: relative;
-}
-
-.index .div-4 {
-  background-color: #ffffe7;
-  border: 3px solid;
-  border-color: #61a4d5;
-  border-radius: 30px;
-  height: 60px;
-  left: 0;
-  position: absolute;
-  top: 3px;
-  width: 152px;
-}
-
-.index .element {
-  align-items: center;
+.to-bg-container {
+  background-image: url('/public/assets/images/bluebox.png');
+  background-size: 100% 100%;
   display: flex;
-  gap: 10px;
+
   justify-content: center;
-  left: 17px;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-  width: 119px;
-}
-
-.index .text-wrapper-5 {
-  color: #61a4d5;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: -1px;
-  margin-right: -1px;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .rectangle-wrapper {
-  align-items: flex-start;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 10px;
-  left: 0;
-  padding: 20px;
-  position: absolute;
-  top: 2px;
-}
-
-.index .rectangle-2 {
-  background-color: #d9d9d9;
-  height: 221px;
-  position: relative;
-  width: 249px;
-}
-
-.index .div-wrapper-5 {
   align-items: center;
-  display: flex;
-  gap: 10px;
-  height: 97px;
-  justify-content: center;
-  left: 311px;
-  position: absolute;
-  top: 146px;
-  width: 491px;
-}
-
-.index .p {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: -4.5px;
-  margin-right: -4.5px;
-  margin-top: -0.5px;
-  position: relative;
-  width: 500px;
-}
-
-.index .div-5 {
-  background-color: #ffffff;
-  border: 10px solid;
-  border-color: #61a4d5;
-  height: 274px;
-  left: 153px;
-  position: absolute;
-  top: 598px;
-  width: 414px;
-}
-
-.index .div-wrapper-6 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 10px;
-  position: absolute;
-  top: 580px;
-}
-
-.index .text-wrapper-6 {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .div-wrapper-7 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 153px;
-  padding: 10px;
-  position: absolute;
-  top: 889px;
-}
-
-.index .text-wrapper-7 {
-  color: #000000;
-  font-family: "Inter", Helvetica;
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .div-wrapper-8 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 20px 340px 20px 20px;
-  position: absolute;
-  top: 644px;
-}
-
-.index .reservename{
-color: #787878;
-font-family: 'Pretendard Regular';
-text-align: left;
-align-items: stretch;
-font-size: 25px;
-font-weight: 400;
-border: white 9px;
-border-radius: 10px;
-padding: 20px;
-top: 2000px;
-width: 400px;
-}
-
-.order-reservename{
-  color: #939393;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
-  top: 650px;
-  left: -650px;
-}
-
-.index .reservenum{
-  color: #787878;
-  font-family: 'Pretendard Regular';
-  text-align: left;
-  align-items: stretch;
-  font-size: 25px;
-  font-weight: 400;
-  border: white 9px;
-  border-radius: 10px;
-  padding: 20px;
-  top: -10px;
-  width: 400px;
-  }
+  margin: 305px auto 0; 
+  margin-bottom: 200px;
   
-  .order-reservenum{
-    color: #939393;
-    font-family: "Inter", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    white-space: nowrap;
-    width: fit-content;
-    top: 790px;
-    left: -1100px;
-  }
-
-  .index .reservetxt{
-    color: #787878;
-    font-family: 'Pretendard Regular';
-    text-align: left;
-    align-items: stretch;
-    font-size: 25px;
-    font-weight: 400;
-    border: white 9px;
-    border-radius: 10px;
-    padding: 20px;
-    top: -10px;
-    width: 400px;
-    
-    }
-    .index .reservereq{
-      color: #787878;
-      font-family: 'Pretendard Regular';
-      text-align: left;
-      align-items: stretch;
-      font-size: 25px;
-      font-weight: 400;
-      border: white 9px;
-      border-radius: 10px;
-      padding: 20px;
-      top: -10px;
-      width: 400px;
-      }
-      
-      .order-reservereq{
-        color: #939393;
-        font-family: "Inter", Helvetica;
-        font-size: 20px;
-        font-weight: 400;
-        letter-spacing: 0;
-        line-height: normal;
-        margin-top: -1px;
-        position: relative;
-        white-space: nowrap;
-        width: fit-content;
-        top: 1750px;
-        left: -2000px;
-      }
-    
-    .order-reservetext{
-      color: #939393;
-      font-family: "Inter", Helvetica;
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: 0;
-      line-height: normal;
-      margin-top: -1px;
-      position: relative;
-      white-space: nowrap;
-      width: fit-content;
-      top: 1590px;
-      left: -1550px;
-    }
-
-.index .text-wrapper-8 {
-  color: #939393;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  white-space: nowrap;
-  width: fit-content;
+  height: 1766px;
+  width: 1293px;
+  z-index: 0
 }
-
-.index .div-wrapper-9 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 10px;
+.to-cakename{
+  font-family: 'Pretendard-bold';
+  font-size: 30px;
   position: absolute;
-  top: 1526px;
+  top: 570px;
+  left: 220px;
 }
-
-.index .div-wrapper-10 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 20px 340px 20px 20px;
+.to-cakeimg1{
   position: absolute;
-  top: 1590px;
+  width: 450px;
+  height: 400px;
+  border-radius: 30px;
+  border: 10px solid #61A5D6;
+  top: 120px;
+  left: 210px;
 }
-
-.index .div-wrapper-11 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 10px;
+.to-cakeimg2{
   position: absolute;
-  top: 1674px;
+  width: 150px;
+  height: 150px;
+  top: 640px;
+  left: 210px;
+  border-radius: 10px;
 }
-
-
-.index .div-wrapper-12 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 20px 20px 20px 400px;
+.to-cakeimg3{
   position: absolute;
-  top: 1738px;
+  width: 150px;
+  height: 150px;
+  top: 640px;
+  left: 370px;
+  border-radius: 10px;
+}
+.to-cakeimg4{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 640px;
+  left: 530px;
+  border-radius: 10px;
 }
 
-.index .text-wrapper-9 {
+
+.co-cakesm{
   color: #000000;
-  font-family: "Inter", Helvetica;
+  font-family: 'Pretendard-bold';
   font-size: 24px;
-  font-weight: 400;
+  position: absolute;
+  top: 840px;
+  left: 220px;
+}
+
+.co-cakesmct{
+  font-size: 18px;
+  padding :20px;
+  border-radius: 30px;
+background-color: white;
+border: 1px solid white;
+
+min-height: 120px;
+width: 430px;
+position: absolute;
+top: 915px;
+  left: 213px;
+}
+.to-container {
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ 
+  margin-top: -2300px;
+}
+
+.to-container .to-div {
+
+
+  position: relative;
+  width: 1439px;
+}
+
+.to-container .to-cakeflavortitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
   letter-spacing: 0;
   line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  text-align: right;
-  width: fit-content;
-}
-
-.index .div-wrapper-13 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 20px 280px 20px 20px;
   position: absolute;
-  top: 1445px;
+  top: 841px;
 }
 
-.index .div-wrapper-14 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 10px;
+.to-cakeflavor{
+
+
+border-radius: 30px;
+background-color: white;
+border: 1px solid white;
+padding: 20px;
+height: 240px;
+width: 428px;
+  left: 10px;
+ 
   position: absolute;
-  top: 1382px;
+  top: 60px;
 }
 
-.index .div-wrapper-15 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 10px;
+/* 케이크맛체크박스 */
+
+.to-cf-container{
+  left: 760px;
+  width: 458px;
   position: absolute;
-  top: 1123px;
+  top: 850px;
+  min-height: 100px;
+  z-index: 999;
 }
 
-.index .div-wrapper-16 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 148px;
-  padding: 20px 60px 60px 20px;
-  position: absolute;
-  top: 1175px;
-}
-
-.index .text-wrapper-10 {
-  color: #939393;
-  font-family: "Inter", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  position: relative;
-  width: fit-content;
-}
-
-.index .div-wrapper-17 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 10px;
-  position: absolute;
-  top: 726px;
-}
-
-.index .div-wrapper-18 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 20px 250px 20px 20px;
-  position: absolute;
-  top: 790px;
-}
-
-.index .div-wrapper-19 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 650px;
-  padding: 10px;
-  position: absolute;
-  top: 1532px;
-}
-
-.index .div-wrapper-20 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 650px;
-  padding: 20px 230px 20px 20px;
-  position: absolute;
-  top: 1596px;
-}
-
-.index .div-wrapper-21 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 650px;
-  padding: 10px;
-  position: absolute;
-  top: 1679px;
-}
-
-.index .div-wrapper-22 {
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 650px;
-  padding: 20px 210px 20px 20px;
-  position: absolute;
-  top: 1743px;
-}
-
-.index .div-wrapper-23 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 10px;
-  position: absolute;
-  top: 871px;
-}
-
-.index .div-6 {
-  background-color: #ffffff;
-  border-radius: 20px;
-  height: 254px;
-  left: 646px;
-  position: absolute;
-  top: 935px;
-  width: 448px;
-}
-
-.index .view {
+.to-cf-1{
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
   align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
   gap: 10px;
-  left: 650px;
+  left: 35px;
   padding: 10px;
   position: absolute;
-  top: 959px;
-  width: 76px;
+  top: 30px;
+ 
 }
 
-.index .text-wrapper-11 {
+
+.to-cf-txt {
   color: #000000;
-  font-family: "Inter", Helvetica;
+ font-family: 'Pretendard-Semibold';
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  left: -60px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+
+.cf-st{
+  font-family: 'Pretendard-Regular';
+  color: gray;
+  white-space: nowrap;
+  position: relative;
+  top: -30px;
+  left: 130px;
+}
+
+
+.to-cf-txt1{
+  color: #000000;
+  font-family:'Pretendard-Semibold';
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
+  left: -80px;
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
 }
 
-.index .element-2 {
+
+.to-cf-2 {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
   align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
   gap: 10px;
-  left: 650px;
+  left: 35px;
   padding: 10px;
   position: absolute;
-  top: 1013px;
+  top: 83px;
   width: 51px;
 }
-
-.index .text-wrapper-12 {
+.to-cf-txt2 {
   color: #000000;
-  font-family: "Inter", Helvetica;
+  font-family:'Pretendard-Semibold';
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
+  left: -80px;
   line-height: normal;
   margin-top: -1px;
   position: relative;
+  white-space: nowrap;
   width: 50px;
 }
 
-.index .element-3 {
+.to-cf-3 {
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
   align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
   gap: 10px;
-  left: 650px;
+  left: 35px;
   padding: 10px;
   position: absolute;
-  top: 1064px;
+  top: 134px;
   width: 51px;
 }
 
-.index .element-wrapper {
+
+.to-cf-4 {
   display: grid;
+  white-space: nowrap;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
   align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
   gap: 10px;
-  left: 650px;
+  left: 35px;
   padding: 10px;
   position: absolute;
-  top: 1114px;
+  top: 185px;
   width: 53px;
 }
 
-.index .element-4 {
+.to-cf-txt3 {
   color: #000000;
-  font-family: "Inter", Helvetica;
+  font-family:'Pretendard-Semibold';
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
+  left: -80px;
   line-height: normal;
   margin-top: -1px;
   position: relative;
   width: 33px;
 }
+/* 끝 */
 
-.index .rectangle-3 {
-  background-color: #ffffff;
-  height: 128px;
-  left: 153px;
+
+
+.to-container .to-btntxt {
+  color: #000000;
+  font-family: 'Pretendard-Regular';
+  font-size: 24px;
+  font-weight: 400;
+  left: 800px;
+  letter-spacing: 0;
+  line-height: normal;
   position: absolute;
-  top: 956px;
-  width: 128px;
+  top: 1730px;
 }
 
-.index .rectangle-4 {
-  background-color: #ffffff;
-  height: 128px;
-  left: 296px;
-  position: absolute;
-  top: 956px;
-  width: 128px;
-}
-
-.index .rectangle-5 {
-  background-color: #ffffff;
-  height: 128px;
-  left: 439px;
-  position: absolute;
-  top: 956px;
-  width: 128px;
-}
-
-.index .img {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 963px;
-  width: 88px;
-}
-
-.index .image {
-  height: 39px;
-  left: 912px;
-  position: absolute;
-  top: 965px;
-  width: 155px;
-}
-
-.index .element-5 {
-  height: 39px;
-  left: 912px;
-  position: absolute;
-  top: 1010px;
-  width: 155px;
-}
-
-.index .element-6 {
-  height: 39px;
-  left: 912px;
-  position: absolute;
-  top: 1062px;
-  width: 155px;
-}
-
-.index .element-7 {
-  height: 39px;
-  left: 912px;
-  position: absolute;
-  top: 1119px;
-  width: 155px;
-}
-
-.index .element-8 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1010px;
-  width: 88px;
-}
-
-.index .element-9 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1062px;
-  width: 88px;
-}
-
-.index .element-10 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1119px;
-  width: 88px;
-}
-
-.index .div-wrapper-24 {
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  justify-content: center;
-  left: 648px;
-  padding: 10px;
-  position: absolute;
-  top: 1207px;
-}
-
-.index .div-7 {
-  background-color: #ffffff;
-  border-radius: 20px;
-  height: 251px;
-  left: 646px;
-  position: absolute;
-  top: 1271px;
-  width: 448px;
-}
-
-.index .view-2 {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  left: 650px;
-  padding: 10px;
-  position: absolute;
-  top: 1295px;
-  width: 76px;
-}
-
-.index .view-3 {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  left: 650px;
-  justify-content: center;
-  padding: 10px;
-  position: absolute;
-  top: 1343px;
-  width: 76px;
-}
-
-.index .view-4 {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  left: 650px;
-  justify-content: center;
-  padding: 10px;
-  position: absolute;
-  top: 1393px;
-  width: 76px;
-}
-
-.index .view-5 {
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  left: 650px;
-  justify-content: center;
-  padding: 10px;
-  position: absolute;
-  top: 1452px;
-  width: 61px;
-}
-
-.index .img-2 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1299px;
-  width: 88px;
-}
-
-.index .element-11 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1346px;
-  width: 88px;
-}
-
-.index .element-12 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1398px;
-  width: 88px;
-}
-
-.index .element-13 {
-  height: 39px;
-  left: 786px;
-  position: absolute;
-  top: 1455px;
-  width: 88px;
-}
-
-.index .tour-detail {
+.to-container .to-reqbtn {
   height: 103px;
-  left: 416px;
+  left: 790px;
   position: absolute;
-  top: 1871px;
-  width: 458px;
-}
-
-.index .group-2 {
-  height: 103px;
+  top: 1800px;
   width: 460px;
 }
 
-.index .overlap-group-3 {
+.to-container .to-overlap-group {
+  cursor: pointer;
   background-color: #ffa0b7;
   border-radius: 30px;
   height: 103px;
@@ -983,14 +283,599 @@ width: 400px;
   width: 458px;
 }
 
-.index .text-wrapper-13 {
+.to-reqbtn :hover{
+  background-color: #ff85a3;
+}
+
+.to-container .to-reqtxt {
   color: #ffffff;
-  font-family: "Inter", Helvetica;
+  font-family: 'Pretendard-bold';
   font-size: 32px;
   font-weight: 700;
   left: 170px;
+  text-decoration: none;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 15px;
+  top: 32px;
+}
+
+.to-container .to-cakeplusttitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1414px;
+}
+
+.to-container .to-cakeplus {
+  background-color: #ffffff;
+  border-radius: 30px;
+  
+  left: 772px;
+  position: absolute;
+  top: 1474px;
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+  padding-left: 20px;
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 140px;
+ 
+}
+
+
+
+.to-container .to-caketxttitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1241px;
+}
+
+.to-container .to-caketxt {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 63px;
+  left: 772px;
+  position: absolute;
+  top: 1300px;
+ 
+
+    
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+ padding-left: 20px;
+  left: 772px;
+  font-size: 20px;
+}
+
+.to-container .to-cakesizetitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 466px;
+}
+
+.to-container .rectangle {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 258px;
+  left: 772px;
+  position: absolute;
+  top: 536px;
+  width: 458px;
+}
+
+.to-container .to-userphonetitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 289px;
+
+
+  
+}
+
+.to-container .to-userphone {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 63px;
+  left: 772px;
+  position: absolute;
+  top: 349px;
+
+  width: 438px;
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+ padding-left: 20px;
+  left: 772px;
+  font-size: 20px;
+}
+
+.to-container .to-time {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 220px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1320px;
+}
+
+.to-container .to-timetitle {
+  font-family: 'Pretendard-bold';
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 63px;
+  left: 177px;
+  position: absolute;
+  top: 1808px;
+  width: 428px;
+}
+
+.to-container .to-daytitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 26px;
+  font-weight: 700;
+  left: 220px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1140px;
+}
+
+.to-day-icon{
+  position: absolute;
+  width: 30px;
+  left: 20px;
+}
+
+.to-time-icon{
+  position: absolute;
+  width: 30px;
+  left: 20px;
+}
+
+
+.to-custom-input {
+  outline: none;
+  border: none; 
+  /* .to-day 클래스의 스타일을 이곳에 추가 */
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-family: 'Pretendard-bold';
+  font-size: 20px;
+  height: 63px;
+  cursor: pointer;
+  position: absolute;
+margin-left: 40px;
+  top: 1170px;
+  width: 460px;
+}
+.to-container .to-timetitle{
+  width: 460px;
+}
+.to-time-input {
+  
+  width: 460px;
+  outline: none;
+  border: none; 
+  /* .to-day 클래스의 스타일을 이곳에 추가 */
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-family: 'Pretendard-bold';
+  font-size: 16px;
+  height: 63px;
+  
+ margin-top: -440px;
+ margin-left: 40px;
+ 
+
+
+}
+.to-container .to-omgtitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1037px;
+}
+
+.to-container .to-imgpic {
+  background-color: #ffffff;
+  border-radius: 44px;
+  height: 398px;
+  left: 177px;
+  position: absolute;
+  top: 1127px;
+  width: 489px;
+  cursor: pointer;
+}
+
+.cakeImage{
+  font-family: 'Pretendard-Medium';
+  color: lightgray;
+  position: absolute;
+  top: 199px;
+  cursor: pointer;
+  padding: 20p;
+  left: 184px;
+}
+
+
+.to-selected-image{
+  border-radius: 44px;
+  width: 489px;
+  height: 398px;
+}
+
+.to-container .to-costomtitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 177px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 551px;
+}
+
+.to-container .to-custompic {
+
+  border-radius: 44px;
+  height: 398px;
+  left: 177px;
+  position: absolute;
+  top: 711px;
+  width: 489px;
+  z-index: 99999;
+}
+
+.to-container .to-usernametitle {
+  color: #000000;
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  font-weight: 700;
+  left: 692px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 728px;
+}
+
+.to-container .to-username {
+
+  background-color: #ffffff;
+  font-family: 'Pretendard-Regular';
+  border-radius: 30px;
+ padding-left: 20px;
+  height: 63px;
+  left: 692px;
+  position: absolute;
+  top: 788px;
+  width: 438px;
+
+
+  
+ 
+  font-size: 20px;
+
+
+
+}
+.react-datepicker__time-container .react-datepicker__header--time--only{
+  display: none;
+}
+
+.react-datepicker__triangle{
+  display: none;
+}
+
+.react-datepicker button{
+  color: white;
+
+  left: 267px;
+  position: absolute;
+  top: 1370px;
+}
+.react-datepicker__navigation--previous {
+  margin-right: 50px; /* 오른쪽 마진 추가 */
+}
+
+/* 다음 버튼에 대한 스타일 */
+.react-datepicker__navigation--next {
+  margin-left: 255px; /* 왼쪽 마진 추가 */
+}
+.react-datepicker__time{
+  width: 300px;
+  
+}
+
+.react-datepicker__time-list-item {
+  font-family: 'Pretendard-bold';
+  font-size: 20px;
+  color: white;
+ 
+  background-color: #ffa0b7;
+}
+.react-datepicker__time-list-item:hover{
+  color: #ff85a3;
+}
+
+.react-datepicker__time-list  {
+  width: 300px;
+  border-radius: 20px;
+  position: absolute;
+  top: 1530px;
+  left: 270px;
+  background-color: white;
+}
+.to-day {
+
+  height: 63px;
+  left: 177px;
+  position: absolute;
+}
+
+.to-timepicker-container {
+  position: absolute;
+  top: 1818px; /* 실제 위치에 맞게 조정해야 할 수 있음 */
+  left: 177px;
+  z-index: 999; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+}
+
+
+.react-datepicker__month-container{
+  position: absolute;
+  cursor: pointer;
+  top: 1340px;
+  left: 260px;
+  color: white;
+  border: 2px solid #ff85a3;
+  border-radius: 20px;
+}
+.react-datepicker__header {
+  border-top-left-radius: 10px;
+ 
+  padding-bottom: 20px;
+  background-color: #ff85a3;
+  color: white;
+}
+:global(.react-datepicker__month-container) {
+  /* 전역 스타일 적용 */
+ border-radius: 20px;
+  /* ... */
+}
+
+
+.react-datepicker__month-container{
+  width: 300px;
+  color: white;
+  background-color: #ffb6c8;
+  font-size: 13px;
+  font-family: 'Pretendard-Regular';
+}
+
+
+
+
+/* 체크박스 */
+
+.to-check-container{
+  position: absolute;
+  left: 170px;
+  top: -400px;
+  z-index: 999;
+}
+
+
+
+.to-check-1{
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 630px;
+  padding: 10px;
+  position: absolute;
+  top: 959px;
+  width: 76px;
+}
+
+
+.to-check1-txt {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  left: -60px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+.check1-st{
+  font-family:'Pretendard-Regular';
+  color: gray;
+  white-space: nowrap;
+  position: relative;
+  top: -30px;
+  left: 130px;
+}
+
+
+.to-check-txt1{
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  left: -90px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+
+.to-check-2 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 630px;
+  padding: 10px;
+  position: absolute;
+  top: 1013px;
+  width: 51px;
+}
+.to-check-txt2 {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  left: -95px;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 50px;
+}
+
+.to-check-3 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 630px;
+  padding: 10px;
+  position: absolute;
+  top: 1068px;
+  width: 51px;
+}
+
+
+.to-check-4 {
+  display: grid;
+  grid-template-columns: auto auto; /* 두 개의 열 생성 */
+  grid-gap: 16px; /* 열 사이의 간격 조절 */
+  align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
+  gap: 10px;
+  left: 630px;
+  padding: 10px;
+  position: absolute;
+  top: 1125px;
+  width: 53px;
+}
+
+.to-check-txt3 {
+  color: #000000;
+  font-family:'Pretendard-Semibold';
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  left: -95px;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 33px;
+}
+
+
+
+.to-container .react-datepicker__month-container{
+  margin-top: -450px;
+  margin-left: 40px;
+}
+
+.to-container .react-datepicker button{
+  position: absolute;
+ left: 307px;
+
+top: 920px;
+ z-index: 999;
+}
+
+.to-container .react-datepicker__time-list{
+  position: absolute;
+  top: 1130px;
+  left: 300px;
+}
+
+.co-cakemoneytt{
+  color: #000000;
+  font-family:'Pretendard-bold';
+  font-size: 24px;
+
+  letter-spacing: 0;;
+  line-height: normal;
+ z-index: 99999;
+  position: absolute;
+  top: 2120px;
+  left:160px;
+}
+
+.co-cakemn{
+  font-family: 'Pretendard-Semibold';
+  position: absolute;
+  font-size: 24px;
+  top: 2203px;
+left: 340px;
+z-index: 9999;
+}
+.co-cakemoney{
+  color: gray;
+  text-align:end;
+  font-family: 'Pretendard-bold';
+ font-size: 20px;
+ padding-right: 90px;
+  position: absolute;
+padding-top: 20px;
+padding-bottom: 20px;
+  border-radius: 30px;
+background-color: white;
+border: 1px solid white;
+top: 2185px;
+left: 150px;
+height: 20px;
+width: 360px;
 }
