@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import TourDetContainer from '../component/TourDetContainer'
 
 
 
@@ -32,74 +33,10 @@ export const TourOrder = () => {
     ));
 
   return (
+    <div>
+      <TourDetContainer containerHeight="2200px">
     <div className="index">
-    <div className="TourOrder_tourFrame">
-      <div className="TourDet2_bluebox">
-        <div className="TourDet2_bodyfr">
-          <div className="TourDet2_overlap-group">
-            <div className="TourDet2_group">
-              <div className="TourDet2_overlap-group">
-                <div className="Tourorder_div" />
-                <div className="TourDet2_ellipse" />
-                <div className="TourDet2_rectangle" />
-              </div>
-            </div>
 
-
-
-            <div className="TourDet2_tourdet3-SampleStoreReviewFr"> {/* 샘플케이크, 매장정보, 리뷰 탭 div */}
-              
-                <div className="TourDet2_text-tourdet3-Sample">
-                <Link to="/SampleCake"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">샘플케이크</Link>
-                </div>
-            
-          
-                <div className="TourDet2_text-tourdet3-Store">
-                매장정보
-                </div>
-            
-              
-                <div className="TourDet2_tour-det-review">
-                <Link to="/TourDet3"  style={{textDecoration: 'none'}} className="TourDet2_LinkStyle">리뷰</Link>
-                </div>
-            
-            </div>{/* 샘플케이크, 매장정보, 리뷰 탭 div 끝*/} 
-          </div>
-        </div>
-
-
-
-
-        <div className="TourDet2_storeinfo"> {/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div*/}
-          <div className="TourDet2_tourdet">
-            <img className="TourDet2_tourdet3-StoreLogo"
-              src={tourdet3_StoreLogo}
-              alt={CakeName}
-              />{/*가게 로고*/}
-          </div>
-          <div className="TourDet2_tourdet-3">
-            <div className="TourDet2_tourdet3-CakeStoreNameFrame">
-              <div className="TourDet2_tourdet3-CakeStoreName">{CakeStoreName}</div>{/* 가게 이름 넣는곳*/}
-            </div>
-            <div className="TourDet2_tour-det-addr">
-              <div className="TourDet2_tour-det-addr-tx">{StoreAddr}</div>{/* 가게 주소넣는곳*/}
-            </div>
-            <div className="TourDet2_tour-det-det">
-              <p className="TourDet2_tour-det-det-tx" >
-              {StoreDetail}{/* 가게 설명넣는곳*/}
-              </p>
-            </div>
-          </div>
-          
-            <div className="TourDet2_overlap-group-2">
-          
-              <button className="TourDet2_tour-det-chatbox"  onClick = {handleChatBoxClick}> {/* 1:1 채팅*/}
-                <div className="TourDet2_tourdet3Chatbox" />
-                <div className="TourDet2_tourdet3ChatboxTx" >1:1 채팅</div>
-              </button>
-            
-          </div>
-        </div>{/* 가게이미지,케이크집이름, 주소, 가게설명, 1:1:채팅div끝*/}
           <div className="div-5" />
           <div className="div-wrapper-6">
             <div className="text-wrapper-6">예약자성함</div>
@@ -239,11 +176,11 @@ export const TourOrder = () => {
               <div className="overlap-group-3">
                 <div className="text-wrapper-13">주문하기</div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </div>
+              </div>
+              </div>
+              </TourDetContainer>
+              </div>
   );
 };
 
@@ -269,5 +206,6 @@ function Checkbox() {
         />
       </label>
     </div>
+    
   );
 }
