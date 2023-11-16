@@ -46,11 +46,7 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
 
     // 이미지 파일 처리
-    let imgFile = req.file;
-    if (!imgFile) {
-        // 클라이언트에서 이미지를 보내지 않았을 때 기본 이미지 파일 설정
-        imgFile = { filename: 'eunho.jpg' };
-    }
+    let imgFile = req.file || { filename: 'enho.jpg' };
     let profile_img = imgFile.filename;
 
     // 회원가입 제한사항 체크
@@ -93,7 +89,7 @@ router.post('/login', (req, res) => {
         // console.log(rows);
         if (err) {
             console.error('로그인 시도 에러', err);
-            res.status(500).send({ message: '로그인 시도 에러' });
+            res.status(500).send({ message: '서버 에러' });
         }
         else {
             if (rows.length > 0) { // id 결과가 있으면
@@ -117,17 +113,17 @@ router.post('/login', (req, res) => {
                             console.log('로그인 실패 - 비밀번호 다름');
                             console.log('받은 비번', cust_pw, user_ip);
                             // console.log('비번 검증', result);
-                            res.status(400).send({ message: '로그인 실패' });
+                            res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
                         }
                     })
                     .catch((error) => {
-                        console.error('비밀번호 검증 중 에러', error);
-                        res.status(500).send({ message: '비밀번호 검증 중 에러' })
+                        console.error('비밀번호 암호화 중 에러', error);
+                        res.status(500).send({ message: '서버 에러' })
                     })
             }
             else {
                 console.log('로그인 실패 - 데이터 없음', user_ip);
-                res.status(400).send({ message: '로그인 데이터 없음' });
+                res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
             }
         }
     })

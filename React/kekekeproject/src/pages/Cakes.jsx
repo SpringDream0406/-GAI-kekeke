@@ -150,7 +150,12 @@ export const Cakes = () => {
         selectedLocation={selectedLocation}
         setSelectedLocation={setSelectedLocation}
         setLocationModalOpen={setLocationModalOpen}/>) : null}
-      </div>
+ 
+
+
+
+
+
 
           {/* 중앙 케이크 지역 */}
           <div className="tour-cake">
@@ -199,7 +204,7 @@ export const Cakes = () => {
           </div>
   </div>  
   
-
+  </div>
   );
 };
 
