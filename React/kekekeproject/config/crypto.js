@@ -1,4 +1,4 @@
-// md5Hash.js 파일
+// 비밀번호 암호화 md5 방식
 const crypto = require('crypto');
 
 function md5Hash(data) {

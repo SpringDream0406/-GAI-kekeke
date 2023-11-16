@@ -1,10 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const conn = require('../config/database');
+const multer = require('multer'); // 이미지 처리
+const path = require('path')
 const { login_func } = require('../config/login');
 
 
+
+// 판매자 이미지 저장
+const allowedImageExtensions = ['.jpg', '.jpeg', '.png']; // 이미지 허용 확장자
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        // 저장할 경로 지정
+        cb(null, path.join('public', 'img', 'seller'));
+    },
+    filename: (req, file, cb) => {
+        // 셀러 아이디를 파일이름으로 설정
+        const seller = req.body.seller_id;
+
+        // 확장자 가져오기
+        const extname = path.extname(file.originalname);
+
+        // 허용된 확장자인지 체크
+        if (!allowedImageExtensions.includes(extname.toLowerCase())) {
+            return cb(new Error('허용되지 않는 이미지 확장자 입니다.'));
+        }
+
+        const filename = `${seller_id}${extname}`;
+        cb(null, filename);
+    },
+});
+const upload = multer({ storage: storage });
+
 // 판매자 회원가입
+router.post('/join', (res, req) => {
+    console.log('판매자 회원가입 시도', req.body);
+})
 
 
 // 판매자 로그인

@@ -1,3 +1,4 @@
+// 비밀번호 암호화 (이 프로젝트에서는 사용 안함)
 const bcrypt = require('bcrypt');
 
 const hashPassword = (password) => {

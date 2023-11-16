@@ -1,9 +1,10 @@
 const { validatePassword_midLv } = require("./validatepassword");
 
-const password_check = (user_id, user_pw, user_pwcheck) => {
+const join_check = (user_id, user_pw, user_pwcheck) => {
   return new Promise((resolve, reject) => {
+    
     // 아이디 길이 체크
-    if (user_id.length < 8 || user_id.length > 20) {
+    if (user_id.length < 6 || user_id.length > 20) {
       reject({ message: '아이디 길이 제한' });
       return;
     }
@@ -24,7 +25,25 @@ const password_check = (user_id, user_pw, user_pwcheck) => {
   });
 }
 
-module.exports = { password_check };
+
+const join_res = (err, rows, res) => {
+  if (err) {
+    console.error('회원가입 에러', err);
+    res.status(500).send({ message: '회원가입 에러' });
+  }
+  else {
+    if (rows.affectedRows > 0) {
+      console.log('회원가입 성공');
+      res.status(201).send({ message: '회원가입 성공' });
+    }
+    else {
+      console.log('회원가입 실패', rows);
+      res.status(500).send({ message: '회원가입 실패' });
+    }
+  }
+}
+
+module.exports = { join_check, join_res };
 
 
 
