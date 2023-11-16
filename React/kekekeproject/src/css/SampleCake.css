@@ -10,10 +10,9 @@
 .Sam_samplecontainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4개의 열 */
-  grid-gap: 60px; /* 그리드 항목 간의 간격 */
+  grid-gap: 80px; /* 그리드 항목 간의 간격 */
   max-width: 100%;
-  margin-top: 110px;
-  margin-bottom: 30px;
+  margin-top: 80px;
   
 }
 
@@ -23,74 +22,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
   max-width: 180px; /* 각 항목의 최대 너비 */
 }
 
 .Sam_img {
   width: 200px;
+  height: 200px; 
   object-fit: cover;
-  height: 230px; 
   border-radius: 10%;
+  margin: 10px;
 }
 
-.Sam_cake-name,
-.Sam_cake-price {
-  text-align: center;
-  margin: 5px 0;
+.Sam_cake-name{
+  margin: 12px;
+  font-size: 24px;
+  font-family: 'Pretendard-bold';
 }
 
-
-
-.Sam_page-numbers button {
-  padding: 5px 10px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  top: -1200px;
+.Sam_cake-price{
+  font-size: 18px;
+  font-family: 'Pretendard-bold';
+  color: #FF8D8D
 }
 
-
-.Sam_page-numbers {
+.Samplepagination {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px 0;
-
-
-
+  margin-top: 30px;
 }
 
-.Sam_page-numbers-before, .Sam_page-numbers-before-next {
-  padding: 8px 12px;
-  margin: 0 5px;
-  background-color: #61a4d5;
-  color: white;
+.prev-page, .next-page {
+  background: none;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
-
+  padding: 5px 10px;
 }
 
-.Sam_pagenum a {
+.page-numbers a {
   color: #61a4d5;
   text-decoration: none;
   padding: 5px 10px;
 }
 
-.Sam_pagenums a:hover {
+.page-numbers a:hover {
   text-decoration: underline;
-  background-color: #4a93c2;
-  transform: scale(1.1);
 }
 
-.Sam_btn1{
-  width: 30px;
-  height: 20px;
-  border:none;
-
-
-}

@@ -5,9 +5,8 @@
     justify-content: center;
     align-items: center;
     margin: 305px auto 0;
-    height: 1766px;
     width: 1293px;
-    margin-bottom: 200px;
+    margin-bottom: 250px;
     position: relative; /* 부모 요소에 상대적인 위치 설정 */
   }
 
@@ -18,6 +17,8 @@
     width: 100%; /* 부모의 전체 너비를 차지하도록 설정 */
     z-index: 10; /* 다른 요소 위에 보이도록 z-index 설정 */
     margin-top: 30px;
+    margin-bottom: 250px;
+
   }
   
   .store-info-section {

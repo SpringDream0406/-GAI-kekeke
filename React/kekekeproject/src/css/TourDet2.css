@@ -33,7 +33,11 @@
   top: 45px;
 }
 
-
+.index .TourDet2_bluebox2{
+  left: 73px;
+  position: relative;
+  top: 150px;
+}
 
 .index .TourDet2_tour-det-addr {
   height: 64px;
@@ -135,15 +139,16 @@ top: -280px;
 .index .TourDet2_tour-det-map {
 height: 280px;
 object-fit: cover;
-position: relative;
 width: 364px;
+margin-left: 28px;
 }
+
 .TourDet2_usefr {
 height: 601px;
 position: relative;
 width: 378px;
 left: -170px;
-top: 180px;
+top: 250px;
 
 }
 
@@ -164,7 +169,7 @@ top: 81px;
 .TourDet2_usefr .TourDet2_useinputtx {
   color: #000000;
   font-family: 'Pretendard-Light';
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
@@ -190,7 +195,6 @@ align-items: center;
 display: inline-flex;
 gap: 10px;
 justify-content: center;
-left: 0;
 padding: 20px;
 position: absolute;
 top: 0;
@@ -198,8 +202,7 @@ top: 0;
 
 .TourDet2_usefr .TourDet2_usefrtx {
 color: #ff97b0;
-font-family: "Inter-Bold", Helvetica;
-font-size: 22px;
+font-size: 26px;
 font-weight: 700;
 letter-spacing: 0;
 line-height: normal;
@@ -214,6 +217,7 @@ position: relative;
 width: 526px;
 left: 100px;
 top: -330px;
+
 }
 
 .TourDet2_Introtour .TourDet2_Introdetailfr {
@@ -221,7 +225,6 @@ height: 228px;
 left: 0;
 position: absolute;
 top: 71px;
-width: 526px;
 }
 
 .TourDet2_Introtour .TourDet2_Introoverlap-group {
@@ -238,8 +241,6 @@ width: 517px;
 }
 .TourDet2_Introtour .TourDet2_Introcalltx {
 align-items: center;
-display: inline-flex;
-gap: 10px;
 justify-content: center;
 left: -9px;
 padding: 20px;
@@ -247,30 +248,10 @@ position: absolute;
 top: 0;
 }
 
-
-.TourDet2_Introtour .TourDet2_Introtext-wrapper {
-color: #000000;
-font-family:  'Pretendard-Light';
-font-size: 20px;
-font-weight: 400;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-
-}
-
 .TourDet2_Introtour .TourDet2_Introcallinput {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 330px;
-padding: 20px;
-position: absolute;
-top: 5px;
+  padding: 20px;
+  position: absolute; /* 또는 fixed, relative 등 */
+  margin-left: 342px;
 }
 
 .TourDet2_Introtour .TourDet2_Introtext-Number {
@@ -304,14 +285,7 @@ position: absolute;
 top: 0;
 }
 .TourDet2_Introtour .TourDet2_Introadinput {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 346px;
 padding: 20px;
-position: absolute;
-top: 0;
 }
 .TourDet2_Introtour .TourDet2_Introtext-Time {
 color: #000000;
@@ -334,17 +308,7 @@ top: 103px;
 width: 520px;
 }
 .TourDet2_Introtour .TourDet2_Introreginput {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 330px;
-padding: 20px;
-position: absolute;
-top: 0;
-left: 265px;
-font-size: 20px;
-font-family: 'Pretendard-Light';;
+padding: 20px
 }
 .TourDet2_Introtour .TourDet2_Introregnum {
 align-items: center;
@@ -387,14 +351,7 @@ width: fit-content;
 left: 0;
 }
 .TourDet2_Introtour .TourDet2_Intronamefr {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 400px;
-padding: 20px;
-position: absolute;
-top: 7px;
+padding: 20px
 }
 .TourDet2_Introtour .TourDet2_Introtext-Name {
 color: #000000;
@@ -409,29 +366,12 @@ white-space: nowrap;
 width: fit-content;
 left: -70px;
 }
+
 .TourDet2_Introtour .TourDet2_Introintro {
-align-items: center;
-display: inline-flex;
-gap: 10px;
-justify-content: center;
-left: 2px;
 padding: 20px;
-position: absolute;
-top: 0;
+font-size: 30px;
 }
 
-.TourDet2_Introtour .TourDet2_Introintrotx {
-color: #000000;
-font-family: "Inter-Bold", Helvetica;
-font-size: 26px;
-font-weight: 700;
-letter-spacing: 0;
-line-height: normal;
-margin-top: -1px;
-position: relative;
-white-space: nowrap;
-width: fit-content;
-}
 .TourDet2_reserve {
 height: 661px;
 position: relative;
@@ -452,9 +392,7 @@ top: 70px;
 }
 .TourDet2_reserve .TourDet2_resinputtx {
 color: #000000;
-font-family: 'Pretendard-Light';
-font-size: 18px;
-font-weight: 400;
+font-size: 20px;
 letter-spacing: 0;
 line-height: normal;
 margin-top: -1px;
@@ -480,8 +418,7 @@ top: 0;
 
 .TourDet2_reserve .TourDet2_restx {
 color: #ff97b0;
-font-family: "Inter-Bold", Helvetica;
-font-size: 22px;
+font-size: 26px;
 font-weight: 700;
 letter-spacing: 0;
 line-height: normal;
@@ -505,37 +442,37 @@ width: 417px;
   object-fit: cover;
   position: absolute;
 }
-.index .TourDet2_tour-det-addr-tx {
-  color: #565656;
-  font-family: 'Pretendard-Light';
-  font-size: 20px;
-  font-weight: 400;
-  left: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 19px;
-  white-space: nowrap;
-}
+
 
 .index .TourDet2_mapAddr {
   color: #61a4d5;
-  font-family: "Inter-Bold", Helvetica;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'Pretendard-regular';
+  font-size: 18px;
   letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
+  margin-top: 10px;
   position: relative;
   white-space: nowrap;
-  width: fit-content;
   }
 
-  .TourDet2_LinkStyle{
-    color: inherit
+  .TourDet2_infoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
   }
-  
-  .TourDet2_LinkStyle:hover {
-    color: purple; /* 클릭 전 텍스트 색상 사용 */
-    cursor: pointer; /* 커서를 손가락 모양으로 변경 */
-  }
+
+  /* 왼쪽 텍스트(레이블) 스타일 */
+.TourDet2_infoLabel {
+  text-align: left;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 오른쪽 텍스트(값) 스타일 */
+.TourDet2_infoValue {
+  text-align: right;
+  font-size: 18px;
+
+}
+

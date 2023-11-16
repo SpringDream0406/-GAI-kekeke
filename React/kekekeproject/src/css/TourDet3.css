@@ -15,14 +15,18 @@
 }
 
 .review-item {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
-}
+  width: 1050px; /* 카드의 너비를 고정 */
+  height: 350px; /* 카드의 높이를 고정 */
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+  cursor: pointer;
 
+}
 .review-image {
   width: 200px; /* Adjust based on your image size */
   height: auto;
@@ -32,22 +36,47 @@
 
 .tour-review-content {
   flex-grow: 1;
-
+  position: relative;
 }
 
+.tour-review-header {
+  display: flex;
+  justify-content: end; /* 날짜와 고객명 사이에 공간을 균등하게 분배 */
+  align-items: center; /* 세로축 중앙 정렬 */
+  margin-bottom: 10px; /* 다른 요소와의 간격을 위한 하단 마진 */
+}
+
+.tour-review-header2 {
+  margin-bottom: 50px; /* 다른 요소와의 간격을 위한 하단 마진 */
+  padding: 10px;
+}
+
+.tour-review-date,
+.tour-review-customer {
+  margin: 0; /* 기본 마진 제거 */
+  font-size: 18px; /* 텍스트 크기 조정 */
+  color: #666; /* 텍스트 색상 조정 */
+  padding: 10px;
+}
 .tour-review-cake-name {
-  font-size: 20px;
+  font-size: 32px;
   color: #333;
+
 }
 
 .tour-review-details {
-font-size: 16px;
+font-size: 18px;
 color: #666;
 }
 
-.tour-review-date, .tour-review-customer, .tour-review-message {
-  font-size: 16px;
-  color: #666;
+.tour-review-message {
+  font-size: 24px;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 보여질 최대 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 글자 수가 많을 경우 말줄임표로 처리 */
 }
 
 .pagination {

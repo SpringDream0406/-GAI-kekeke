@@ -5,6 +5,7 @@
   justify-content: center;
   width: 100%;
    font-family: 'Pretendard-Regular', sans-serif; /* 폰트 적용 */
+   margin-bottom: 250px;
 }
 
 .frame .overlap-wrapper {
