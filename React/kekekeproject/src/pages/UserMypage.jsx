@@ -56,6 +56,8 @@ const UserMypage = () => {
     console.log('전화번호:', phone);
     alert('수정이 완료되었습니다.');
     // API 호출이나 다른 로직을 추가하세요.
+
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
   // -------------------------------------------------------------
@@ -115,6 +117,8 @@ const UserMypage = () => {
   return (
     <div className="frame">
       <GlobalStyle />
+      <img className='message-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
+      <div className='message-text'>내 정보 수정</div>
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="input-area">
