@@ -1,10 +1,10 @@
-npm init -y
-npm i express
-npm i nodemon -g
-npm i body-parser
-npm i cors
-npm i mysql2
-npm i bcrypt
-npm i crypto
-npm i multer
-npm i path
+npm init -y (초기화, 설치내역)
+npm i express (미들웨어)
+npm i nodemon -g (서버실행편하게)
+npm i body-parser (post 파싱)
+npm i cors (방화벽 제거)
+npm i mysql2 (mysql)
+npm i bcrypt (암호화방법)
+npm i crypto (암호화방법2)
+npm i multer (file 받는 형식)
+npm i path (경로 지정 통일 방법)

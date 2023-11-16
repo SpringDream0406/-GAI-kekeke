@@ -66,8 +66,8 @@ const Join = () => {
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         console.error('에러', error, error.response.data);
-        if (error.response.data.message == '비밀번호 길이 벗어남') {
-          alert('비밀번호 길이 벗어남')
+        if (error.response.data.message == '비밀번호 복잡도 부족') {
+          alert(error)
         }
         else if (error.response.data.message == '비밀번호 불일치'){
           alert('비밀번호 불일치')

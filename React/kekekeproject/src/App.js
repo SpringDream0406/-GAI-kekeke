@@ -39,6 +39,7 @@ function App() {
     setMessages([...messages, message]);
   };
 
+
   useEffect(() => {
     // 세션 스토리지에서 사용자 데이터 불러오기
     const userStorageData = sessionStorage.getItem('userData');
@@ -46,13 +47,16 @@ function App() {
     console.log('Session Storage : ', userStorageData)
     setIsLoggedIn(!!userStorageData); // 사용자 데이터가 있으면 true, 없으면 false
   }, []);
+
+
+
   
   return (
     
     <BrowserRouter>    
   
-       <GlobalStyle />
-       {isLoggedIn ? (
+      <GlobalStyle />
+      {isLoggedIn ? (
         <Header_af toggle={toggle} setToggle={setToggle} />
       ) : (
         <Header_bf toggle={toggle} setToggle={setToggle} />

@@ -36,6 +36,7 @@ const handleSave = () => {
   localStorage.setItem('savedImage', uri); // 로컬 스토리지에 저장
   setSavedImage(uri); // 이미지 데이터를 상태에 저장
   navigate('/customcake/order', { state: { image: uri } }); // 이미지 데이터와 함께 네비게이트
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 };
 
 
