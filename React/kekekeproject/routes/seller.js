@@ -56,15 +56,11 @@ router.post('/join', upload.single('seller_profile1'), (req, res) => {
         shop_addr2,
         shop_tel,
         business_num,
-        seller_profile1
     } = req.body;
 
     // 이미지 파일 처리
-    let imgFile = req.file;
-    if (!imgFile) {
-        imgFile = { filename: 'enho.jpg' };
-    }
-    let profile_img = imgFile.filename;
+    let imgFile = req.file || { filename: 'enho.jpg' };
+    let seller_profile1 = imgFile.filename;
 
     // 회원가입 제한사항 체크
     join_check(seller_id, seller_pw, seller_pwcheck)
