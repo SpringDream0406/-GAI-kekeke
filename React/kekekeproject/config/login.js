@@ -2,7 +2,7 @@ const { md5Hash } = require('../config/crypto') // 비밀번호 암호화
 
 
 
-const login_func = (err, rows, res, user_id, user_pw, pw_sql, res_data, user_ip) => {
+const login_func = (err, rows, res, user_id, user_pw, res_data, user_ip) => {
 
     // console.log(rows);
     if (err) {
@@ -11,6 +11,8 @@ const login_func = (err, rows, res, user_id, user_pw, pw_sql, res_data, user_ip)
     }
     else {
         if (rows.length > 0) { // id 결과가 있으면
+            let pw_sql = rows[0].user_pw || 0;
+
             md5Hash(user_pw) // crypto 비밀번호 검증
                 .then((hashed) => {
                     const pw_hashed = hashed;
@@ -48,8 +50,8 @@ module.exports = { login_func }
 //     let { cust_id, cust_pw } = req.body;
 //     const user_ip = req.ip.replace(/^::ffff:/, '');
 //     // console.log(user_ip);
-//     let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img 
-//                    from TB_CUSTOMER 
+//     let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img
+//                    from TB_CUSTOMER
 //                    where cust_id = ?`;
 //     conn.query(sql, [cust_id], (err, rows) => {
 //         // console.log(rows);

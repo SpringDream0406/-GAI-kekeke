@@ -4,6 +4,7 @@ import GlobalStyle from '../component/GlobalStyle';
 import axios from 'axios';
 import API_URL from '../api_url';
 import '../css/Join.css'
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -40,15 +41,14 @@ const Join = () => {
     const formData = new FormData();
 
     const fileInput = document.getElementById('fileInput');
-    if (fileInput && fileInput.files[0]) {
-      formData.append('profile_img', fileInput.files[0]);
-    }
-
     formData.append('nick_name', nick_name);
     formData.append('cust_id', cust_id);
     formData.append('cust_pw', password);
     formData.append('phone', phone);
     formData.append('cust_pwcheck', passwordcheck);
+    if (fileInput && fileInput.files[0]) {
+      formData.append('profile_img', fileInput.files[0]);
+    }
   
     axios.post(url, formData, {
       headers: {
@@ -66,8 +66,8 @@ const Join = () => {
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         console.error('에러', error, error.response.data);
-        if (error.response.data.message == '비밀번호 길이 벗어남') {
-          alert('비밀번호 길이 벗어남')
+        if (error.response.data.message == '비밀번호 복잡도 부족') {
+          alert(error)
         }
         else if (error.response.data.message == '비밀번호 불일치'){
           alert('비밀번호 불일치')
@@ -116,9 +116,6 @@ const Join = () => {
 
 
 
-
-
-
   return (
     <div className='join-container'>
      <GlobalStyle />
@@ -129,9 +126,9 @@ const Join = () => {
                   <div className="view">
                     <div className="join-div-1">
                       <div className="join_nick-wrapper">
-                        <div className="join_title">닉네임</div>
+                        <div className="join_title-nick">닉네임</div>
                       </div>
-                      <div className="div-9">
+                      <div className="div-99">
                     
                           
                           <input className="join_nick_input"
@@ -184,7 +181,7 @@ const Join = () => {
                       <div className="div-9">
                         <div className="div-wrapper-61">
                         <input className="join_pw_input"
-                                    type='text'
+                                    type='password'
                                     placeholder='비밀번호를 입력하세요'
                                     value={password}
                                     onChange={(e)=>setPassword(e.target.value)}
@@ -197,7 +194,7 @@ const Join = () => {
                       <div className="div-9">
                         <div className="div-wrapper-61">
                         <input className="join_pw_input"
-                                    type='text'
+                                    type='password'
                                     placeholder='비밀번호를 다시 입력하세요'
                                     value={passwordcheck}
                                     onChange={(e)=>setPasswordcheck(e.target.value)}

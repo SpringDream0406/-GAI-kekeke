@@ -21,6 +21,8 @@ export const TourDet3 = () => {
       storeName: '랑랑케이크',
       request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
 
+ 
+  
 
     },
     {
@@ -197,13 +199,18 @@ export const TourDet3 = () => {
 
   const goToPrervPage = () => {
     setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
+
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
   /*다음페이지로 가는 로직 */
 
-  const goToNextrvPage = () => {
-    setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
-  };
+
+    const goToNextrvPage = () => {
+      setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
+
+      window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+    };
   
 
      // 리뷰 팝업을 위한 상태 추가

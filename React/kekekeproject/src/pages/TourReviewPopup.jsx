@@ -54,7 +54,7 @@ const DetailReviewPopup = ({ onClose, reviewData }) => {
       };
   
     if (!isOpen) return null;
-  
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
       return (
         <div className="detail-review-popup-container">
         <div className="detail-review-popup">

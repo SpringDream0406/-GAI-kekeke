@@ -1,106 +1,84 @@
 import React from "react";
 import "../css/TourCompleteOrder.css";
+import { Link } from "react-router-dom";
 
-export const TourCompleteOrder = () => {
+const TourCompleteOrder = () => {
   return (
-    <div className="tour-detail">
-      <div className="tour-detail-wrapper">
-        <div className="overlap-wrapper">
-          <div className="overlap-group">
-            <div className="group">
-              <div className="overlap-group">
-                <div className="div" />
-                <div className="ellipse" />
-                <div className="rectangle" />
-                <div className="rectangle-2" />
-              </div>
-            </div>
-            <div className="div-2">
-              <div className="div-3" />
-              <div className="div-wrapper">
-                <div className="text-wrapper">티아라 케이크</div>
-              </div>
-              <div className="div-4">
-                <div className="div-wrapper-2">
-                  <div className="div-wrapper-3">
-                    <div className="div-5">
-                      <div className="div-wrapper-4">
-                        <div className="div-wrapper-5">
-                          <div className="text-wrapper-2">예약자 성함 :</div>
-                        </div>
-                      </div>
-                      <div className="view">
-                        <div className="text-wrapper-3">예약자 번호 :</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">케이크 크기 :</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">케이크 맛 :</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">케이크 위 문구 :</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">추가 요청사항 :</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">총 금액 :</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="div-wrapper-7">
-                  <div className="div-wrapper-8">
-                    <div className="div-6">
-                      <div className="div-wrapper-4">
-                        <div className="div-wrapper-5">
-                          <div className="text-wrapper-2">홍길동</div>
-                        </div>
-                      </div>
-                      <div className="view">
-                        <div className="text-wrapper-3">010-1234-5678</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">1호 케이크</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">초코초코룬</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">X</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">예쁘게 해주세요</div>
-                      </div>
-                      <div className="div-wrapper-6">
-                        <div className="text-wrapper-3">40,000원</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="tour-order-text">
-              <div className="text-wrapper-4">주문이 완료되었습니다 !</div>
-            </div>
-            <div className="tour-detail-button">
-              <div className="div-wrapper-9">
-                <div className="div-wrapper-10">
-                  <div className="text-wrapper-5">확인</div>
-                </div>
-              </div>
-              <div className="div-wrapper-11">
-                <div className="div-wrapper-12">
-                  <div className="text-wrapper-5">문의하기</div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="tour-detail-container">
+      <div className="tco-mt">주문내역 확인</div>
+      <img  src={"/assets/images/cake1.jpg"} className="tco-cakeimg"/>
+
+      <div className="tco-mt-container">
+        <div className="tco-mt-1">
+          예약자 성함 :
+        </div>
+
+        <div className="tco-mt-2">
+          예약자 번호 :
+        </div>
+
+        <div className="tco-mt-3">
+          케이크 크기 :
+        </div>
+
+        <div className="tco-mt-4">
+          케이크 맛 :
+        </div>
+        <div className="tco-mt-5">
+          케이크 위 문구 :
+        </div>
+
+        <div className="tco-mt-6">
+          추가요청사항 :
+        </div>
+
+        <div className="tco-mt-7">
+          가격 :
         </div>
       </div>
+
+
+
+      <div className="tco-st-container">
+        <div className="tco-st-1">
+          홍길동
+        </div>
+
+        <div className="tco-st-2">
+         010-1234-1234
+        </div>
+
+        <div className="tco-st-3">
+          1호
+        </div>
+
+        <div className="tco-st-4">
+          오레오
+        </div>
+        <div className="tco-st-5">
+          생일축하해바보야
+        </div>
+
+        <div className="tco-st-6">
+          오레오듬뿍넣어주시고 사랑해주시고dddddd
+        </div>
+
+        <div className="tco-st-7">
+          100000 원
+        </div>
+      </div>
+
+
+    <div className="tco-btn-container">
+      <Link to={'/message'} className='tco-msgbtn'>문의하기</Link>
+      <br/>
+      <Link to={'/mporderlist'} className = 'tco-okbtn'> 확인</Link>
+      
+    </div>
+
+     
     </div>
   );
 };
 
-export default TourCompleteOrder
+export default TourCompleteOrder;

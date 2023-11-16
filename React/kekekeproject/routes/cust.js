@@ -73,7 +73,7 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
                     res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' });
                 })
         })
-        .catch((error)=>{ // 회원가입 제한사항 체크 통과 못함
+        .catch((error) => { // 회원가입 제한사항 체크 통과 못함
             console.log(error);
             res.status(400).send(error)
         })
@@ -86,46 +86,66 @@ router.post('/login', (req, res) => {
     let { cust_id, cust_pw } = req.body;
     const user_ip = req.ip.replace(/^::ffff:/, '');
     // console.log(user_ip);
-    let sql = `select 
-                cust_id, 
-                cust_pw, 
-                joined_at, 
-                phone, 
-                nick_name, 
-                profile_img 
-               from TB_CUSTOMER 
-               where cust_id = ?`;
-
+    let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img
+                   from TB_CUSTOMER
+                   where cust_id = ?`;
     conn.query(sql, [cust_id], (err, rows) => {
-
-        let pw_sql = rows[0].cust_pw;
-
-        let res_data = { // front로 보낼 데이터
-            message: '로그인 성공',
-            cust_id: rows[0].cust_id,
-            joined_at: rows[0].joined_at,
-            phone: rows[0].phone,
-            nick_name: rows[0].nick_name,
-            profile_img: rows[0].profile_img
-        };
-
-        login_func(err, rows, res, cust_id, cust_pw, pw_sql, res_data, user_ip); // 응답 모듈화
+        // console.log(rows);
+        if (err) {
+            console.error('로그인 시도 에러', err);
+            res.status(500).send({ message: '로그인 시도 에러' });
+        }
+        else {
+            if (rows.length > 0) { // id 결과가 있으면
+                md5Hash(cust_pw) // crypto 비밀번호 검증
+                    .then((hashed) => {
+                        const pw_hashed = hashed;
+                        if (pw_hashed === rows[0].cust_pw) {
+                            console.log('로그인 성공', cust_id, user_ip);
+                            let data = { // front로 보낼 데이터
+                                message: '로그인 성공',
+                                cust_id: rows[0].cust_id,
+                                joined_at: rows[0].joined_at,
+                                phone: rows[0].phone,
+                                nick_name: rows[0].nick_name,
+                                profile_img: rows[0].profile_img
+                            };
+                            // console.log('res',data);
+                            res.status(200).send(data)
+                        }
+                        else {
+                            console.log('로그인 실패 - 비밀번호 다름');
+                            console.log('받은 비번', cust_pw, user_ip);
+                            // console.log('비번 검증', result);
+                            res.status(400).send({ message: '로그인 실패' });
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('비밀번호 검증 중 에러', error);
+                        res.status(500).send({ message: '비밀번호 검증 중 에러' })
+                    })
+            }
+            else {
+                console.log('로그인 실패 - 데이터 없음', user_ip);
+                res.status(400).send({ message: '로그인 데이터 없음' });
+            }
+        }
     })
 })
 
 
-// 회원가입 중복체크
+
+// 커스터머 회원가입 중복체크
 router.post('/check', (req, res) => {
-    console.log('중복확인', req.body);
+    console.log('커스터머 회원가입 중복체크', req.body);
     let { nick_name, cust_id } = req.body;
-    console.log('커스터머');
     if (nick_name) {
         console.log('닉네임 중복 체크', nick_name);
         let sql = `select nick_name 
                        from TB_CUSTOMER
                        where nick_name = ?`;
         conn.query(sql, [nick_name], (err, rows) => {
-            check_func(err, rows, res, '닉네임'); // 응답 모듈화
+            check_func(err, rows, res, '커스터머 닉네임'); // 응답 모듈화
         })
     }
     else if (cust_id) {
@@ -134,7 +154,7 @@ router.post('/check', (req, res) => {
                        from TB_CUSTOMER
                        where cust_id = ?`
         conn.query(sql, [cust_id], (err, rows) => {
-            check_func(err, rows, res, '아이디'); // 응답 모듈화
+            check_func(err, rows, res, '커스터머 아이디'); // 응답 모듈화
         })
     }
 })
