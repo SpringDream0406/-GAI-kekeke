@@ -47,6 +47,7 @@ const Main = () => {
   // 둘러보기 버튼 클릭 핸들러
   const handleBrowseClick = () => {
     navigate('/cakes');
+
   };
   const handleOrderClick = () => {
     navigate('/customcake');

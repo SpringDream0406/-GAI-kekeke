@@ -105,15 +105,15 @@
   }
   
   .admin-login .admin-join {
+    background-color: #d1ebff;
     color: #4d4d4d;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-Regular";
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0;
     line-height: normal;
     margin-top: -1px;
     position: relative;
-    text-decoration: underline;
     width: fit-content;
   }
   

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, forwardRef,} from 'react';
 import Blue_Box from '../component/Blue_Box.jsx'
+import { Link } from 'react-router-dom';
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
 import DatePicker from "react-datepicker";
@@ -9,7 +10,16 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 
+
+
 const CustomCakeOrder = () => {
+
+
+
+
+
+
+
   const [pickupDateTime, setPickupDateTime] = useState(new Date()); // 픽업 날짜와 시간 상태
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -74,7 +84,7 @@ const CustomCakeOrder = () => {
       <p className="co-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
       <div className="co-reqbtn">
         <div className="co-overlap-group">
-          <div className="co-reqtxt">요청하기</div>
+          <Link className="co-reqtxt" to={'/tourcompleteorder'}>요청하기</Link>
         </div>
       </div>
       <div className="co-cakeplusttitle">케이크 추가 요청사항</div>
@@ -192,6 +202,9 @@ const CustomCakeOrder = () => {
           </div>
      
     </div>
+
+ 
+
     </div>
  
   )

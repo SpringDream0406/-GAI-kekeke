@@ -121,7 +121,7 @@ const Header_bf = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/customcake"} className="nav-menu-list">
+            <Link to={"/adminlogin"} className="nav-menu-list">
               판매자페이지
             </Link>
           </li>

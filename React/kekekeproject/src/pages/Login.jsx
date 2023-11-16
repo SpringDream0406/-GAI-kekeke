@@ -42,6 +42,18 @@ const Login = () => {
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+          sessionStorage.setItem('userData', JSON.stringify(response.data)); // 오타 수정
+      // 세션 스토리지에 데이터가 잘 저장되었는지 확인
+      console.log('Saved in Session Storage:', sessionStorage.getItem('userData'));
+
+            // 세션 스토리지에서 데이터 불러오기
+            const userStorageData = sessionStorage.getItem('userData');
+            if (userStorageData) {
+              const userData = JSON.parse(userStorageData);
+              console.log('Message from Session Storage:', userData.message);
+            }
+            //로그인 성공 후 메인페이지로 이동
+            window.location.href = '/';
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         console.error('에러', error, error.response.data);
@@ -59,7 +71,7 @@ const Login = () => {
 
   return (
 
-   <div className='login-container'>
+  <div className='login-container'>
   
     
             <GlobalStyle />

@@ -12,7 +12,7 @@ import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
 import TourReviewPopup from"./pages/TourReviewPopup";
 import MpOrderList from "./pages/MpOrderList"; // component의 직접적인 오류는 없습니다... 신경 쓰여도 무시해 주세요 - 유정 -
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import ReactResponsive, { Mobile, PC } from './component/ReactResponsive'
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af'
@@ -32,25 +32,35 @@ import SampleCakeList from "./component/SampleCakeList";
 
 function App() {
   const [toggle , setToggle] = useState(false);
-
   const [messages, setMessages] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const addMessage = (message) => {
     setMessages([...messages, message]);
   };
 
 
-  
+  useEffect(() => {
+    // 세션 스토리지에서 사용자 데이터 불러오기
+    const userStorageData = sessionStorage.getItem('userData');
+    
+    console.log('Session Storage : ', userStorageData)
+    setIsLoggedIn(!!userStorageData); // 사용자 데이터가 있으면 true, 없으면 false
+  }, []);
+
+
+
   
   return (
     
     <BrowserRouter>    
   
-       <GlobalStyle />
-        <Header_af toggle={toggle} setToggle={setToggle}/>   
-
-        {/* <GlobalStyle />
-        <Header_bf toggle={toggle} setToggle={setToggle}/>   */}
+      <GlobalStyle />
+      {isLoggedIn ? (
+        <Header_af toggle={toggle} setToggle={setToggle} />
+      ) : (
+        <Header_bf toggle={toggle} setToggle={setToggle} />
+      )}
 
  
     <Routes>
