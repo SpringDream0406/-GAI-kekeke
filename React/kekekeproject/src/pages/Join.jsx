@@ -4,6 +4,7 @@ import GlobalStyle from '../component/GlobalStyle';
 import axios from 'axios';
 import API_URL from '../api_url';
 import '../css/Join.css'
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -40,15 +41,14 @@ const Join = () => {
     const formData = new FormData();
 
     const fileInput = document.getElementById('fileInput');
-    if (fileInput && fileInput.files[0]) {
-      formData.append('profile_img', fileInput.files[0]);
-    }
-
     formData.append('nick_name', nick_name);
     formData.append('cust_id', cust_id);
     formData.append('cust_pw', password);
     formData.append('phone', phone);
     formData.append('cust_pwcheck', passwordcheck);
+    if (fileInput && fileInput.files[0]) {
+      formData.append('profile_img', fileInput.files[0]);
+    }
   
     axios.post(url, formData, {
       headers: {
@@ -107,9 +107,6 @@ const Join = () => {
           console.log(error);
         })
     }
-
-
-
 
 
 

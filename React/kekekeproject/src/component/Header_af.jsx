@@ -266,7 +266,12 @@ const StyledHR =styled.hr`
 `
 
 
-
+const handleLogout = () => {
+  // 세션스토리지에서 userData 제거
+  sessionStorage.removeItem('userData');
+  // 로그아웃 후 리디렉션, 필요에 따라 변경 가능
+  window.location.href = '/';
+};
 
 
 const Header_af = () => {
@@ -325,7 +330,10 @@ const Header_af = () => {
               <LinkWrapper to={'/usermypage'}>내 정보수정</LinkWrapper>
               </Li>
               <Li>
-              <LinkWrapper to="#"> 로그아웃</LinkWrapper>
+               {/* 로그아웃 버튼 */}
+        <button onClick={handleLogout} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
+          로그아웃
+        </button>
               </Li>
             </Ul>
           </Menu>
