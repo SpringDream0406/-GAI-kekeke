@@ -417,6 +417,8 @@ input {
 }
 
 .react-datepicker button{
+  color: white;
+
   left: 267px;
   position: absolute;
   top: 1370px;
@@ -479,8 +481,10 @@ input {
 }
 .react-datepicker__header {
   border-top-left-radius: 10px;
-  padding: 0px;
-  background-color: #761b1b;;
+ 
+  padding-bottom: 20px;
+  background-color: #ff85a3;
+  color: white;
 }
 :global(.react-datepicker__month-container) {
   /* 전역 스타일 적용 */
