@@ -102,7 +102,8 @@ const MpOrderList = () => {
   return (
     <div className="order-list-container">
       <GlobalStyle />
-
+      <img className='message-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
+      <div className='message-text'>주문 내역</div>
       <div className="order-card">
         {orders.map(order => (
           <div key={order.id} className="order-item">
@@ -154,10 +155,14 @@ const ReviewPopup = ({ onClose, orderDetail }) => {
     // 리뷰 등록 후 팝업 닫기
     onClose();
 
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+
   };
 
   const handleClose = () => {
     onClose(); // 부모 컴포넌트에서 받은 onClose 함수를 호출하여 팝업을 닫습니다.
+
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
 

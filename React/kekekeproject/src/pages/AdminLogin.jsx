@@ -4,12 +4,13 @@ import "../css/AdminLogin.css";
 import { useState } from "react";
 import axios from 'axios';
 import API_URL from "../api_url";
+import { useNavigate } from 'react-router-dom';
 
 
 export const AdminLogin = () => {
 
 
-
+  const navigate = useNavigate();
     
   const [Seller_id, setSeller_id] = useState('');
   const [Seller_pw, setSeller_pw] = useState('');
@@ -34,7 +35,9 @@ export const AdminLogin = () => {
       });
   };
 
-
+const handleAdminJoinClick = () => {
+  navigate('/adminjoin');
+}
 
 
 
@@ -65,7 +68,8 @@ export const AdminLogin = () => {
             <div className="admin-not-text">회원이 아니라면?</div>
           </div>
           <div className="admin-join-text">
-            <div className="admin-join">회원가입</div>
+            <div className="admin-join"
+            onClick={handleAdminJoinClick}>회원가입</div>
           </div>
           <div className="admin-login-text">
             <div className="admin-login-title">판매자 로그인</div>

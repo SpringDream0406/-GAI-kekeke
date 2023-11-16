@@ -47,6 +47,9 @@ const UserMessage = () => {
 
   return (
     <div className='frame'>
+    
+      <img className='message-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
+      <div className='message-text'>메시지</div>
     <div className="chatContainer">
       <div className="chatSidebar">
         <div className="sidebarHeader">
