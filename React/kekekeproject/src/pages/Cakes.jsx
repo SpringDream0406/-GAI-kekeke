@@ -2,6 +2,7 @@
 import React , { useState, useEffect }from "react";
 import "../css/Cake.css";
 import {Link} from 'react-router-dom'
+import PageButton from '../component/PageButton';
 
 
 
@@ -180,27 +181,24 @@ export const Cakes = () => {
 ))}
     </div>
 </div>
-          
-                {/* 하단 페이지 구역 */}
-                <div className="tour-page">
-  <div className="tour-page-before" onClick={goToPrevPage}>
-    <img className="polygon" alt="이전 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3.svg" />
-  </div>
-          {/* 페이지네이션 */}
-          <div className="pagination">
-            {pageNumbers.map(number => (
-              <a key={number} onClick={(e) => handlePageClick(e, number)} href="!#">
-                {number}
-              </a>
-            ))}
-          </div>
-          <div className="tour-page-next" onClick={goToNextPage}>
-    <img className="img" alt="다음 페이지" src="https://c.animaapp.com/YHefgPrk/img/polygon-3-1.svg" />
-  </div>
-          </div>
       </div>
     </div>
+    <div className="Tourpagination">
+                <PageButton type="prev"  onClick={goToPrevPage} />
+              {pageNumbers.map(num => (
+                <button
+                  key={num}
+                  onClick={() => setCurrentPage(num)}
+                  className={`page-number ${currentPage === num ? 'active' : ''}`}
+                >
+                  {num}
+                </button>
+              ))}
+              <PageButton type="next"  onClick={goToNextPage} />
+
+          </div>
   </div>  
+  
 
   );
 };

@@ -1,22 +1,19 @@
 .tour {
   background-color: transparent;
+  margin: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
 }
-  
-.tour .tour-contents-fr {
-  height: 2000px;
-  width: 1440px;
-}
+
   
 .tour .tour-contents {
   height: 1415px;
-  left: 210px;
   position: relative;
   top: 150px;
   width: 1020px;
+
 }
 
 .tour .tour-locationbutton { 
@@ -228,31 +225,6 @@
   width: 22px;
 }
 
-.pagination {
-  display: flex;             /* Flexbox 컨테이너로 설정 */
-  justify-content: center; /* 내부 항목을 오른쪽으로 정렬 */
-}
-
-.pagination a {
-  display: inline-block;      /* 인라인 블록 요소로 설정 */
-  margin: 5px;               /* 각 링크 주변의 여백 */
-  padding: 8px 16px;         /* 안쪽 여백: 상하 8px, 좌우 16px */
-  color: #61a4d5;       /* 글자 색상 */
-  font-family: "Pretendard-Bold";     
-  text-decoration: none;     /* 링크 밑줄 제거 */
-  font-size: 20px;           /* 글자 크기 */
-  border-radius: 5px;        /* 테두리 둥글게 */
-  white-space: nowrap;
-  top: -1px;
-  letter-spacing: 0;
-}
-  
-.pagination a:hover {
-  color: #ddd;
-  font-size: 24px;    /* 마우스 오버 시 배경 색상 변경 */
-  font-family: "Pretendard-Bold";   
-}
-
 .tour-container::after {
   grid-row: 1 / 4; /* 1행에서 4행까지 */
   grid-column: 1 / 4; /* 1열에서 4열까지 */
@@ -275,3 +247,29 @@
   transform: rotate(180deg);
   width: 22px;
 } 
+
+.Tourpagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-right: 40px;
+}
+
+.prev-page, .next-page {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.page-numbers a {
+  color: #61a4d5;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.page-numbers a:hover {
+  text-decoration: underline;
+}
+
