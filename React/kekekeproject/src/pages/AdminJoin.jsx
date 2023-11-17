@@ -56,11 +56,11 @@ export const AdminJoin = () => {
       const url = `${API_URL}/seller/join`;
   
       const data = { seller_id: seller_id, seller_pw: seller_PW,
-                     seller_pwcheck: seller_PW_Check, store_name: store_name,
-                     store_detail: store_detail, shop_tel: shop_tel,
-                     add_detail: add_detail, strg_use: strg_use,
-                     business_num: business_num, phone: phone,
-                     start_time: start_time, end_time: end_time};
+                    seller_pwcheck: seller_PW_Check, store_name: store_name,
+                    store_detail: store_detail, shop_tel: shop_tel,
+                    add_detail: add_detail, strg_use: strg_use,
+                    business_num: business_num, phone: phone,
+                    start_time: start_time, end_time: end_time};
   
      
       axios.post(url, data)

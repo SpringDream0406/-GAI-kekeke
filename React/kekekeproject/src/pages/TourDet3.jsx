@@ -5,6 +5,7 @@ import PageButton from "../component/PageButton";
 import "../css/TourReviewPopup.css";
 
 export const TourDet3 = () => {
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
   
   // 리뷰 내용

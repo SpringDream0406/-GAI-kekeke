@@ -2,8 +2,12 @@ import React from "react";
 import "../css/TourCompleteOrder.css";
 import { Link } from "react-router-dom";
 
+
+
 const TourCompleteOrder = () => {
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   return (
+    
     <div className="tour-detail-container">
       <div className="tco-mt">주문내역 확인</div>
       <img  src={"/assets/images/cake1.jpg"} className="tco-cakeimg"/>
@@ -71,7 +75,7 @@ const TourCompleteOrder = () => {
 
     <div className="tco-btn-container">
       <Link to={'/message'} className='tco-msgbtn'>문의하기</Link>
-      <br/>
+
       <Link to={'/mporderlist'} className = 'tco-okbtn'> 확인</Link>
       
     </div>

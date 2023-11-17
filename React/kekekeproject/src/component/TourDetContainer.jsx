@@ -37,7 +37,7 @@ const TourDetContainer = ({ children, containerHeight }) => {
 
     return (
         <div className="frame">
-                <div className="tour-detail-container" style={containerStyle}>
+                <div className="tour-detail-container"  style={containerStyle}>
             <div className="frameTour">
 
                     <div className="tour-detail-content">
