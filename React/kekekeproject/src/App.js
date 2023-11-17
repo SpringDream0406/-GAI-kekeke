@@ -27,7 +27,7 @@ import Ad_Header from "./component/Ad_Header";
 
 // Admin import
 
-import AdminMessage from "./ad_component/AdminMessage";
+//import AdminMessage from "./ad_component/AdminMessage";
 // 글로벌 스타일 적용을 위한 컴포넌트
 import GlobalStyle from "./component/GlobalStyle";
 
@@ -87,7 +87,7 @@ function App() {
           <Route path="/usermypage" element={<Layout><UserMypage /></Layout>} />
           <Route path="/mporderlist" element={<Layout><MpOrderList /></Layout>} />
           <Route path="/cakes" element={<Layout><Cakes /></Layout>} />
-          <Route path="/adminmessage" element = {<Layout><AdminMessage/></Layout>}/>  
+           
           <Route path="/customcake" element={<Layout><CustomCake /></Layout>} />
           <Route path="/login" element={<Layout><Login /></Layout>} />
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />

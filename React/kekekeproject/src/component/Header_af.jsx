@@ -331,9 +331,9 @@ const Header_af = () => {
               </Li>
               <Li>
                {/* 로그아웃 버튼 */}
-                <button onClick={handleLogout} style={{ background: 'none',border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left', fontSize:'16px',fontFamily:'Pretendard-Regular',textDecoration:'none', }}>
-                  로그아웃
-                </button>
+        <button onClick={handleLogout} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
+          로그아웃
+        </button>
               </Li>
             </Ul>
           </Menu>

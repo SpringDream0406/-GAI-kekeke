@@ -10,6 +10,12 @@ function md5Hash(data) {
   });
 }
 
+// let test_pw = 'asdfasdf!'
+// md5Hash(test_pw)
+// .then((result)=>{
+//   console.log(result);
+// })
+
 module.exports = {
   md5Hash
 };
