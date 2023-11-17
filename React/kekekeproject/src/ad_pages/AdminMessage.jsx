@@ -119,8 +119,7 @@ const AdminMessage = () => {
   return (
     <div className='frame'>
 
-      <img className='adminmessage-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
-      <div className='adminmessage-text'>메시지</div>
+      
       <div className="adminchatContainer">
         <div className="adminchatSidebar">
           <div className="adminsidebarHeader">
