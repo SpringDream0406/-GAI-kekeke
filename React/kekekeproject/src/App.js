@@ -29,6 +29,14 @@ import SampleCakeList from "./component/SampleCakeList";
 import Ad_Header from "./component/Ad_Header";
 import Ad_Menubar from "./component/Ad_Menubar";
 
+
+
+// Admin import
+
+import AdminMessage from "./ad_component/AdminMessage";
+
+
+
 // export const store = createContext();
 
 function App() {
@@ -68,16 +76,16 @@ function App() {
         <Header_bf toggle={toggle} setToggle={setToggle} />:""
       )}  */}
 
-{/*  
+ 
        {isLoggedIn ? (
         <Header_af toggle={toggle} setToggle={setToggle} />
       ) : (
        
         <Header_bf toggle={toggle} setToggle={setToggle} />
-      )}  */}
-
+      )} 
+{/* 
 <Ad_Header />
-<Ad_Menubar/>
+<Ad_Menubar/> */}
 
    
 
@@ -108,6 +116,12 @@ function App() {
           path="/usermessage"
           element={<UserMessage messages={messages} addMessage={addMessage} />}
         />
+
+      {/* Admin Route */}
+
+      <Route path="/adminmessage" element = {<AdminMessage/>}/>    
+
+
 
 
     </Routes>
