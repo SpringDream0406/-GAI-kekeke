@@ -8,6 +8,7 @@ router.post('/cakes', (req, res) => {
     console.log(`케이크 둘러보기, $`);
 
     let sql = `select 
+                a.prd_id,
                 a.prd_name,
                 b.shop_addr1,
                 c.img_name2
