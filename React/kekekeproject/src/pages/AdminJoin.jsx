@@ -27,6 +27,17 @@ export const AdminJoin = () => {
       }
     };
 
+    
+    const handleAddressSearch = () => {
+      new window.daum.Postcode({
+        oncomplete: function(data) {
+          // 주소 상태를 업데이트합니다.
+          setAddress(data.address);
+          // 필요하다면 다른 상태도 업데이트할 수 있습니다. 예: 지번, 도로명 주소 등
+        }
+      }).open();
+    };
+    
 
 
     const [seller_id, setSeller_id] = useState('');
@@ -44,7 +55,7 @@ export const AdminJoin = () => {
 
     const [phone, setphone] = useState('');
 
-
+    const [address, setAddress] = useState('');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
 
@@ -104,7 +115,6 @@ export const AdminJoin = () => {
 
 
 
-
   return (
     <div className="admin-join">
       <div className="div-4">
@@ -132,6 +142,7 @@ export const AdminJoin = () => {
                     type="text"
                     placeholder="아이디 입력"
                     value={seller_id}
+                    maxLength="20"
                     onChange={(event)=>setSeller_id(event.target.value)} />
               </div>
               <div className="admin-info-id-check">
@@ -161,6 +172,7 @@ export const AdminJoin = () => {
                 type="password"
                 placeholder="비밀번호 입력"
                 value={seller_PW}
+                maxLength="20"
                 onChange={(event)=>setSeller_PW(event.target.value)} />
               </div>
               <div className="admin-info-password-4">
@@ -184,7 +196,7 @@ export const AdminJoin = () => {
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">전화번호</div>
               </div>
-              <div className="div-wrapper-3">
+              <div className="admin-info-password-6">
                 <input className="text-wrapper-4"
                 type="tel"
                 placeholder="전화번호 입력"
@@ -239,12 +251,27 @@ export const AdminJoin = () => {
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">가게 주소</div>
               </div>
+              <button className="address_btn" onClick={handleAddressSearch}>주소 찾기</button>
               <div className="store-address-input">
                 <div className="store-address-city">
-                  <div className="text-wrapper-4">구 선택</div>
+                <input
+                        className="text-wrapper-4"
+                        type="text"
+                        placeholder="가게 주소"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
+                        readOnly // 혹은 주소 입력을 API를 통해서만 하게 하려면 readOnly 속성을 사용합니다.
+                      />
+                     
                 </div>
+                
                 <div className="store-address-input-2">
-                  <div className="text-wrapper-4">주소 찾기</div>
+                <input
+                        className="text-wrapper-4"
+                        type="text"
+                        placeholder="상세주소를 입력하세요"
+            
+                      />
                 </div>
               </div>
             </div>
@@ -259,12 +286,17 @@ export const AdminJoin = () => {
               </div>
               <div className="store-explain-input">
                 <div >
-                    <textarea className="ad-text-wrapper-4"
-                    type="text"
-                    placeholder="가게 설명 입력"
-                    value={store_detail}
-                    onChange={(event)=>setStore_detail(event.target.value)}
-                    />
+                <textarea
+                                className="ad-info-input"
+                                maxLength="100"
+                                placeholder="가게를 소개해주세요"
+                                value={store_detail}
+                                onChange={(event) => setStore_detail(event.target.value)}
+                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                              ></textarea>
+
                 </div>
               </div>
             </div>
@@ -273,27 +305,37 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">예약 주의사항</div>
               </div>
               <div className="store-explain-input">
-                <textarea className="ad-text-wrapper-50"
-                    type="text"
-                    placeholder="예약 주의사항 입력"
-                    value={add_detail}
-                    onChange={(event)=>setAdd_detail(event.target.value)}
+              <textarea
+                                className="ad-info-input"
+                                maxLength="100"
+                                placeholder="주의사항을 입력해주세요"
+                                value={add_detail}
+                                onChange={(event) => setAdd_detail(event.target.value)}
+                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                              ></textarea>
 
-                />
+             
               </div>
             </div>
             <div className="keep-method">
+      
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">보관 및 이용방법</div>
               </div>
               <div className="store-explain-input">
-                <textarea className="ad-text-wrapper-60"
-                    type="text"
-                    placeholder="보관 및 이용방법 입력"
-                    value={strg_use}
-                    onChange={(event)=>setStrg_use(event.target.value)}
+              <textarea
+                                className="ad-info-input"
+                                maxLength="100"
+                                placeholder="보관 및 이용방법을 입력해주세요"
+                                value={strg_use}
+                                onChange={(event) => setStrg_use(event.target.value)}
+                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                              ></textarea>
 
-                    />
               </div>
             </div>
             <div className="business-hours">

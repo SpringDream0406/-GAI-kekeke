@@ -1,12 +1,9 @@
-import React from 'react'
-
-import '../Fonts/Font.css'
-import { useState, useContext  } from 'react'
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
-import { store } from '../App';
+// App.js 에서 StoreContext를 import합니다.
+import { StoreContext } from '../App'; // '../App'은 실제 경로에 맞게 수정해야 합니다
 
 const StyledHeader = styled.header`
   
@@ -73,6 +70,17 @@ const NavManu = styled.ul`
     display: block;
     padding: 10px 15px;
   }
+
+  button{
+    text-decoration: none;
+    color: black;
+    border: none;
+    font-size: 16px;
+    background: none;
+    font-family: 'Pretendard-Regular';
+    display: block;
+    padding: 10px 15px;
+  }
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
@@ -85,20 +93,22 @@ const NavManu = styled.ul`
 
 const Header_bf = () => {
 
-  // const context = useContext(store)
+
   const [isToggleOpen, setIsToggleOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const nav = useNavigate()
-
+  const { setIsAdminLoggedIn } = useContext(StoreContext);
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
   };
 
-  function testClick(){
+  const testClick = () => {
+    // 어드민 로그인 페이지로 이동하면서 상태를 변경합니다
+    setIsAdminLoggedIn(false); // 어드민 로그인 상태를 false로 설정
+    navigate("/admin/login");
+  };
 
-    // context.setCheck(1)
-    nav("/adminlogin")
-  }
+ 
   return (
     <>
       <StyledHeader >
@@ -126,12 +136,12 @@ const Header_bf = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/join"} className="nav-menu-list">
+            <Link to={"/join"} className="nav-menu-list" >
               회원가입
             </Link>
           </li>
           <li>
-            <button to={"/adminlogin"} className="nav-menu-list" onClick={testClick}>
+            <button className="nav-menu-list" onClick={testClick}>
               판매자페이지
             </button>
           </li>
