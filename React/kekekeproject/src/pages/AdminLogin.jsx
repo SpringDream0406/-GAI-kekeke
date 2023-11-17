@@ -1,19 +1,19 @@
-import React from "react";
-// import { DivWrapper } from "./DivWrapper";
-import "../css/AdminLogin.css";
-import { useState } from "react";
+import React, { useState, useContext } from "react"; // useContext 추가
 import axios from 'axios';
-import API_URL from "../api_url";
 import { useNavigate } from 'react-router-dom';
+import API_URL from "../api_url";
+import '../css/AdminLogin.css'
+// StoreContext를 App.js 파일에서 정의한 위치에서 가져옵니다.
+import { StoreContext } from '../App'; // '../App'은 실제 경로에 맞게 수정해야 합니다.
 
 
 export const AdminLogin = () => {
-
-
   const navigate = useNavigate();
-    
+  const { setIsAdminLoggedIn } = useContext(StoreContext); // StoreContext를 사용합니다.
   const [seller_id, setSeller_id] = useState('');
   const [seller_pw, setSeller_pw] = useState('');
+    
+  
   
   const handleLogin = () => {
     const url = `${API_URL}/seller/login`;
@@ -22,7 +22,8 @@ export const AdminLogin = () => {
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
           console.log(response.data.cust_id);
-          alert(response.data.message)
+          alert(response.data.message);
+          handleLoginSuccess(); // 로그인 성공 처리 함수를 호출합니다.
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
@@ -36,8 +37,12 @@ export const AdminLogin = () => {
   };
 
 const handleAdminJoinClick = () => {
-  navigate('/adminjoin');
+  navigate('/admin/join');
 }
+const handleLoginSuccess = () => {
+  setIsAdminLoggedIn(true);
+  navigate('/admin-dashboard'); // 성공 후 이동할 경로를 설정합니다.
+};
 
 
   return (
@@ -46,19 +51,22 @@ const handleAdminJoinClick = () => {
         <div className="div-5">
           <div className="admin-login-input">
             <div className="admin-pw-input">
-              <input className="admin-input"
-                    type="password"
-                    placeholder="비밀번호를 입력하세요"
-                    value={seller_id}
-                    onChange={(event)=> setSeller_pw(event.target.value)}
-              />
+            <input
+    className="admin-input"
+    type="password"
+    placeholder="비밀번호를 입력하세요"
+    value={seller_pw} // 비밀번호에는 seller_pw 상태를 사용해야 합니다.
+    onChange={(event) => setSeller_pw(event.target.value)} // 여기도 seller_pw를 업데이트해야 합니다.
+  />
             </div>
             <div className="admin-id-input">
-              <input className="admin-input"
-                    type="text"
-                    placeholder="아이디를 입력하세요"
-                    value={seller_pw}
-                    onChange={(event)=> setSeller_id(event.target.value)}/>
+            <input
+    className="admin-input"
+    type="text"
+    placeholder="아이디를 입력하세요"
+    value={seller_id} // 아이디 입력에는 seller_id 상태를 사용해야 합니다.
+    onChange={(event) => setSeller_id(event.target.value)} // 여기도 seller_id를 업데이트해야 합니다.
+  />
 
             </div>
           </div>
@@ -73,10 +81,10 @@ const handleAdminJoinClick = () => {
             <div className="admin-login-title">판매자 로그인</div>
           </div>
           <div className="admin-login-button">
-            <div className="admin-login-button-2">
+            
               <button className="admin-login-button-text"
               onClick={handleLogin}>로그인하기</button>
-            </div>
+            
           </div>
         </div>
         {/* <DivWrapper className="admin-header" /> */}
