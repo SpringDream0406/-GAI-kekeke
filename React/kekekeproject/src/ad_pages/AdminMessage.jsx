@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import '../ad_css/AdminMessage.css';
 import Chatroom from '../component/Chatroom';
+import AdminBG from '../ad_component/Ad_BG'
+import Ad_Menubar from '../component/Ad_Menubar';
+
 
 // 임시 유저 데이터 목록
 const initialUserData = [
@@ -117,9 +120,12 @@ const AdminMessage = () => {
 
 
   return (
-    <div className='frame'>
+    
+    <div>
+      <Ad_Menubar/>
 
-      
+    <div className='frame'>    
+    <div className="adminContent">
       <div className="adminchatContainer">
         <div className="adminchatSidebar">
           <div className="adminsidebarHeader">
@@ -193,6 +199,8 @@ const AdminMessage = () => {
         )}
 
       </div>
+    </div>
+    </div>
     </div>
   )
 }
