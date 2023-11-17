@@ -4,7 +4,6 @@ const cors = require('cors'); // react와 node 방화벽 제거
 const bodyParser = require('body-parser'); // post방식의 데이터 파싱해주는거
 const custRouter = require('./routes/cust'); // 구매자 router
 const sellerRouter = require('./routes/seller')
-const productRouter = require('./routes/product')
 
 app.use(cors()); // react와 node 방화벽 제거
 app.use(bodyParser.json()); // form 파싱
@@ -12,7 +11,6 @@ app.use(bodyParser.urlencoded({extended : true})); // post 파싱
 
 app.use('/cust', custRouter); // 구매자 라우터
 app.use('/seller', sellerRouter); // 판매자 라우터
-app.use('/product', productRouter);
 
 
 app.set('port', process.env.PORT || 3333);
