@@ -44,6 +44,12 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
     console.log('커스터머 회원가입 시도', req.body);
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
 
+    let nullCheck = !(cust_id && nick_name && cust_pw && cust_pwcheck && phone);
+    if (nullCheck) {
+        console.log('req 빈 데이터 존재');
+        res.status(400).send({message : '빈 칸이 존재합니다.'})
+        return
+    }
     // 이미지 파일 처리
     let imgFile = req.file || { filename: 'enho.jpg' };
     let profile_img = imgFile.filename;
