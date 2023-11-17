@@ -1,6 +1,7 @@
 .join-container{
 
   z-index: -9999999999 ;
+  
 
 }
   
@@ -10,6 +11,7 @@
     top: 175px;
     position: relative;
     height: 1269px;
+  
     position: absolute;
     width: 709px;
     background-color: #ffa0b7;
@@ -387,7 +389,7 @@
     z-index: 999;
   }
   
- .join-button {
+ .web-join-button {
  
     height: 79px;
     left: 736px;
@@ -427,9 +429,10 @@
   }
   
   .join_joinbtn:hover{
-    background-color: #ffd3de;
-  border: 3px solid white;
-  color: white;
+    background-color: #a8d9ff;
+    border: 5px solid #a8d9ff;
+    color: white;
+
   }
   
  .overlap-4 {
