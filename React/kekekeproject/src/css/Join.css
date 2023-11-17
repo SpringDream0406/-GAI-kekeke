@@ -342,30 +342,24 @@
 
 .custom-file-upload {
 
-  padding: 10px;
+  padding: 70px;
   border: 3px solid pink;
   border-radius: 100px;
   z-index: 9999999;
   cursor: pointer;
   position: relative;
-  top: 150px;
-  left: 330px;
+  top: 80px;
+  left: 170px;
 }
 .upload-img{
   width: 30px;
   position: relative;
-  top: 8px;
+  top: 5px;
 
   z-index: 9999999;
   
 }
-  .preview{
-    border: 1px solid white;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin-left: 175px;
-  }
+
 
   .preview img{
   
@@ -376,7 +370,6 @@
     height: 167px;
     background-color: white;
     border-radius: 100px;
-    border: 1px solid white;
     z-index:999;
   }
   

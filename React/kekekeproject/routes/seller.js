@@ -3,7 +3,8 @@ const router = express.Router();
 const conn = require('../config/database');
 const multer = require('multer');
 const path = require('path')
-const { join_check, join_res } = require('../config/join');
+const { login_func } = require('../config/login');
+const { join_check } = require('../config/join');
 const { md5Hash } = require('../config/crypto');
 const { check_func } = require('../config/check');
 
@@ -25,7 +26,7 @@ const storage = multer.diskStorage({
 
         // 허용된 확장자인지 체크
         if (!allowedImageExtensions.includes(extname.toLowerCase())) {
-            return cb(new Error({message : '허용되지 않는 이미지 확장자 입니다.'}));
+            return cb(new Error('허용되지 않는 이미지 확장자 입니다.'));
         }
 
         // seller_id + 확장자로 이름 설정
@@ -102,12 +103,12 @@ router.post('/join', upload.single('seller_profile1'), (req, res) => {
                         business_num,
                         seller_profile1
                     ], (err, rows) => {
-                        join_res(err, rows, res);
+                        join_check(err, rows, res);
                     })
                 })
                 .catch((error) => {
                     console.error('회원가입 비밀번호 헤싱 에러', error);
-                    res.status(500).send({ message: '서버 에러' })
+                    res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' })
                 })
         })
         .catch((error) => { // 회원가입 제한사항 체크 통과 못함
@@ -146,7 +147,7 @@ router.post('/login', (req, res) => {
         // console.log(rows);
         if (err) {
             console.error('로그인 시도 에러', err);
-            res.status(500).send({ message: '서버 에러' });
+            res.status(500).send({ message: '로그인 시도 에러' });
         }
         else {
             if (rows.length > 0) { // id 결과가 있으면
@@ -180,17 +181,17 @@ router.post('/login', (req, res) => {
                             console.log('로그인 실패 - 비밀번호 다름');
                             console.log('받은 비번', cust_pw, user_ip);
                             // console.log('비번 검증', result);
-                            res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
+                            res.status(400).send({ message: '로그인 실패' });
                         }
                     })
                     .catch((error) => {
                         console.error('비밀번호 검증 중 에러', error);
-                        res.status(500).send({ message: '서버 에러' })
+                        res.status(500).send({ message: '비밀번호 검증 중 에러' })
                     })
             }
             else {
                 console.log('로그인 실패 - 데이터 없음', user_ip);
-                res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
+                res.status(400).send({ message: '로그인 데이터 없음' });
             }
         }
     })
