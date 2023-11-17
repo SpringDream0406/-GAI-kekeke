@@ -5,7 +5,7 @@ import '../css/Chatroom.css';
 // 소켓 연결을 컴포넌트 외부에서 한 번만 생성합니다.
 const socket = io('http://localhost:4000');
 
-const Chatroom = ({ roomId, sender }) => {
+const Chatroom = ({ roomId, sender, adminStyle }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
@@ -60,7 +60,12 @@ const Chatroom = ({ roomId, sender }) => {
           placeholder="메시지를 입력해 주세요"
           onKeyPress={(event) => event.key === 'Enter' && sendMessage()}
         />
-        <button className="send-button" onClick={sendMessage}>전송</button>
+        <button
+          className={`send-button ${adminStyle ? 'admin-send-button' : ''}`}
+          onClick={sendMessage}
+        >
+          전송
+        </button>
       </div>
     </div>
   );
