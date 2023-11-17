@@ -1,12 +1,12 @@
 import React from 'react'
 
 import '../Fonts/Font.css'
-import { useState  } from 'react'
+import { useState, useContext  } from 'react'
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import styled from "styled-components";
 import { useNavigate } from 'react-router-dom';
-
+import { store } from '../App';
 
 const StyledHeader = styled.header`
   
@@ -84,11 +84,21 @@ const NavManu = styled.ul`
 `;
 
 const Header_bf = () => {
+
+  // const context = useContext(store)
   const [isToggleOpen, setIsToggleOpen] = useState(false);
+
+  const nav = useNavigate()
 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
   };
+
+  function testClick(){
+
+    // context.setCheck(1)
+    nav("/adminlogin")
+  }
   return (
     <>
       <StyledHeader >
@@ -121,9 +131,9 @@ const Header_bf = () => {
             </Link>
           </li>
           <li>
-            <Link to={"/adminlogin"} className="nav-menu-list">
+            <button to={"/adminlogin"} className="nav-menu-list" onClick={testClick}>
               판매자페이지
-            </Link>
+            </button>
           </li>
         </NavManu>
         <FaBars className="menuToggleBtn" onClick={handleToggleOpen} />

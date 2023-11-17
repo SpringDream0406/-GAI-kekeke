@@ -14,7 +14,7 @@ const Ad_Header = () => {
             </div>
             <div className="view-3" />
             <div className="ellipse-wrapper">
-              <div className="ellipse" />
+              <img className="ellipse" src="/assets/images/cake1.jpg"/>
             </div>
           </div>
           <img className="menubar" alt="Menubar" src="menubar-2.png" />
