@@ -12,12 +12,12 @@ export const AdminLogin = () => {
 
   const navigate = useNavigate();
     
-  const [Seller_id, setSeller_id] = useState('');
-  const [Seller_pw, setSeller_pw] = useState('');
+  const [seller_id, setSeller_id] = useState('');
+  const [seller_pw, setSeller_pw] = useState('');
   
   const handleLogin = () => {
     const url = `${API_URL}/seller/login`;
-    const data = { Seller_id: Seller_id, Seller_pw: Seller_pw};
+    const data = { seller_id: seller_id, seller_pw: seller_pw};
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
@@ -40,8 +40,6 @@ const handleAdminJoinClick = () => {
 }
 
 
-
-
   return (
     <div className="admin-login">
       <div className="div-4">
@@ -51,16 +49,16 @@ const handleAdminJoinClick = () => {
               <input className="admin-input"
                     type="password"
                     placeholder="비밀번호를 입력하세요"
-                    value={Seller_id}
-                    onChange={(event)=> setSeller_id(event.target.value)}
+                    value={seller_id}
+                    onChange={(event)=> setSeller_pw(event.target.value)}
               />
             </div>
             <div className="admin-id-input">
               <input className="admin-input"
                     type="text"
                     placeholder="아이디를 입력하세요"
-                    value={Seller_pw}
-                    onChange={(event)=> setSeller_pw(event.target.value)}/>
+                    value={seller_pw}
+                    onChange={(event)=> setSeller_id(event.target.value)}/>
 
             </div>
           </div>
