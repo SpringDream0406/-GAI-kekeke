@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from 'react';
 import Slider from 'react-slick';
 import '../css/Slider.css'
-
+import { Link} from "react-router-dom";
 
 
 const SimpleSlider = () => {
@@ -24,7 +24,9 @@ const SimpleSlider = () => {
     <Slider {...settings} className="slider-container">
   
       <div className="slider-bg">
+        <Link to={'/tourdet3'}>
         <img src={'/assets/images/cake1.jpg'} alt="Content 1" className="slider-img"/>
+        </Link>
         <div className="slider-rvtxt">
           케이크맛이따 헤헤ㅁ마시/다헤헤마시따헤헤헿헤헤헤헤헤마
         </div>
@@ -40,7 +42,9 @@ const SimpleSlider = () => {
         <hr className="slider-hr"/>
       </div>
       <div className="slider-bg">
+      <Link to={'/tourdet3'}>
         <img  src={'/assets/images/cake2.png'} alt="Content 2" className="slider-img"/>
+      </Link>  
         <div className="slider-rvtxt">
           케이크가너무맛있어여진짜개맛있음진짜맛있
           케이크가너무맛있어여진짜개맛있음진짜맛있
@@ -57,7 +61,9 @@ const SimpleSlider = () => {
         <hr className="slider-hr"/>
       </div>
       <div className="slider-bg">
+      <Link to={'/tourdet3'}>
         <img  src={'/assets/images/cake3.jpg'} alt="Content 3" className="slider-img"/>
+      </Link>  
         <div className="slider-rvtxt">
           케이크가너무맛있어여진짜개맛있음진짜맛있
           케이크가너무맛있어여진짜개맛있음진짜맛있
@@ -74,7 +80,9 @@ const SimpleSlider = () => {
         <hr className="slider-hr"/>
       </div>
       <div className="slider-bg">
+      <Link to={'/tourdet3'}>
         <img src={'/assets/images/cake1.jpg'} alt="Content 4" className="slider-img"/>
+      </Link>  
         <div className="slider-rvtxt">
           케이크가너무맛있어여진짜개맛있음진짜맛있
           케이크가너무맛있어여진짜개맛있음진짜맛있
@@ -91,7 +99,9 @@ const SimpleSlider = () => {
         <hr className="slider-hr"/>
       </div>
       <div className="slider-bg">
+      <Link to={'/tourdet3'}>
         <img  src={'/assets/images/cake2.png'} alt="Content 5" className="slider-img"/>
+      </Link>  
         <div className="slider-rvtxt">
           케이크가너무맛있어여진짜개맛있음진짜맛있
           케이크가너무맛있어여진짜개맛있음진짜맛있
@@ -108,7 +118,9 @@ const SimpleSlider = () => {
         <hr className="slider-hr"/>
       </div>
       <div  className="slider-bg">
+      <Link to={'/tourdet3'}>
         <img  src={'/assets/images/cake3.jpg'} alt="Content 6" className="slider-img"/>
+      </Link>  
         <div className="slider-rvtxt">
           케이크가너무맛있어여진짜개맛있음진짜맛있
           케이크가너무맛있어여진짜개맛있음진짜맛있

@@ -5,7 +5,6 @@ const conn = require('../config/database'); // DB 연결
 const { md5Hash } = require('../config/crypto'); // 비밀번호 md5 암호화
 const multer = require('multer'); // 이미지 처리
 const path = require('path'); // 경로 작성 방법 변경
-const { login_func } = require('../config/login'); // 로그인 응답 모듈화
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
 const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
 
@@ -45,6 +44,12 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
     console.log('커스터머 회원가입 시도', req.body);
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
 
+    let nullCheck = !(cust_id && nick_name && cust_pw && cust_pwcheck && phone);
+    if (nullCheck) {
+        console.log('req 빈 데이터 존재');
+        res.status(400).send({message : '빈 칸이 존재합니다.'})
+        return
+    }
     // 이미지 파일 처리
     let imgFile = req.file || { filename: 'enho.jpg' };
     let profile_img = imgFile.filename;
@@ -66,7 +71,7 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
                 })
                 .catch((error) => {
                     console.error('회원가입 비밀번호 헤싱 에러', error);
-                    res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' });
+                    res.status(500).send({ message: '서버 에러' });
                 })
         })
         .catch((error) => { // 회원가입 제한사항 체크 통과 못함
