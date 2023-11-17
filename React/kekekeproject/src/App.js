@@ -20,7 +20,7 @@ import Capture from "./pages/Capture";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
 
 // Admin import
-
+import AdMain from "./ad_pages/AdMain";
 import AdminMessage from "./ad_pages/AdminMessage";
 import AdminLogin from "./ad_pages/AdminLogin";
 import { AdminJoin } from "./ad_pages/AdminJoin";
@@ -71,8 +71,7 @@ function App() {
         <Routes>
 
 
- 
-          <Route path="/join" element={<Layout><Join /></Layout>} />
+          <Route path="/admin" element={<Layout><AdMain /></Layout>} />
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
           <Route path="/admin/login" element={<Layout><AdminLogin /></Layout>} />
           <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
@@ -80,6 +79,7 @@ function App() {
 
 
           <Route path="/" element={<Layout><Main /></Layout>} />
+          <Route path="/join" element={<Layout><Join /></Layout>} />
           <Route path="/tour-order" element={<Layout><TourOrder /></Layout>} />
           <Route path="/tour-det3" element={<Layout><TourDet3 /></Layout>} />
           <Route path="/tour-det2" element={<Layout><TourDet2 /></Layout>} />
