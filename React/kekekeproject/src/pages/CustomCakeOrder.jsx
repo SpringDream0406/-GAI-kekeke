@@ -30,7 +30,7 @@ const CustomCakeOrder = () => {
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
   const [pickupDate, setPickupDate] = useState(new Date()); // 날짜 선택을 위한 상태
-  const [checkedValue, setCheckedValue] = useState(null);
+
 
   
 
@@ -103,20 +103,22 @@ const CustomCakeOrder = () => {
    
        <div className='co-check-container'>
           <div className="co-check-1">
-            <Checkbox className="co-check1-txt" label="도시락" value="box" checkedValue={checkedValue} setCheckedValue={setCheckedValue} />
-            </div>  
-          <div className="co-check-2">  
-            <Checkbox className="co-check-txt1" label="1호" value="size1" checkedValue={checkedValue} setCheckedValue={setCheckedValue} />
+            <Checkbox></Checkbox>
+            <div className="co-check1-txt">도시락</div>
           </div>
-          <div className="co-check-3">  
-            <Checkbox className="co-check-txt2" label="2호" value="size2" checkedValue={checkedValue} setCheckedValue={setCheckedValue} />
-          </div>  
+          <div className="co-check-2">
+          <Checkbox></Checkbox>
+            <div className="co-check-txt1">1호</div>
+          </div>
+          <div className="co-check-3">
+          <Checkbox></Checkbox>
+            <div className="co-check-txt2">2호</div>
+          </div>
           <div className="co-check-4">
-            <Checkbox className="co-check-txt3" label="3호" value="size3" checkedValue={checkedValue} setCheckedValue={setCheckedValue} />
+          <Checkbox></Checkbox>
+            <div className="co-check-txt3">3호</div>
           </div>
-            
        </div>
-       
       <div className="rectangle" />
       <div className="co-userphonetitle">예약자 번호</div>
       <input className="co-userphone"
@@ -212,25 +214,23 @@ export default CustomCakeOrder
 
 
 
-const Checkbox = ({ label, value, checkedValue, setCheckedValue }) => {
-  // onChange 핸들러에서 setCheckedValue를 호출합니다.
-  const handleChange = () => {
-    if (checkedValue !== value) {
-      setCheckedValue(value);
-    } else {
-      setCheckedValue(null);
-    }
+function Checkbox() {
+  // 상태 초기화: 체크박스의 기본 상태는 false로 설정
+  const [isChecked, setIsChecked] = useState(false);
+
+  // 체크박스 상태가 변경될 때 실행되는 이벤트 핸들러
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // 현재 상태의 반대 값을 설정
   };
+
   return (
     <div>
-      <label className='co-check-txt2'>
+      <label>
         <input
-          
           type="checkbox"
-          checked={checkedValue === value} // 현재 상태를 반영
-          onChange={handleChange}
+          checked={isChecked} // 현재 상태를 반영
+          onChange={handleCheckboxChange}
         />
-        {label}
       </label>
     </div>
   );

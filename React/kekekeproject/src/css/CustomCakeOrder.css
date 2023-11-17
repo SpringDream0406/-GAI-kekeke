@@ -104,7 +104,6 @@ width: 440px;
   line-height: normal;
   position: absolute;
   top: 32px;
-  text-decoration: none;
 }
 
 .co-container .co-cakeplusttitle {
@@ -526,7 +525,7 @@ input {
   padding: 10px;
   position: absolute;
   top: 959px;
-  width: 85px;
+  width: 76px;
 }
 
 
@@ -567,7 +566,7 @@ input {
   padding: 10px;
   position: absolute;
   top: 1023px;
-  width: 80px;
+  width: 51px;
 }
 .co-check-txt2 {
   color: #000000;
@@ -579,7 +578,6 @@ input {
   margin-top: -1px;
   position: relative;
   width: 50px;
-  margin-left: 2px;
 }
 
 .co-check-3 {
@@ -592,7 +590,7 @@ input {
   padding: 10px;
   position: absolute;
   top: 959px;
-  width: 80px;
+  width: 51px;
 }
 
 
@@ -606,8 +604,7 @@ input {
   padding: 10px;
   position: absolute;
   top: 1023px;
-  width: 80px;
-  
+  width: 53px;
 }
 
 .co-check-txt3 {
