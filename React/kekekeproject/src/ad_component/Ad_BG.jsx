@@ -6,7 +6,6 @@ import Ad_Menubar from '../component/Ad_Menubar.jsx'
 const Ad_BG = () => {
   return (
     <div className='adbg-container'>
-        
     </div>
   )
 }
