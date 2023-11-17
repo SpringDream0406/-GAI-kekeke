@@ -4,6 +4,9 @@ import GlobalStyle from '../component/GlobalStyle'
 import '../css/MpOrderListPopup.css'
 import { AiOutlineCamera } from 'react-icons/ai';
 
+
+
+
 // 예시 주문 데이터
 const orders = [
   {
@@ -85,6 +88,7 @@ const orders = [
 ];
 
 const MpOrderList = () => {
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
   // 팝업 상태 관리
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -181,7 +185,7 @@ const ReviewPopup = ({ onClose, orderDetail }) => {
       reader.readAsDataURL(file);
     }
   }
-
+  
   return (
     <div className="review-popup-container">
       <div className="review-popup">

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import GlobalStyle from '../component/GlobalStyle';
 import axios from 'axios';
 import API_URL from '../api_url';
+import { useNavigate } from 'react-router-dom';
 import '../css/Join.css'
 import { Navigate } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ const Join = () => {
   const [nick_name, setUsernickname] = useState('');
   const [phone, setphone] = useState('');
   const [error, setError] = useState('');
-        
+  const navigate = useNavigate(); 
         
           
   const encodeFileToBase64 = (fileBlob) => {
@@ -37,6 +38,7 @@ const Join = () => {
 
 
   const handleJoin = () => {
+    
     const url = `${API_URL}/cust/join`;
     const formData = new FormData();
 
@@ -59,7 +61,7 @@ const Join = () => {
       .then(response => { // status(200) 인 경우
           console.log(response.data);
           alert(response.data.message);
-          
+          navigate('/');
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
@@ -79,6 +81,7 @@ const Join = () => {
     console.log(`${key}:`, value);
   }
     }
+    
 
 
     const handlechecknick = () => {
@@ -231,6 +234,7 @@ const Join = () => {
 
                         {/* Image preview */}
                         <div className="preview">
+                          
                           {imageSrc && <img src={imageSrc} alt="preview-img" />}
                         </div>
                       </div>
