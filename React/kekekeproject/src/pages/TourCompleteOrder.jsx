@@ -71,7 +71,7 @@ const TourCompleteOrder = () => {
 
     <div className="tco-btn-container">
       <Link to={'/message'} className='tco-msgbtn'>문의하기</Link>
-      <br/>
+
       <Link to={'/mporderlist'} className = 'tco-okbtn'> 확인</Link>
       
     </div>
