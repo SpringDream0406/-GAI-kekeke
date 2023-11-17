@@ -241,7 +241,7 @@ const Join = () => {
                 <div className="join_maintitle">회원가입</div>
               </div>
             </div>
-            <div className="join-button">
+            <div className="web-join-button">
               <div className="view-2">
                 <div className="join_joinbtn" onClick={handleJoin}>회원가입</div>
               </div>
