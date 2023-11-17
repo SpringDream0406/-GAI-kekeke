@@ -25,17 +25,20 @@ import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af';
 import Ad_Header from "./component/Ad_Header";
 
-
 // Admin import
 
-import AdminMessage from "./ad_component/AdminMessage";
-
-
+//import AdminMessage from "./ad_component/AdminMessage";
 // 글로벌 스타일 적용을 위한 컴포넌트
 import GlobalStyle from "./component/GlobalStyle";
 
 // 컨텍스트 생성
 export const StoreContext = createContext();
+
+
+
+
+
+
 
 
 function App() {
@@ -68,6 +71,8 @@ function App() {
       
         {/* 라우트 설정 */}
         <Routes>
+
+
  
           <Route path="/join" element={<Layout><Join /></Layout>} />
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
@@ -82,9 +87,7 @@ function App() {
           <Route path="/usermypage" element={<Layout><UserMypage /></Layout>} />
           <Route path="/mporderlist" element={<Layout><MpOrderList /></Layout>} />
           <Route path="/cakes" element={<Layout><Cakes /></Layout>} />
-
-          <Route path="/adminmessage" element = {<Layout><AdminMessage/></Layout>}/>  
-
+           
           <Route path="/customcake" element={<Layout><CustomCake /></Layout>} />
           <Route path="/login" element={<Layout><Login /></Layout>} />
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />
@@ -96,11 +99,16 @@ function App() {
       </BrowserRouter>
     </StoreContext.Provider>
 
+       
+
+
+
+
+   
     // </store.Provider>
+  
 
 )}
-
-
 
 export default App;
 
@@ -122,7 +130,4 @@ function Layout( {children}) {
       {/* 해당 컴포넌트에 라우트된 내용을 렌더링하려면 여기에 Outlet을 사용합니다 */}
     </>
   );
-
   };
-
-
