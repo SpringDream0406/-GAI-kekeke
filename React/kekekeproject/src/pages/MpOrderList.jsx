@@ -146,17 +146,23 @@ const ReviewPopup = ({ onClose, orderDetail }) => {
   const [image, setImage] = useState(null);
 
   const handleReviewSubmit = () => {
+    // 리뷰 내용이 비어있는지 확인
+    if (!reviewContent.trim()) {
+      // 리뷰 내용이 비어있을 경우 알림 표시
+      alert('리뷰 내용을 입력해주세요.');
+      return; // 함수 실행을 여기서 중단
+    }
+  
     // 리뷰 등록 로직을 여기에 추가
     console.log('리뷰 내용:', reviewContent);
-
+  
     // 리뷰 등록 후 알림 창 표시
     alert('리뷰가 등록되었습니다.');
-
+  
     // 리뷰 등록 후 팝업 닫기
     onClose();
-
+  
     window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
-
   };
 
   const handleClose = () => {
