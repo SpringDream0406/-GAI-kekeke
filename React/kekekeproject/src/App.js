@@ -1,17 +1,16 @@
-import React, { useState, useEffect, createContext, useContext } from "react"; // Import useContext here
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-// 페이지 및 컴포넌트 import (경로는 예시입니다, 실제 경로에 맞게 조정해야 함)
+
+// 페이지 및 컴포넌트 import
+
 import Main from "./Main";
 import Join from "./pages/Join";
 import TourOrder from "./pages/TourOrder";
 import TourDet3 from "./pages/TourDet3";
-import AdminLogin from "./pages/AdminLogin";
-
 import TourDet2 from "./pages/TourDet2";
 import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
-import TourReviewPopup from "./pages/TourReviewPopup";
 import MpOrderList from "./pages/MpOrderList";
 import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
@@ -19,26 +18,25 @@ import Login from "./pages/Login";
 import UserMessage from "./pages/UserMessage";
 import Capture from "./pages/Capture";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
-import { AdminJoin } from "./pages/AdminJoin";
+
+// Admin import
+
+import AdminMessage from "./ad_pages/AdminMessage";
+import AdminLogin from "./ad_pages/AdminLogin";
+import { AdminJoin } from "./ad_pages/AdminJoin";
+
+// 글로벌 스타일 적용을 위한 컴포넌트
+
+import GlobalStyle from "./component/GlobalStyle";
+
 // 헤더 컴포넌트 import
+
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af';
 import Ad_Header from "./component/Ad_Header";
 
-// Admin import
-
-//import AdminMessage from "./ad_component/AdminMessage";
-// 글로벌 스타일 적용을 위한 컴포넌트
-import GlobalStyle from "./component/GlobalStyle";
-
 // 컨텍스트 생성
 export const StoreContext = createContext();
-
-
-
-
-
-
 
 
 function App() {
@@ -77,6 +75,9 @@ function App() {
           <Route path="/join" element={<Layout><Join /></Layout>} />
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
           <Route path="/admin/login" element={<Layout><AdminLogin /></Layout>} />
+          <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
+
+
 
           <Route path="/" element={<Layout><Main /></Layout>} />
           <Route path="/tour-order" element={<Layout><TourOrder /></Layout>} />
@@ -87,7 +88,6 @@ function App() {
           <Route path="/usermypage" element={<Layout><UserMypage /></Layout>} />
           <Route path="/mporderlist" element={<Layout><MpOrderList /></Layout>} />
           <Route path="/cakes" element={<Layout><Cakes /></Layout>} />
-           
           <Route path="/customcake" element={<Layout><CustomCake /></Layout>} />
           <Route path="/login" element={<Layout><Login /></Layout>} />
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />

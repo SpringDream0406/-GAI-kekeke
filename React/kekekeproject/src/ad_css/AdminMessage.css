@@ -1,0 +1,338 @@
+
+.adminmessage-title {
+    height: 100px;
+    left: 0;
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    display: flex; /* Flexbox를 사용하여 중앙 정렬을 용이하게 합니다 */
+    justify-content: center; /* 가로축 중앙 정렬 */
+    align-items: center; /* 세로축 중앙 정렬 */
+    overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 합니다 */
+  }
+   
+  .adminmessage-title img {
+    width: 100%; /* 이미지가 컨테이너 너비에 맞도록 설정 */
+    height: auto; /* 이미지의 높이를 자동으로 조절하여 비율을 유지 */
+  }
+  
+  .adminmessage-text {
+    position: absolute; /* .message-title 내에서 절대 위치 설정 */
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+    font-size: 30px; /* 텍스트 크기 설정, 필요에 따라 조정 */
+    top: 280px;
+    font-weight: bold;
+    z-index: 10; /* 텍스트가 이미지 위에 표시되도록 z-index 설정 */
+  }
+  .adminchatContainer {
+      display: flex;
+      background-color: #ffffff;
+      box-shadow: 2px 6px 6px #0000001a;
+      height: 700px;
+      width: 1000px;
+      margin-bottom: 400px; /* 하단에 50px의 여백을 추가 */
+      border-radius: 20px; /* 디자인에 맞게 둥근 모서리를 추가할 수 있습니다. */
+      overflow: hidden; /* 둥근 모서리 적용 시 내부 요소가 넘치는 것을 방지 */
+      margin-top: 540px;
+      margin-left: 300px;
+    }
+    
+    .adminchatSidebar {
+      width: 35%;
+      background-color: #FFECF0;
+      box-sizing: border-box;
+      
+    }
+    
+    .adminsidebarHeader {
+      margin-bottom: 20px;
+    }
+    
+    .adminsidebarTitle {
+      margin: 0;
+      color: #333;
+      font-size: 26px;
+    }
+    
+    .adminsidebarChatList {
+      max-height: 500px; /* 또는 적절한 높이로 설정 */
+      overflow-y: auto; /* 내용이 넘칠 때만 스크롤바를 표시 */
+      padding-right: 10px; /* 스크롤바와 목록 사이의 공간 */
+    }
+    
+    .adminchatListItem {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      background-color: #FFFFFF;
+    }
+    
+    .adminchatListItem:hover {
+      background-color: #f3d7df;
+      
+    }
+
+    .adminChatItemLogo {
+      width: auto; /* 자동으로 원본 비율 유지 */
+      height: 100%; /* 컨테이너 높이에 맞춤 */
+      object-fit: cover; /* 이미지가 컨테이너에 꽉 차도록 하고, 필요한 경우 잘라냅니다 */
+      width: 80px; /* 원하는 너비로 설정 */
+      height: 80px; /* 너비와 동일하게 설정하여 정사각형을 만듭니다 */
+      border-radius: 50%; /* 원형 모양을 만듭니다 */
+      overflow: hidden; /* 내부 이미지가 컨테이너 밖으로 넘치는 것을 방지합니다 */
+      display: flex; /* 이미지를 컨테이너 중앙에 배치합니다 */
+      justify-content: center; /* 가로 중앙 정렬 */
+      align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    .adminchatItemDetails {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; /* 추가된 부분 - 요소가 가능한 큰 공간을 차지하도록 설정 */
+      margin-left: 15px;
+    }
+    
+    .adminchatItemName {
+      margin: 0; /* 추가된 부분 - 기본 마진 제거 */
+      color: #333;
+      font-weight: bold; /* 추가된 부분 - 글씨를 더 강조하기 위해 폰트 굵기 증가 */
+    }
+    
+    .adminchatItemLastMessage {
+      margin: 10px 0; /* 변경된 부분 - 상단 마진을 늘리고 하단 마진을 추가 */
+      color: #666;
+      overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+      text-overflow: ellipsis; /* 넘치는 텍스트를 말줄임표로 처리 */
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* 두 줄만 표시 */
+      -webkit-box-orient: vertical;
+      line-height: 1.2em; /* 줄 간격 조정 */
+      max-height: 2.4em; /* 두 줄의 최대 높이 */
+    }
+    
+    .adminchatItemDate {
+      color: #999;
+    margin-top: auto; /* 변경된 부분 - 자동으로 남은 공간을 차지하도록 설정 */
+    }
+    
+    .adminchatMain {
+      width: 65%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .adminchatHeaderMain {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .adminchatRoomNameContainer {
+      flex-grow: 1;
+    }
+
+    
+    .adminchatRoomName {
+      margin: 0;
+      color: #333;
+    }
+    
+    .adminchatRoomAvailability {
+      color: #666;
+    }
+    
+    .adminchatMessages {
+      padding: 20px; /* 내부 여백 추가 */
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+    .adminchatForm {
+      display: flex;
+      padding-top: 20px;
+    }
+    
+    .adminchatInputField {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+    
+    .adminchatSidebar,
+  .adminchatMain {
+    padding: 40px;
+  }
+  
+  .admin-send-button {
+    background-color: #FFA4BA; /* 관리자 버튼 색상 변경 */
+  }
+  
+  /* 선택적으로 hover 스타일도 변경할 수 있습니다 */
+  .admin-send-button:hover {
+    background-color: #EA8CA3; /* 다크 테마를 위한 색상 변경 */
+  }
+
+  
+  /* 반응형 */
+  /* 기존 스타일을 유지하면서, 화면 크기가 매우 작을 때 적용할 미디어 쿼리를 추가합니다. */
+  
+  @media (max-width: 1024px) {
+    /* 화면이 768px 아래로 내려가면 텍스트 정보를 숨기고 로고만 표시합니다. */
+    .adminchatItemDetails {
+      display: none; /* 텍스트 정보를 담고 있는 컨테이너를 숨깁니다. */
+    }
+  
+    .adminchatListItem {
+      justify-content: center; /* 로고를 리스트 아이템 중앙에 위치시킵니다. */
+      padding: 20px; /* 아이템 내부의 패딩을 조정합니다. */
+    }
+  
+    .adminchatItemLogo {
+      /* 로고 크기를 화면 크기에 따라 조정할 수 있습니다. */
+      width: 60px; /* 로고 크기를 더 작게 조정 */
+    height: 60px; /* 로고 크기를 더 작게 조정 */
+    }
+    
+    /* 채팅방 전체 컨테이너에 대한 스타일링도 조정할 수 있습니다. */
+    .adminchatContainer {
+      flex-direction: column; /* 채팅방 목록과 메인 채팅 영역을 세로로 쌓습니다. */
+      width: 100%; /* 컨테이너의 너비를 100%로 조정합니다. */
+    }
+  
+    .adminchatSidebar {
+      width: 100%; /* 사이드바의 너비를 100%로 조정합니다. */
+      margin-bottom: 20px; /* 사이드바와 메인 채팅 영역 사이의 여백을 추가합니다. */
+    }
+  
+    .adminchatMain {
+      width: 100%; /* 메인 채팅 영역의 너비를 100%로 조정합니다. */
+      padding: 20px; /* 메인 채팅 영역의 패딩을 조정합니다. */
+    }
+  }
+  
+
+  /* 구매 확정 버튼 */
+
+  .adminPurchaseConfirmButton {
+    font-family: 'Pretendard-Medium';
+
+    padding: 8px 16px;
+    background-color: #FFA4BA;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+ .adminConfirmPopup {
+  /* 기존 팝업 스타일 */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+
+.adminConfirmPopup p {
+  margin-bottom: 20px; /* 메시지와 버튼 사이의 간격 */
+  text-align: center; /* 텍스트를 중앙 정렬 */
+  font-size: 18px; /* 텍스트 크기 */
+  font-family: 'Pretendard-regular';
+}
+
+.adminConfirmPopup button {
+  padding: 10px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.adminConfirmPopup button:first-child {
+  color: #333;
+  font-family: 'Pretendard-Medium';
+
+
+}
+
+.adminConfirmPopup button:last-child {
+  font-family: 'Pretendard-Medium';
+
+  background-color: #FFA4BA; /* '아니오' 버튼의 배경색 */
+  color: white;
+}
+
+.adminConfirmPopup button:hover {
+  opacity: 0.8; /* 버튼에 마우스를 올렸을 때의 효과 */
+}
+
+.adminConfirmPopup .adminConfirmButtons {
+  display: flex; /* 버튼들을 가로로 정렬 */
+  justify-content: center; /* 중앙 정렬 */
+}
+
+
+/* 서브바 */
+
+.adminSubBar {
+  display: flex;
+  background-color: #fff6f8; /* 서브바 배경색 */
+  border: 2px solid #FFA4BA; /* 서브바 외곽선 */
+  border-radius: 10px; /* 서브바 둥근 모서리 */
+  overflow: hidden; /* 내부 요소가 모서리 스타일을 벗어나지 않도록 함 */
+  margin-top: 20px;
+}
+
+/* 서브바 버튼에 대한 스타일 */
+.adminSubBarButton {
+  flex: 1; /* 모든 버튼에 동일한 비율로 공간 할당 */
+  padding: 8px 0; /* 상하 패딩 */
+  background-color: transparent; /* 기본 배경색은 투명 */
+  border: none; /* 개별 버튼 테두리 없음 */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px; /* 폰트 크기 */
+  color: #FFA4BA; /* 기본 텍스트 색상 */
+  font-family: 'Pretendard-Medium';
+}
+
+/* 활성화된 서브바 버튼에 대한 스타일 */
+.adminSubBarButton.active {
+  background-color: #FFA4BA; /* 활성화된 버튼 배경색 */
+  color: white; /* 활성화된 버튼 텍스트 색상 */
+}
+
+/* 마우스 호버 효과 */
+.adminSubBarButton:hover:not(.active) {
+  background-color: rgba(255, 164, 186, 0.3); /* 비활성화된 버튼 호버 배경색 */
+}
+
+
+
+/* 크기 조정 후 CSS 변경 */
+
+.adminchatItemDetails h2,
+.adminchatItemDetails p,
+.adminchatItemDetails span {
+  /* 텍스트 크기 조정 */
+  font-size: 90%; /* 기존 대비 90% 크기로 조정 */
+}
+

@@ -1,6 +1,6 @@
 
 .message-title {
-  height: 174px;
+  height: 100px;
   left: 0;
   position: absolute;
   top: 250px;
@@ -19,8 +19,8 @@
 .message-text {
   position: absolute; /* .message-title 내에서 절대 위치 설정 */
   color: white; /* 텍스트 색상을 흰색으로 설정 */
-  font-size: 70px; /* 텍스트 크기 설정, 필요에 따라 조정 */
-  top: 300px;
+  font-size: 30px; /* 텍스트 크기 설정, 필요에 따라 조정 */
+  top: 280px;
   font-weight: bold;
   z-index: 10; /* 텍스트가 이미지 위에 표시되도록 z-index 설정 */
 }

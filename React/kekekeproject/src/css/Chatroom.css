@@ -24,11 +24,13 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
+    
   }
   
   .message-input {
     /* 입력란 스타일 */
     display: flex;
+    
   }
   
   .input-field {
@@ -49,6 +51,8 @@
   .my-message {
     background-color: #FFEDAE;
     margin-left: auto; /* 오른쪽 정렬 */
+    font-family: 'Pretendard-regular';
+
     /* 기타 스타일 */
   }
   
@@ -56,6 +60,9 @@
   .other-message {
     background-color: #f1f0f0; /* 다른 배경색 */
     margin-right: auto; /* 왼쪽 정렬 */
+    font-family: 'Pretendard-regular';
+
+
     /* 기타 스타일 */
   }
   
@@ -64,6 +71,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
+    
   }
   
   .message-list {
@@ -83,6 +91,8 @@
     border: 2px solid #e0e0e0;
     border-radius: 10px;
     height: 26px;
+    font-family: 'Pretendard-regular';
+    font-size: 16px;
   }
   
   .send-button {
@@ -92,6 +102,8 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-family: 'Pretendard-bold';
+    font-size: 16px;
   }
   
   .send-button:hover {
