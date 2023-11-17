@@ -6,10 +6,10 @@ import Ad_BG from '../ad_component/Ad_BG'
 const Ad_Menubar = () => {
   return (
     <div className="ad-menubar-all">
-      <Ad_BG />
+      
       <div className="ad-menubar-container">
         <div className="frame">
-          <Link>
+          <Link to={'/admin/message'}>
               <img className="ad" alt="Ad" src={'/assets/images/menubar1.png'} />
           </Link>
           

@@ -6,7 +6,8 @@
    width: 1350px;
    min-height: 1050px;
    position: absolute;
-   top: 300px;
-   left: 230px;
-   z-index: 1;
+   top: 290px;
+   left: 330px;
+   z-index: -1;
+
 }

@@ -41,7 +41,7 @@ const handleAdminJoinClick = () => {
 }
 const handleLoginSuccess = () => {
   setIsAdminLoggedIn(true);
-  navigate('/admin-dashboard'); // 성공 후 이동할 경로를 설정합니다.
+  navigate('/admin'); // 성공 후 이동할 경로를 설정합니다.
 };
 
 
