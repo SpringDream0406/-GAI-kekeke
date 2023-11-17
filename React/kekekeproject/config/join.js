@@ -11,7 +11,7 @@ const join_check = (user_id, user_pw, user_pwcheck) => {
 
     // 비번 복잡도 체크
     if (!validatePassword_midLv(user_pw)) {
-      reject({ message: '비밀번호 길이 or 복잡도 부족' });
+      reject({ message: '비밀번호 요건 불충족' });
       return;
     }
 
@@ -29,7 +29,7 @@ const join_check = (user_id, user_pw, user_pwcheck) => {
 const join_res = (err, rows, res) => {
   if (err) {
     console.error('회원가입 에러', err);
-    res.status(500).send({ message: '회원가입 에러', error : err });
+    res.status(500).send({ message: '서버 에러', error : err });
   }
   else {
     if (rows.affectedRows > 0) {
@@ -38,7 +38,7 @@ const join_res = (err, rows, res) => {
     }
     else {
       console.log('회원가입 실패', rows);
-      res.status(500).send({ message: '회원가입 실패' });
+      res.status(500).send({ message: '서버 에러' });
     }
   }
 }

@@ -5,7 +5,6 @@ const conn = require('../config/database'); // DB 연결
 const { md5Hash } = require('../config/crypto'); // 비밀번호 md5 암호화
 const multer = require('multer'); // 이미지 처리
 const path = require('path'); // 경로 작성 방법 변경
-const { login_func } = require('../config/login'); // 로그인 응답 모듈화
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
 const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
 
@@ -66,7 +65,7 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
                 })
                 .catch((error) => {
                     console.error('회원가입 비밀번호 헤싱 에러', error);
-                    res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' });
+                    res.status(500).send({ message: '서버 에러' });
                 })
         })
         .catch((error) => { // 회원가입 제한사항 체크 통과 못함
