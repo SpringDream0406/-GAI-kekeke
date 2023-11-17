@@ -26,8 +26,8 @@ import Header_af from './component/Header_af';
 import Ad_Header from "./component/Ad_Header";
 
 // Admin import
-
 import AdminMessage from "./ad_component/AdminMessage";
+//import AdminMessage from "./ad_component/AdminMessage";
 // 글로벌 스타일 적용을 위한 컴포넌트
 import GlobalStyle from "./component/GlobalStyle";
 
@@ -77,6 +77,9 @@ function App() {
           <Route path="/join" element={<Layout><Join /></Layout>} />
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
           <Route path="/admin/login" element={<Layout><AdminLogin /></Layout>} />
+          <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
+
+
 
           <Route path="/" element={<Layout><Main /></Layout>} />
           <Route path="/tour-order" element={<Layout><TourOrder /></Layout>} />
@@ -87,7 +90,6 @@ function App() {
           <Route path="/usermypage" element={<Layout><UserMypage /></Layout>} />
           <Route path="/mporderlist" element={<Layout><MpOrderList /></Layout>} />
           <Route path="/cakes" element={<Layout><Cakes /></Layout>} />
-          <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
           <Route path="/customcake" element={<Layout><CustomCake /></Layout>} />
           <Route path="/login" element={<Layout><Login /></Layout>} />
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />

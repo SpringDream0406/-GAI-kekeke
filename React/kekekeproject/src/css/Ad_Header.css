@@ -1,45 +1,51 @@
-.div-wrapper {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: col;
-    justify-content: center;
-    width: 100%;
-  }
-  
+.adminhd-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 화면의 전체 높이 */
+  width: 100vw; /* 화면의 전체 너비 */
+}
+
  
-  .div-wrapper .view {
+  .adminhd-container .view {
     height: 157px;
-    left: 109px;
-    position: absolute;
-    top: 38px;
+    
+  display: flex;
+   justify-content: center;
+   align-items: center;
+  left: 350px;
+  top: 50px;
     width: 1221px;
   }
   
-  .div-wrapper .div-2 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 940px;
-    padding: 10px;
-    position: absolute;
-    top: 49px;
-  }
+
   
-  .div-wrapper .text-wrapper {
+  .adminhd-container .text-wrapper {
     color: #000000;
     font-family: "Pretendard-Bold", Helvetica;
     font-size: 27px;
-    font-weight: 700;
+   
     letter-spacing: 0;
     line-height: normal;
     margin-top: 10px;
-    left: 40px;
+    left: 150px;
+    position: relative;
+    width: fit-content;
+  }
+  .adminhd-container .text-wrapper2 {
+    color: #000000;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 27px;
+   
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 10px;
+    left: 70px;
     position: relative;
     width: fit-content;
   }
   
-  .div-wrapper .view-2 {
+  .adminhd-container .view-2 {
     align-items: center;
     display: inline-flex;
     gap: 10px;
@@ -50,17 +56,17 @@
     top: 49px;
   }
   
-  .div-wrapper .view-3 {
+  .adminhd-container .view-3 {
     background-image: url(./KeKeKeadlogo.png);
     background-size: 100% 100%;
-    height: 157px;
+    height: 130px;
     left: 0;
     position: absolute;
-    top: 0;
-    width: 224px;
+    top: 20px;
+    width: 180px;
   }
   
-  .div-wrapper .ellipse-wrapper {
+  .adminhd-container .ellipse-wrapper {
     align-items: flex-start;
     display: inline-flex;
     gap: 10px;
@@ -70,20 +76,11 @@
     top: 18px;
   }
   
-  .div-wrapper .ellipse {
+  .adminhd-container .ellipse {
     background-color: #d9d9d9;
     border-radius: 50.5px;
     height: 101px;
     position: relative;
     width: 101px;
-  }
-  
-  .div-wrapper .menubar {
-    height: 195px;
-    left: -5206px;
-    object-fit: cover;
-    position: absolute;
-    top: -8744px;
-    width: 134px;
   }
   

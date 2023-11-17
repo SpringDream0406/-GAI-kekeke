@@ -6,11 +6,12 @@
     width: 100%;
   }
   
-  .admin-login .div-4 {
+.admin-login   .div-4 {
     /* background-color: #ffffff; */
     height: 1524px;
     position: relative;
     width: 1440px;
+    top: -200px;
   }
   
   .admin-login .div-5 {
@@ -40,21 +41,21 @@
     gap: 10px;
     justify-content: center;
     left: 0;
-    padding: 20px 220px 20px 20px;
+    padding: 20px 20px;
     position: absolute;
     top: 96px;
   }
   
   .admin-login .admin-input {
+ 
     color: #787878;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-Regular";
     font-size: 24px;
-    font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
     margin-top: -1px;
     position: relative;
-    width: fit-content;
+    width: 500px;
   }
   
   .admin-login .admin-id-input {
@@ -65,7 +66,7 @@
     gap: 10px;
     justify-content: center;
     left: 0;
-    padding: 20px 220px 20px 20px;
+    padding: 20px 20px;
     position: absolute;
     top: 0;
   }
@@ -83,13 +84,14 @@
   
   .admin-login .admin-not-text {
     color: #4d4d4d;
-    font-family: "Inter", Helvetica;
+    font-family: "Pretendard-Regular", Helvetica;
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+    margin-top: 100px;
     position: relative;
+    left: 110px;
     width: fit-content;
   }
   
@@ -98,23 +100,27 @@
     display: inline-flex;
     gap: 10px;
     justify-content: center;
-    left: 544px;
+    left: 455px;
     padding: 20px;
     position: absolute;
-    top: 436px;
+    top: 538px;
   }
   
   .admin-login .admin-join {
     background-color: #d1ebff;
-    color: #4d4d4d;
+    color: gray;
     font-family: "Pretendard-Regular";
     font-size: 22px;
-    font-weight: 700;
+  cursor: pointer;
     letter-spacing: 0;
     line-height: normal;
     margin-top: -1px;
     position: relative;
     width: fit-content;
+  }
+
+  .admin-login .admin-join :hover{
+    color: black;
   }
   
   .admin-login .admin-login-text {
@@ -130,7 +136,7 @@
   
   .admin-login .admin-login-title {
     color: #363636;
-    font-family: "Roboto Mono", Helvetica;
+    font-family: "Pretendard-bold", Helvetica;
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 0;
@@ -141,42 +147,41 @@
   }
   
   .admin-login .admin-login-button {
-    background-image: url(https://c.animaapp.com/OdmOh5DZ/img/admin-login-button-background.svg);
+   
     background-size: 100% 100%;
     height: 79px;
     left: 284px;
     position: absolute;
-    top: 566px;
+    top: 450px;
     width: 245px;
+    border: 3px solid #FFA0B7;
+    background-color: #FFA0B7;
+    border-radius: 20px;
   }
-  
-  .admin-login .admin-login-button-2 {
-    align-items: center;
-    display: inline-flex;
-    gap: 10px;
-    justify-content: center;
-    left: 33px;
-    padding: 20px;
-    position: relative;
-    top: 3px;
+
+  admin-login .admin-login-button :hover{
+    border: 3px solid #ff7d9e;
+    background-color: #ff7d9e;
+
   }
   
   .admin-login .admin-login-button-text {
     color: #ffffff;
-    font-family: "Inter", Helvetica;
+  
+    font-family: "pretendard-semibold", Helvetica;
     font-size: 30px;
     font-weight: 800;
     letter-spacing: 0;
     line-height: normal;
-    margin-top: -1px;
+    margin-top: 22px;
     position: relative;
-    right : 10px;
+    right : -55px;
     bottom : 3px;
     white-space: nowrap;
-    width: fit-content;
+  background: none;
     border : none;
     cursor: pointer;
-    background-image: url(https://c.animaapp.com/OdmOh5DZ/img/admin-login-button-background.svg);
+   
     
 
   }

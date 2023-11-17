@@ -1,6 +1,9 @@
 .ad-menubar-all {
     height: 1270px;
     width: 134px;
+    position: absolute;
+    left: 100px;
+    top: -10px;
     padding-left: 100px;
     padding-top: 300px;
 
@@ -8,54 +11,63 @@
   
   .ad-menubar-all .ad-menubar-container {
     background-color: #ffd1dc;
-    height: 1270px;
+    height: 1070px;
     left: 300px;
-    
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     position: sticky;
     width: 134px;
   }
   
   .ad-menubar-all .frame {
     align-items: flex-start;
+   background: none;
     display: inline-flex;
     flex-direction: column;
     gap: 35px;
     position: relative;
     top: 82px;
+    cursor: pointer;
+    width: 100px;
+    left: 14px;
   }
   
   .ad-menubar-all .ad {
-    height: 194px;
+    height: 154px;
+    
     object-fit: cover;
     position: relative;
-    width: 134px;
+    width: 104px;
+  }
+  .ad-menubar-all .ad :hover{
+    scale: 1.2;
   }
   
   .ad-menubar-all .ad-menu {
-    height: 194.03px;
+    height: 154px;
     object-fit: cover;
     position: relative;
-    width: 134px;
+    width: 104px;
   }
   
   .ad-menubar-all .img {
-    height: 182px;
+    height: 154px;
     object-fit: cover;
     position: relative;
-    width: 134px;
+    width: 104px;
   }
   
   .ad-menubar-all .ad-2 {
-    height: 192px;
+    height: 154px;
     object-fit: cover;
     position: relative;
-    width: 134px;
+    width: 104px;
   }
   
   .ad-menubar-all .ad-3 {
-    height: 230px;
+    height: 154px;
     object-fit: cover;
     position: relative;
-    width: 134px;
+    width: 104px;
   }
   

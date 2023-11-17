@@ -155,7 +155,7 @@ router.post('/login', (req, res) => {
                     .then((hashed) => {
                         const pw_hashed = hashed;
                         if (pw_hashed === rows[0].seller_pw) {
-                            console.log('로그인 성공', cust_id, user_ip);
+                            console.log('로그인 성공', seller_id, user_ip);
                             let data = {
                                 message: '로그인 성공',
                                 seller_id: rows[0].seller_id,
