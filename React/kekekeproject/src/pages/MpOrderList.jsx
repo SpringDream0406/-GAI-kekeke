@@ -187,12 +187,12 @@ const ReviewPopup = ({ onClose, orderDetail }) => {
       <div className="review-popup">
         <div className="review-header">
           {/* <div className="image-placeholder"> */}
-          <div className="store-profile-2">
+          <div className="MpOrderListPhoto">
             {image ? (
-              <img src={image} alt="리뷰 사진" className="uploaded-image" />
+              <img src={image} alt="리뷰 사진" className="mpuploaded-image" />
             ) : (
-              <label htmlFor="image-upload" className="upload-label">
-                <AiOutlineCamera className="camera-icon" />
+              <label htmlFor="image-upload" className="mpupload-label">
+                <AiOutlineCamera className="mpcamera-icon" />
                 <span>이미지 업로드</span>
               </label>
             )}
