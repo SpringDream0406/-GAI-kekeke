@@ -18,71 +18,71 @@ export const Cakes = () => {
 
 
 
-  const cakeList = [
-    {
-      Cake_Id: 1,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/firstcake-img@2x.png",
-      Cake_Name: "티아라 케이크",
-      Cake_Add: "광주광역시 동구",
-    },
-    {
-      Cake_Id: 2,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/secondcake-img@2x.png",
-      Cake_Name: "노을 케이크",
-      Cake_Add: "광주광역시 광산구",
-    },
-    {
-      Cake_Id: 3,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/thirdcake-img@2x.png",
-      Cake_Name: "리본 케이크",
-      Cake_Add: "광주광역시 북구",
-    },
-    {
-      Cake_Id: 4,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/fourthcake-img@2x.png",
-      Cake_Name: "생일 케이크",
-      Cake_Add: "광주광역시 남구",
-    },
-    {
-      Cake_Id: 5,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/fivethcake-img@2x.png",
-      Cake_Name: "비눗방울 케이크",
-      Cake_Add: "광주광역시 서구",
-    },
-    {
-      Cake_Id: 6,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/sixthcake-img@2x.png",
-      Cake_Name: "곰돌이 케이크",
-      Cake_Add: "광주광역시 동구",
-    },
-    {
-      Cake_Id: 7,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/seventhcake-img@2x.png",
-      Cake_Name: "아이스크림 케이크",
-      Cake_Add: "광주광역시 광산구",
-    },
-    {
-      Cake_Id: 8,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/eighthcake-img@2x.png",
-      Cake_Name: "꽃다발 케이크",
-      Cake_Add: "광주광역시 광산구",
-    },
-    {
-      Cake_Id: 9,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/ninethcake-img@2x.png",
-      Cake_Name: "산타 케이크",
-      Cake_Add: "광주광역시 남구",
-    },
-    {
-      Cake_Id: 10,
-      Cake_Url: "https://c.animaapp.com/YHefgPrk/img/firstcake-img@2x.png",
-      Cake_Name: "티아라 케이크",
-      Cake_Add: "광주광역시 서구",
-    },
-  ]
+  // const cakeList = [
+  //   {
+  //     Cake_Id: 1,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/firstcake-img@2x.png",
+  //     Cake_Name: "티아라 케이크",
+  //     Cake_Add: "광주광역시 동구",
+  //   },
+  //   {
+  //     Cake_Id: 2,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/secondcake-img@2x.png",
+  //     Cake_Name: "노을 케이크",
+  //     Cake_Add: "광주광역시 광산구",
+  //   },
+  //   {
+  //     Cake_Id: 3,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/thirdcake-img@2x.png",
+  //     Cake_Name: "리본 케이크",
+  //     Cake_Add: "광주광역시 북구",
+  //   },
+  //   {
+  //     Cake_Id: 4,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/fourthcake-img@2x.png",
+  //     Cake_Name: "생일 케이크",
+  //     Cake_Add: "광주광역시 남구",
+  //   },
+  //   {
+  //     Cake_Id: 5,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/fivethcake-img@2x.png",
+  //     Cake_Name: "비눗방울 케이크",
+  //     Cake_Add: "광주광역시 서구",
+  //   },
+  //   {
+  //     Cake_Id: 6,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/sixthcake-img@2x.png",
+  //     Cake_Name: "곰돌이 케이크",
+  //     Cake_Add: "광주광역시 동구",
+  //   },
+  //   {
+  //     Cake_Id: 7,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/seventhcake-img@2x.png",
+  //     Cake_Name: "아이스크림 케이크",
+  //     Cake_Add: "광주광역시 광산구",
+  //   },
+  //   {
+  //     Cake_Id: 8,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/eighthcake-img@2x.png",
+  //     Cake_Name: "꽃다발 케이크",
+  //     Cake_Add: "광주광역시 광산구",
+  //   },
+  //   {
+  //     Cake_Id: 9,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/ninethcake-img@2x.png",
+  //     Cake_Name: "산타 케이크",
+  //     Cake_Add: "광주광역시 남구",
+  //   },
+  //   {
+  //     Cake_Id: 10,
+  //     Cake_Url: "https://c.animaapp.com/YHefgPrk/img/firstcake-img@2x.png",
+  //     Cake_Name: "티아라 케이크",
+  //     Cake_Add: "광주광역시 서구",
+  //   },
+  // ]
 
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredCakes, setFilteredCakes] = useState(cakeList);// 필터링된 케이크 목록을 위한 상태
+  const [filteredCakes, setFilteredCakes] = useState([]);// 필터링된 케이크 목록을 위한 상태
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
   const [myLocation, setMyLocation] = useState(false);
 
@@ -99,7 +99,7 @@ export const Cakes = () => {
     axios.post(url, data)
       .then(response => {
 
-        console.log(response.data[0]);
+        console.log(response.data);
         setCakesFromServer(response.data);
 
       })
@@ -109,6 +109,8 @@ export const Cakes = () => {
 
 
   }, [selectedLocation]);
+
+  
 
 
 
@@ -130,11 +132,10 @@ export const Cakes = () => {
 
 
   const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCakes = filteredCakes.slice(indexOfFirstItem, indexOfLastItem);
-
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;  
+  const currentCakes = cakesFromServer.slice(indexOfFirstItem, indexOfLastItem);
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(filteredCakes.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(cakesFromServer.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -195,18 +196,18 @@ export const Cakes = () => {
             {/* 중앙 케이크 지역 */}
             <div className="tour-cake">
               <div className="tour-container">
-                {cakesFromServer.map((cake) => (
-                  <Link to={'/TourOrder'} key={cake.prd_id}>
+                {currentCakes.map((cake) => (
+                  <Link to={'/tour-order'} key={cake.prd_id}>
                     <div className="tour-cake-container">
                       <div className="tour-cake-img">
                         <img
                           className="tourcakeimg"
                           alt={`tourcakeimg ${cake.prd_id}`}
-                          src={`${cake.img_name2}`}
+                          src={`/img/product/${cake.img_name2}`}
                         />
                       </div>
                       <div className="tour-cake-name">
-                        <div className="tourcakename">{cake.prd_name}</div>
+                        <div className="ourcakename">{cake.prd_name}</div>
                       </div>
                       <div className="tour-cake-add">
                         <div className="cake-address">{cake.shop_addr1}</div>
@@ -217,8 +218,8 @@ export const Cakes = () => {
                 ))}
                 {/* 빈 요소 추가 */}
                 {Array(9 - currentCakes.length).fill().map((_, index) => (
-                  <div key={`empty-${index}`} className="tour-cake-container empty"></div>
-                ))}
+                    <div key={`empty-${index}`} className="tour-cake-container empty"></div>
+                  ))}
               </div>
             </div>
           </div>
