@@ -124,7 +124,10 @@ function Layout( {children}) {
   const { isAdminLoggedIn, isLoggedIn } = useContext(StoreContext);
 
   // 현재 경로에 따라 헤더 렌더링 여부 결정
-  const hideHeaderRoutes = ['/admin/login', '/admin/join', '/admin/message' ,'/admin'];
+  const hideHeaderRoutes = 
+  ['/admin/login', '/admin/join',
+   '/admin/message' ,'/admin',
+  '/admin/mypage', ];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
   return (
