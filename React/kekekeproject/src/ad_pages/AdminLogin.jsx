@@ -27,6 +27,8 @@ export const AdminLogin = () => {
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+          //로그인 성공 후 메인페이지로 이동
+          window.location.href = '/admin';
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         console.error('에러', error, error.response.data);

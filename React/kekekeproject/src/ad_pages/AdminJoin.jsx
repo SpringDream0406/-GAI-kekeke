@@ -56,6 +56,7 @@ export const AdminJoin = () => {
     const [phone, setphone] = useState('');
 
     const [address, setAddress] = useState('');
+    const [address_detail, setAddress_detail] = useState('');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
 
@@ -65,16 +66,35 @@ export const AdminJoin = () => {
 
     const handleJoin = () => {
       const url = `${API_URL}/seller/join`;
-  
-      const data = { seller_id: seller_id, seller_pw: seller_PW,
-                    seller_pwcheck: seller_PW_Check, store_name: store_name,
-                    store_detail: store_detail, shop_tel: shop_tel,
-                    add_detail: add_detail, strg_use: strg_use,
-                    business_num: business_num, phone: phone,
-                    start_time: start_time, end_time: end_time};
-  
-     
-      axios.post(url, data)
+      const adminformData = new FormData();
+
+      const adminfileInput = document.getElementById('image-upload');
+      adminformData.append('user_name', user_name);
+      adminformData.append('seller_id', seller_id);
+      adminformData.append('seller_pw', seller_PW);
+      adminformData.append('seller_pwcheck', seller_PW_Check);
+      adminformData.append('store_name', store_name);
+      adminformData.append('store_detail', store_detail);
+      adminformData.append('shop_tel', shop_tel);
+      adminformData.append('add_detail', add_detail);
+      adminformData.append('strg_use', strg_use);
+      adminformData.append('business_num', business_num);
+      adminformData.append('phone', phone);
+      adminformData.append('shop_addr1' , address);
+      adminformData.append('shop_addr2', address_detail);
+      adminformData.append('start_time', start_time);
+      adminformData.append('end_time', end_time);
+      if (adminfileInput && adminfileInput.files[0]) {
+        adminformData.append('seller_profile1', adminfileInput.files[0]);
+      }
+
+
+      axios.post(url, adminformData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+
         .then(response => { // status(200) 인 경우
             console.log(response.data);
             alert(response.data.message);
@@ -270,6 +290,8 @@ export const AdminJoin = () => {
                         className="text-wrapper-4"
                         type="text"
                         placeholder="상세주소를 입력하세요"
+                        value={address_detail}
+                        onChange={(e)=>setAddress_detail(e.target.value)}
             
                       />
                 </div>

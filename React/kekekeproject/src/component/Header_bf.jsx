@@ -105,7 +105,7 @@ const Header_bf = () => {
   const testClick = () => {
     // 어드민 로그인 페이지로 이동하면서 상태를 변경합니다
     setIsAdminLoggedIn(false); // 어드민 로그인 상태를 false로 설정
-    navigate("/admin/login");
+    navigate("/admin");
   };
 
  
