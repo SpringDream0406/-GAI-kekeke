@@ -24,6 +24,7 @@ import AdMain from "./ad_pages/AdMain";
 import AdminMessage from "./ad_pages/AdminMessage";
 import AdminLogin from "./ad_pages/AdminLogin";
 import { AdminJoin } from "./ad_pages/AdminJoin";
+import AdminMypage from './ad_pages/AdminMypage';
 
 // 글로벌 스타일 적용을 위한 컴포넌트
 
@@ -76,6 +77,8 @@ function App() {
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
           <Route path="/admin/login" element={<Layout><AdminLogin /></Layout>} />
           <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
+          <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
+          <Route path="/admin/mypage" element = {<Layout><AdminMypage/></Layout>}/>  
 
 
 
@@ -95,6 +98,7 @@ function App() {
           <Route path="/capture" element={<Layout><Capture /></Layout>} />
           <Route path="/customcake/order" element={<Layout><CustomCakeOrder /></Layout>} />
           <Route path="*" element={<Layout />} />
+
           {/* 기타 필요한 라우트 */}
         </Routes>
       </BrowserRouter>

@@ -3,6 +3,7 @@ import '../ad_css/AdminMessage.css';
 import Chatroom from '../component/Chatroom';
 import AdminBG from '../ad_component/Ad_BG'
 import Ad_Menubar from '../component/Ad_Menubar';
+import Ad_BG from '../ad_component/Ad_BG';
 
 
 // 임시 유저 데이터 목록
@@ -122,10 +123,10 @@ const AdminMessage = () => {
   return (
     
     <div>
+
       <Ad_Menubar/>
 
-    <div className='frame'>    
-    <div className="adminContent">
+      <div className='adminmessage-container'>
       <div className="adminchatContainer">
         <div className="adminchatSidebar">
           <div className="adminsidebarHeader">
@@ -199,7 +200,6 @@ const AdminMessage = () => {
         )}
 
       </div>
-    </div>
     </div>
     </div>
   )
