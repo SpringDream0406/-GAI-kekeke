@@ -67,6 +67,9 @@ const UserMypage = () => {
 
   const [isNicknameAvailable, setIsNicknameAvailable] = useState(true);
 
+  // 중복 확인이 완료되었는지 여부를 저장하는 상태
+  const [isDuplicateCheckDone, setIsDuplicateCheckDone] = useState(false);
+
   // 임시 중복 확인 데이터
   const existingNicknames = ['케로로빵', 'kekeke', '케케케',
     '송민아줌마', '미나곤듀언니티비', '김은호나마에와', '기므노', '김용민달팽이',
@@ -77,21 +80,14 @@ const UserMypage = () => {
     setNickname(event.target.value);
   };
 
-  // 닉네임 중복 확인
-  const checkNicknameAvailability = () => {
-    setIsNicknameAvailable(!existingNicknames.includes(nickname));
-  };
+ // 중복 확인 버튼을 눌렀을 때 호출되는 함수
+ const handleDuplicateCheckClick = () => {
+  const isAvailable = !existingNicknames.includes(nickname);
+  setIsNicknameAvailable(isAvailable);
+  setIsDuplicateCheckDone(true); // 중복 확인이 시도되었다는 것을 표시합니다.
+};
 
-  // 중복 확인 버튼을 눌렀을 때 호출
-  const handleDuplicateCheckClick = () => {
-    checkNicknameAvailability();
-  };
   // -------------------------------------------------------------
-
-  // 모든 입력란에 값이 있는지 확인하는 함수
-  const isFormValid = () => {
-    return nickname.trim() && password.trim() && phone.trim();
-  };
 
   // ****** 이미지 등록 기능
 
@@ -165,9 +161,12 @@ const UserMypage = () => {
                   <div className="text-wrapper-3">중복확인</div>
                 </button>
               </div>
-              {!isNicknameAvailable && (
-                <div className="nickname-unavailable">이미 사용 중인 닉네임입니다.</div>
-              )}
+              {isDuplicateCheckDone && !isNicknameAvailable && (
+          <div className="adminmp-nickname-unavailable">이미 사용 중인 닉네임입니다.</div>
+        )}
+        {isDuplicateCheckDone && isNicknameAvailable && (
+          <div className="adminmp-nickname-available">사용 가능한 아이디입니다.</div>
+        )}
             </div>
 
             {/* 비밀번호 변경 */}

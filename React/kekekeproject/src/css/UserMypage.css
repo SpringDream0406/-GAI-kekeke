@@ -395,3 +395,13 @@
     transform: translateY(-50%); /* Y축 기준으로 -50% 만큼 이동하여 세로 중앙 정렬 */
     white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 표시 */
   }
+  
+  .nickname-available{
+    color: #ff6b6b; /* 연한 빨간색 */
+    font-size: 22px; /* 적절한 텍스트 크기 */
+    position: absolute; /* 부모 요소(.nick-input)에 대해 절대 위치 */
+    right: 10px; /* 오른쪽에서 10px 떨어진 곳에 배치 */
+    top: 10%; /* 상단에서 50% 떨어진 곳에 배치 (부모의 높이를 기준으로 중앙 정렬) */
+    transform: translateY(-50%); /* Y축 기준으로 -50% 만큼 이동하여 세로 중앙 정렬 */
+    white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 표시 */
+  }
