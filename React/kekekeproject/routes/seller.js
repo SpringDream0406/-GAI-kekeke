@@ -4,7 +4,7 @@ const conn = require('../config/database');
 const multer = require('multer');
 const path = require('path')
 const { login_func } = require('../config/login');
-const { join_check } = require('../config/join');
+const { sellerjoin_check, join_res } = require('../config/join');
 const { md5Hash } = require('../config/crypto');
 const { check_func } = require('../config/check');
 
@@ -64,7 +64,7 @@ router.post('/join', upload.single('seller_profile1'), async (req, res) => {
 
     try {
         // 회원가입 제한사항 체크
-        await join_check(seller_id, seller_pw, seller_pwcheck);
+        await sellerjoin_check(seller_id, seller_pw, seller_pwcheck);
 
         const pw_hashed = await md5Hash(seller_pw);
 
@@ -103,12 +103,7 @@ router.post('/join', upload.single('seller_profile1'), async (req, res) => {
             business_num,
             seller_profile1
         ], (err, rows) => {
-            if (err) {
-                console.error('회원가입 쿼리 에러', err);
-                res.status(500).send({ message: '회원가입 쿼리 에러' });
-            } else {
-                join_check(err, rows, res);
-            }
+            join_res(err, rows, res);//응답 모듈화
         });
 
     } catch (error) {
@@ -124,7 +119,7 @@ router.post('/login', (req, res) => {
     console.log('판매자 로그인 시도', req.body);
     let { seller_id, seller_pw } = req.body;
     const user_ip = req.ip.replace(/^::ffff:/, '');
-    console.log(user_ip);
+    //console.log(user_ip);
     let sql = `select 
                 seller_id,
                 seller_pw,

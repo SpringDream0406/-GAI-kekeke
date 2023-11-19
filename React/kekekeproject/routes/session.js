@@ -18,6 +18,14 @@ app.post('/cust/login', (req, res) => {
   res.send(req.session.user); // 사용자 정보 응답
 });
 
+app.post('/seller/login', (req, res) => {
+  // 판매자 인증 로직 구현 필요
+  // 데이터베이스에서 판매자 정보 확인 후:
+// 서버에서 세션에 판매자 정보 저장
+req.session.seller = { seller_id: req.body.seller_id };
+  res.send(req.session.seller); // 판매자 정보 응답
+});
+
 // 에러 핸들링 및 추가적인 로직 필요
 
 app.listen(3000, () => console.log('Server is running on port 3000'));

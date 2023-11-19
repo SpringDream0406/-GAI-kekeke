@@ -21,14 +21,21 @@ export const AdminLogin = () => {
 
     axios.post(url, data)
       .then(response => { // status(200) 인 경우
-          console.log(response.data.cust_id);
+          console.log(response.data.seller_id);
           alert(response.data.message);
-          handleLoginSuccess(); // 로그인 성공 처리 함수를 호출합니다.
+
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+          sessionStorage.setItem('adminData', JSON.stringify(response.data));
+          // 세션 스토리지에서 데이터 불러오기
+const adminStorageData = sessionStorage.getItem('adminData');
+if (adminStorageData) {
+  const adminData = JSON.parse(adminStorageData);
+  console.log('Data from Session Storage:', adminData);
+}
           //로그인 성공 후 메인페이지로 이동
-          window.location.href = '/admin';
+          navigate('/admin')
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         console.error('에러', error, error.response.data);
@@ -41,10 +48,7 @@ export const AdminLogin = () => {
 const handleAdminJoinClick = () => {
   navigate('/admin/join');
 }
-const handleLoginSuccess = () => {
-  setIsAdminLoggedIn(true);
-  navigate('/admin'); // 성공 후 이동할 경로를 설정합니다.
-};
+
 
 
   return (
