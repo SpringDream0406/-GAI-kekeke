@@ -39,6 +39,7 @@ import PMquantity from "./ad_pages/PMquantity";
 import PMList from "./ad_pages/PMList";
 import PMOption from "./ad_pages/PMOption";
 
+
 // 컨텍스트 생성
 export const StoreContext = createContext();
 
@@ -85,7 +86,7 @@ function App() {
           <Route path="/admin/productquantity" element = {<Layout><PMquantity/></Layout>}/>  
           <Route path="/admin/productlist" element = {<Layout><PMList/></Layout>}/>  
           <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
-
+      
 
 
           <Route path="/" element={<Layout><Main /></Layout>} />
@@ -134,7 +135,7 @@ function Layout( {children}) {
   ['/admin/login', '/admin/join',
    '/admin/message' ,'/admin',
   '/admin/mypage', "/admin/productquantity",
-   "/admin/productlist", "/admin/productoption"
+   "/admin/productlist", "/admin/productoption" 
 ];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 

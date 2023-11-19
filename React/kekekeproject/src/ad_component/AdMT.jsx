@@ -11,7 +11,7 @@ const MT_AD = styled.div`
 
     position: absolute;
     top: 430px;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #F0B4AE;
     left: 500px;
     z-index: 999;
 `
@@ -24,4 +24,4 @@ const AdMT = (props) => {
   )
 }
 
-export default AdMT
+export default AdMT;

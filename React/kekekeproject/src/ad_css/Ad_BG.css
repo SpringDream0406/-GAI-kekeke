@@ -1,13 +1,27 @@
-.adbg-container{
-   border-top-right-radius: 30px ;
-   border-bottom-right-radius: 30px ;
+.adbg-container {
+   border-top-right-radius: 30px;
+   border-bottom-right-radius: 30px;
    border: 10px solid #FFD1DC;
    background-color: white;
    width: 1350px;
-   min-height: 1050px;
-   position: absolute;
-   top: 290px;
-   left: 330px;
+ 
+    /* 필요한 경우 유지 */
+   margin-top: -1290px; 
+   margin-left: 333px;
    z-index: -1;
+   overflow: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+ }
+ .admain-bg-container {
+   display: flex;
+   flex-direction: column;
+   height: 100%; /* 부모 요소에 맞게 높이를 조정합니다. */
+ }
 
-}
+ .recharts-legend-item-text{
+   font-family: 'Pretendard-bold';
+   color: gray;
+ }
+
+ .recharts-legend-icon{
+   display: none;
+ }
