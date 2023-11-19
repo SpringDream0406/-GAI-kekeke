@@ -1,0 +1,38 @@
+.PMbutton-container {
+  display: flex;
+  background-color: #FFFFFF;
+  border: 4px solid #FFA4BA;
+  border-radius: 10px;
+  overflow: hidden; /* 자식 요소가 border-radius를 따르도록 함 */
+  margin: 0 auto; /* 가운데 정렬 */
+  width: 80%; /* 혹은 디자인에 맞는 너비 */
+  margin-top: 50px;
+  height: 80px;
+   display: flex;
+  align-items: center;
+}
+
+.PMbutton {
+  background-color: transparent;
+  border: none;
+  color: #FFA4BA;
+  flex-grow: 1; /* 모든 탭이 동일한 너비를 가지도록 함 */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* 배경색 변경에 애니메이션 효과 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  font-family: 'Pretendard-medium';
+  font-size: 26px;
+  text-decoration: none; /* Link의 기본 텍스트 밑줄 제거 */
+  display: block; /* 또는 필요한 경우 다른 display 속성 */
+    line-height: 80px; /* 버튼의 높이와 같게 설정 */
+}
+
+.PMbutton.active {
+  background-color: #FFA4BA;
+  color: white;
+}
+
+.PMbutton:not(.active):hover {
+  background-color: #FFD1DC; /* 비활성 탭에 마우스를 올렸을 때 색상 */
+}

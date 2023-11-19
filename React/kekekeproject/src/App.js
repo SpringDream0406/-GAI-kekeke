@@ -35,6 +35,9 @@ import GlobalStyle from "./component/GlobalStyle";
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af';
 import Ad_Header from "./component/Ad_Header";
+import PMquantity from "./ad_pages/PMquantity";
+import PMList from "./ad_pages/PMList";
+import PMOption from "./ad_pages/PMOption";
 
 // 컨텍스트 생성
 export const StoreContext = createContext();
@@ -79,6 +82,9 @@ function App() {
           <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
           <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
           <Route path="/admin/mypage" element = {<Layout><AdminMypage/></Layout>}/>  
+          <Route path="/admin/productquantity" element = {<Layout><PMquantity/></Layout>}/>  
+          <Route path="/admin/productlist" element = {<Layout><PMList/></Layout>}/>  
+          <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
 
 
 
@@ -127,7 +133,9 @@ function Layout( {children}) {
   const hideHeaderRoutes = 
   ['/admin/login', '/admin/join',
    '/admin/message' ,'/admin',
-  '/admin/mypage', ];
+  '/admin/mypage', "/admin/productquantity",
+   "/admin/productlist", "/admin/productoption"
+];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
   return (
