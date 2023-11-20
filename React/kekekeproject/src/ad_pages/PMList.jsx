@@ -271,28 +271,27 @@ export default PMList
 const ProductRegisterPopup = ({ onClose }) => {
 
   return (
-    <div className="popup-overlay">
-      <div className="popup-container">
-        <div className="popup-header">
-          <div className="image-upload-container">
+    <div className="adminPopupOverlay">
+      <div className="adminPopupContainer">
+        <div className="adminPopupHeader">
+          <div className="adminImageUploadContainer">
             {/* 이미지 업로드 구역 */}
-            <div className="image-upload-placeholder">
-              <span className="plus-icon">+</span>
-              <span>첨부 사진 추가</span>
+            <div className="adminImageUploadPlaceholder">
+              {/* 이미지 업로드 관련 내용 */}
             </div>
           </div>
-          <div className="input-group">
+          <div className="adminInputGroup">
             <label htmlFor="productName">상품명:</label>
-            <input type="text" id="productName" />
+            <input type="text" id="productName" className="adminInput" />
           </div>
-          <div className="input-group">
+          <div className="adminInputGroup">
             <label htmlFor="productPrice">상품가격:</label>
-            <input type="text" id="productPrice" />
+            <input type="text" id="productPrice" className="adminInput" />
           </div>
         </div>
-        <div className="popup-footer">
-          <button className="register-button">등록</button>
-          <button className="cancel-button" onClick={onClose}>취소</button>
+        <div className="adminPopupFooter">
+          <button className="adminRegisterButton">등록</button>
+          <button className="adminCancelButton" onClick={onClose}>취소</button>
         </div>
       </div>
     </div>

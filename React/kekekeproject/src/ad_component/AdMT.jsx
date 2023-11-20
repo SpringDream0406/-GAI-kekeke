@@ -13,7 +13,7 @@ const MT_AD = styled.div`
     top: 430px;
     border-bottom: 3px solid #F0B4AE;
     left: 500px;
-    z-index: 999;
+    z-index: 10;
 `
 
 const AdMT = (props) => {
