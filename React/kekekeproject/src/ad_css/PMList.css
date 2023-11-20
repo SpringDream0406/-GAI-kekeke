@@ -13,22 +13,13 @@
   border-bottom: 1px solid #ddd; /* 아래쪽 테두리 설정 */
   font-family: 'Pretendard-medium';
   font-size: 20px;
-  padding: 10px 0;
+  padding: 20px 0;
   margin-bottom: 20px;
 }
 
 .header-image {
   flex: 0 0 150px; /* product-image와 동일 */
   padding: 10px; /* 패딩을 product-image의 패딩과 동일하게 설정 */
-}
-
-.header-name,
-.header-price,
-.header-status,
-.header-sales {
-  text-align: center;
-  padding: 10px 80px;
-  margin-left: 40px;
 }
 
 .product-item {
@@ -40,7 +31,7 @@
 }
 
 .product-image {
-  flex: 0 0 100px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
+  flex: 0 0 150px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
 }
 
 .product-image img {

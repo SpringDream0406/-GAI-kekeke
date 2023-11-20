@@ -13,9 +13,12 @@ const PMquantity = () => {
     <div>
       <AdMT>수랑확인</AdMT>
       <Ad_Menubar/>
-      <ProductManagement initialActiveTab="quantity" />
       <AdCalendar/>
-      <Ad_BG height="1250px" marginTop="213px"/>
+      <Ad_BG height="1250px" marginTop="213px">
+      <ProductManagement initialActiveTab="quantity" />
+
+
+      </Ad_BG>
       
      
  
