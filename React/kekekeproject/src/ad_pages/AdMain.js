@@ -15,12 +15,17 @@ const AdMain = () => {
  
 
   return (
-    <div className='ad-main-continer'>
+    <div>
      
 
         <Ad_Menubar/>
         
         <AdMT>주문현황</AdMT>
+
+        <Ad_BG height={1430}>
+          
+
+    <div className='ad-main-continer'>
 
          <div className={`admain-bfmsg ${activeSection === 'ongoing' ? 'active' : ''}`} onClick={() => setActiveSection('ongoing')}>상담중 10</div>
          <div className={`admain-afmsg ${activeSection === 'completed' ? 'active' : ''}`} onClick={() => setActiveSection('completed')}>주문완료 10</div>
@@ -158,7 +163,9 @@ const AdMain = () => {
          
          <div className='admain-mt3'>판매량순위</div>
        <AdBarChart />
-        <Ad_BG height="1330px"/>
+
+       </div>
+        </Ad_BG>
         
 
     </div>

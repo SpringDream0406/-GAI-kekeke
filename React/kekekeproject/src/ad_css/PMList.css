@@ -1,104 +1,95 @@
 .product-list {
-    width: 80%;
-    margin: auto; /* 가로 방향으로 중앙 정렬 */
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-  }
-  
-  .product-list-header {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd; /* 아래쪽 테두리 설정 */
-    font-family: 'Pretendard-medium';
-    font-size: 20px;
-    padding: 10px 0;
-    margin-bottom: 20px;
-  }
-  
-  .header-image {
-    flex: 0 0 150px; /* product-image와 동일 */
-    padding: 10px; /* 패딩을 product-image의 패딩과 동일하게 설정 */
-  }
-  
-  .header-name,
-  .header-price,
-  .header-status,
-  .header-sales {
-    text-align: center;
-    padding: 10px 80px;
-    margin-left: 40px;
-  }
-  
-  .product-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* 요소들을 좌우에 균등하게 분배 */
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-  }
-  
-  .product-image {
-    flex: 0 0 100px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
-  }
-  
-  .product-image img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .product-details {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    padding: 20px;
-    margin-left: 50px;
-    text-align: center;
+  width: 80%;
+  margin: auto; /* 가로 방향으로 중앙 정렬 */
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  z-index: 1;
+}
 
-  }
-  
-  .product-name{
-    flex: 2;
-  }
-  .product-price,
-  .product-status,
-  .product-sales {
-    flex: 1; /* 모든 상세 정보가 동일한 비율을 갖도록 설정 */
-    padding: 20px;
-  }
-  
-  .product-sales {
-    padding-right: 0; /* 패딩을 줄여 간격을 좁게 함 */
-    margin-right: 0; /* 필요한 경우, 마진을 줄여 추가적으로 간격을 좁게 함 */
-  }
-  
-  .edit-button {
-    background-color: #FFA4BA;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    flex: 0 0 auto;
-    font-family: 'Pretendard-medium';
-    color: white;
-    margin-right: 10px; /* 수정 버튼의 오른쪽 마진을 줄임 */
-  }
-  
-  .delete-icon {
-    color: #FFA4BA;
-    cursor: pointer;
-    font-size: 30px;
-    flex: 0 0 auto;
-    padding: 20px;
-    padding-left: 0; /* 휴지통 아이콘의 왼쪽 패딩을 줄임 */
-    margin-right: 0; /* 오른쪽 마진을 없앰 */
-  }
-  
-  .product-actions {
-    display: flex;
-    justify-content: flex-end; /* 수정과 삭제 버튼을 오른쪽 끝으로 정렬 */
-    align-items: center;
-    padding: 20px;
-    padding-left: 0;
-  }
-  
+.product-list-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* 아래쪽 테두리 설정 */
+  font-family: 'Pretendard-medium';
+  font-size: 20px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.header-image {
+  flex: 0 0 150px; /* product-image와 동일 */
+  padding: 10px; /* 패딩을 product-image의 패딩과 동일하게 설정 */
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 요소들을 좌우에 균등하게 분배 */
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.product-image {
+  flex: 0 0 150px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 20px;
+  margin-left: 50px;
+  text-align: center;
+
+}
+
+.product-name{
+  flex: 2;
+}
+.product-price,
+.product-status,
+.product-sales {
+  flex: 1; /* 모든 상세 정보가 동일한 비율을 갖도록 설정 */
+  padding: 20px;
+}
+
+.product-sales {
+  padding-right: 0; /* 패딩을 줄여 간격을 좁게 함 */
+  margin-right: 0; /* 필요한 경우, 마진을 줄여 추가적으로 간격을 좁게 함 */
+}
+
+.edit-button {
+  background-color: #FFA4BA;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: 'Pretendard-medium';
+  color: white;
+  margin-right: 10px; /* 수정 버튼의 오른쪽 마진을 줄임 */
+}
+
+.delete-icon {
+  color: #FFA4BA;
+  cursor: pointer;
+  font-size: 30px;
+  flex: 0 0 auto;
+  padding: 20px;
+  padding-left: 0; /* 휴지통 아이콘의 왼쪽 패딩을 줄임 */
+  margin-right: 0; /* 오른쪽 마진을 없앰 */
+}
+
+.product-actions {
+  display: flex;
+  justify-content: flex-end; /* 수정과 삭제 버튼을 오른쪽 끝으로 정렬 */
+  align-items: center;
+  padding: 20px;
+  padding-left: 0;
+}
