@@ -2,8 +2,8 @@
     font-family: 'Pretendard-bold';
     font-size: 22px;
     position: relative;
-    top: 530px;
-    left: 500px;
+    top: 210px;
+    left: 162px;
     color: lightgray;
     cursor: pointer;
     text-decoration: none;
@@ -18,8 +18,8 @@
     font-family: 'Pretendard-bold';
     font-size: 22px;
     position: relative;
-    top: 504px;
-    left: 650px;
+    top: 183px;
+    left: 280px;
     cursor: pointer;
     color: lightgray;
     z-index: 999;
@@ -35,8 +35,8 @@
     background-color: #FFA0B7;
     border-radius: 20px;
     position: relative;
-    top: 600px;
-    left: 500px;
+    top: 270px;
+    left: 159px;
 }
 
 .admain-msgbg1:hover{
@@ -127,8 +127,8 @@ color: white;
     background-color: #BBD4E5;
     border-radius: 20px;
     position: relative;
-    top: 600px;
-    left: 500px;
+    top: 270px;
+    left: 159px;
 }
 
 .admain-msgbg2:hover{
@@ -212,9 +212,9 @@ color: white;
     
 
     position: absolute;
-    top: 1000px;
+    top: 700px;
     border-bottom: 3px solid #FFA0B7;
-    left: 500px;
+    left: 180px;
     z-index: 999;
   }
 
@@ -225,63 +225,64 @@ color: white;
     color: gray;
     font-family: 'Pretendard-bold';
     position: relative;
-    top: 770px;
-    left: 500px;
+    top: 450px;
+    left: 200px;
   }
 
   .admain-list-muname{
     font-family: 'Pretendard-bold';
     position: relative;
-    top: 751px;
+    top: 430px;
     color: gray;
-    left: 740px;
+    left: 420px;
   }
 
   .admain-list-mday{
     color: gray;
     font-family: 'Pretendard-bold';
     position: relative;
-    top: 731px;
-    left: 863px;
+    top: 410px;
+    left: 520px;
   }
 
   .adlist-cname{
     font-family: 'Pretendard-Regular';
     font-size: 16px;
     position: relative;
-    top: 770px;
+    top: 390px;
 
-    left: 500px;
+    left: 200px;
   }
 
   .adlist-uname{
     font-family: 'Pretendard-Regular';
     font-size: 16px;
     position: relative;
-    top: 750px;
+    top: 370px;
 
-    left: 743px;
+    left: 420px;
   }
 
   .adlist-listday{
     font-family: 'Pretendard-Regular';
     font-size: 16px;
     position: relative;
-    top: 730px;
-
-    left: 845px;
+    top: 350px;
+  left: 510px;
   }
 
   .adlist-hr{
     position: relative;
-    top: 730px;
+    top: 360px;
     width: 430px;
-    left: -240px;
+    left: -280px;
     color: lightgray;
     background-color: lightgray;
   }
   .admain-list-all{
+    
     text-decoration: none;
+
     color: black;
   }
 
@@ -290,6 +291,7 @@ color: white;
     display: flex;
     flex-direction:column ;
     gap:-10px;
+    margin-top: 75px;
   }
   /* 판매량순위 */
   .admain-mt3{
@@ -301,8 +303,8 @@ color: white;
     
 
     position: absolute;
-    top: 1000px;
+    top: 700px;
     border-bottom: 3px solid #FFA0B7;
-    left: 1050px;
+    left: 700px;
     z-index: 999;
   }

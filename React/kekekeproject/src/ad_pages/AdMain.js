@@ -22,7 +22,7 @@ const AdMain = () => {
         
         <AdMT>주문현황</AdMT>
 
-        <Ad_BG height={1630}>
+        <Ad_BG height={1430}>
           
 
     <div className='ad-main-continer'>
