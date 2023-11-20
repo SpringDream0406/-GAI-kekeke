@@ -1,4 +1,4 @@
-import React, { useState,  forwardRef ,useCallback} from 'react';
+import React, { useState, useEffect, forwardRef ,useCallback} from 'react';
 import {Link} from "react-router-dom";
 import "../css/TourOrder.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,17 +6,38 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import TourDetContainer from '../component/TourDetContainer'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import axios from 'axios';
+import API_URL from '../api_url';
+import { useLocation } from 'react-router-dom';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 
 
 export const TourOrder = () => {
 
-  const [totalCost, setTotalCost] = useState(30000); // This sets the initial total cost.
+  
+  const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
 
-  const [pickupDateTime, setPickupDateTime] = useState(new Date());
-  const [pickupDate, setPickupDate] = useState(new Date());
+  const [pickup_time, setPickupTime] = useState(new Date());
+  const [pickup_date, setPickupDate] = useState(new Date());
+  const [cake_flavor, setCakeFlavor] = useState(null);
+  const [cake_size, setCakeSize] = useState(null);
+  const [cake_name, setCakeName] = useState(null);
+  const [add_require, setAddRequire] = useState(null);
+  const [lettering, setLettering] = useState(null);
+  const [order_name, setOrderName] = useState(null);
+  const [order_num, setOrderNum] = useState(null);
+  const [order_user, setOrderUser] = useState(null);
+
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
+  const [productData, setProductData] = useState(null);
+  const prd_id = searchParams.get('prd_id');
+  console.log('cake_prd_id:', prd_id);
+
+
   const [additionalCosts] = useState({
     vanilla: 0,
     chocolate: 1000,
@@ -45,15 +66,11 @@ export const TourOrder = () => {
     ));
   
 
-    const [selectedFlavor, setSelectedFlavor] = useState(null);
-
-    // 크기 선택에 대한 상태
-    const [selectedSize, setSelectedSize] = useState(null);
     
     const calculateTotalCostForFlavor = (flavor) => {
       // 새로운 맛을 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 맛의 추가요금을 빼야 합니다.
       const costToAdd = flavor ? additionalCosts[flavor] : 0;
-      const costToSubtract = selectedFlavor ? additionalCosts[selectedFlavor] : 0;
+      const costToSubtract = cake_flavor ? additionalCosts[cake_flavor] : 0;
       return costToAdd - costToSubtract;
     };
     
@@ -61,29 +78,59 @@ export const TourOrder = () => {
     const calculateTotalCostForSize = (size) => {
       // 새로운 크기를 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 크기의 추가요금을 빼야 합니다.
       const costToAdd = size ? additionalCosts[size] : 0;
-      const costToSubtract = selectedSize ? additionalCosts[selectedSize] : 0;
+      const costToSubtract = cake_size ? additionalCosts[cake_size] : 0;
       return costToAdd - costToSubtract;
     };
     
     // 맛 선택 핸들러
     const handleFlavorChange = useCallback((flavor) => {
-      setSelectedFlavor(prevFlavor => {
+      setCakeFlavor(prevFlavor => {
         // 총 가격 업데이트
         const priceDifference = calculateTotalCostForFlavor(flavor);
-        setTotalCost(prevTotalCost => prevTotalCost + priceDifference);
+        setCakeprice(prevTotalCost => prevTotalCost + priceDifference);
         return prevFlavor === flavor ? null : flavor;
       });
-    }, [additionalCosts, selectedFlavor]);
+    }, [additionalCosts, cake_flavor]);
     
     // 크기 선택 핸들러
     const handleSizeChange = useCallback((size) => {
-      setSelectedSize(prevSize => {
+      setCakeSize(prevSize => {
         // 총 가격 업데이트
         const priceDifference = calculateTotalCostForSize(size);
-        setTotalCost(prevTotalCost => prevTotalCost + priceDifference);
+        setCakeprice(prevTotalCost => prevTotalCost + priceDifference);
         return prevSize === size ? null : size;
       });
-    }, [additionalCosts, selectedSize]);
+    }, [additionalCosts, cake_size]);
+
+
+    const submitOrder = () => {
+
+      const url = `${API_URL}/cust/order`;
+
+      const orderData = {
+        cake_name: cake_name,
+        add_require: add_require,
+        cake_size: cake_size,
+        cake_flavor: cake_flavor,
+        cake_price: cakeprice,
+        lettering: lettering,
+        order_user: order_user,
+        order_num: order_num,
+        pickup_date: pickup_date.toISOString(),
+        pickup_time: pickup_time.toISOString(),
+      };
+    
+      axios
+        .post(url, orderData)
+        .then((response) => {
+          console.log('주문이 성공적으로 전송되었습니다.', response.data);
+          // 주문이 성공적으로 전송되었을 때 할 작업을 추가할 수 있습니다.
+        })
+        .catch((error) => {
+          console.error('주문 전송 에러', error);
+          // 주문 전송에 실패했을 때 에러 처리를 추가할 수 있습니다.
+        });
+    };
 
 
   return (
@@ -97,7 +144,9 @@ export const TourOrder = () => {
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg2'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg3'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg4'/>
-    <div className="to-cakename">케이크이름</div>
+    <div className="to-cakename"
+    value={cake_name}
+    >{prd_id}</div>
     </div>
 
     <div>
@@ -112,15 +161,16 @@ export const TourOrder = () => {
       <div className='to-cakeflavor'>
           <div className="to-cf-1">
             <Checkbox
-            checked={selectedFlavor === 'vanilla'}
+            checked={cake_flavor === 'vanilla'}
             onChange={() => handleFlavorChange('vanilla')}
+            value={cake_flavor}
             ></Checkbox>
             <div className="to-cf-txt">바닐라</div>
            <div className='cf-st'>추가요금 : {additionalCosts.vanilla} 원</div>
           </div>
           <div className="to-cf-2">
           <Checkbox
-          checked={selectedFlavor === 'chocolate'}
+          checked={cake_flavor === 'chocolate'}
           onChange={() => handleFlavorChange('chocolate')}
           ></Checkbox>
             <div className="to-cf-txt1" >초콜릿</div>
@@ -128,7 +178,7 @@ export const TourOrder = () => {
           </div>
           <div className="to-cf-3">
           <Checkbox
-         checked={selectedFlavor === 'oreo'}
+         checked={cake_flavor === 'oreo'}
          onChange={() => handleFlavorChange('oreo')}
           ></Checkbox>
             <div className="to-cf-txt2" >오레오</div>
@@ -136,7 +186,7 @@ export const TourOrder = () => {
           </div>
           <div className="to-cf-4">
           <Checkbox 
-          checked={selectedFlavor === 'fruit'}
+          checked={cake_flavor === 'fruit'}
           onChange={() => handleFlavorChange('fruit')}
           ></Checkbox>
             <div className="to-cf-txt3" >생과일</div>
@@ -150,35 +200,37 @@ export const TourOrder = () => {
       <p className="to-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
       <div className="to-reqbtn">
         <div className="to-overlap-group">
-          <Link className="to-reqtxt" to={'/tourcompleteorder'}>요청하기</Link>
+          <Link className="to-reqtxt" to={`/tour-complete-order?prd_id=${prd_id}`}
+          onClick={submitOrder}>요청하기</Link>
         </div>
       </div>
       <div className="to-cakeplusttitle">케이크 추가 요청사항</div>
       <input className="to-cakeplus"
                     type='text'
                     placeholder='요청사항을 입력하세요'
-                   
+                    value={add_require}
                   />
       <div className="to-caketxttitle">케이크 위 문구</div>
       <input className="to-caketxt"
                     type='text'
                     placeholder='문구를 입력하세요'
-                   
+                    value={lettering}
                   />
       <div className="to-cakesizetitle">케이크 크기선택</div>
    
        <div className='to-check-container'>
           <div className="to-check-1">
             <Checkbox
-           checked={selectedSize === 'do'}
+           checked={cake_size === 'do'}
            onChange={() => handleSizeChange('do')}
+           value={cake_size}
             ></Checkbox>
             <div className="to-check1-txt" >도시락</div>
             <div className='check1-st'>추가요금 : {additionalCosts.do}원</div>
           </div>
           <div className="to-check-2">
           <Checkbox 
-         checked={selectedSize === 'one'}
+         checked={cake_size === 'one'}
          onChange={() => handleSizeChange('one')}
           ></Checkbox>
             <div className="to-check-txt1">1호</div>
@@ -186,7 +238,7 @@ export const TourOrder = () => {
           </div>
           <div className="to-check-3">
           <Checkbox 
-          checked={selectedSize === 'two'}
+          checked={cake_size === 'two'}
           onChange={() => handleSizeChange('two')}
           ></Checkbox>
             <div className="to-check-txt2" >2호</div>
@@ -194,7 +246,7 @@ export const TourOrder = () => {
           </div>
           <div className="to-check-4">
           <Checkbox 
-          checked={selectedSize === 'three'}
+          checked={cake_size === 'three'}
           onChange={() => handleSizeChange('three')}
           ></Checkbox>
             <div className="to-check-txt3" >3호</div>
@@ -206,12 +258,12 @@ export const TourOrder = () => {
       <input className="to-userphone"
                     type='text'
                     placeholder='전화번호를 입력하세요'
-                   
+                    value={order_num}
                   />
       <div className="to-time">픽업 시간</div>
       <DatePicker
-        selected={pickupDateTime}
-        onChange={(date) => setPickupDateTime(date)}
+        selected={pickup_time}
+        onChange={(date) => setPickupTime(date)}
         showTimeSelect
         showTimeSelectOnly // Add this prop to only show the time picker
         timeFormat="HH:mm"
@@ -219,19 +271,18 @@ export const TourOrder = () => {
         timeCaption="Time"
         dateFormat="h:mm aa"
         className="to-timetitle"
+        value={pickup_time}
         customInput={<TimeInput />} // Use the TimeInput component for time picker
       />
       
    
-
-
       <div className="to-daytitle">픽업 날짜</div>
       <div className='to-datepicker-container'>
       <DatePicker 
-        selected={pickupDate} 
+        selected={pickup_date} 
         onChange={(date) => setPickupDate(date)}
         className="to-day"
-        
+        value={pickup_date}
         dateFormat="yyyy/MM/dd"
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
       />
@@ -239,17 +290,15 @@ export const TourOrder = () => {
 
       </div>
       
-
-
       <div className="to-usernametitle">예약자 성함</div>
       <input className="to-username"
                     type='text'
                     placeholder='이름을 입력하세요'
-                   
+                    value={order_user}
                   />
           </div>
           <div className="co-cakemoneytt">가격</div>
-          <div className='co-cakemn'>{totalCost}</div>
+          <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
           <div className='co-cakemoney'>원</div>
      
      

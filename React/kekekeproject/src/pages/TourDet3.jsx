@@ -200,7 +200,7 @@ export const TourDet3 = () => {
   const goToPrervPage = () => {
     setCurrentPage(prev => prev > 1 ? prev - 1 : 1);
 
-    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+    window.scrollTo(0, 100); // 화면 상단으로 스크롤 이동
   };
 
   /*다음페이지로 가는 로직 */
@@ -209,7 +209,7 @@ export const TourDet3 = () => {
     const goToNextrvPage = () => {
       setCurrentPage(prev => prev < reviewpageNum.length ? prev + 1 : reviewpageNum.length);
 
-      window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+      window.scrollTo(0, 100); // 화면 상단으로 스크롤 이동
     };
   
 
