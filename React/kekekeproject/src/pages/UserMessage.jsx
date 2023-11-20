@@ -5,7 +5,7 @@ import Chatroom from '../component/Chatroom';
 const UserMessage = () => {
   const roomId = 'userChatRoom'; // 고유한 roomId를 설정합니다.
 
-  const [chatData, setChatData] = useState([
+  const chatData = [
     {
       id: 1,
       logoSrc: "/assets/images/cakelogo1.jpg",
@@ -30,7 +30,7 @@ const UserMessage = () => {
         date: "10.20",
         availability: { start: '11:00', end: '20:00' },
       },
-  ]);
+  ];
 
   const [selectedChat, setSelectedChat] = useState(null);
 

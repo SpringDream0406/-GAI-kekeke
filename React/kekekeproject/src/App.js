@@ -26,6 +26,7 @@ import AdminLogin from "./ad_pages/AdminLogin";
 import { AdminJoin } from "./ad_pages/AdminJoin";
 import AdminMypage from './ad_pages/AdminMypage';
 
+
 // 글로벌 스타일 적용을 위한 컴포넌트
 
 import GlobalStyle from "./component/GlobalStyle";
@@ -86,7 +87,8 @@ function App() {
           <Route path="/admin/productquantity" element = {<Layout><PMquantity/></Layout>}/>  
           <Route path="/admin/productlist" element = {<Layout><PMList/></Layout>}/>  
           <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
-      
+          
+
 
 
           <Route path="/" element={<Layout><Main /></Layout>} />

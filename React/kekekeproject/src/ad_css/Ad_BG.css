@@ -33,6 +33,7 @@
   background-color: white;
   width: 1350px;
   min-height: 1050px;
+  height: auto;
   position: absolute;
   top: 290px;
   left: 330px;

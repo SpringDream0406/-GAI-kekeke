@@ -1,0 +1,252 @@
+.pmoption_container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 200px;
+    margin-Top: 50px;
+}
+
+.pmoption_list1{
+    font-family: 'Pretendard-medium';
+    color: #000000;
+    font-size: 22px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width : 200px;
+    top: 0;
+    margin-top: 100px;
+    text-align: right;
+    
+}
+.pmoption_list2{
+    color: #000000;
+    font-family: 'Pretendard-medium';
+    font-size: 22px;
+    left: 0;
+    letter-spacing: 0;
+    width : 200px;
+    text-align: right;
+
+    line-height: normal;
+    position: relative;
+    top: 0;
+    margin-top: 80px;
+}
+.pmoption_list3{
+    color: #000000;
+    font-family: 'Pretendard-medium';
+    font-size: 22px;
+    left: 0;
+    letter-spacing: 0;
+    width : 200px;
+    text-align: right;
+    line-height: normal;
+    position: relative;
+    top: 0;
+    margin-top: -90px;
+    margin-bottom: 15px;
+}
+
+.pmoption_screen1{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    width: 219px;
+    top: 88px;
+    left: 230px;
+    position: absolute;
+}
+.pmoption_screen2{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    width: 219px;
+    top: 88px;
+    left: 470px;
+    position: absolute;
+}
+.pmoption_screen3{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    
+    width: 50px;
+    top: 88px;
+    left: 700px;
+    position: absolute;
+}
+.add_button{
+    font-size: 40px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.screen_taste{
+    color: #9c9c9c;
+    background-color: #efefef;
+    font-family: 'Pretendard-medium';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 18px;
+    margin-left: 15px;
+    position: relative;
+    white-space: nowrap;
+    width: 200px;
+}
+.taste_cost{
+    color: #9c9c9c;
+    background-color: #efefef;
+    font-family: 'Pretendard-medium';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 18px;
+    margin-left: 15px;
+    position: relative;
+    white-space: nowrap;
+    width: 200px;
+}
+.flavor_list{
+    position: relative;
+    left: 230px;
+    top: 30px;
+    
+}
+.flavor_list2{
+    position: relative;
+    left: 230px;
+    top: -140px;
+    
+}
+.screen_size{
+    color: #9c9c9c;
+    background-color: #efefef;
+    font-family: 'Pretendard-medium';
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 158px;
+    margin-left: 15px;
+    position: relative;
+    white-space: nowrap;
+    width: 200px;
+    position: absolute;
+    top: -137px;
+}
+.pmoption_screen4{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    width: 219px;
+    top: 5px;
+    left: 230px;
+    position: relative;
+    top: -45px;
+    margin-top: 0px
+}
+.pmoption_screen5{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    width: 219px;
+    top: 5px;
+    left: 470px;
+    line-height: normal;
+    position: relative;
+    top: -103px;
+    
+}
+.pmoption_screen6{
+    background-color: #efefef;
+    border-radius: 10px;
+    height: 58px;
+    
+    width: 50px;
+    top: -162px;
+    left: 700px;
+    position: relative;
+}
+.pmoption_textarea{
+    color: #777;
+    font-family: 'Pretendard-medium';
+    font-size: 16px;
+    width: 500px;
+    height: 50px;
+    left: 230px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    top: 0;
+    padding-left: 10px;
+    margin-top: -65px;
+    background: #efefef;
+    border-radius: 10px;
+    padding: 10px;
+    
+
+}
+.result {
+    background-color: #ffd7d7;
+    padding: 10px 20px;
+    margin-top: 5px;
+    width: 420px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Pretendard-bold';
+    position: relative;
+  }
+  
+  
+  .result2 {
+    background-color: #ffd7d7;
+    padding: 10px 20px;
+    margin-top: 5px;
+    width: 420px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Pretendard-bold';
+    position: relative;
+
+  }
+  .delete_button{
+    left: 468px;
+    border-radius: 10px;
+    position: absolute;
+    background-color:#ffd7d7;
+    cursor: pointer;
+    transform: translateY(-50%);
+    padding: 10px 16px;
+    top: 19px;
+    right: 0;
+  }
+
+  .PMOPtion-modify-btn {
+    width: 102px;
+     border: 5px solid #FFA4BA;
+      background-color: #FFA4BA; /* 배경색 적용 */
+      border-radius: 20px; /* 테두리 둥글기 적용 */
+      padding: 10px 20px; /* 내부 여백 적용 */
+      transition: background-color 0.3s, color 0.3s; /* 색상 변경 애니메이션 적용 */
+      transform: translateX(380%); /* 가로 중앙에서 왼쪽으로 50% 이동 */
+      cursor: pointer; /* 마우스 오버 시 커서 변경 */
+      margin-top: 50px;
+      margin-bottom: 50px;
+      height: 30px;
+      position: relative;
+  }
+  
+  .PMOPtion-modifytxt {
+      background-color: #FFA4BA; /* 배경색 적용 */
+      font-family: "Pretendard-medium";
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    position: relative;
+    
+  }
