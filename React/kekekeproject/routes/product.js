@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const conn = require('../config/database');
 const { getNowTime } = require('../config/getNowTime');
-const {query} = require('../config/poolDatabase');
+const { query } = require('../config/poolDatabase');
 
 router.post('/cakes', async (req, res) => {
     try {
@@ -13,6 +13,7 @@ router.post('/cakes', async (req, res) => {
                     a.prd_id,
                     a.prd_name,
                     b.shop_addr1,
+                    c.img_name,
                     c.img_name2
                 from TB_PRODUCT a
                 join TB_SELLER b on a.seller_id = b.seller_id
@@ -28,7 +29,8 @@ router.post('/cakes', async (req, res) => {
             console.log('조회 데이터 없음');
             res.status(400).send({ message: '잘못된 요청' });
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error(`SQL 에러: ${error}`);
         res.status(500).send({ message: '서버 에러' });
     }
