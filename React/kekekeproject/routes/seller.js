@@ -3,10 +3,10 @@ const router = express.Router();
 const conn = require('../config/database');
 const multer = require('multer');
 const path = require('path')
-const { login_func } = require('../config/login');
 const { sellerjoin_check, join_res } = require('../config/join');
 const { md5Hash } = require('../config/crypto');
 const { check_func } = require('../config/check');
+const { getNowTime } = require('../config/getNowTime');
 
 
 
@@ -38,7 +38,7 @@ const upload = multer({ storage: storage });
 
 
 router.post('/join', upload.single('seller_profile1'), async (req, res) => {
-    console.log('판매자 회원가입 시도', req.body);
+    console.log(`판매자 회원가입 시도, ${getNowTime()}`, req.body);
 
     let {
         user_name,
@@ -116,7 +116,7 @@ router.post('/join', upload.single('seller_profile1'), async (req, res) => {
 
 // 판매자 로그인
 router.post('/login', (req, res) => {
-    console.log('판매자 로그인 시도', req.body);
+    console.log(`판매자 로그인 시도, ${getNowTime()}`, req.body);
     let { seller_id, seller_pw } = req.body;
     const user_ip = req.ip.replace(/^::ffff:/, '');
     //console.log(user_ip);
@@ -196,7 +196,7 @@ router.post('/login', (req, res) => {
 
 // 판매자 회원가입 중복체크
 router.post('/check', (req, res) => {
-    console.log('판매자 회원가입 중복 체크', req.body);
+    console.log(`판매자 회원가입 중복 체크, ${getNowTime()}`, req.body);
     let { seller_id } = req.body;
 
     let sql = `select seller_id 
