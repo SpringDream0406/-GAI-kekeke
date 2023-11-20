@@ -5,9 +5,10 @@ const conn = require('../config/database'); // DB 연결
 const { md5Hash } = require('../config/crypto'); // 비밀번호 md5 암호화
 const multer = require('multer'); // 이미지 처리
 const path = require('path'); // 경로 작성 방법 변경
-const { login_func } = require('../config/login'); // 로그인 응답 모듈화
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
 const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
+const { getNowTime } = require('../config/getNowTime');
+
 
 
 
@@ -42,8 +43,15 @@ const upload = multer({ storage: storage });
 router.post('/join', upload.single('profile_img'), (req, res) => {
     // upload.sing => 한번에 한개씩, 뒤에 이름은 이름에 해당되는 파일을 올리겠다는 뜻
 
-    console.log('커스터머 회원가입 시도', req.body);
+    console.log(`커스터머 회원가입 시도, ${getNowTime()}`, req.body, );
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
+    
+    let nullCheck = (cust_id && nick_name && cust_pw && cust_pwcheck && phone);
+    if (!nullCheck){
+        console.log(`빈칸 존재`);
+        res.status(400).send({message : '빈칸이 존재합니다.'});
+        return;
+    }
 
     // 이미지 파일 처리
     let imgFile = req.file || { filename: 'enho.jpg' };
@@ -78,9 +86,9 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
 
 // 커스터머 로그인
 router.post('/login', (req, res) => {
-    console.log('커스터머 로그인 시도', req.body);
-    let { cust_id, cust_pw } = req.body;
     const user_ip = req.ip.replace(/^::ffff:/, '');
+    console.log(`커스터머 로그인 시도, ip: ${user_ip}, ${getNowTime()}`, req.body);
+    let { cust_id, cust_pw } = req.body;
     // console.log(user_ip);
     let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img
                    from TB_CUSTOMER
@@ -133,10 +141,11 @@ router.post('/login', (req, res) => {
 
 // 커스터머 회원가입 중복체크
 router.post('/check', (req, res) => {
-    console.log('커스터머 회원가입 중복체크', req.body);
+    const user_ip = req.ip.replace(/^::ffff:/, '');
+    console.log(`커스터머 회원가입 중복체크, ip:${user_ip}, ${getNowTime()}`, req.body);
     let { nick_name, cust_id } = req.body;
     if (nick_name) {
-        console.log('닉네임 중복 체크', nick_name);
+        console.log(`닉네임 중복 체크, ${nick_name}`);
         let sql = `select nick_name 
                        from TB_CUSTOMER
                        where nick_name = ?`;
@@ -145,7 +154,7 @@ router.post('/check', (req, res) => {
         })
     }
     else if (cust_id) {
-        console.log('아이디 중복체크', cust_id);
+        console.log(`아이디 중복체크', ${cust_id}}`);
         let sql = `select cust_id
                        from TB_CUSTOMER
                        where cust_id = ?`
