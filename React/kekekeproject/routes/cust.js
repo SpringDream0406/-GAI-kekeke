@@ -6,11 +6,16 @@ const { md5Hash } = require('../config/crypto'); // 비밀번호 md5 암호화
 const multer = require('multer'); // 이미지 처리
 const path = require('path'); // 경로 작성 방법 변경
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
-const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
 const { getNowTime } = require('../config/getNowTime');
 const { query } = require('../config/poolDatabase');
+const { imgStorage } = require('../config/imgStorage');
 
 
+
+const imgPath = 
+imgStorage()
+
+path.join('public', 'img', 'cust')
 
 
 
@@ -87,57 +92,56 @@ router.post('/join', upload.single('profile_img'), (req, res) => {
 
 
 // 커스터머 로그인
-router.post('/login', (req, res) => {
-    const user_ip = req.ip.replace(/^::ffff:/, '');
-    console.log(`커스터머 로그인 시도, ip: ${user_ip}, ${getNowTime()}`, req.body);
-    let { cust_id, cust_pw } = req.body;
-    // console.log(user_ip);
-    let sql = `select cust_id, cust_pw, joined_at, phone, nick_name, profile_img
+router.post('/login', async (req, res) => {
+    try {
+        const user_ip = req.ip.replace(/^::ffff:/, '');
+        console.log(`커스터머 로그인 시도, ip: ${user_ip}, ${getNowTime()}`);
+        console.log(req.body);
+        let { cust_id, cust_pw } = req.body;
+        let sql = `select 
+                    cust_id, 
+                    cust_pw, 
+                    joined_at, 
+                    phone, 
+                    nick_name, 
+                    profile_img
                    from TB_CUSTOMER
                    where cust_id = ?`;
-    conn.query(sql, [cust_id], (err, rows) => {
-        // console.log(rows);
-        if (err) {
-            console.error('로그인 시도 에러', err);
-            res.status(500).send({ message: '서버 에러' });
-        }
-        else {
-            if (rows.length > 0) { // id 결과가 있으면
-                md5Hash(cust_pw) // crypto 비밀번호 검증
-                    .then((hashed) => {
-                        const pw_hashed = hashed;
-                        if (pw_hashed === rows[0].cust_pw) {
-                            console.log('로그인 성공', cust_id, user_ip);
-                            let data = { // front로 보낼 데이터
-                                message: '로그인 성공',
-                                cust_id: rows[0].cust_id,
-                                joined_at: rows[0].joined_at,
-                                phone: rows[0].phone,
-                                nick_name: rows[0].nick_name,
-                                profile_img: rows[0].profile_img
-                            };
-                            // console.log('res',data);
-                            res.status(200).send(data)
-                        }
-                        else {
-                            console.log('로그인 실패 - 비밀번호 다름');
-                            console.log('받은 비번', cust_pw, user_ip);
-                            // console.log('비번 검증', result);
-                            res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('비밀번호 암호화 중 에러', error);
-                        res.status(500).send({ message: '서버 에러' })
-                    })
-            }
-            else {
-                console.log('로그인 실패 - 데이터 없음', user_ip);
+
+        rows = await query(sql, [cust_id]);
+
+        if (rows.length > 0) { // id 결과가 있으면
+            const md5HashedPw = await md5Hash(cust_pw)
+
+            if (md5HashedPw === rows[0].cust_pw) {
+                console.log('로그인 성공', cust_id, user_ip);
+                let data = { // front로 보낼 데이터
+                    message: '로그인 성공',
+                    cust_id: rows[0].cust_id,
+                    joined_at: rows[0].joined_at,
+                    phone: rows[0].phone,
+                    nick_name: rows[0].nick_name,
+                    profile_img: rows[0].profile_img
+                };
+                res.status(200).send(data);
+            } else {
+                console.log(hashed, rows[0].cust_pw);
+                console.log('로그인 실패 - 비밀번호 다름');
+                console.log('받은 비번', cust_pw, user_ip);
                 res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
             }
         }
-    })
-})
+        else {
+            console.log('로그인 실패 - 데이터 없음');
+            console.log('받은 비번', cust_pw, user_ip);
+            res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
+        }
+    } catch (error) {
+        console.error('로그인 처리 에러 발생', error);
+        res.status(500).send({ message: '서버 에러' });
+    }
+});
+
 
 // 커스터머 회원가입 중복체크
 router.post('/check', async (req, res) => {
@@ -148,9 +152,9 @@ router.post('/check', async (req, res) => {
         let { nick_name, cust_id } = req.body;
 
         let nullCheck = (!nick_name && !cust_id)
-        if (nullCheck){
+        if (nullCheck) {
             console.log('값 없음');
-            res.status(400).send({message : '값을 입력해주세요'})
+            res.status(400).send({ message: '값을 입력해주세요' })
             return
         }
 
@@ -164,7 +168,7 @@ router.post('/check', async (req, res) => {
 
             rows = await query(sql, [nick_name]);
             check_type = '닉네임';
-        } 
+        }
         else if (cust_id) {
             console.log(`아이디 중복 체크, ${cust_id}`);
             let sql = `select cust_id
@@ -178,17 +182,36 @@ router.post('/check', async (req, res) => {
         // 중복 체크 결과 응답
         if (rows.length > 0) {
             console.log(`${check_type} 중복`);
-            res.status(400).send({ result: rows, check_type, message: `${check_type} 중복` });
-        } 
+            res.status(400).send({ message: `${check_type} 중복` });
+        }
         else {
             console.log('조회 데이터 없음');
-            res.status(200).send({ result: rows, check_type, message: `사용 가능한 ${check_type}입니다.` });
+            res.status(200).send({ message: `사용 가능한 ${check_type}입니다.` });
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error('sql 처리 에러 발생', error);
         res.status(500).send({ message: '서버 에러' });
     }
 });
+
+router.post('/order', (req, res) => {
+    const orderData = req.body;
+    // 여기에서 orderData의 유효성 검사를 수행
+    console.log(`커스터머 주문 시도, orderdata: ${orderData}, ${getNowTime()}`, req.body);
+    let sql = `INSERT INTO tb_product_order (deal_id, cake_name, add_require, cake_size, cake_flavor, cake_price, seller_id, prd_id, cust_id, sale_dy, lettering, order_user, order_num, pickup_date, pickup_time, cake_let) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    conn.query(sql, [/* 주문 데이터의 각 항목 */], (err, result) => {
+        if (err) {
+            console.error('주문 데이터 저장 실패', err);
+            res.status(500).send({ message: '주문 처리 중 오류 발생' });
+        } else {
+            console.log('주문 데이터 저장 성공', result);
+            res.status(200).send({ message: '주문이 성공적으로 처리되었습니다.' });
+        }
+    });
+});
+
 
 
 module.exports = router;

@@ -197,7 +197,7 @@ export const Cakes = () => {
             <div className="tour-cake">
               <div className="tour-container">
                 {currentCakes.map((cake) => (
-                  <Link to={'/tour-order'} key={cake.prd_id}>
+                  <Link to={`/tour-order?prd_id=${cake.prd_id}`} key={cake.prd_id}>
                     <div className="tour-cake-container">
                       <div className="tour-cake-img">
                         <img
