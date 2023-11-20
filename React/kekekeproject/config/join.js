@@ -4,7 +4,7 @@ const join_check = (user_id, user_pw, user_pwcheck) => {
   return new Promise((resolve, reject) => {
 
     // 아이디 길이 체크
-    if (user_id.length < 6 || user_id.length > 20) {
+    if (user_id.length < 5 || user_id.length > 20) {
       reject({ message: '아이디 길이 제한' });
       return;
     }
@@ -43,7 +43,33 @@ const join_res = (err, rows, res) => {
   }
 }
 
-module.exports = { join_check, join_res };
+const sellerjoin_check = (seller_id, seller_pw, seller_pwcheck) => {
+  return new Promise((resolve, reject) => {
+
+    // 아이디 길이 체크
+    if (seller_id.length < 5 || seller_id.length > 20) {
+      reject({ message: '아이디 길이 제한' });
+      return;
+    }
+
+    // 비번 복잡도 체크
+    if (!validatePassword_midLv(seller_pw)) {
+      reject({ message: '비밀번호 길이 or 복잡도 부족' });
+      return;
+    }
+
+    // 비번 일치 체크
+    if (seller_pw !== seller_pwcheck) {
+      reject({ message: '비밀번호 불일치' });
+      return;
+    }
+
+    resolve({ message: '비밀번호 체크 성공' });
+  });
+}
+
+
+module.exports = { join_check, join_res , sellerjoin_check };
 
 
 

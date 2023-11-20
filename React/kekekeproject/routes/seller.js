@@ -4,7 +4,7 @@ const conn = require('../config/database');
 const multer = require('multer');
 const path = require('path')
 const { login_func } = require('../config/login');
-const { join_check } = require('../config/join');
+const { sellerjoin_check, join_res } = require('../config/join');
 const { md5Hash } = require('../config/crypto');
 const { check_func } = require('../config/check');
 
@@ -37,9 +37,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-// 판매자 회원가입
-router.post('/join', upload.single('seller_profile1'), (req, res) => {
+router.post('/join', upload.single('seller_profile1'), async (req, res) => {
     console.log('판매자 회원가입 시도', req.body);
+
     let {
         user_name,
         seller_id,
@@ -62,32 +62,14 @@ router.post('/join', upload.single('seller_profile1'), (req, res) => {
     let imgFile = req.file || { filename: 'enho.jpg' };
     let seller_profile1 = imgFile.filename;
 
-    // 회원가입 제한사항 체크
-    join_check(seller_id, seller_pw, seller_pwcheck)
-        .then((result) => {
-            md5Hash(seller_pw)
-                .then((hashed) => {
-                    const pw_hashed = hashed;
+    try {
+        // 회원가입 제한사항 체크
+        await sellerjoin_check(seller_id, seller_pw, seller_pwcheck);
 
-                    let sql = `insert into TB_SELLER (
-                                    seller_id, 
-                                    seller_pw,
-                                    phone,
-                                    shop_tel,
-                                    user_name,
-                                    store_name,
-                                    store_detail,
-                                    add_detail,
-                                    strg_use,
-                                    start_time,
-                                    end_time,
-                                    shop_addr1,
-                                    shop_addr2,
-                                    business_num,
-                                    seller_profile1)
-                                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
-                    conn.query(sql, [
-                        seller_id,
+        const pw_hashed = await md5Hash(seller_pw);
+
+        let sql = `insert into TB_SELLER (
+                        seller_id, 
                         seller_pw,
                         phone,
                         shop_tel,
@@ -101,21 +83,35 @@ router.post('/join', upload.single('seller_profile1'), (req, res) => {
                         shop_addr1,
                         shop_addr2,
                         business_num,
-                        seller_profile1
-                    ], (err, rows) => {
-                        join_check(err, rows, res);
-                    })
-                })
-                .catch((error) => {
-                    console.error('회원가입 비밀번호 헤싱 에러', error);
-                    res.status(500).send({ message: '회원가입 비밀번호 암호화 에러' })
-                })
-        })
-        .catch((error) => { // 회원가입 제한사항 체크 통과 못함
-            console.log(error);
-            res.status(400).send(error)
-        })
-})
+                        seller_profile1)
+                    values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+
+        conn.query(sql, [
+            seller_id,
+            pw_hashed, // 수정된 부분
+            phone,
+            shop_tel,
+            user_name,
+            store_name,
+            store_detail,
+            add_detail,
+            strg_use,
+            start_time,
+            end_time,
+            shop_addr1,
+            shop_addr2,
+            business_num,
+            seller_profile1
+        ], (err, rows) => {
+            join_res(err, rows, res);//응답 모듈화
+        });
+
+    } catch (error) {
+        console.error('판매자 회원가입 중 에러:', error);
+        res.status(500).send({ message: '판매자 회원가입 중 에러' });
+    }
+});
+
 
 
 // 판매자 로그인
@@ -123,7 +119,7 @@ router.post('/login', (req, res) => {
     console.log('판매자 로그인 시도', req.body);
     let { seller_id, seller_pw } = req.body;
     const user_ip = req.ip.replace(/^::ffff:/, '');
-    console.log(user_ip);
+    //console.log(user_ip);
     let sql = `select 
                 seller_id,
                 seller_pw,

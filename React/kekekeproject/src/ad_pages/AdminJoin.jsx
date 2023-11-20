@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
 import API_URL from '../api_url';
+import { useNavigate } from 'react-router-dom';
 import { event } from "jquery";
 // import { ADDRCONFIG } from "dns";
 // import { NONAME } from "dns";
@@ -13,6 +14,7 @@ import { event } from "jquery";
 export const AdminJoin = () => {
 
     const [image, setImage] = useState(null);
+    const navigate = useNavigate(); 
 
     const handleImageChange = (event) => {
       const file = event.target.files[0];
@@ -56,6 +58,7 @@ export const AdminJoin = () => {
     const [phone, setphone] = useState('');
 
     const [address, setAddress] = useState('');
+    const [address_detail, setAddress_detail] = useState('');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
 
@@ -65,23 +68,41 @@ export const AdminJoin = () => {
 
     const handleJoin = () => {
       const url = `${API_URL}/seller/join`;
-  
-      const data = { seller_id: seller_id, seller_pw: seller_PW,
-                    seller_pwcheck: seller_PW_Check, store_name: store_name,
-                    store_detail: store_detail, shop_tel: shop_tel,
-                    add_detail: add_detail, strg_use: strg_use,
-                    business_num: business_num, phone: phone,
-                    start_time: start_time, end_time: end_time};
-  
-     
-      axios.post(url, data)
+      const adminformData = new FormData();
+
+      const adminfileInput = document.getElementById('image-upload');
+      adminformData.append('user_name', user_name);
+      adminformData.append('seller_id', seller_id);
+      adminformData.append('seller_pw', seller_PW);
+      adminformData.append('seller_pwcheck', seller_PW_Check);
+      adminformData.append('store_name', store_name);
+      adminformData.append('store_detail', store_detail);
+      adminformData.append('shop_tel', shop_tel);
+      adminformData.append('add_detail', add_detail);
+      adminformData.append('strg_use', strg_use);
+      adminformData.append('business_num', business_num);
+      adminformData.append('phone', phone);
+      adminformData.append('shop_addr1' , address);
+      adminformData.append('shop_addr2', address_detail);
+      adminformData.append('start_time', start_time);
+      adminformData.append('end_time', end_time);
+      if (adminfileInput && adminfileInput.files[0]) {
+        adminformData.append('seller_profile1', adminfileInput.files[0]);
+      }
+
+      axios.post(url, adminformData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
         .then(response => { // status(200) 인 경우
             console.log(response.data);
             alert(response.data.message);
-            
+            navigate('/admin/login');
             // 성공적으로 로그인되었을 때 처리
             // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
             // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+
         })
         .catch(error => { // status(200)이 아닌 경우 ex status(500)
           console.error('에러', error, error.response.data);
@@ -92,8 +113,15 @@ export const AdminJoin = () => {
             alert('비밀번호 불일치')
           }
         });
+
+        for (let [key, value] of adminformData.entries()) {
+          console.log(`${key}:`, value);
+        }
+          
       }
 
+
+        
 
 
       const handlecheckid = () => {
@@ -270,6 +298,8 @@ export const AdminJoin = () => {
                         className="text-wrapper-4"
                         type="text"
                         placeholder="상세주소를 입력하세요"
+                        value={address_detail}
+                        onChange={(e)=>setAddress_detail(e.target.value)}
             
                       />
                 </div>

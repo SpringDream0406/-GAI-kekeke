@@ -1,0 +1,12 @@
+.PMContainer{
+    border-top-right-radius: 30px ;
+    border-bottom-right-radius: 30px ;
+    border: 10px solid #FFD1DC;
+    background-color: white;
+    width: 1350px;
+    min-height: 1050px;
+    position: absolute;
+    top: 290px;
+    left: 330px;
+    z-index: -1;
+}

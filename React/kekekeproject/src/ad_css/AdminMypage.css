@@ -1,0 +1,434 @@
+.adminmp-Container{
+    border-top-right-radius: 30px ;
+   border-bottom-right-radius: 30px ;
+   border: 10px solid #FFD1DC;
+   background-color: white;
+   width: 1350px;
+   height: 1050px;
+   position: absolute;
+   top: 290px;
+   left: 330px;
+   z-index: -1;
+}
+.adminmp_frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+     font-family: 'Pretendard-Regular', sans-serif; /* 폰트 적용 */
+     margin-bottom: 250px;
+  }
+  
+  
+  
+  .adminmp-input-area {
+    height: auto;
+    position: relative;
+    top: -90px;
+    width: 735px;
+  }
+  
+  .adminmp-modify-btn {
+    border: 5px solid;
+    width: 102px;
+     border: 5px solid #FFA4BA; /* 테두리 색상 적용 */
+      background-color: #FFA4BA; /* 배경색 적용 */
+      border-radius: 20px; /* 테두리 둥글기 적용 */
+      padding: 20px 20px; /* 내부 여백 적용 */
+      cursor: pointer; /* 마우스 오버 시 커서 변경 */
+      transition: background-color 0.3s, color 0.3s; /* 색상 변경 애니메이션 적용 */
+      transform: translateX(165%); /* 가로 중앙에서 왼쪽으로 50% 이동 */
+      z-index: 3; /* 다른 요소들 위에 오도록 z-index 값을 증가 */
+      margin-top: 760px;
+  }
+  
+  .adminmp-modifytxt {
+    font-family: "Pretendard-medium";
+    color: white;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  
+  
+  .adminmp-text-wrapper {
+    color: #FFA4BA;
+    font-size: 32px;
+    font-weight: 700;
+    left: 0;
+    position: absolute;
+    top: -1px;
+  }
+  
+  .adminmp-phone-input {
+    height: 128px;
+    left: 0;
+    position: absolute;
+    top: 817px;
+    width: 735px;
+  }
+  
+  .adminmp-phonetxt {
+    height: 29px;
+    left: 10px;
+    position: absolute;
+    top: 0;
+    width: 89px;
+  }
+  
+  .adminmp-div {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: -1px;
+  }
+  
+  .adminmp-div-2 {
+    background-color: #FFA4BA;
+    border-radius: 20px;
+    height: 72px;
+    left: 0;
+    position: absolute;
+    top: 56px;
+    width: 735px;
+  }
+  
+  .adminmp-pw-cheak-input {
+    height: 128px;
+    left: 0;
+    position: absolute;
+    top: 656px;
+    width: 735px;
+  }
+  
+  .adminmp-pwcheaktxt {
+    height: 29px;
+    left: 10px;
+    position: absolute;
+    top: 0;
+    width: 140px;
+  }
+  
+  .adminmp-pw-check-text{
+    border: none; /* 입력란의 기본 테두리 제거 */
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 12px;
+    position: relative;
+    white-space: nowrap;
+    width: 700px;
+    background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: #787878;
+    outline: none; /* 포커스 효과 제거 */
+  }
+
+  .adminmp-pw-input {
+    height: 128px;
+    left: 0;
+    position: absolute;
+    top: 495px;
+    width: 735px;
+  }
+  
+  .adminmp-pwtxt {
+    height: 29px;
+    left: 10px;
+    position: absolute;
+    top: 0;
+    width: 142px;
+  }
+  
+  .adminmp-text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  
+  .adminmp-nick-input {
+    
+    height: 128px;
+    left: 0;
+    position: absolute;
+    top: 334px;
+    width: 735px;
+  }
+  
+  .adminmp-duplicate-btn {
+    background-color: #FFA4BA;
+    border: 5px solid #FFA4BA;
+    border-radius: 20px;
+    height: 70px;
+    left: 592px;
+    position: absolute;
+    top: 56px;
+    width: 143px;
+    display: flex; /* Flexbox를 사용하여 내부 요소를 정렬합니다. */
+    justify-content: center; /* 가로 축에서 중앙에 정렬합니다. */
+    align-items: center; /* 세로 축에서 중앙에 정렬합니다. */
+  }
+  
+  
+  .adminmp-text-wrapper-3 {
+    font-family: "Pretendard-medium";
+    color: white;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+
+
+  /* 닉네임 변경 스타일 */
+.adminmp-nick-input {
+  /* 위치와 크기 조정 */
+  position: absolute;
+  top: 334px;
+  left: 0;
+  width: 735px;
+  height: 128px;
+}
+
+.adminmp-nick-input-box {
+  /* 입력란 스타일 */
+  background-color: #FFECF0;
+  border-radius: 20px;
+  position: absolute;
+  top: 56px;
+  width: 576px;
+  height: 72px;
+}
+
+.adminmp-nick-input-text {
+    border: none; /* 입력란의 기본 테두리 제거 */
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 12px;
+    position: relative;
+    white-space: nowrap;
+    width: 700px;
+    background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: #787878;
+    outline: none; /* 포커스 효과 제거 */
+}
+
+  
+  /* 비밀번호 변경 입력란 스타일 */
+  .adminmp-pw-input-box {
+    background-color: #FFECF0; /* 파란 박스와 같은 색상 설정 */
+    border-radius: 20px;
+    height: 72px;
+    width: 735px;
+    position: absolute;
+    top: 56px;
+  }
+  
+  .adminmp-pw-input-box input.adminmp-pw-input-text {
+    border: none; /* 입력란의 기본 테두리 제거 */
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 12px;
+    position: relative;
+    white-space: nowrap;
+    width: 700px;
+    background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: #787878;
+    outline: none; /* 포커스 효과 제거 */
+  }
+  
+/* 비밀번호 확인 스타일 */
+.adminmp-pw-check-input {
+  /* 위치와 크기 조정 */
+  position: absolute;
+  top: 656px;
+  left: 0;
+  width: 735px;
+  height: 128px;
+}
+  
+
+.adminmp-pw-check-box {
+  /* 입력란 스타일 */
+  background-color: #FFECF0;
+  border-radius: 20px;
+  position: absolute;
+  top: 56px;
+  width: 735px;
+  height: 72px;
+}
+
+.adminmp-pw-check-text {
+  /* 입력란 내부 텍스트 스타일 */
+  border: none;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-size: 24px;
+  color: #787878;
+  outline: none;
+}
+
+
+  /* 전화번호 입력란 스타일 */
+  .adminmp-phone-input-box {
+    background-color: #FFECF0; /* 파란 박스와 같은 색상 설정 */
+    border-radius: 20px;
+    height: 72px;
+    width: 735px;
+    position: absolute;
+    top: 56px;
+  }
+  
+  .adminmp-phone-input-box input.adminmp-phone-input-text {
+    border: none; /* 입력란의 기본 테두리 제거 */
+    padding: 10px 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: 12px;
+    position: relative;
+    white-space: nowrap;
+    width: 700px;
+    background-color: transparent; /* 배경색을 투명으로 설정하여 파란 박스를 그대로 나타냅니다. */
+    font-family: "Pretendard-Regular";
+    font-size: 24px;
+    color: #787878;
+    outline: none; /* 포커스 효과 제거 */
+  }
+  
+  .adminmp-nicktxt {
+    height: 29px;
+    left: 10px;
+    position: absolute;
+    top: 0;
+    width: 118px;
+  }
+  
+  .adminmp-overlap-group {
+    /* background-image: url(./photo-icon.png); */
+    background-size: 100% 100%;
+    height: 269px;
+    left: 214px;
+    position: absolute;
+    top: 10;
+    width: 269px;
+  }
+  
+  .adminmp-div,
+  .adminmp-phonetxt,
+  .adminmp-pwcheaktxt,
+  .adminmp-pwtxt,
+  .adminmp-text-wrapper-2,
+  .adminmp-nicktxt {
+    font-size: 22px;
+    letter-spacing: 0;
+    text-align: center;
+    font-family: 'Pretendard-bold';
+  }
+  .adminmp-duplicatetxt,
+  .adminmp-modifytxt {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%; /* 버튼 너비 전체를 차지하도록 설정 */
+    height: 100%;
+    background-color: transparent; /* 배경 색상 제거 */
+    border: none; /* 테두리 제거 */
+    cursor: pointer; /* 마우스 오버 시 포인터로 변경 */
+    pointer-events: auto; /* 클릭 가능하도록 설정 */
+  }
+  
+  /* 이미지 업로드 */
+  
+  .adminmp-photo {
+    position: relative; /* 부모를 상대 위치로 설정 */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* 원형 모양 */
+    overflow: hidden; /* 넘치는 내용은 숨김 처리 */
+    /* z-index를 추가하여 겹치는 문제를 해결할 수 있습니다. */
+    z-index: 1; /* 다른 요소들보다 상위에 위치하도록 z-index 설정 */
+    border: 5px solid #FFECF0; /* 테두리 추가 */
+    background-color: #FFECF0; /* 배경색 추가 */
+    left: 35%;
+    top: 145px;
+  }
+  .adminmp-uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+  }
+    .adminmp-upload-label {
+      width: 100%; /* 원형 전체 크기로 설정 */
+      height: 100%; /* 원형 전체 크기로 설정 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+
+    }
+  
+    .adminmp-camera-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  
+    input[type="file"] {
+      display: none;
+    }
+  
+    .adminmp-upload-label {
+      position: absolute; /* 절대 위치로 설정 */
+      top: 0;
+      left: 0;
+      width: 100%; /* 부모의 전체 너비를 사용 */
+      height: 100%; /* 부모의 전체 높이를 사용 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2; /* label이 이미지 위에 오도록 z-index 설정 */
+    }
+    .adminmp-nickname-unavailable {
+      color: #ff6b6b; /* 연한 빨간색 */
+      font-size: 22px; /* 적절한 텍스트 크기 */
+      position: absolute; /* 부모 요소(.nick-input)에 대해 절대 위치 */
+      right: 10px; /* 오른쪽에서 10px 떨어진 곳에 배치 */
+      top: 10%; /* 상단에서 50% 떨어진 곳에 배치 (부모의 높이를 기준으로 중앙 정렬) */
+      transform: translateY(-50%); /* Y축 기준으로 -50% 만큼 이동하여 세로 중앙 정렬 */
+      white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 표시 */
+    }
+
+    .adminmp-nickname-available{
+      color: #ff6b6b; /* 연한 빨간색 */
+      font-size: 22px; /* 적절한 텍스트 크기 */
+      position: absolute; /* 부모 요소(.nick-input)에 대해 절대 위치 */
+      right: 10px; /* 오른쪽에서 10px 떨어진 곳에 배치 */
+      top: 10%; /* 상단에서 50% 떨어진 곳에 배치 (부모의 높이를 기준으로 중앙 정렬) */
+      transform: translateY(-50%); /* Y축 기준으로 -50% 만큼 이동하여 세로 중앙 정렬 */
+      white-space: nowrap; /* 텍스트가 줄바꿈 없이 한 줄로 표시 */
+    }
+
+    /* 크기 조절 */

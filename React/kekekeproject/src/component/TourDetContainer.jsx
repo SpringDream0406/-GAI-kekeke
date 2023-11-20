@@ -53,9 +53,9 @@ const TourDetContainer = ({ children, containerHeight }) => {
                             </button>
                         </div>
                         <div className="sub-bar">
-                            <Link to="/SampleCake" className="sub-bar-item">샘플케이크</Link>
-                            <Link to="/TourDet2" className="sub-bar-item">매장정보</Link>
-                            <Link to="/TourDet3" className="sub-bar-item">리뷰</Link>
+                            <Link to="/samplecake" className="sub-bar-item">샘플케이크</Link>
+                            <Link to="/tour-det2" className="sub-bar-item">매장정보</Link>
+                            <Link to="/tour-det3" className="sub-bar-item">리뷰</Link>
                         </div>
                         {children}
                     </div>

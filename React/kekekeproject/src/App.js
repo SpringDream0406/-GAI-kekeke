@@ -1,17 +1,16 @@
-import React, { useState, useEffect, createContext, useContext } from "react"; // Import useContext here
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-// 페이지 및 컴포넌트 import (경로는 예시입니다, 실제 경로에 맞게 조정해야 함)
+
+// 페이지 및 컴포넌트 import
+
 import Main from "./Main";
 import Join from "./pages/Join";
 import TourOrder from "./pages/TourOrder";
 import TourDet3 from "./pages/TourDet3";
-import AdminLogin from "./pages/AdminLogin";
-
 import TourDet2 from "./pages/TourDet2";
 import TourCompleteOrder from "./pages/TourCompleteOrder";
 import SampleCake from "./pages/SampleCake";
 import UserMypage from "./pages/UserMypage";
-import TourReviewPopup from "./pages/TourReviewPopup";
 import MpOrderList from "./pages/MpOrderList";
 import Cakes from "./pages/Cakes";
 import CustomCake from "./pages/CustomCake";
@@ -19,26 +18,30 @@ import Login from "./pages/Login";
 import UserMessage from "./pages/UserMessage";
 import Capture from "./pages/Capture";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
-import { AdminJoin } from "./pages/AdminJoin";
+
+// Admin import
+import AdMain from "./ad_pages/AdMain";
+import AdminMessage from "./ad_pages/AdminMessage";
+import AdminLogin from "./ad_pages/AdminLogin";
+import { AdminJoin } from "./ad_pages/AdminJoin";
+import AdminMypage from './ad_pages/AdminMypage';
+
+// 글로벌 스타일 적용을 위한 컴포넌트
+
+import GlobalStyle from "./component/GlobalStyle";
+
 // 헤더 컴포넌트 import
+
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af';
 import Ad_Header from "./component/Ad_Header";
+import PMquantity from "./ad_pages/PMquantity";
+import PMList from "./ad_pages/PMList";
+import PMOption from "./ad_pages/PMOption";
 
-// Admin import
-import AdminMessage from "./ad_component/AdminMessage";
-//import AdminMessage from "./ad_component/AdminMessage";
-// 글로벌 스타일 적용을 위한 컴포넌트
-import GlobalStyle from "./component/GlobalStyle";
 
 // 컨텍스트 생성
 export const StoreContext = createContext();
-
-
-
-
-
-
 
 
 function App() {
@@ -61,6 +64,7 @@ function App() {
    setIsAdminLoggedIn
  };
  
+ 
 
   return (
 
@@ -73,15 +77,20 @@ function App() {
         <Routes>
 
 
- 
-          <Route path="/join" element={<Layout><Join /></Layout>} />
+          <Route path="/admin" element={<Layout><AdMain /></Layout>} />
           <Route path="/admin/join" element={<Layout><AdminJoin /></Layout>} />
           <Route path="/admin/login" element={<Layout><AdminLogin /></Layout>} />
           <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
-
+          <Route path="/admin/message" element = {<Layout><AdminMessage/></Layout>}/>  
+          <Route path="/admin/mypage" element = {<Layout><AdminMypage/></Layout>}/>  
+          <Route path="/admin/productquantity" element = {<Layout><PMquantity/></Layout>}/>  
+          <Route path="/admin/productlist" element = {<Layout><PMList/></Layout>}/>  
+          <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
+      
 
 
           <Route path="/" element={<Layout><Main /></Layout>} />
+          <Route path="/join" element={<Layout><Join /></Layout>} />
           <Route path="/tour-order" element={<Layout><TourOrder /></Layout>} />
           <Route path="/tour-det3" element={<Layout><TourDet3 /></Layout>} />
           <Route path="/tour-det2" element={<Layout><TourDet2 /></Layout>} />
@@ -96,6 +105,7 @@ function App() {
           <Route path="/capture" element={<Layout><Capture /></Layout>} />
           <Route path="/customcake/order" element={<Layout><CustomCakeOrder /></Layout>} />
           <Route path="*" element={<Layout />} />
+
           {/* 기타 필요한 라우트 */}
         </Routes>
       </BrowserRouter>
@@ -121,7 +131,12 @@ function Layout( {children}) {
   const { isAdminLoggedIn, isLoggedIn } = useContext(StoreContext);
 
   // 현재 경로에 따라 헤더 렌더링 여부 결정
-  const hideHeaderRoutes = ['/admin/login', '/admin/join'];
+  const hideHeaderRoutes = 
+  ['/admin/login', '/admin/join',
+   '/admin/message' ,'/admin',
+  '/admin/mypage', "/admin/productquantity",
+   "/admin/productlist", "/admin/productoption" 
+];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
   return (
