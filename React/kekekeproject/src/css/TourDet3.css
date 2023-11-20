@@ -41,7 +41,7 @@
 
 .tour-review-header {
   display: flex;
-  justify-content: end; /* 날짜와 고객명 사이에 공간을 균등하게 분배 */
+  justify-content: flex-end; /* 날짜와 고객명 사이에 공간을 균등하게 분배 */
   align-items: center; /* 세로축 중앙 정렬 */
   margin-bottom: 10px; /* 다른 요소와의 간격을 위한 하단 마진 */
 }
