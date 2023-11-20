@@ -8,6 +8,8 @@ const path = require('path'); // 경로 작성 방법 변경
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
 const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
 const { getNowTime } = require('../config/getNowTime');
+const { query } = require('../config/poolDatabase');
+
 
 
 
@@ -43,13 +45,13 @@ const upload = multer({ storage: storage });
 router.post('/join', upload.single('profile_img'), (req, res) => {
     // upload.sing => 한번에 한개씩, 뒤에 이름은 이름에 해당되는 파일을 올리겠다는 뜻
 
-    console.log(`커스터머 회원가입 시도, ${getNowTime()}`, req.body, );
+    console.log(`커스터머 회원가입 시도, ${getNowTime()}`, req.body,);
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
-    
+
     let nullCheck = (cust_id && nick_name && cust_pw && cust_pwcheck && phone);
-    if (!nullCheck){
+    if (!nullCheck) {
         console.log(`빈칸 존재`);
-        res.status(400).send({message : '빈칸이 존재합니다.'});
+        res.status(400).send({ message: '빈칸이 존재합니다.' });
         return;
     }
 
@@ -137,32 +139,56 @@ router.post('/login', (req, res) => {
     })
 })
 
-
-
 // 커스터머 회원가입 중복체크
-router.post('/check', (req, res) => {
-    const user_ip = req.ip.replace(/^::ffff:/, '');
-    console.log(`커스터머 회원가입 중복체크, ip:${user_ip}, ${getNowTime()}`, req.body);
-    let { nick_name, cust_id } = req.body;
-    if (nick_name) {
-        console.log(`닉네임 중복 체크, ${nick_name}`);
-        let sql = `select nick_name 
+router.post('/check', async (req, res) => {
+    try {
+        const user_ip = req.ip.replace(/^::ffff:/, '');
+        console.log(`커스터머 회원가입 중복체크, ip:${user_ip}, ${getNowTime()}`);
+        console.log(req.body);
+        let { nick_name, cust_id } = req.body;
+
+        let nullCheck = (!nick_name && !cust_id)
+        if (nullCheck){
+            console.log('값 없음');
+            res.status(400).send({message : '값을 입력해주세요'})
+            return
+        }
+
+        let rows, check_type;
+
+        if (nick_name) {
+            console.log(`닉네임 중복 체크, ${nick_name}`);
+            let sql = `select nick_name 
                        from TB_CUSTOMER
                        where nick_name = ?`;
-        conn.query(sql, [nick_name], (err, rows) => {
-            check_func(err, rows, res, '커스터머 닉네임'); // 응답 모듈화
-        })
-    }
-    else if (cust_id) {
-        console.log(`아이디 중복체크', ${cust_id}}`);
-        let sql = `select cust_id
+
+            rows = await query(sql, [nick_name]);
+            check_type = '닉네임';
+        } 
+        else if (cust_id) {
+            console.log(`아이디 중복 체크, ${cust_id}`);
+            let sql = `select cust_id
                        from TB_CUSTOMER
-                       where cust_id = ?`
-        conn.query(sql, [cust_id], (err, rows) => {
-            check_func(err, rows, res, '커스터머 아이디'); // 응답 모듈화
-        })
+                       where cust_id = ?`;
+
+            rows = await query(sql, [cust_id]);
+            check_type = '아이디';
+        }
+
+        // 중복 체크 결과 응답
+        if (rows.length > 0) {
+            console.log(`${check_type} 중복`);
+            res.status(400).send({ result: rows, check_type, message: `${check_type} 중복` });
+        } 
+        else {
+            console.log('조회 데이터 없음');
+            res.status(200).send({ result: rows, check_type, message: `사용 가능한 ${check_type}입니다.` });
+        }
+    } catch (error) {
+        console.error('sql 처리 에러 발생', error);
+        res.status(500).send({ message: '서버 에러' });
     }
-})
+});
 
 
 module.exports = router;

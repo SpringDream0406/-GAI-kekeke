@@ -19,22 +19,6 @@ const TourDetContainer = ({ children, containerHeight }) => {
         ReviewCust: "홍길동"
     };
 
-    const [reviewData] = useState({
-        id: 1,
-        thumbnail: '/assets/images/cake1.jpg',
-        status: '주문완료',
-        orderDate: '2023.10.29',
-        pickupDate: '2023.10.31',
-        size: '도시락',
-        flavor: '초콜릿',
-        storeName: '주주케이크',
-        productName: '곰돌이케이크',
-        request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-        customerName: '홍길동',
-        reviewContent: '케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
-        reviewDate: '2023.10.30'
-    });
-
     return (
         <div className="frame">
                 <div className="tour-detail-container"  style={containerStyle}>
