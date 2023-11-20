@@ -1,6 +1,8 @@
 // 상품 관리의 상품 목록 페이지
 
 import React from 'react'
+import AdMT from '../ad_component/AdMT'
+import Ad_BG from '../ad_component/Ad_BG'
 import Ad_Menubar from '../component/Ad_Menubar'
 import ProductManagement from '../ad_component/ProductManagement'
 import '../ad_css/PMList.css'
@@ -30,10 +32,10 @@ const PMList = () => {
   
   return (
     <div>
-    <Ad_Menubar/>
-    <div className='PMContainer'>
-    <ProductManagement initialActiveTab="list"/>
-
+      <AdMT>상품목록</AdMT>
+      <Ad_Menubar/>
+      <ProductManagement initialActiveTab="quantity" />
+      <Ad_BG height="1050px" marginTop="213px"/>
     <div className="product-list">
 
     <div className="product-list-header">
@@ -66,7 +68,7 @@ const PMList = () => {
 
     
     </div>
-  </div>
+
   )
 }
 

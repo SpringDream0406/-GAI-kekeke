@@ -1,0 +1,308 @@
+.admain-bfmsg{
+    font-family: 'Pretendard-bold';
+    font-size: 22px;
+    position: relative;
+    top: 530px;
+    left: 500px;
+    color: lightgray;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.admain-bfmsg:hover  {
+    color: #61A5D6;
+}
+
+
+.admain-afmsg{
+    font-family: 'Pretendard-bold';
+    font-size: 22px;
+    position: relative;
+    top: 504px;
+    left: 650px;
+    cursor: pointer;
+    color: lightgray;
+    z-index: 999;
+}
+.admain-afmsg:hover  {
+    color: #61A5D6;
+}
+
+.admain-msgbg1{
+    text-decoration: none;
+    width: 219px;
+    height: 301px;
+    background-color: #FFA0B7;
+    border-radius: 20px;
+    position: relative;
+    top: 600px;
+    left: 500px;
+}
+
+.admain-msgbg1:hover{
+    background-color: #ff7194;
+}
+.admain-msgmt{
+    
+    font-family: 'Pretendard-Regular';
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    
+    left: 20px;
+}
+
+.admain-msgst{
+    font-family: 'Pretendard-Regular';
+    color: white;
+    font-size: 15px;
+    position: relative;
+    top: 0px;
+    text-decoration: none;
+    left: 140px;
+}
+.admain-msg-cir{
+    position: relative;
+    top: -15px;
+    left: 190px;
+    background-color: #F6FFBF;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.admin-msg-uimg{
+    width: 102px;
+    height: 98px;
+    border-radius: 50px;
+    position: relative;
+    top: 30px;
+    left: 55px;
+}
+
+.admin-msg-uname{
+    font-family: 'Pretendard-semibold';
+    font-size: 20px;
+    position: relative;
+    top: 50px;
+    left: 60px;
+    color: white;
+}
+
+.admin-msg-uday{
+font-family: 'Pretendard-Regular';
+position: relative;
+top: 70px;
+left: 60px;
+color: white;
+}
+.admain-msgbg-all {
+    display: flex;
+    flex-wrap: nowrap; /* 항목들이 다음 줄로 넘어가지 않도록 설정 */
+  
+    margin-top: -25px;
+    text-decoration: none;
+    flex-direction: row; /* 세로로 요소들을 쌓습니다. */
+    gap: 50px; /* 각 Link 요소 사이에 20px 간격을 추가합니다. */
+  }
+  .active {
+    color: #61A5D6; /* 클릭된 상태의 색상 */
+  }
+
+
+
+
+
+
+
+  /* 2 */
+
+
+
+  .admain-msgbg2{
+    text-decoration: none;
+    width: 219px;
+    height: 301px;
+    background-color: #BBD4E5;
+    border-radius: 20px;
+    position: relative;
+    top: 600px;
+    left: 500px;
+}
+
+.admain-msgbg2:hover{
+    background-color: #67c2ff;
+}
+.admain-msgmt2{
+    
+    font-family: 'Pretendard-Regular';
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+    
+    left: 20px;
+}
+
+.admain-msgst2{
+    font-family: 'Pretendard-Regular';
+    color: white;
+    font-size: 15px;
+    position: relative;
+    top: 0px;
+    text-decoration: none;
+    left: 127px;
+}
+.admain-msg-cir2{
+    position: relative;
+    top: -15px;
+    left: 190px;
+    background-color: #F48A94;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.admin-msg-uimg2{
+    width: 102px;
+    height: 98px;
+    border-radius: 50px;
+    position: relative;
+    top: 30px;
+    left: 55px;
+}
+
+.admin-msg-uname2{
+    font-family: 'Pretendard-semibold';
+    font-size: 20px;
+    position: relative;
+    top: 50px;
+    left: 60px;
+    color: white;
+}
+
+.admin-msg-uday2{
+font-family: 'Pretendard-Regular';
+position: relative;
+top: 70px;
+left: 60px;
+color: white;
+}
+.admain-msgbg-all2 {
+    display: flex;
+    margin-top: -25px;
+    text-decoration: none;
+    flex-direction: row; /* 세로로 요소들을 쌓습니다. */
+    gap: 50px; /* 각 Link 요소 사이에 20px 간격을 추가합니다. */
+  }
+
+
+
+
+  /* 주문내역 */
+
+
+  .admain-mt2{
+    
+    text-decoration: dashed;
+    font-family: 'Pretendard-Bold';
+    font-size: 30px;
+    
+    
+
+    position: absolute;
+    top: 1000px;
+    border-bottom: 3px solid #FFA0B7;
+    left: 500px;
+    z-index: 999;
+  }
+
+.admain-listtitle-all{
+    margin-top: 20px;
+}
+  .admain-list-mcn{
+    color: gray;
+    font-family: 'Pretendard-bold';
+    position: relative;
+    top: 770px;
+    left: 500px;
+  }
+
+  .admain-list-muname{
+    font-family: 'Pretendard-bold';
+    position: relative;
+    top: 751px;
+    color: gray;
+    left: 740px;
+  }
+
+  .admain-list-mday{
+    color: gray;
+    font-family: 'Pretendard-bold';
+    position: relative;
+    top: 731px;
+    left: 863px;
+  }
+
+  .adlist-cname{
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+    position: relative;
+    top: 770px;
+
+    left: 500px;
+  }
+
+  .adlist-uname{
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+    position: relative;
+    top: 750px;
+
+    left: 743px;
+  }
+
+  .adlist-listday{
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+    position: relative;
+    top: 730px;
+
+    left: 845px;
+  }
+
+  .adlist-hr{
+    position: relative;
+    top: 730px;
+    width: 430px;
+    left: -240px;
+    color: lightgray;
+    background-color: lightgray;
+  }
+  .admain-list-all{
+    text-decoration: none;
+    color: black;
+  }
+
+
+  .admain-list-constainer{
+    display: flex;
+    flex-direction:column ;
+    gap:-10px;
+  }
+  /* 판매량순위 */
+  .admain-mt3{
+    
+    text-decoration: dashed;
+    font-family: 'Pretendard-Bold';
+    font-size: 30px;
+    
+    
+
+    position: absolute;
+    top: 1000px;
+    border-bottom: 3px solid #FFA0B7;
+    left: 1050px;
+    z-index: 999;
+  }

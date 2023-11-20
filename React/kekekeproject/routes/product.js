@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const conn = require('../config/database');
+const { getCurrentTime } = require('../config/getCurrentTime');
 
 
 router.post('/cakes', (req, res) => {
     let { gu } = req.body;
-    console.log(`케이크 둘러보기, $`);
+    console.log(`케이크 둘러보기, ${gu}`, getCurrentTime);
 
     let sql = `select 
                 a.prd_id,

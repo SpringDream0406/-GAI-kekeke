@@ -61,7 +61,7 @@ const Join = () => {
       .then(response => { // status(200) 인 경우
           console.log(response.data);
           alert(response.data.message);
-          navigate('/');
+          navigate('/login');
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.

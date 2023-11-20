@@ -8,6 +8,8 @@ const path = require('path'); // 경로 작성 방법 변경
 const { login_func } = require('../config/login'); // 로그인 응답 모듈화
 const { join_check, join_res } = require('../config/join'); // 회원가입 제한사항 체크
 const { check_func } = require('../config/check'); // 중복확인 응답 모듈화
+const { getCurrentTime } = require('../config/getCurrentTime');
+
 
 
 
@@ -42,7 +44,7 @@ const upload = multer({ storage: storage });
 router.post('/join', upload.single('profile_img'), (req, res) => {
     // upload.sing => 한번에 한개씩, 뒤에 이름은 이름에 해당되는 파일을 올리겠다는 뜻
 
-    console.log('커스터머 회원가입 시도', req.body);
+    console.log('커스터머 회원가입 시도', req.body, getCurrentTime);
     let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
 
     // 이미지 파일 처리

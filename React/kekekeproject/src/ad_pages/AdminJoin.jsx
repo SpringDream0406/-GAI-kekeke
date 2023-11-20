@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
 import API_URL from '../api_url';
+import { useNavigate } from 'react-router-dom';
 import { event } from "jquery";
 // import { ADDRCONFIG } from "dns";
 // import { NONAME } from "dns";
@@ -13,6 +14,7 @@ import { event } from "jquery";
 export const AdminJoin = () => {
 
     const [image, setImage] = useState(null);
+    const navigate = useNavigate(); 
 
     const handleImageChange = (event) => {
       const file = event.target.files[0];
@@ -88,20 +90,19 @@ export const AdminJoin = () => {
         adminformData.append('seller_profile1', adminfileInput.files[0]);
       }
 
-
       axios.post(url, adminformData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       })
-
         .then(response => { // status(200) 인 경우
             console.log(response.data);
             alert(response.data.message);
-            
+            navigate('/admin/login');
             // 성공적으로 로그인되었을 때 처리
             // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
             // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+
         })
         .catch(error => { // status(200)이 아닌 경우 ex status(500)
           console.error('에러', error, error.response.data);
@@ -112,8 +113,15 @@ export const AdminJoin = () => {
             alert('비밀번호 불일치')
           }
         });
+
+        for (let [key, value] of adminformData.entries()) {
+          console.log(`${key}:`, value);
+        }
+          
       }
 
+
+        
 
 
       const handlecheckid = () => {
