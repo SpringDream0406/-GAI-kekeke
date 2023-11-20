@@ -86,7 +86,7 @@ const Join = () => {
 
     const handlechecknick = () => {
       const url = `${API_URL}/cust/check`;
-      const data = {nick_name : nick_name , user_type : 0}
+      const data = {nick_name : nick_name}
 
       axios.post(url,data)
         .then(response=>{
@@ -95,6 +95,7 @@ const Join = () => {
         })
         .catch(error => {
           console.log(error);
+          alert(error.response.data.message)
         })
     }
     const handlecheckid = () => {
@@ -108,6 +109,7 @@ const Join = () => {
         })
         .catch(error => {
           console.log(error);
+          alert(error.response.data.message)
         })
     }
 

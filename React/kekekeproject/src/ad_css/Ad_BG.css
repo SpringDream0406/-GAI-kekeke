@@ -39,3 +39,11 @@
   z-index: -1;
  }
  
+ .recharts-legend-item-text{
+  font-family: 'Pretendard-bold';
+  color: gray;
+}
+
+.recharts-legend-icon{
+  display: none;
+} 

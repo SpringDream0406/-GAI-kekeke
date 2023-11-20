@@ -47,7 +47,7 @@ const colors = ['#F48A94', '#F0B4AE', '#FFD1B8', '#DCEBC2','#ADDCC8'];
 export default class Example extends PureComponent {
   render() {
     return (
-      <div style={{ fontFamily: 'Pretendard-Bold', width: '600px', height: '500px', marginLeft: '1020px', marginTop: '300px' }}>
+      <div style={{ fontFamily: 'Pretendard-Bold', width: '600px', height: '500px', marginLeft: '650px', marginTop: '-50px' }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={sortedData}
