@@ -1,0 +1,13 @@
+.admin-cal-containder{
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+    top: 700px;
+    left: 500px;
+
+
+}
+
+.fc-toolbar-title{
+    font-family: 'Pretendard-bold';
+}
