@@ -34,8 +34,8 @@ const PMList = () => {
     <div>
       <AdMT>상품목록</AdMT>
       <Ad_Menubar/>
-      <ProductManagement initialActiveTab="quantity" />
-      <Ad_BG height="1050px" marginTop="213px"/>
+      <Ad_BG height="1050px">
+      <ProductManagement initialActiveTab="list" />
     <div className="product-list">
 
     <div className="product-list-header">
@@ -66,7 +66,8 @@ const PMList = () => {
       ))}
     </div>
 
-    
+      </Ad_BG>
+  
     </div>
 
   )
