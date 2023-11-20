@@ -12,8 +12,6 @@ const { query } = require('../config/poolDatabase');
 
 
 
-
-
 // 커스터머 이미지 저장
 const allowedImageExtensions = ['.jpg', '.jpeg', '.png']; // 이미지 허용 확장자
 const storage = multer.diskStorage({
@@ -189,6 +187,24 @@ router.post('/check', async (req, res) => {
         res.status(500).send({ message: '서버 에러' });
     }
 });
+
+router.post('/order', (req, res) => {
+    const orderData = req.body;
+    // 여기에서 orderData의 유효성 검사를 수행
+    console.log(`커스터머 주문 시도, orderdata: ${orderData}, ${getNowTime()}`, req.body);
+    let sql = `INSERT INTO tb_product_order (deal_id, cake_name, add_require, cake_size, cake_flavor, cake_price, seller_id, prd_id, cust_id, sale_dy, lettering, order_user, order_num, pickup_date, pickup_time, cake_let) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+
+    conn.query(sql, [/* 주문 데이터의 각 항목 */], (err, result) => {
+        if (err) {
+            console.error('주문 데이터 저장 실패', err);
+            res.status(500).send({ message: '주문 처리 중 오류 발생' });
+        } else {
+            console.log('주문 데이터 저장 성공', result);
+            res.status(200).send({ message: '주문이 성공적으로 처리되었습니다.' });
+        }
+    });
+});
+
 
 
 module.exports = router;

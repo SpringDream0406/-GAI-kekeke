@@ -25,7 +25,22 @@ app.post('/seller/login', (req, res) => {
 req.session.seller = { seller_id: req.body.seller_id };
   res.send(req.session.seller); // 판매자 정보 응답
 });
-
 // 에러 핸들링 및 추가적인 로직 필요
+
+// Express 서버 설정 파일
+
+app.post('/cust/order', (req, res) => {
+  const orderData = req.body;
+  // 데이터베이스에 주문 데이터 저장 로직
+  // 예: database.insertOrder(orderData);
+
+  res.send({ message: '주문이 성공적으로 받아졌습니다.' });
+});
+
+// 서버 시작
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`서버가 ${PORT}번 포트에서 실행중입니다.`);
+});
 
 app.listen(3000, () => console.log('Server is running on port 3000'));

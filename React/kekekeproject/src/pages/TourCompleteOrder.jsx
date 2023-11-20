@@ -1,8 +1,16 @@
 import React from "react";
 import "../css/TourCompleteOrder.css";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const TourCompleteOrder = () => {
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
+  const prd_id = searchParams.get('prd_id');
+console.log('주문완료cake_prd_id:', prd_id);
+
   return (
     <div className="tour-detail-container">
       <div className="tco-mt">주문내역 확인</div>
