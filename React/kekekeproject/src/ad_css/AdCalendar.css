@@ -1,13 +1,175 @@
 .admin-cal-containder{
-    width: 1000px;
-    height: 800px;
+    width: 1010px;
+    height: 840px;
     position: absolute;
-    top: 700px;
+    top: 800px;
     left: 500px;
+    
 
 
 }
 
 .fc-toolbar-title{
     font-family: 'Pretendard-bold';
+    position: absolute;
+    left: 450px;
+    top: -20px;
 }
+
+.fc-daygrid-day-number{
+    font-family: 'Pretendard-rEGULAR';
+}
+
+.fc-col-header-cell-cushion{
+    font-family: 'Pretendard-bold';
+}
+
+.fc-toolbar-chunk{
+
+font-family: 'Pretendard-bold';
+}
+
+.fc .fc-button-primary:disabled{
+    background-color:#FFA0B7 ;
+    border: none;
+    display: none;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+  border: none;
+  position: absolute;
+  background: none;
+  color: #FFA0B7;
+  right: 950px;
+  scale: 1.4;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child){
+    background: none;
+    border: none;
+    scale: 1.4;
+    margin-right: -0px;
+    color: #FFA0B7;
+}
+.fc-scrollgrid-sync-inner{
+    padding: 10px 10px;
+}
+.fc-col-header-cell-cushion{
+    color: #FFA0B7;
+}   
+.modal{
+ 
+    z-index: 99;
+    width: 310px;
+    height: 180px;
+    position: absolute;
+   top: 200px;
+   left: 300px;
+    border-radius: 20px;
+    background-color: #FFA0B7;
+}
+
+.modalmt{
+    font-family: 'Pretendard-bold';
+    position: absolute;
+    top: 20px;
+    left: 110px;
+    font-size: 20px;
+    color: white;
+    
+}
+
+.modalinput{
+    font-family: 'Pretendard-Regular';
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 20px;
+    left: 45px;
+    background-color: white;
+    top: 60px;
+}
+.modalokbtn{
+    border: none;
+    padding: 10px 20px;
+    font-family: 'pretendard-semibold';
+    position: absolute;
+    top: 120px;
+    left: 80px;
+    color: gray;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #D1ECFF;
+    color: #FFA0B7;
+}
+.modalnobtn{
+    border: none;
+    padding: 10px 20px;
+    font-family: 'pretendard-semibold';
+    position: absolute;
+    top: 120px;
+    left: 160px;
+    cursor: pointer;
+    color: gray;
+    border-radius: 10px;
+    color: #FFA0B7;
+    background-color: #D1ECFF;
+}
+
+.fc-event-title-container{
+    flex-grow: none;
+    border-radius: 20px;
+    background-color: #D1ECFF;
+    border: 3px solid #D1ECFF;
+    color: #FFA0B7;
+    padding: 1px;
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+}
+.fc-h-event{
+    border: none;
+    background: none;
+}
+
+
+.fc .fc-daygrid-day-number:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.fc-today-button .fc-button .fc-button-primary{
+    display: none;
+    
+}
+
+
+
+
+.fc-toolbar-chunk button{
+ display: none;
+}
+.fc .fc-button-primary{
+    background-color: #D1ECFF;
+    color: #FFA0B7;
+   margin-right: 30px;
+    border: none;
+}
+.fc .fc-button-primary:hover{
+ border: none;
+ background-color: #FFA0B7;
+}
+
+.fc .fc-button-primary:active{
+    border: none;
+    background-color: #FFA0B7;
+   }
+
+.fc .fc-daygrid-day.fc-day-today:hover{
+    background-color: #FFA0B7;
+    cursor: pointer;
+}
+.fc-scrollgrid-sync-inner:hover{
+    background-color: #FFA0B7;
+    color: white;
+    cursor: pointer;
+}
+
