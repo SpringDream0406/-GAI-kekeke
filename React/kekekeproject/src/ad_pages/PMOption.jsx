@@ -26,7 +26,7 @@ const PMOption = () => {
   const addFlavorAndCost = () => {
     if (cakeFlavor && additionalCost) {
       // 입력된 정보가 있을 경우에만 추가
-      const newFlavor = `케이크 맛 : ${cakeFlavor} - 추가 금액 :    ${additionalCost}원`; // 케이크 맛과 추가 금액을 합침
+      const newFlavor = `케이크 맛 : ${cakeFlavor}, 추가 금액 :    ${additionalCost}원`; // 케이크 맛과 추가 금액을 합침
       setFlavorList([...flavorList, newFlavor]); // 새로운 정보를 리스트에 추가
       setCakeFlavor(''); // 케이크 맛 입력값 초기화
       setAdditionalCost(''); // 추가 금액 입력값 초기화
@@ -35,7 +35,7 @@ const PMOption = () => {
   const addFlavorAndCost2 = () => {
     if (cakeSize && additionalCost2) {
       // 입력된 정보가 있을 경우에만 추가
-      const newFlavor2 = `케이크 크기 : ${cakeSize} - 추가 금액 :    ${additionalCost2}원`; // 케이크 맛과 추가 금액을 합침
+      const newFlavor2 = `케이크 크기 : ${cakeSize}, 추가 금액 :    ${additionalCost2}원`; // 케이크 맛과 추가 금액을 합침
       setFlavorList2([...flavorList2, newFlavor2]); // 새로운 정보를 리스트에 추가
       setCakeSize(''); // 케이크 맛 입력값 초기화
       setAdditionalCost2(''); // 추가 금액 입력값 초기화
@@ -67,8 +67,9 @@ const PMOption = () => {
     <div>
         <AdMT>상품옵션</AdMT>
         <Ad_Menubar/>
+        <Ad_BG>
         <ProductManagement initialActiveTab="option" />  
-        <Ad_BG height="1050px" marginTop="213px"/>
+
       <div className='pmoption_container'>
           <div className='pmoption_list1'>케이크 맛 : </div>
             <div className='pmoption_screen1'>
@@ -118,19 +119,84 @@ const PMOption = () => {
             <div className='flavor_list2'>
         {flavorList2.map((item, index) => (
           <div className='result2' key={index}>{item}
-          <FaTrash className='delete_button' size={20} onClick={() => removeFlavor2(index)} /> </div>
+          <FaTrash className='delete_button' size={15} onClick={() => removeFlavor2(index)} /> </div>
         ))}
       </div>  
           <div className='pmoption_list3'>레터링 안내문구 : </div>
           <input 
             className='pmoption_textarea'
             type='textarea'
-            placeholder='안내문구를 작성해주세요(20자 이내)'
+            placeholder='예) 15~20자 이내 작성'
             maxLength={30}
           
           />
+      </div>  <div className='pmoption_container'>
+          <div className='pmoption_list1'>케이크 맛 : </div>
+            <div className='pmoption_screen1'>
+              <input className='screen_taste'
+                type='text'
+                placeholder='케이크 맛을 작성해주세요'
+                value={cakeFlavor}
+                onChange={(e)=>setCakeFlavor(e.target.value)}></input>
+            </div>
+            <div className='pmoption_screen2'>
+              <input className='taste_cost'
+                     type='number'
+                     placeholder='추가 금액을 입력해주세요'
+                     value={additionalCost}
+                     onChange={(e) => setAdditionalCost(e.target.value)}
+              />
+            </div>
+            <div className='pmoption_screen3'>
+              <div className='add_button' onClick={addFlavorAndCost}>+</div>
+            </div>
+            <div className='flavor_list'>
+        {flavorList.map((item, index) => (
+          <div className='result' key={index}>{item}
+          <FaTrash className='delete_button' size={20} onClick={() => removeFlavor(index)}/></div>
+        ))}
+      </div>  
+            
+          <div className='pmoption_list2'>케이크 크기 : </div>
+          <div className='pmoption_screen4'>
+              <input className='screen_size'
+                type='text'
+                placeholder='케이크 크기'
+                value={cakeSize}
+                onChange={(e)=>setCakeSize(e.target.value)}></input>
+            </div>
+            <div className='pmoption_screen5'>
+              <input className='taste_cost'
+                     type='number'
+                     placeholder='추가 금액을 입력해주세요'
+                     value={additionalCost2}
+                     onChange={(e) => setAdditionalCost2(e.target.value)}
+              />
+            </div>
+            <div className='pmoption_screen6'>
+              <div className='add_button' onClick={addFlavorAndCost2}>+</div>
+            </div>
+            <div className='flavor_list2'>
+        {flavorList2.map((item, index) => (
+          <div className='result2' key={index}>{item}
+          <FaTrash className='delete_button' size={15} onClick={() => removeFlavor2(index)} /> </div>
+        ))}
+      </div>  
+          <div className='pmoption_list3'>레터링 안내문구 : </div>
+          <input 
+            className='pmoption_textarea'
+            type='textarea'
+            placeholder='예) 15~20자 이내 작성'
+            maxLength={30}
+          />
       </div>
-      
+   {/* 수정하기 버튼 */}
+   <div className="PMOPtion-modify-btn">
+            <button className="PMOPtion-modifytxt">
+              수정하기
+            </button>
+          </div>
+      </Ad_BG>
     </div>
   )
 }
