@@ -25,7 +25,7 @@ import AdminMessage from "./ad_pages/AdminMessage";
 import AdminLogin from "./ad_pages/AdminLogin";
 import { AdminJoin } from "./ad_pages/AdminJoin";
 import AdminMypage from './ad_pages/AdminMypage';
-
+import AdminOrderlist from "./ad_pages/AdminOrderlist";
 
 // 글로벌 스타일 적용을 위한 컴포넌트
 
@@ -94,7 +94,8 @@ function App() {
           <Route path="/admin/customcake" element = {<Layout><AdCustomCake/></Layout>}></Route>
           <Route path="/admin/customcake/detail" element = {<Layout><AdCustom2 /></Layout>} />
           <Route path="/admin/storeinfo" element = {<Layout><AdminStoreInfo/></Layout>}/>  
-
+          <Route path="/admin/orderlist" element = {<Layout><AdminOrderlist/></Layout>}/>  
+          
 
 
 
@@ -144,8 +145,15 @@ function Layout( {children}) {
   ['/admin/login', '/admin/join',
    '/admin/message' ,'/admin',
   '/admin/mypage', "/admin/productquantity",
+
+  
    "/admin/productlist", "/admin/productoption" 
    ,"/admin/customcake","/admin/customcake/detail"
+
+   
+   ,"/admin/storeinfo", "/admin/orderlist"
+
+   
 ];
   const showHeader = !hideHeaderRoutes.includes(location.pathname);
 
