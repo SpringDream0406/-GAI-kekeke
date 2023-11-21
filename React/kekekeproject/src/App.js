@@ -41,6 +41,8 @@ import PMList from "./ad_pages/PMList";
 import PMOption from "./ad_pages/PMOption";
 import AdCustomCake from "./ad_pages/AdCustomCake";
 import AdCustom2 from "./ad_pages/AdCustom2";
+import AdminStoreInfo from "./ad_pages/AdminStoreInfo";
+
 
 
 // 컨텍스트 생성
@@ -91,7 +93,8 @@ function App() {
           <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
           <Route path="/admin/customcake" element = {<Layout><AdCustomCake/></Layout>}></Route>
           <Route path="/admin/customcake/detail" element = {<Layout><AdCustom2 /></Layout>} />
-          
+          <Route path="/admin/storeinfo" element = {<Layout><AdminStoreInfo/></Layout>}/>  
+
 
 
 

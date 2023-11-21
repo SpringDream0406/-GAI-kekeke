@@ -1,5 +1,5 @@
 .product-list {
-  width: 95%;
+  width: 90%;
   margin: auto; /* 가로 방향으로 중앙 정렬 */
   display: flex;
   flex-direction: column;
@@ -24,22 +24,22 @@
 
 .header-name{
   padding: 10px;
-  margin-left: 204px;  
+  margin-left: 190px;  
 }
 
 .header-price{
   padding: 10px;
-  margin-left: 156px;  
+  margin-left: 138px;  
 }
 
 .header-status{
   padding: 10px;
-  margin-left: 96px;  
+  margin-left: 80px;  
 }
 
 .header-sales{
   padding: 10px;
-  margin-left: 85px;  
+  margin-left: 75px;  
 }
 
 .product-item {
@@ -88,18 +88,18 @@
 }
 
 .edit-button {
-  background-color: #FFA4BA;
+  background-color: #D1ECFF;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
   flex: 0 0 auto;
-  font-family: 'Pretendard-medium';
-  color: white;
+  font-family: 'Pretendard-semibold';
+  color: #FFA0B7;
 }
 
 .delete-icon {
-  color: #FFA4BA;
+  color: #797979;
   cursor: pointer;
   font-size: 30px;
   flex: 0 0 auto;
@@ -168,4 +168,45 @@
   border-radius: 4px;
   font-family: 'Pretendard-medium';
   font-size: 16px;
+}
+
+.PM-edit-sales{
+  margin-left: 27px;
+  flex: 1; /* 모든 상세 정보가 동일한 비율을 갖도록 설정 */
+  padding: 20px;
+}
+
+.product-status-sold-out {
+  color: rgb(255, 103, 103);
+}
+
+/* 글 등록 버튼 */
+
+.product-button-container {
+  display: flex;
+  justify-content: flex-end; /* 컨테이너 오른쪽 끝으로 요소 정렬 */
+  margin: 20px;
+  margin-bottom: 50px;
+}
+
+.product-button{
+  font-family: 'Pretendard-Semibold';
+  background-color: #ffffff; 
+  color: #797979;
+  border: 3px solid #797979; 
+  border-radius: 20px; 
+  padding: 10px 25px; 
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 20px;
+  margin-bottom: 30px;
+  margin-right: 50px;
+}
+
+.product-button:hover{
+ background-color: #797979;
+ border: 3px solid #797979; 
+ color: white;
 }

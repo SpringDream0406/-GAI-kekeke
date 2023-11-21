@@ -57,7 +57,6 @@ const Join = () => {
         'Content-Type': 'multipart/form-data',
       },
     })
-
       .then(response => { // status(200) 인 경우
           console.log(response.data);
           alert(response.data.message);
@@ -67,13 +66,8 @@ const Join = () => {
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
-        console.error('에러', error, error.response.data);
-        if (error.response.data.message == '비밀번호 복잡도 부족') {
-          alert(error)
-        }
-        else if (error.response.data.message == '비밀번호 불일치'){
-          alert('비밀번호 불일치')
-        }
+        // console.error('에러', error, error.response.data);
+        alert(error.response.data.message)
       });
           
    

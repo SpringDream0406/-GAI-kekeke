@@ -118,17 +118,19 @@ export const Cakes = () => {
  
 
 
-  //useEffect(() => {
-    //if (selectedLocation) {
+   // useEffect 훅을 사용하여 선택된 지역이 변경될 때마다 필터링을 수행
+  useEffect(() => {
+    if (selectedLocation) {
       // 선택된 지역과 일치하는 케이크 목록 필터링
-     // const filtered = cakeList.filter(cake => cake.Cake_Add.includes(selectedLocation));
-     // setFilteredCakes(filtered);
-   // } else {
+      const filtered = cakesFromServer.filter(cake => cake.shop_addr1.includes(selectedLocation));
+      setFilteredCakes(filtered);
+    } else {
       // 선택된 지역이 없는 경우 전체 목록 표시
-     // setFilteredCakes(cakeList);
-   // }
-    //setCurrentPage(1); //필터링 후 페이지 번호를 첫 페이지로 초기화
-  //}, [selectedLocation]);
+      setFilteredCakes(cakesFromServer);
+    }
+    setCurrentPage(1); // 필터링 후 페이지 번호를 첫 페이지로 초기화
+  }, [selectedLocation, cakesFromServer]);
+
 
 
   const indexOfLastItem = currentPage * itemsPerPage;
