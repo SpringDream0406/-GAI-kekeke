@@ -11,9 +11,10 @@ const { query } = require('../config/poolDatabase');
 const { imgStorage, cust_fileFilter } = require('../config/imgStorage');
 
 
+// 커스터머 이미지 저장 관련
 const imgName = 'cust_id';
 const imgPath = path.join('public', 'img', 'cust');
-const storage = imgStorage(imgPath, imgName)
+const storage = imgStorage(imgPath, imgName);
 const upload = multer({ storage: storage, fileFilter: cust_fileFilter });
 
 
@@ -22,10 +23,13 @@ router.post('/join', upload.single('profile_img'), async (req, res) => {
     // upload.sing => 한번에 한개씩, 뒤에 이름은 이름에 해당되는 파일을 올리겠다는 뜻
     // 이미지 저장 기능이 먼저 수행되고, formData로 오다보니, multer의 사용이 먼저 행해지게됨
     // 따라서 이미지가 있을 때와 없을 때 2가지의 실행코드가 필요했음..
-    console.log(`커스터머 회원가입 시도, ${getNowTime()}`, req.body,);
-
-
     try {
+        const user_ip = req.ip.replace(/^::ffff:/, '');
+        console.log(`커스터머 회원가입 시도, ${getNowTime()}`, user_ip);
+        console.log(req.body);
+
+        let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
+
 
         // 이미지 있을 때 제한 사항 반환 코드
         if (req.fileValidationError) {
@@ -37,8 +41,6 @@ router.post('/join', upload.single('profile_img'), async (req, res) => {
 
 
         // 이미지 없을 때
-        let { cust_id, nick_name, cust_pw, cust_pwcheck, phone } = req.body;
-
         let nullCheck = !(cust_id && nick_name && cust_pw && cust_pwcheck && phone);
         if (nullCheck) {
             console.log(`빈칸 존재`);
@@ -65,33 +67,27 @@ router.post('/join', upload.single('profile_img'), async (req, res) => {
         let sql = `insert into TB_CUSTOMER (cust_id, cust_pw, phone, nick_name, profile_img)
                            values (?,?,?,?,?)`;
 
-        try {
-            const rows = await query(sql, [cust_id, md5HashedPw, phone, nick_name, profile_img]);
-            if (rows.affectedRows > 0) {
-                console.log('회원가입 성공');
-                res.status(201).send({ message: '회원가입 성공' });
-            }
-            else {
-                console.log('회원가입 실패', rows);
-                res.status(500).send({ message: '회원가입 실패' });
-            }
+        let rows = await query(sql, [cust_id, md5HashedPw, phone, nick_name, profile_img]);
+        if (rows.affectedRows > 0) {
+            console.log('회원가입 성공');
+            res.status(201).send({ message: '회원가입 성공' });
         }
-        catch (error) {
-            console.error('sql 에러', error);
-            res.status(500).send({ message: '서버 에러' });
+        else {
+            console.log('회원가입 실패', rows);
+            res.status(500).send({ message: '회원가입 실패' });
         }
     }
     catch (error) {
         console.error('회원가입 에러', error);
-        res.status(500).send(error);
+        res.status(500).send({ message: '서버 에러' });
     }
-})
+});
 
 // 커스터머 로그인
 router.post('/login', async (req, res) => {
     try {
         const user_ip = req.ip.replace(/^::ffff:/, '');
-        console.log(`커스터머 로그인 시도, ip: ${user_ip}, ${getNowTime()}`);
+        console.log(`커스터머 로그인 시도, ${getNowTime()}`, user_ip);
         console.log(req.body);
         let { cust_id, cust_pw } = req.body;
         let sql = `select 
@@ -104,13 +100,13 @@ router.post('/login', async (req, res) => {
                    from TB_CUSTOMER
                    where cust_id = ?`;
 
-        rows = await query(sql, [cust_id]);
+        let rows = await query(sql, [cust_id]);
 
         if (rows.length > 0) { // id 결과가 있으면
             const md5HashedPw = await md5Hash(cust_pw)
 
             if (md5HashedPw === rows[0].cust_pw) {
-                console.log('로그인 성공', cust_id, user_ip);
+                console.log('로그인 성공', cust_id);
                 let data = { // front로 보낼 데이터
                     message: '로그인 성공',
                     cust_id: rows[0].cust_id,
@@ -120,16 +116,16 @@ router.post('/login', async (req, res) => {
                     profile_img: rows[0].profile_img
                 };
                 res.status(200).send(data);
-            } else {
+            }
+            else {
                 console.log(md5HashedPw, rows[0].cust_pw);
                 console.log('로그인 실패 - 비밀번호 다름');
-                console.log('받은 비번', cust_pw, user_ip);
+                console.log('받은 비번', cust_pw);
                 res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
             }
         }
         else {
             console.log('로그인 실패 - 데이터 없음');
-            console.log('받은 비번', cust_pw, user_ip);
             res.status(400).send({ message: '아이디 혹은 비밀번호가 다릅니다.' });
         }
     }
@@ -144,7 +140,7 @@ router.post('/login', async (req, res) => {
 router.post('/check', async (req, res) => {
     try {
         const user_ip = req.ip.replace(/^::ffff:/, '');
-        console.log(`커스터머 회원가입 중복체크, ip:${user_ip}, ${getNowTime()}`);
+        console.log(`커스터머 회원가입 중복체크, ${getNowTime()}`, user_ip);
         console.log(req.body);
         let { nick_name, cust_id } = req.body;
 
@@ -187,28 +183,10 @@ router.post('/check', async (req, res) => {
         }
     }
     catch (error) {
-        console.error('sql 처리 에러 발생', error);
+        console.error('에러 발생', error);
         res.status(500).send({ message: '서버 에러' });
     }
 });
-
-router.post('/order', (req, res) => {
-    const orderData = req.body;
-    // 여기에서 orderData의 유효성 검사를 수행
-    console.log(`커스터머 주문 시도, orderdata: ${orderData}, ${getNowTime()}`, req.body);
-    let sql = `INSERT INTO tb_product_order (deal_id, cake_name, add_require, cake_size, cake_flavor, cake_price, seller_id, prd_id, cust_id, sale_dy, lettering, order_user, order_num, pickup_date, pickup_time, cake_let) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-    conn.query(sql, [/* 주문 데이터의 각 항목 */], (err, result) => {
-        if (err) {
-            console.error('주문 데이터 저장 실패', err);
-            res.status(500).send({ message: '주문 처리 중 오류 발생' });
-        } else {
-            console.log('주문 데이터 저장 성공', result);
-            res.status(200).send({ message: '주문이 성공적으로 처리되었습니다.' });
-        }
-    });
-});
-
 
 
 module.exports = router;

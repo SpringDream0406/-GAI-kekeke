@@ -13,130 +13,124 @@ import { event } from "jquery";
 
 export const AdminJoin = () => {
 
-    const [image, setImage] = useState(null);
-    const navigate = useNavigate(); 
+  const [image, setImage] = useState(null);
+  const navigate = useNavigate();
 
-    const handleImageChange = (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-  
-      if (file) {
-        reader.readAsDataURL(file);
-      }
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImage(reader.result);
     };
 
-    
-    const handleAddressSearch = () => {
-      new window.daum.Postcode({
-        oncomplete: function(data) {
-          // 주소 상태를 업데이트합니다.
-          setAddress(data.address);
-          // 필요하다면 다른 상태도 업데이트할 수 있습니다. 예: 지번, 도로명 주소 등
-        }
-      }).open();
-    };
-    
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
 
 
-    const [seller_id, setSeller_id] = useState('');
-    const [seller_PW, setSeller_PW] = useState('');
-    const [seller_PW_Check, setSeller_PW_Check] = useState('');
-    const [store_name, setStore_name] = useState('');
-    const [store_detail, setStore_detail] = useState('');
-    const [shop_tel, setShop_tel] = useState('');
-    const [add_detail, setAdd_detail] = useState('');
-    const [strg_use, setStrg_use] = useState('');
-    const [business_num, setBusiness_num] = useState('');
-
-    const [user_name, setUser_name] = useState('');
-
-
-    const [phone, setphone] = useState('');
-
-    const [address, setAddress] = useState('');
-    const [address_detail, setAddress_detail] = useState('');
-    const [start_time, setStart_time] = useState('');
-    const [end_time, setEnd_time] = useState('');
-
-
-
-
-
-    const handleJoin = () => {
-      const url = `${API_URL}/seller/join`;
-      const adminformData = new FormData();
-
-      const adminfileInput = document.getElementById('image-upload');
-      adminformData.append('user_name', user_name);
-      adminformData.append('seller_id', seller_id);
-      adminformData.append('seller_pw', seller_PW);
-      adminformData.append('seller_pwcheck', seller_PW_Check);
-      adminformData.append('store_name', store_name);
-      adminformData.append('store_detail', store_detail);
-      adminformData.append('shop_tel', shop_tel);
-      adminformData.append('add_detail', add_detail);
-      adminformData.append('strg_use', strg_use);
-      adminformData.append('business_num', business_num);
-      adminformData.append('phone', phone);
-      adminformData.append('shop_addr1' , address);
-      adminformData.append('shop_addr2', address_detail);
-      adminformData.append('start_time', start_time);
-      adminformData.append('end_time', end_time);
-      if (adminfileInput && adminfileInput.files[0]) {
-        adminformData.append('seller_profile1', adminfileInput.files[0]);
+  const handleAddressSearch = () => {
+    new window.daum.Postcode({
+      oncomplete: function (data) {
+        // 주소 상태를 업데이트합니다.
+        setAddress(data.address);
+        // 필요하다면 다른 상태도 업데이트할 수 있습니다. 예: 지번, 도로명 주소 등
       }
+    }).open();
+  };
 
-      axios.post(url, adminformData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+
+
+  const [seller_id, setSeller_id] = useState('');
+  const [seller_PW, setSeller_PW] = useState('');
+  const [seller_PW_Check, setSeller_PW_Check] = useState('');
+  const [store_name, setStore_name] = useState('');
+  const [store_detail, setStore_detail] = useState('');
+  const [shop_tel, setShop_tel] = useState('');
+  const [add_detail, setAdd_detail] = useState('');
+  const [strg_use, setStrg_use] = useState('');
+  const [business_num, setBusiness_num] = useState('');
+
+  const [user_name, setUser_name] = useState('');
+
+
+  const [phone, setphone] = useState('');
+
+  const [address, setAddress] = useState('');
+  const [address_detail, setAddress_detail] = useState('');
+  const [start_time, setStart_time] = useState('');
+  const [end_time, setEnd_time] = useState('');
+
+
+
+
+
+  const handleJoin = () => {
+    const url = `${API_URL}/seller/join`;
+    const adminformData = new FormData();
+
+    const adminfileInput = document.getElementById('image-upload');
+    adminformData.append('user_name', user_name);
+    adminformData.append('seller_id', seller_id);
+    adminformData.append('seller_pw', seller_PW);
+    adminformData.append('seller_pwcheck', seller_PW_Check);
+    adminformData.append('store_name', store_name);
+    adminformData.append('store_detail', store_detail);
+    adminformData.append('shop_tel', shop_tel);
+    adminformData.append('add_detail', add_detail);
+    adminformData.append('strg_use', strg_use);
+    adminformData.append('business_num', business_num);
+    adminformData.append('phone', phone);
+    adminformData.append('shop_addr1', address);
+    adminformData.append('shop_addr2', address_detail);
+    adminformData.append('start_time', start_time);
+    adminformData.append('end_time', end_time);
+    if (adminfileInput && adminfileInput.files[0]) {
+      adminformData.append('seller_profile1', adminfileInput.files[0]);
+    }
+
+    axios.post(url, adminformData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then(response => { // status(200) 인 경우
+        console.log(response.data);
+        alert(response.data.message);
+        navigate('/admin/login');
+        // 성공적으로 로그인되었을 때 처리
+        // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
+        // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+
       })
-        .then(response => { // status(200) 인 경우
-            console.log(response.data);
-            alert(response.data.message);
-            navigate('/admin/login');
-            // 성공적으로 로그인되었을 때 처리
-            // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
-            // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
+      .catch(error => { // status(200)이 아닌 경우 ex status(500)
+        alert(error.response.data.message)
+      });
 
-        })
-        .catch(error => { // status(200)이 아닌 경우 ex status(500)
-          console.error('에러', error, error.response.data);
-          if (error.response.data.message == '비밀번호 길이 벗어남') {
-            alert('비밀번호 길이 벗어남')
-          }
-          else if (error.response.data.message == '비밀번호 불일치'){
-            alert('비밀번호 불일치')
-          }
-        });
+    for (let [key, value] of adminformData.entries()) {
+      console.log(`${key}:`, value);
+    }
 
-        for (let [key, value] of adminformData.entries()) {
-          console.log(`${key}:`, value);
-        }
-          
-      }
+  }
 
 
-        
 
 
-      const handlecheckid = () => {
-        const url = `${API_URL}/seller/check`;
-        const data = {seller_id : seller_id }
-  
-        axios.post(url,data)
-          .then(response=>{
-            console.log(response.data);
-            alert(response.data.message)
-          })
-          .catch(error => {
-            console.log(error);
-          })
-      }
+
+  const handlecheckid = () => {
+    const url = `${API_URL}/seller/check`;
+    const data = { seller_id: seller_id }
+
+    axios.post(url, data)
+      .then(response => {
+        console.log(response.data);
+        alert(response.data.message)
+      })
+      .catch(error => {
+        alert(error.response.data.message)
+      })
+  }
 
 
 
@@ -157,21 +151,21 @@ export const AdminJoin = () => {
               </div>
               <div className="admin-info-name-2">
                 <input className="text-wrapper-4"
-                        type="text"
-                        placeholder="사용자 이름 입력"
-                        value={user_name}
-                        onChange={(event)=>setUser_name(event.target.value)}
+                  type="text"
+                  placeholder="사용자 이름 입력"
+                  value={user_name}
+                  onChange={(event) => setUser_name(event.target.value)}
                 />
               </div>
             </div>
             <div className="admin-info-id">
               <div className="admin-info-id-input">
                 <input className="text-wrapper-4"
-                    type="text"
-                    placeholder="아이디 입력"
-                    value={seller_id}
-                    maxLength="20"
-                    onChange={(event)=>setSeller_id(event.target.value)} />
+                  type="text"
+                  placeholder="아이디 입력"
+                  value={seller_id}
+                  maxLength="20"
+                  onChange={(event) => setSeller_id(event.target.value)} />
               </div>
               <div className="admin-info-id-check">
                 <div className="overlap-group">
@@ -183,7 +177,7 @@ export const AdminJoin = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="admin-info-id-text">
                 <div className="text-wrapper-3">아이디</div>
               </div>
@@ -197,11 +191,11 @@ export const AdminJoin = () => {
               </div>
               <div className="admin-info-password-3">
                 <input className="text-wrapper-4"
-                type="password"
-                placeholder="비밀번호 입력"
-                value={seller_PW}
-                maxLength="20"
-                onChange={(event)=>setSeller_PW(event.target.value)} />
+                  type="password"
+                  placeholder="비밀번호 입력"
+                  value={seller_PW}
+                  maxLength="20"
+                  onChange={(event) => setSeller_PW(event.target.value)} />
               </div>
               <div className="admin-info-password-4">
                 <div className="text-wrapper-6">문자, 특수문자 포함 8~20자</div>
@@ -213,10 +207,10 @@ export const AdminJoin = () => {
               </div>
               <div className="admin-info-password-6">
                 <input className="text-wrapper-4"
-                type="password"
-                placeholder="비밀번호 재입력"
-                value={seller_PW_Check}
-                onChange={(event)=>setSeller_PW_Check(event.target.value)}
+                  type="password"
+                  placeholder="비밀번호 재입력"
+                  value={seller_PW_Check}
+                  onChange={(event) => setSeller_PW_Check(event.target.value)}
                 />
               </div>
             </div>
@@ -226,10 +220,10 @@ export const AdminJoin = () => {
               </div>
               <div className="admin-info-password-6">
                 <input className="text-wrapper-4"
-                type="tel"
-                placeholder="전화번호 입력"
-                value={phone}
-                onChange={(event)=>setphone(event.target.value)} />
+                  type="tel"
+                  placeholder="전화번호 입력"
+                  value={phone}
+                  onChange={(event) => setphone(event.target.value)} />
               </div>
             </div>
           </div>
@@ -243,10 +237,10 @@ export const AdminJoin = () => {
               </div>
               <div className="div-wrapper-3">
                 <input className="text-wrapper-4"
-                type="text"
-                placeholder="가게 이름 입력"
-                value={store_name}
-                onChange={(event)=>setStore_name(event.target.value)} />
+                  type="text"
+                  placeholder="가게 이름 입력"
+                  value={store_name}
+                  onChange={(event) => setStore_name(event.target.value)} />
               </div>
             </div>
             <div className="store-number">
@@ -255,10 +249,10 @@ export const AdminJoin = () => {
               </div>
               <div className="div-wrapper-3">
                 <input className="text-wrapper-4"
-                type="text"
-                placeholder="가게 번호 입력"
-                value={shop_tel}
-                onChange={(event)=>setShop_tel(event.target.value)} />
+                  type="text"
+                  placeholder="가게 번호 입력"
+                  value={shop_tel}
+                  onChange={(event) => setShop_tel(event.target.value)} />
 
               </div>
             </div>
@@ -268,10 +262,10 @@ export const AdminJoin = () => {
               </div>
               <div className="admin-number-input">
                 <input className="text-wrapper-4"
-                type="text"
-                placeholder="사업자등록번호 입력"
-                value={business_num}
-                onChange={(event)=>setBusiness_num(event.target.value)} />
+                  type="text"
+                  placeholder="사업자등록번호 입력"
+                  value={business_num}
+                  onChange={(event) => setBusiness_num(event.target.value)} />
 
               </div>
             </div>
@@ -282,26 +276,26 @@ export const AdminJoin = () => {
               <button className="address_btn" onClick={handleAddressSearch}>주소 찾기</button>
               <div className="store-address-input">
                 <div className="store-address-city">
-                <input
-                        className="text-wrapper-4"
-                        type="text"
-                        placeholder="가게 주소"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
-                        readOnly // 혹은 주소 입력을 API를 통해서만 하게 하려면 readOnly 속성을 사용합니다.
-                      />
-                     
+                  <input
+                    className="text-wrapper-4"
+                    type="text"
+                    placeholder="가게 주소"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
+                    readOnly // 혹은 주소 입력을 API를 통해서만 하게 하려면 readOnly 속성을 사용합니다.
+                  />
+
                 </div>
-                
+
                 <div className="store-address-input-2">
-                <input
-                        className="text-wrapper-4"
-                        type="text"
-                        placeholder="상세주소를 입력하세요"
-                        value={address_detail}
-                        onChange={(e)=>setAddress_detail(e.target.value)}
-            
-                      />
+                  <input
+                    className="text-wrapper-4"
+                    type="text"
+                    placeholder="상세주소를 입력하세요"
+                    value={address_detail}
+                    onChange={(e) => setAddress_detail(e.target.value)}
+
+                  />
                 </div>
               </div>
             </div>
@@ -316,16 +310,16 @@ export const AdminJoin = () => {
               </div>
               <div className="store-explain-input">
                 <div >
-                <textarea
-                                className="ad-info-input"
-                                maxLength="100"
-                                placeholder="가게를 소개해주세요"
-                                value={store_detail}
-                                onChange={(event) => setStore_detail(event.target.value)}
-                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
-                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
-                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
-                              ></textarea>
+                  <textarea
+                    className="ad-info-input"
+                    maxLength="100"
+                    placeholder="가게를 소개해주세요"
+                    value={store_detail}
+                    onChange={(event) => setStore_detail(event.target.value)}
+                    rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                    cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                    style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                  ></textarea>
 
                 </div>
               </div>
@@ -335,36 +329,36 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">예약 주의사항</div>
               </div>
               <div className="store-explain-input">
-              <textarea
-                                className="ad-info-input"
-                                maxLength="100"
-                                placeholder="주의사항을 입력해주세요"
-                                value={add_detail}
-                                onChange={(event) => setAdd_detail(event.target.value)}
-                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
-                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
-                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
-                              ></textarea>
+                <textarea
+                  className="ad-info-input"
+                  maxLength="100"
+                  placeholder="주의사항을 입력해주세요"
+                  value={add_detail}
+                  onChange={(event) => setAdd_detail(event.target.value)}
+                  rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                  cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                  style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                ></textarea>
 
-             
+
               </div>
             </div>
             <div className="keep-method">
-      
+
               <div className="div-wrapper-2">
                 <div className="text-wrapper-3">보관 및 이용방법</div>
               </div>
               <div className="store-explain-input">
-              <textarea
-                                className="ad-info-input"
-                                maxLength="100"
-                                placeholder="보관 및 이용방법을 입력해주세요"
-                                value={strg_use}
-                                onChange={(event) => setStrg_use(event.target.value)}
-                                rows="2" // 원하는 줄 수를 설정할 수 있습니다.
-                                cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
-                                style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
-                              ></textarea>
+                <textarea
+                  className="ad-info-input"
+                  maxLength="100"
+                  placeholder="보관 및 이용방법을 입력해주세요"
+                  value={strg_use}
+                  onChange={(event) => setStrg_use(event.target.value)}
+                  rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                  cols="50" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                  style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                ></textarea>
 
               </div>
             </div>
@@ -374,11 +368,11 @@ export const AdminJoin = () => {
               </div>
               <div className="business-hours-input">
                 <div className="open-time">
-                  <input 
+                  <input
                     className="text-wrapper-4"
                     type="time"
                     value={start_time}
-                    onChange={(event)=>setStart_time(event.target.value)}
+                    onChange={(event) => setStart_time(event.target.value)}
                   />
                 </div>
                 <div className="close-time">
@@ -386,7 +380,7 @@ export const AdminJoin = () => {
                     className="text-wrapper-4"
                     type="time"
                     value={end_time}
-                    onChange={(event)=>setEnd_time(event.target.value)}
+                    onChange={(event) => setEnd_time(event.target.value)}
                   />
                 </div>
                 <div className="business-hours-bar">
@@ -399,31 +393,31 @@ export const AdminJoin = () => {
                 <div className="text-wrapper-3">가게 프로필</div>
               </div>
               <div className="store-profile-2">
-              {image ? (
-          <img src={image} alt="가게 프로필" className="uploaded-image" />
-        ) : (
-          <label htmlFor="image-upload" className="upload-label">
-            <AiOutlineCamera className="camera-icon" />
-            <span>이미지 업로드</span>
-          </label>
-        )}
-        <input
-          type="file"
-          id="image-upload"
-          onChange={handleImageChange}
-          style={{ display: 'none' }}
-        />
+                {image ? (
+                  <img src={image} alt="가게 프로필" className="uploaded-image" />
+                ) : (
+                  <label htmlFor="image-upload" className="upload-label">
+                    <AiOutlineCamera className="camera-icon" />
+                    <span>이미지 업로드</span>
+                  </label>
+                )}
+                <input
+                  type="file"
+                  id="image-upload"
+                  onChange={handleImageChange}
+                  style={{ display: 'none' }}
+                />
               </div>
             </div>
           </div>
-         
+
           <div className="join-button">
             <div className="qq" onClick={handleJoin}>가입하기</div>
-            
-            
-              
+
+
+
           </div>
-          
+
         </div>
         {/* <DivWrapper className="admin-header" /> */}
       </div>
