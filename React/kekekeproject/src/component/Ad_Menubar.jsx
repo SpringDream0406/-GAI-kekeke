@@ -13,7 +13,7 @@ const Ad_Menubar = () => {
               <img className="ad" alt="Ad" src={'/assets/images/menubar1.png'} />
           </Link>
           
-          <Link >
+          <Link to={'/admin/orderlist'}>
           <img className="ad-menu" alt="Ad" src={'/assets/images/menubar2.png'} />
           </Link>
           <Link to={'/admin/productquantity'}>

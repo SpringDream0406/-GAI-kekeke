@@ -354,9 +354,10 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
   return (
     <div className="adminPopupOverlay">
       <div className="adminPopupContainer">
+        
         <div className="adminPopupHeader">
 
-
+          <p className='productText'>상품 등록</p>
           <div className="adminImageUploadContainer">
           <div className="adminImageUploadArea">
             <label htmlFor="imageUpload" className="image-upload-button">

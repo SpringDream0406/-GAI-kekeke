@@ -13,6 +13,26 @@ const AdMain = () => {
  
   const [activeSection, setActiveSection] = useState('ongoing'); // 'ongoing' 또는 'completed'
  
+ // 임시 주문 데이터 상태
+ const [orders, setOrders] = useState([
+  { id: 1, cakeName: 'ㅇㅇ케이크', userName: '정건식', orderDate: '2023.03.10' },
+  { id: 2, cakeName: 'ㅇㅇ케이크', userName: '서유정', orderDate: '2023.03.10' },
+  { id: 3, cakeName: 'ㅇㅇ케이크', userName: '송민아', orderDate: '2023.03.10' },
+  { id: 4, cakeName: 'ㅇㅇ케이크', userName: '김은호', orderDate: '2023.03.10' },
+  { id: 5, cakeName: 'ㅇㅇ케이크', userName: '김용민', orderDate: '2023.03.10' },
+]);
+ // 주문 목록 렌더링 함수
+ const renderOrderList = () => {
+  return orders.map((order) => (
+    <Link key={order.id} className='admain-list-all' to={`/order/${order.id}`}> {/* 임시 */}
+
+      <div className='adlist-cname'>{order.cakeName}</div>
+      <div className='adlist-uname'>{order.userName}</div>
+      <div className='adlist-listday'>{order.orderDate}</div>
+      <hr className='adlist-hr'/>
+    </Link>
+  ));
+};
 
   return (
     <div>
@@ -118,6 +138,10 @@ const AdMain = () => {
         </div>
          )}
 
+
+
+
+
          <div className='admain-mt2'>주문내역</div>
          <div className='admain-listtitle-all'>
             <div className='admain-list-mcn'>케이크 이름</div>
@@ -125,38 +149,7 @@ const AdMain = () => {
             <div className='admain-list-mday'>예약날짜</div>
          </div>
          <div className='admain-list-constainer'>
-              <Link className='admain-list-all'>
-                  <div className='adlist-cname'>ㅇㅇ케이크</div>
-                  <div className='adlist-uname'>홍길동</div>
-                  <div className='adlist-listday'>2023.03.10</div>
-                  <hr className='adlist-hr'/>
-              </Link>
-                <Link className='admain-list-all'>
-                    <div className='adlist-cname'>ㅇㅇ케이크</div>
-                    <div className='adlist-uname'>홍길동</div>
-                    <div className='adlist-listday'>2023.03.10</div>
-                    <hr className='adlist-hr'/>
-                </Link>
-
-                <Link className='admain-list-all'>
-                    <div className='adlist-cname'>ㅇㅇ케이크</div>
-                    <div className='adlist-uname'>홍길동</div>
-                    <div className='adlist-listday'>2023.03.10</div>
-                    <hr className='adlist-hr'/>
-
-                    <Link className='admain-list-all'>
-                    <div className='adlist-cname'>ㅇㅇ케이크</div>
-                    <div className='adlist-uname'>홍길동</div>
-                    <div className='adlist-listday'>2023.03.10</div>
-                    <hr className='adlist-hr'/>
-                </Link>
-                <Link className='admain-list-all'>
-                    <div className='adlist-cname'>ㅇㅇ케이크</div>
-                    <div className='adlist-uname'>홍길동</div>
-                    <div className='adlist-listday'>2023.03.10</div>
-                    <hr className='adlist-hr'/>
-                </Link>
-                </Link>
+         {renderOrderList()}
          </div>
 
 
