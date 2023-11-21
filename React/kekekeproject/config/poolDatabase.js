@@ -14,7 +14,7 @@ const pool = mysql.createPool({
 async function query(sql, values) {
     const connection = await pool.getConnection();
     try {
-        const [rows, fields] = await connection.execute(sql, values);
+        const [rows] = await connection.execute(sql, values);
         return rows;
     } finally {
         connection.release(); // 사용이 끝난 커넥션을 다시 풀에 반환
