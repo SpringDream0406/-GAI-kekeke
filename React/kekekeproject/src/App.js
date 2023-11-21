@@ -39,6 +39,7 @@ import Ad_Header from "./component/Ad_Header";
 import PMquantity from "./ad_pages/PMquantity";
 import PMList from "./ad_pages/PMList";
 import PMOption from "./ad_pages/PMOption";
+import AdminStoreInfo from "./ad_pages/AdminStoreInfo";
 
 
 // 컨텍스트 생성
@@ -87,6 +88,7 @@ function App() {
           <Route path="/admin/productquantity" element = {<Layout><PMquantity/></Layout>}/>  
           <Route path="/admin/productlist" element = {<Layout><PMList/></Layout>}/>  
           <Route path="/admin/productoption" element = {<Layout><PMOption/></Layout>}/>  
+          <Route path="/admin/storeinfo" element = {<Layout><AdminStoreInfo/></Layout>}/>  
           
 
 
