@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/TourDetContainer.css'
+import { useLocation } from 'react-router-dom';
+
 
 const TourDetContainer = ({ children, containerHeight }) => {
 
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+  
+    const prd_id = searchParams.get('prd_id');
+    console.log('가게정보cake_prd_id:', prd_id);
+  
 
     const containerStyle = {
         height: containerHeight || 'auto', // prop으로 받은 높이 또는 기본값 'auto'
