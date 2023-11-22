@@ -70,7 +70,14 @@
     cursor: pointer;
     margin-left: 60px; /* 채팅 버튼과 텍스트 컨텐츠 사이의 간격 */
     white-space: nowrap; /* 버튼 텍스트가 줄바꿈 되지 않도록 설정 */
-    border: 3px solid #61A5D6
+    border: 3px solid #61A5D6;
+    text-decoration: none;
+
+  }
+  
+  .chat-button:hover{
+    background-color: #61A5D6;
+    color: #FFFFE7;
   }
   
   .sub-bar {
@@ -96,4 +103,9 @@
   
   .chat-text {
     display: block;
+  }
+
+  .sub-bar-item.active {
+    color: #61a4d5;
+    border-bottom: 2px solid #61a4d5;
   }
