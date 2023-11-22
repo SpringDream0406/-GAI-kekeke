@@ -8,6 +8,7 @@ import ProductManagement from '../ad_component/ProductManagement'
 import {FaTrash} from 'react-icons/fa';
 import '../ad_css/PMList.css'
 import '../ad_css/ProductPopup.css'
+import PageButton from '../component/PageButton';
 
 const PMList = () => {
 
@@ -160,13 +161,42 @@ const handleAddProduct = (newProduct) => {
   setFilteredProducts(updatedProducts); // 필터링된 상품 목록도 업데이트
 };
 
+
+
+// 페이지버튼/
+  // 페이지네이션을 위한 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
+  const [totalPages, setTotalPages] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
+
+  // 현재 페이지에 따라 표시할 상품 목록을 계산합니다.
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // 페이지 변경 함수
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+
+
+
   return (
     
     <div>
+      <PageButton
+        pages={totalPages}
+        currentPage={currentPage}
+        onPageChange={onPageChange}
+        height={1180}
+        left={900}
+      /> 
       <AdMT>상품목록</AdMT>
       <Ad_Menubar/>
-      <Ad_BG>
-        
+      <Ad_BG height={1620}>
+  
       <ProductManagement initialActiveTab="list" />
       
       <div className="search-container">
@@ -179,9 +209,9 @@ const handleAddProduct = (newProduct) => {
           />
           <button onClick={handleSearch} className="search-button">검색하기</button>
         </div>
-
+        
     <div className="product-list">
-
+    
     <div className="product-list-header">
         <div className="header-image">상품 이미지</div>
         <div className="header-name">상품명</div>
@@ -190,8 +220,9 @@ const handleAddProduct = (newProduct) => {
         <div className="header-sales">누적 판매량</div>
       </div>
 
-
-  {filteredProducts.map((product, index) => (
+      {currentProducts.map((product, index) => (
+  
+    
           <div key={index} className="product-item">
       <div className="product-image">
         <img src={product.imageUrl} alt={product.name} />
@@ -246,6 +277,7 @@ const handleAddProduct = (newProduct) => {
             </div>
           </div>
         ))}
+       
 </div>
 
 
@@ -278,7 +310,8 @@ const handleAddProduct = (newProduct) => {
       onAddProduct={handleAddProduct}
     />
   )}
-      
+
+
 
     </div>
 
