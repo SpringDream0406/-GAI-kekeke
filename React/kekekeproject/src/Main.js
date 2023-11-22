@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'; // useNavigate 훅을 임포트�
 import './css/Main.css';
 import GlobalStyle from './component/GlobalStyle';
 import ReviewSlider from './component/ReviewSlider';
-import Footer from "./component/Footer";
+
 
 const Main = () => {
   const navigate = useNavigate();

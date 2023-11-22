@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 화면의 전체 높이 */
+
   width: 100vw; /* 화면의 전체 너비 */
 }
 

@@ -8,7 +8,7 @@ const TourCompleteOrder = () => {
   return (
     <div className="tour-detail-container">
       <div className="tco-mt">주문내역 확인</div>
-      <img  src={"/assets/images/cake1.jpg"} className="tco-cakeimg"/>
+      <img  src={"/assets/images/cake1.jpg"} className="tco-cakeimg" alt="케이크1"/>
 
       <div className="tco-mt-container">
         <div className="tco-mt-1">

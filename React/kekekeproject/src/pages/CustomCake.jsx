@@ -21,7 +21,7 @@ const CustomCake = () => {
   // 텍스트 상태와 위치를 위한 상태 추가
   const [text, setText] = useState('');
   const [textElements, setTextElements] = useState([]); // 텍스트 엘리먼트 배열 추가
-  const [textPosition, setTextPosition] = useState({ x: 50, y: 50 }); // 초기 텍스트 위치 설정
+  const [textPosition,] = useState({ x: 50, y: 50 }); // 초기 텍스트 위치 설정
   const nextId = useRef(0);
   const [isTextEditing, setIsTextEditing] = useState(false);
   const [selectedTextIndex, setSelectedTextIndex] = useState(-1); // 선택된 텍스트 엘리먼트의 인덱스 추가

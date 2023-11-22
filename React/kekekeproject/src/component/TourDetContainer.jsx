@@ -1,4 +1,6 @@
+
 import React, { useState,useEffect } from "react";
+
 import { Link } from 'react-router-dom';
 import '../css/TourDetContainer.css'
 import { useLocation } from 'react-router-dom';

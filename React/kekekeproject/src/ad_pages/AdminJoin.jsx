@@ -6,7 +6,7 @@ import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useNavigate } from 'react-router-dom';
-import { event } from "jquery";
+
 // import { ADDRCONFIG } from "dns";
 // import { NONAME } from "dns";
 

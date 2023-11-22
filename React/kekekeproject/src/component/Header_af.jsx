@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react' // useState를 한 번에 임포트
+import React, {  useState } from 'react' // useState를 한 번에 임포트
 import useDetectClose from './useDetectClose';
 import '../Fonts/Font.css'
 import GlobalStyle from './GlobalStyle';
@@ -291,7 +291,7 @@ const Header_af = () => {
       <StyledHeader >
         <div className="nav_logo">
           <Link to={"/"} className="nav-logo-link">
-          <img src={'/assets/images/logo-header.svg'} className='kekekelogo'/>
+          <img src={'/assets/images/logo-header.svg'} className='kekekelogo' alt='kekekelogo'/>
           </Link>
         </div>
 
@@ -313,7 +313,7 @@ const Header_af = () => {
           <li>
             <Link to={'/'} className="nav-menu-icon" onClick={myPageHandler}>
             <img 
-                            src={'/assets/images/mypage-icon.svg'}/>
+                            src={'/assets/images/mypage-icon.svg'} alt='mypage-icon'/>
             </Link>
               
           </li>
@@ -345,7 +345,7 @@ const Header_af = () => {
             <Link to={'/usermessage'} className="nav-menu-icon">
             <img
                         src={'/assets/images/message-icon.svg'}
-                        />
+                        alt='msg-icon' />
             </Link>
               
            
@@ -355,7 +355,7 @@ const Header_af = () => {
           <div ref={alertRef}>
     <li onClick={alertHandler}>
       <Link to={'/'} className="nav-menu-icon">
-        <img src={'/assets/images/alert-icon.svg'}/>
+        <img src={'/assets/images/alert-icon.svg'} alt='alert-icon'/>
       </Link>
     </li>
 

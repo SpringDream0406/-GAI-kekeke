@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Ad_BG from '../ad_component/Ad_BG';
-import Ad_Menubar from '../component/Ad_Menubar';
+import AdBG from '../ad_component/AdBG';
+import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
 import '../ad_css/AdCustomCake.css';
 import { Link } from 'react-router-dom';
 import PageButton from '../component/PageButton';
+import AdHeader from '../component/AdHeader';
 
 
 
@@ -24,7 +25,7 @@ const AdCustomCake = () => {
   const [pageContent, setPageContent] = useState([]);
   const totalItems = 40; // 가정: 총 40개의 항목이 있다.
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
-  const [totalPages, setTotalPages] = useState(Math.ceil(totalItems / itemsPerPage));
+  const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
 
   // 페이지에 맞는 콘텐츠를 가져오는 함수
   const fetchPageContent = async (pageNumber) => {
@@ -43,9 +44,10 @@ const AdCustomCake = () => {
   };
   return (
     <div>
-      <Ad_Menubar/>
+      <AdHeader></AdHeader>
+      <AdMenubar/>
       <AdMT>커스텀케이크</AdMT>
-      <Ad_BG height={1350}>
+      <AdBG height={1350}>
         <PageButton pages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} height='80px'/>
         <div className='adcc-btn-all'>
           <button className='adcc-btn-1'>제안대기</button>
@@ -62,7 +64,7 @@ const AdCustomCake = () => {
             </Link>
           ))}
         </div>
-      </Ad_BG>
+      </AdBG>
     </div>
   );
 }

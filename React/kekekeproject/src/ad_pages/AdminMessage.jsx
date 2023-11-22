@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../ad_css/AdminMessage.css';
 import Chatroom from '../component/Chatroom';
-import Ad_Menubar from '../component/Ad_Menubar';
+import Ad_Menubar from '../component/AdMenubar';
 
 
 // 임시 유저 데이터 목록

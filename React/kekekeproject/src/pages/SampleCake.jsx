@@ -1,9 +1,11 @@
+import "../css/SampleCake.css";
+import "../component/TourDetContainer"
+import TourDetContainer from "../component/TourDetContainer";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API_URL from "../api_url";
 import { useLocation } from 'react-router-dom';
 import PageButton from '../component/PageButton';
-import TourDetContainer from "../component/TourDetContainer";
 import "../css/SampleCake.css";
 
 const SampleCake = () => {
@@ -53,8 +55,6 @@ const SampleCake = () => {
     pageNumbers.push(i);
   }
 
-  // 페이지 번호 변경 함수
-  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   // 이전 페이지 이동 함수
   const goToPrevPage = () => {

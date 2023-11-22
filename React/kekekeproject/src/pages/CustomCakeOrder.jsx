@@ -1,5 +1,5 @@
 import React, { useState, useEffect, forwardRef,} from 'react';
-import Blue_Box from '../component/Blue_Box.jsx'
+
 import { Link } from 'react-router-dom';
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
@@ -22,11 +22,7 @@ const CustomCakeOrder = () => {
 
   const [pickupDateTime, setPickupDateTime] = useState(new Date()); // 픽업 날짜와 시간 상태
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const imageUrl = searchParams.get('image');
-  const [startDate, setStartDate] = useState(new Date());
   const [savedImage, setSavedImage] = useState(null);
-  const [pickupTime, setPickupTime] = useState(''); // 픽업 시간 상태
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
   const [pickupDate, setPickupDate] = useState(new Date()); // 날짜 선택을 위한 상태
@@ -42,9 +38,7 @@ const CustomCakeOrder = () => {
     }
   };
   
-  const handlePickupTimeChange = (e) => {
-    setPickupTime(e.target.value); // 시간 상태 업데이트
-  };
+
 
   const TimeInput = forwardRef(({ value, onClick }, ref) => (
     <button className="example-time-input timetitle" onClick={onClick} ref={ref}>

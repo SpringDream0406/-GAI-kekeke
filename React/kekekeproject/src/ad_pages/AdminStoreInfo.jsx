@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Ad_Menubar from '../component/Ad_Menubar';
+import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
-import Ad_BG from '../ad_component/Ad_BG';
+import AdBG from '../ad_component/AdBG';
 import "../ad_css/AdminStoreInfo.css";
 import { AiOutlineCamera } from 'react-icons/ai';
-import { color } from 'd3-color';
+
 
 
 
@@ -19,7 +19,6 @@ const AdminStoreInfo = () => {
     const [strg_use, setStrg_use] = useState('케이크는 보관하지말고 바로 드세요');
     const [business_num, setBusiness_num] = useState('511-95-13919');
     const [address, setAddress] = useState('광주야~');
-    const [address_detail, setAddress_detail] = useState('');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
 
@@ -50,7 +49,7 @@ const AdminStoreInfo = () => {
   };
 
 
-  const [storeName, setStoreName] = useState('');
+  const [storeName] = useState('');
   // 다른 수정 필드들에 대한 상태들도 추가해주세요
 
   // 페이지 로딩 시 기존 정보 불러오기 (예시)
@@ -60,14 +59,7 @@ const AdminStoreInfo = () => {
     // fetchStoreName().then(data => setStoreName(data));
   }, []);
 
-  // 폼 제출 시 처리
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 이 부분에 API 호출 등을 통해 서버에 수정된 정보를 전송하는 로직을 작성해야 합니다.
-    // 서버로 보낼 정보는 상태에 저장된 값을 활용합니다.
-    // 예를 들어, 가게 이름을 서버에 보내는 로직이 있다면:
-    // sendUpdatedStoreNameToServer(storeName);
-  };
+  
 
 
 
@@ -76,8 +68,8 @@ const AdminStoreInfo = () => {
   return (
     <div>
       <AdMT>가게정보</AdMT>
-      <Ad_Menubar />
-      <Ad_BG height={1650}>
+      <AdMenubar />
+      <AdBG height={1650}>
         <div className='admin-store-container'>
           <div className='store-text1'>가게 프로필</div>
               <div className="modify-picture">
@@ -164,7 +156,7 @@ const AdminStoreInfo = () => {
           onChange={(e)=>setBusiness_num(e.target.value)}/>
           <button className='modify-button' onClick={handleSaveChanges}>수정</button>
         </div>   
-      </Ad_BG>
+      </AdBG>
     </div>
   
           

@@ -12,10 +12,10 @@ import AdPagebtn from '../ad_component/AdPagebtn'
 export const Cakes = () => {
 
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredCakes, setFilteredCakes] = useState([]);// 필터링된 케이크 목록을 위한 상태
+  const [filteredCakes, setFilteredCakes] = useState([]);
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
   const [myLocation, setMyLocation] = useState(false);
-  const [cake, setCake] = useState(null); // cake 객체 상태 추가
+  const [ setCake] = useState(null); // cake 객체 상태 추가
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cakesFromServer, setCakesFromServer] = useState([]);
@@ -76,11 +76,7 @@ export const Cakes = () => {
     }
   };
 
-  const handlePageClick = (event, number) => {
-    event.preventDefault(); // 페이지 새로고침 방지
-    setCurrentPage(number);
-    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
-  };
+
 
   /*이전페이지로 가는 로직 */
   const goToPrevPage = () => {

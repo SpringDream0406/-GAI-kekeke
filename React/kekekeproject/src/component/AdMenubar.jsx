@@ -1,7 +1,7 @@
 import React from 'react'
-import '../css/Ad_Menubar.css'
+import '../css/AdMenubar.css'
 import { Link } from 'react-router-dom'
-import Ad_BG from '../ad_component/Ad_BG'
+
 
 const Ad_Menubar = () => {
   return (

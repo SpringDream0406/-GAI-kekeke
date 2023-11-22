@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../css/TourDet2.css";
-import { Link } from 'react-router-dom';
 import TourDetContainer from '../component/TourDetContainer'
 import axios from 'axios';
 import API_URL from '../api_url';

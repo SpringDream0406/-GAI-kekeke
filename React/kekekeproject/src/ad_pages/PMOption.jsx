@@ -2,8 +2,8 @@
 
 import React,{useState} from 'react'
 import AdMT from '../ad_component/AdMT'
-import Ad_BG from '../ad_component/Ad_BG'
-import Ad_Menubar from '../component/Ad_Menubar'
+import AdBG from '../ad_component/AdBG'
+import AdMenubar from '../component/AdMenubar'
 import ProductManagement from '../ad_component/ProductManagement'
 import '../ad_css/PMOption.css'
 import {FaTrash} from 'react-icons/fa';
@@ -57,7 +57,7 @@ const PMOption = () => {
   };
 
   
-  const [log, setLog] = useState(''); // 로그를 저장할 상태
+  const [ setLog] = useState(''); // 로그를 저장할 상태
 
   const saveLog = () => {
     // flavorList, flavorList2, 그리고 레터링 안내문구를 로그에 저장
@@ -76,8 +76,8 @@ const PMOption = () => {
   return (
     <div>
         <AdMT>상품옵션</AdMT>
-        <Ad_Menubar/>
-        <Ad_BG>
+        <AdMenubar/>
+        <AdBG>
         <ProductManagement initialActiveTab="option" />  
 
       <div className='pmoption_container'>
@@ -153,7 +153,7 @@ const PMOption = () => {
         <p>로그:</p>
         <p>{log}</p>
       </div> */}
-      </Ad_BG>
+      </AdBG>
     </div>
   )
 }
