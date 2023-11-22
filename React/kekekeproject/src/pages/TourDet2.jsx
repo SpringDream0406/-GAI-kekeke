@@ -7,6 +7,8 @@ import { useLocation } from 'react-router-dom';
 
 
 const TourDet2 = () => {
+
+
   const [storeInfo, setStoreInfo] = useState({
     StoreAddr1: "",
     // 다른 필드들에 대한 초기값도 추가할 수 있음
@@ -56,7 +58,7 @@ const TourDet2 = () => {
 
     return (
       <div>
-      <TourDetContainer containerHeight="2050px" storeInfo={storeInfo}>
+        <TourDetContainer initialActiveTab="tour-det2" containerHeight="2050px" storeInfo={storeInfo}>
         <div className="index">
             <div className="TourDet2_bluebox2">
 
