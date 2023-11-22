@@ -1,0 +1,90 @@
+.adcc-list-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 1000px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    height: auto;
+    text-decoration: none;
+}
+
+.adcc-c-list {
+    width: calc((1000px - 60px) / 3); /* 각 요소의 너비를 계산합니다. */
+    height: auto; /* 높이를 내용에 맞게 조정하거나 필요한 높이를 설정합니다. */
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+.adcc-cimg{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: 300px;
+    left: 150px;
+    border-radius: 20px;
+    border: 8px solid #D1ECFF;
+}
+.adcc-cday{
+    font-family: 'Pretendard-semibold';
+    position: relative;
+    top: 310px;
+    color: black;
+    text-decoration: none;
+    left: 245px;
+    font-size: 22px;
+}
+
+.adcc-ctime{
+    font-family: 'Pretendard-semibold';
+    position: relative;
+    top: 320px;
+    left: 260px;
+    color: gray;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.adcc-btn-all{
+    position: relative;
+    left: 970px;
+    top: 200px;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.adcc-btn-1{
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-family: 'Pretendard-bold';
+    color: lightgray;
+    cursor: pointer;
+}
+
+.adcc-btn-1:hover{
+
+    color: #F19EB2 !important;
+
+}
+
+.adcc-btn-2:hover{
+
+    color: #F19EB2 !important;
+
+}
+
+
+.adcc-btn-2{
+    color: lightgray;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-family: 'Pretendard-bold';
+}
+
+.adcc-link{
+    text-decoration: none;
+}

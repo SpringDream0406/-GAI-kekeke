@@ -1,88 +1,24 @@
 const { validatePassword_midLv } = require("./validatepassword");
 
 const join_check = (user_id, user_pw, user_pwcheck) => {
-  return new Promise((resolve, reject) => {
-
+    let result
     // 아이디 길이 체크
-    if (user_id.length < 5 || user_id.length > 20) {
-      reject({ message: '아이디 길이 제한' });
-      return;
+    if (user_id.length < 6 || user_id.length > 20) {
+      // res.status(400).send({ message: '아이디 길이 제한' });
+      return result = '아이디 길이 제한';
     }
 
     // 비번 복잡도 체크
     if (!validatePassword_midLv(user_pw)) {
-      reject({ message: '비밀번호 길이 or 복잡도 부족' });
-      return;
+      // res.status(400).send({ message: '비밀번호 요구사항 불충족' });
+      return result = '비밀번호 요구사항 불충족';
     }
 
     // 비번 일치 체크
     if (user_pw !== user_pwcheck) {
-      reject({ message: '비밀번호 불일치' });
-      return;
+      // res.status(400).send({ message: '비밀번호 불일치' });
+      return result = '비밀번호 불일치';
     }
-
-    resolve({ message: '비밀번호 체크 성공' });
-  });
 }
 
-
-const join_res = (err, rows, res) => {
-  if (err) {
-    console.error('회원가입 에러', err);
-    res.status(500).send({ message: '회원가입 에러', error : err });
-  }
-  else {
-    if (rows.affectedRows > 0) {
-      console.log('회원가입 성공');
-      res.status(201).send({ message: '회원가입 성공' });
-    }
-    else {
-      console.log('회원가입 실패', rows);
-      res.status(500).send({ message: '회원가입 실패' });
-    }
-  }
-}
-
-const sellerjoin_check = (seller_id, seller_pw, seller_pwcheck) => {
-  return new Promise((resolve, reject) => {
-
-    // 아이디 길이 체크
-    if (seller_id.length < 5 || seller_id.length > 20) {
-      reject({ message: '아이디 길이 제한' });
-      return;
-    }
-
-    // 비번 복잡도 체크
-    if (!validatePassword_midLv(seller_pw)) {
-      reject({ message: '비밀번호 길이 or 복잡도 부족' });
-      return;
-    }
-
-    // 비번 일치 체크
-    if (seller_pw !== seller_pwcheck) {
-      reject({ message: '비밀번호 불일치' });
-      return;
-    }
-
-    resolve({ message: '비밀번호 체크 성공' });
-  });
-}
-
-
-module.exports = { join_check, join_res , sellerjoin_check };
-
-
-
-// // 비번 복잡도 체크
-// if (!validatePassword_midLv(cust_pw)) {
-//     console.log('비밀번호 복잡도 부족', cust_pw);
-//     res.status(400).send({ message: '비밀번호 복잡도 부족' });
-//     return;
-// }
-
-// // 비번 일치 체크
-// if (cust_pw !== cust_pwcheck) { // 비밀번호 불일치 체크
-//     console.log('비번 불일치', cust_pw, cust_pwcheck);
-//     res.status(400).send({ message: '비밀번호 불일치' });
-//     return;
-// }
+module.exports = { join_check};

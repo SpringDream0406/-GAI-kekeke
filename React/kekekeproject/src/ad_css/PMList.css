@@ -171,9 +171,13 @@
 }
 
 .PM-edit-sales{
-  margin-left: 2px;
+  margin-left: 27px;
   flex: 1; /* 모든 상세 정보가 동일한 비율을 갖도록 설정 */
   padding: 20px;
+}
+
+.product-status-sold-out {
+  color: rgb(255, 103, 103);
 }
 
 /* 글 등록 버튼 */

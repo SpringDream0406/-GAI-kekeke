@@ -1,0 +1,69 @@
+.AOListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    margin-top: 230px;
+    font-family: 'Pretendard-medium';
+}
+
+.AOListHeader,
+.AOListBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    align-items: center;
+
+}
+
+.AOListHeader {
+    border-bottom: 3px solid #ddd;
+    font-family: 'Pretendard-semibold';
+    font-size: 24px;
+}
+
+.AOCake,
+.AODetails,
+.AORequest,
+.AOOrderInfo,
+.AOBuyer {
+    flex: 1;
+    text-align: center;
+}
+
+.AOListBody p {
+    margin: 0;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.CakeImage {
+    width: 150px;
+    /* 이미지 크기는 실제 상황에 맞게 조정 */
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+
+    .AOListHeader,
+    .AOListBody {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.AOListBody {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc; /* 구분선 추가 */
+    padding-bottom: 20px; /* 구분선과 내용 사이의 간격을 주기 위한 패딩 */
+}
+
+/* 마지막 리스트 아이템에는 구분선이 없어야 하므로 :last-child를 사용해 스타일을 제거합니다. */
+.AOListBody:last-child {
+    border-bottom: none;
+}

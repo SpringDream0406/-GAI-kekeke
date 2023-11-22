@@ -8,6 +8,7 @@ import ProductManagement from '../ad_component/ProductManagement'
 import {FaTrash} from 'react-icons/fa';
 import '../ad_css/PMList.css'
 import '../ad_css/ProductPopup.css'
+import PageButton from '../component/PageButton';
 
 const PMList = () => {
 
@@ -26,16 +27,16 @@ const PMList = () => {
       imageUrl: "/assets/images/cake2.png",
       name: "베리 초콜릿 케이크",
       price: "45000",
-      status: "판매중",
+      status: "품절",
       sales: "34"
     },
     {
       id: 3,
       imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
-      name: "플라워 케이크플라워 케이크플라워 케이크", // 상품명
+      name: "고소하고짭짤한맛소금팝콘케이쿠", // 상품명
       price: "50000", // 상품 가격
-      status: "판매중", // 판매 상태
-      sales: "21" // 누적 판매량
+      status: "품절", // 판매 상태
+      sales: "50" // 누적 판매량
     },
     {
       id: 4,
@@ -43,7 +44,7 @@ const PMList = () => {
       name: "베리 초콜릿 케이크",
       price: "45000",
       status: "판매중",
-      sales: "34"
+      sales: "14"
     },
     {
       id: 5,
@@ -97,12 +98,11 @@ const PMList = () => {
       setEditProductDetails({ ...editProductDetails, [field]: e.target.value });
     };
 
-    const handleDelete = (productId) => {
-      // 'productId'를 가진 상품을 제외한 새로운 배열을 생성하여 상태를 업데이트합니다.
-      const updatedProducts = filteredProducts.filter(product => product.id !== productId);
-      setFilteredProducts(updatedProducts);
-    };
-    
+     // 편집 모드에서 상태 변경 핸들러
+  const handleStatusChange = (e, product) => {
+    setEditProductDetails({ ...editProductDetails, status: e.target.value });
+  };
+
     
     // ----------------------------------------------
 
@@ -147,13 +147,56 @@ const handleDeleteCancel = () => {
   setShowDeleteModal(false);
 };
 
+
+// ----------------------------------------------------
+
+// 상품 등록 팝업에서의 데이터 로직
+
+const [productList, setProductList] = useState(products); // 실제 상품 목록 상태
+
+
+const handleAddProduct = (newProduct) => {
+  const updatedProducts = [newProduct, ...productList]; // 새 상품을 목록의 시작 부분에 추가
+  setProductList(updatedProducts); // 상품 목록 상태 업데이트
+  setFilteredProducts(updatedProducts); // 필터링된 상품 목록도 업데이트
+};
+
+
+
+// 페이지버튼/
+  // 페이지네이션을 위한 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
+  const [totalPages, setTotalPages] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
+
+  // 현재 페이지에 따라 표시할 상품 목록을 계산합니다.
+  const indexOfLastProduct = currentPage * itemsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // 페이지 변경 함수
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+
+
+
   return (
     
     <div>
+      <PageButton
+        pages={totalPages}
+        currentPage={currentPage}
+        onPageChange={onPageChange}
+        height={1180}
+        left={900}
+      /> 
       <AdMT>상품목록</AdMT>
       <Ad_Menubar/>
-      <Ad_BG>
-        
+      <Ad_BG height={1620}>
+  
       <ProductManagement initialActiveTab="list" />
       
       <div className="search-container">
@@ -166,9 +209,9 @@ const handleDeleteCancel = () => {
           />
           <button onClick={handleSearch} className="search-button">검색하기</button>
         </div>
-
+        
     <div className="product-list">
-
+    
     <div className="product-list-header">
         <div className="header-image">상품 이미지</div>
         <div className="header-name">상품명</div>
@@ -177,8 +220,9 @@ const handleDeleteCancel = () => {
         <div className="header-sales">누적 판매량</div>
       </div>
 
-
-  {filteredProducts.map((product, index) => (
+      {currentProducts.map((product, index) => (
+  
+    
           <div key={index} className="product-item">
       <div className="product-image">
         <img src={product.imageUrl} alt={product.name} />
@@ -198,18 +242,22 @@ const handleDeleteCancel = () => {
       value={editProductDetails.price} 
       onChange={(e) => handleInputChange(e, 'price')} 
       className='PM-edit-input PM-edit-price' />
-    <input 
-      type="text" 
-      value={editProductDetails.status} 
-      onChange={(e) => handleInputChange(e, 'status')} 
-      className='PM-edit-input PM-edit-status'/>
-<div className="PM-edit-sales">{product.sales}</div>
-  </div>
-) : (
+    <select 
+              value={editProductDetails.status} 
+              onChange={(e) => handleStatusChange(e, product)}
+              className='PM-edit-input PM-edit-status'>
+              <option value="판매중">판매중</option>
+              <option value="품절">품절</option>
+            </select>
+            <div className="PM-edit-sales">{product.sales}</div>
+          </div>
+        ) : (
 <div className="product-details">
   <div className="product-name">{product.name}</div>
   <div className="product-price">{product.price}원</div>
-  <div className="product-status">{product.status}</div>
+  <div className={`product-status ${product.status === "품절" ? "product-status-sold-out" : ""}`}>
+      {product.status}
+    </div>
   <div className="product-sales">{product.sales}</div>
 </div>
 
@@ -229,6 +277,7 @@ const handleDeleteCancel = () => {
             </div>
           </div>
         ))}
+       
 </div>
 
 
@@ -255,10 +304,14 @@ const handleDeleteCancel = () => {
   </div>
 )}
 
-      {isPopupVisible && (
-        <ProductRegisterPopup onClose={handleClosePopup} />
-      )}
-      
+{isPopupVisible && (
+    <ProductRegisterPopup 
+      onClose={handleClosePopup} 
+      onAddProduct={handleAddProduct}
+    />
+  )}
+
+
 
     </div>
 
@@ -267,32 +320,134 @@ const handleDeleteCancel = () => {
 
 export default PMList
 
-// 상품 등록 팝업 컴포넌트
-const ProductRegisterPopup = ({ onClose }) => {
 
+// -------------------------------------------------------------
+
+
+// 상품 등록 팝업 컴포넌트
+const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
+
+  const [images, setImages] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState([]);
+
+  const handleImageChange = (e) => {
+    // 이미 업로드된 이미지를 유지하면서 새 이미지 추가
+    const newImages = Array.from(e.target.files);
+    setImages(currentImages => [...currentImages, ...newImages]);
+    
+    // 미리보기 URL 생성 및 상태 업데이트
+    const newImagePreviews = newImages.map(file => URL.createObjectURL(file));
+    setImagePreviews(currentPreviews => [...currentPreviews, ...newImagePreviews]);
+  };
+
+  const removeImage = (index) => {
+    // 선택된 이미지의 URL을 해제
+    URL.revokeObjectURL(imagePreviews[index]);
+
+    // 상태에서 해당 이미지 제거
+    setImages(currentImages => currentImages.filter((_, i) => i !== index));
+    setImagePreviews(currentPreviews => currentPreviews.filter((_, i) => i !== index));
+  }
+
+
+  // ----------------------------------------------------------
+
+  const [productName, setProductName] = useState('');
+  const [productPrice, setProductPrice] = useState('');
+
+  // 새 상품 등록 함수
+  const handleRegister = () => {
+    // 입력 검증 또는 필요한 로직 수행
+    if (!productName || !productPrice) {
+      // 필요한 경우 사용자에게 경고
+      alert("상품명과 가격을 입력해주세요.");
+      return;
+    }
+  
+    // 상품 정보 객체 생성
+    const newProduct = {
+      id: Date.now(), // 실제 앱에서는 더 견고한 ID 생성 방법을 사용
+      imageUrl: imagePreviews[0] || '/assets/images/placeholder.png', // 첫 번째 이미지 또는 기본 이미지
+      name: productName,
+      price: productPrice,
+      status: '판매중',
+      sales: 0,
+    };
+  
+    // 부모 컴포넌트의 상품 추가 함수 호출
+    onAddProduct(newProduct);
+  
+    // 상태 초기화 및 팝업 닫기
+    setProductName('');
+    setProductPrice('');
+    setImagePreviews([]);
+    onClose();
+  };
+  
   return (
     <div className="adminPopupOverlay">
       <div className="adminPopupContainer">
+        
         <div className="adminPopupHeader">
+
+          <p className='productText'>상품 등록</p>
           <div className="adminImageUploadContainer">
-            {/* 이미지 업로드 구역 */}
-            <div className="adminImageUploadPlaceholder">
-              {/* 이미지 업로드 관련 내용 */}
+          <div className="adminImageUploadArea">
+            <label htmlFor="imageUpload" className="image-upload-button">
+              {images.length < 4 && (
+                <>
+                  <input 
+                    type="file" 
+                    id="imageUpload" 
+                    onChange={handleImageChange} 
+                    multiple
+                    style={{ display: 'none' }}
+                    
+                  />
+                  <div className="upload-icon-placeholder">+</div>
+                </>
+              )}
+            </label>
+
+            <div className="image-preview-container">
+              {imagePreviews.map((image, index) => (
+                <div key={index} className="image-preview">
+                  <img src={image} alt={`preview ${index}`} />
+                  <button type="button" onClick={() => removeImage(index)}>×</button>
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="adminInputGroup">
-            <label htmlFor="productName">상품명:</label>
-            <input type="text" id="productName" className="adminInput" />
-          </div>
-          <div className="adminInputGroup">
-            <label htmlFor="productPrice">상품가격:</label>
-            <input type="text" id="productPrice" className="adminInput" />
-          </div>
+            </div>
+            </div>
+
+          
+            <div className="adminInputGroup">
+  <label htmlFor="productName">상품명:</label>
+  <input
+    type="text"
+    id="productName"
+    value={productName} // 상태와 바인딩
+    onChange={(e) => setProductName(e.target.value)} // 상태 업데이트
+    className="adminInput"
+  />
+</div>
+<div className="adminInputGroup">
+  <label htmlFor="productPrice">상품가격:</label>
+  <input
+    type="text"
+    id="productPrice"
+    value={productPrice} // 상태와 바인딩
+    onChange={(e) => setProductPrice(e.target.value)} // 상태 업데이트
+    className="adminInput"
+  />
+</div>
+
+
         </div>
         <div className="adminPopupFooter">
-          <button className="adminRegisterButton">등록</button>
-          <button className="adminCancelButton" onClick={onClose}>취소</button>
-        </div>
+        <button className="adminRegisterButton" onClick={handleRegister}>등록</button>
+        <button className="adminCancelButton" onClick={onClose}>취소</button>
+      </div>
       </div>
     </div>
   );

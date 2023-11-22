@@ -1,9 +1,22 @@
-import React from "react";
+import React , {useEffect, useState} from "react";
 import "../css/Ad_Header.css";
 import Ad_Menubar from "./Ad_Menubar";
 import { Link } from "react-router-dom";
 
 const Ad_Header = () => {
+
+  const [sellerinfo, setSellerInfo] = useState({});
+
+  // 세션 스토리지에서 데이터 불러오기
+useEffect(() => {
+  const adminStorageData = sessionStorage.getItem('adminData');
+  if (adminStorageData) {
+    const adminData = JSON.parse(adminStorageData);
+    console.log('Data from Session Storage:', adminData);
+    setSellerInfo(adminData);
+  }
+}, []);
+
     return (
 
         <div className="adminhd-container">
@@ -13,7 +26,7 @@ const Ad_Header = () => {
               <div className="text-wrapper">사장님</div>
               </div>
             <div className="view-2">
-              <div className="text-wrapper2">정건식</div>
+              <div className="text-wrapper2">{sellerinfo.seller_id}</div>
             </div>
             <Link to={'/admin'}>
             <div className="view-3" />

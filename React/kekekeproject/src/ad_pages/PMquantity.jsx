@@ -8,13 +8,14 @@ import AdMT from '../ad_component/AdMT'
 import Ad_BG from '../ad_component/Ad_BG'
 import AdCalendar from '../ad_component/AdCalendar'
 
+
 const PMquantity = () => {
   return (
     <div>
       <AdMT>수랑확인</AdMT>
       <Ad_Menubar/>
       <AdCalendar/>
-      <Ad_BG height="1250px" marginTop="213px">
+      <Ad_BG height="1400px" marginTop="213px">
       <ProductManagement initialActiveTab="quantity" />
 
 

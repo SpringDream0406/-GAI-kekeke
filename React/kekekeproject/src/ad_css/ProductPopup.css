@@ -17,7 +17,7 @@
   background-color: white;
   padding: 60px;
   border-radius: 10px;
-  width: 900px; /* 팝업의 너비 */
+  width: 600px; /* 팝업의 너비 */
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -35,6 +35,54 @@
   border-radius: 10px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+
+.adminImageUploadArea {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-upload-button {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: #f3f3f3; /* 업로드 버튼 배경색 */
+  border: 2px dashed #ddd; /* 업로드 버튼 테두리 */
+  width: 100px; /* 업로드 버튼 너비 */
+  height: 100px; /* 업로드 버튼 높이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* 업로드 아이콘 크기 */
+}
+
+.image-preview-container {
+  display: flex;
+}
+
+.image-preview {
+  width: 100px; /* 미리보기 이미지 너비 */
+  height: 100px; /* 미리보기 이미지 높이 */
+  margin-right: 10px; /* 미리보기 이미지 간격 */
+  position: relative;
+  background-color: #f3f3f3; /* 미리보기 배경색 */
+  border: 1px solid #ddd; /* 미리보기 테두리 */
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* 이미지가 컨테이너를 꽉 채우도록 설정 */
+}
+
+.image-preview button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #797979;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .adminImageUploadPlaceholder {
@@ -78,14 +126,14 @@
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  margin-right: 10px; /* 오른쪽 여백 추가 */
+  margin-right: 30px; /* 오른쪽 여백 추가 */
   cursor: pointer;
   font-family: 'Pretendard-medium';
   font-size: 16px;
 }
 
 .adminCancelButton {
-  background-color: #777;
+  background-color: #c1c1c1;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -114,4 +162,13 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
+  }
+
+  .productText{
+    text-decoration: dashed;
+    font-family: 'Pretendard-Bold';
+    font-size: 26px;
+    border-bottom: 3px solid #F0B4AE;
+    z-index: 10;
+    width: 98px;
   }

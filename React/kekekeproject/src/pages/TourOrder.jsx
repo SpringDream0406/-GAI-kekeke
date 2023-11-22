@@ -1,23 +1,23 @@
-import React, { useState, useEffect, forwardRef ,useCallback} from 'react';
-import {Link} from "react-router-dom";
+import React, { useState, useEffect, forwardRef, useRef } from 'react';
+import { Link } from "react-router-dom";
 import "../css/TourOrder.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import TourDetContainer from '../component/TourDetContainer'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from 'react-router-dom';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import API_URL from '../api_url';
 
 
 
+import { useParams } from 'react-router-dom';
+
+
 export const TourOrder = () => {
-
-
+  const { prd_id } = useParams();
   const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
-
   const [pickup_time, setPickupTime] = useState(new Date());
   const [pickup_date, setPickupDate] = useState(new Date());
   const [cake_flavor, setCakeFlavor] = useState(null);
@@ -27,15 +27,31 @@ export const TourOrder = () => {
   const [lettering, setLettering] = useState(null);
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
+
   const [order_user, setOrderUser] = useState(null);
 
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
-  const location = useLocation(null);
-  const searchParams = new URLSearchParams(location.search);
 
-  const [productData, setProductData] = useState(null);
-  const prd_id = searchParams.get('prd_id');
-  console.log('cake_prd_id:', prd_id);
+  const [seller_id, setSellerId] = useState(null);
+  const [cust_id, setCustId] = useState(null);
+  const [sale_dy, setSaleDy] = useState(null);
+
+  const location = useLocation();
+
+  const searchParams = new URLSearchParams(location.search);
+  const selectedCake = location.state && JSON.parse(location.state.cake);
+  const cake = selectedCake || {}; // 기본값으로 빈 객체 설정
+
+  // 구매자 ID(cust_id불러오기)
+  useEffect(() => {
+    const userStorageData = sessionStorage.getItem('userData');
+    if (userStorageData) {
+      const userData = JSON.parse(userStorageData);
+      console.log('세션 스토리지에서 가져온 유저아이디값:', userData.cust_id);
+      setCustId(userData.cust_id);
+    }
+  }, []);
+
 
   useEffect(() => { //prd_id를가지고 데이터를 가져올거임 tourDetContainer
     const postData = async () => {
@@ -59,6 +75,15 @@ export const TourOrder = () => {
     }
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
+  useEffect(() => {
+    console.log('둘러보기에서 보내준 케이크 객체값', selectedCake);
+  }, [selectedCake]);
+
+ 
+
+ // 빈 의존성 배열을 전달하여 이 효과가 초기 렌더링 중에만 실행되도록 합니다.
+
+
 
   
   const [additionalCosts] = useState({
@@ -71,89 +96,85 @@ export const TourOrder = () => {
     two: 20000,
     three: 30000,
   });
- 
-  
-    const TimeInput = forwardRef(({ value, onClick }, ref) => (
-      <button className="to-time-input to-timetitle" onClick={onClick} ref={ref}>
-        {value}
-        <FontAwesomeIcon icon={faClock} className='to-time-icon' onClick={onClick} />
-      </button>
-    ));
-  
-   
-    const CustomInput = forwardRef(({ value, onClick }, ref) => (
-      <button className="to-custom-input to-day" onClick={onClick} ref={ref}>
-        {value}
-        <FontAwesomeIcon icon={faCalendarAlt} className='to-day-icon' onClick={onClick} />
-      </button>
-    ));
-  
 
-    
-    const calculateTotalCostForFlavor = (flavor) => {
-      // 새로운 맛을 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 맛의 추가요금을 빼야 합니다.
-      const costToAdd = flavor ? additionalCosts[flavor] : 0;
-      const costToSubtract = cake_flavor ? additionalCosts[cake_flavor] : 0;
-      return costToAdd - costToSubtract;
+  const TimeInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="to-time-input to-timetitle" onClick={onClick} ref={ref}>
+      {value}
+      <FontAwesomeIcon icon={faClock} className='to-time-icon' onClick={onClick} />
+    </button>
+  ));
+
+  const CustomInput = forwardRef(({ value, onClick }, ref) => (
+    <button className="to-custom-input to-day" onClick={onClick} ref={ref}>
+      {value}
+      <FontAwesomeIcon icon={faCalendarAlt} className='to-day-icon' onClick={onClick} />
+    </button>
+  ));
+
+  const calculateTotalCostForFlavor = (flavor) => {
+    // 새로운 맛을 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 맛의 추가요금을 빼야 합니다.
+    const costToAdd = flavor ? additionalCosts[flavor] : 0;
+    const costToSubtract = cake_flavor ? additionalCosts[cake_flavor] : 0;
+    return costToAdd - costToSubtract;
+  };
+
+  // 크기 선택에 대한 가격 계산 로직
+  const calculateTotalCostForSize = (size) => {
+    // 새로운 크기를 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 크기의 추가요금을 빼야 합니다.
+    const costToAdd = size ? additionalCosts[size] : 0;
+    const costToSubtract = cake_size ? additionalCosts[cake_size] : 0;
+    return costToAdd - costToSubtract;
+  };
+
+  // 맛 선택 핸들러
+  const handleFlavorChange = (flavor) => {
+    setCakeFlavor((prevFlavor) => {
+      // 총 가격 업데이트
+      const priceDifference = calculateTotalCostForFlavor(flavor);
+      setCakeprice((prevTotalCost) => prevTotalCost + priceDifference);
+      return prevFlavor === flavor ? null : flavor;
+    });
+  };
+
+  // 크기 선택 핸들러
+  const handleSizeChange = (size) => {
+    setCakeSize((prevSize) => {
+      // 총 가격 업데이트
+      const priceDifference = calculateTotalCostForSize(size);
+      setCakeprice((prevTotalCost) => prevTotalCost + priceDifference);
+      return prevSize === size ? null : size;
+    });
+  };
+
+  // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
+  const submitOrder = () => {
+    const url = `${API_URL}/cust/order`;
+
+    const orderData = {
+      cake_name: cake_name,
+      cust_id: cust_id,
+      add_require: add_require,
+      cake_size: cake_size,
+      cake_flavor: cake_flavor,
+      cake_price: cakeprice,
+      lettering: lettering,
+      order_name: order_name,
+      order_num: order_num,
+      pickup_date: pickup_date.toISOString(),
+      pickup_time: pickup_time.toISOString(),
     };
-    
-    // 크기 선택에 대한 가격 계산 로직
-    const calculateTotalCostForSize = (size) => {
-      // 새로운 크기를 선택한 경우 추가요금을 계산하고, 그렇지 않으면 이전에 선택된 크기의 추가요금을 빼야 합니다.
-      const costToAdd = size ? additionalCosts[size] : 0;
-      const costToSubtract = cake_size ? additionalCosts[cake_size] : 0;
-      return costToAdd - costToSubtract;
-    };
-    
-    // 맛 선택 핸들러
-    const handleFlavorChange = useCallback((flavor) => {
-      setCakeFlavor(prevFlavor => {
-        // 총 가격 업데이트
-        const priceDifference = calculateTotalCostForFlavor(flavor);
-        setCakeprice(prevTotalCost => prevTotalCost + priceDifference);
-        return prevFlavor === flavor ? null : flavor;
+
+    axios
+      .post(url, orderData)
+      .then((response) => {
+        console.log('주문이 성공적으로 전송되었습니다.', response.data);
+        // 주문이 성공적으로 전송되었을 때 할 작업을 추가할 수 있습니다.
+      })
+      .catch((error) => {
+        console.error('주문 전송 에러', error);
+        // 주문 전송에 실패했을 때 에러 처리를 추가할 수 있습니다.
       });
-    }, [additionalCosts, cake_flavor]);
-    
-    // 크기 선택 핸들러
-    const handleSizeChange = useCallback((size) => {
-      setCakeSize(prevSize => {
-        // 총 가격 업데이트
-        const priceDifference = calculateTotalCostForSize(size);
-        setCakeprice(prevTotalCost => prevTotalCost + priceDifference);
-        return prevSize === size ? null : size;
-      });
-    }, [additionalCosts, cake_size]);
-
-
-    const submitOrder = () => {
-
-      const url = `${API_URL}/cust/order`;
-
-      const orderData = {
-        cake_name: cake_name,
-        add_require: add_require,
-        cake_size: cake_size,
-        cake_flavor: cake_flavor,
-        cake_price: cakeprice,
-        lettering: lettering,
-        order_user: order_user,
-        order_num: order_num,
-        pickup_date: pickup_date.toISOString(),
-        pickup_time: pickup_time.toISOString(),
-      };
-    
-      axios
-        .post(url, orderData)
-        .then((response) => {
-          console.log('주문이 성공적으로 전송되었습니다.', response.data);
-          // 주문이 성공적으로 전송되었을 때 할 작업을 추가할 수 있습니다.
-        })
-        .catch((error) => {
-          console.error('주문 전송 에러', error);
-          // 주문 전송에 실패했을 때 에러 처리를 추가할 수 있습니다.
-        });
-    };
+  };
 
 
   return (
@@ -232,12 +253,14 @@ export const TourOrder = () => {
                     type='text'
                     placeholder='요청사항을 입력하세요'
                     value={add_require}
+                    onChange={(e)=>setAddRequire(e.target.value)}
                   />
       <div className="to-caketxttitle">케이크 위 문구</div>
       <input className="to-caketxt"
                     type='text'
                     placeholder='문구를 입력하세요'
                     value={lettering}
+                    onChange={(e)=>setLettering(e.target.value)}
                   />
       <div className="to-cakesizetitle">케이크 크기선택</div>
    
@@ -282,6 +305,7 @@ export const TourOrder = () => {
                     type='text'
                     placeholder='전화번호를 입력하세요'
                     value={order_num}
+                    onChange={(e)=>setOrderNum(e.target.value)}
                   />
       <div className="to-time">픽업 시간</div>
       <DatePicker
@@ -317,7 +341,8 @@ export const TourOrder = () => {
       <input className="to-username"
                     type='text'
                     placeholder='이름을 입력하세요'
-                    value={order_user}
+                    value={order_name}
+                    onChange={(e)=>setOrderName(e.target.value)}
                   />
           </div>
           <div className="co-cakemoneytt">가격</div>

@@ -117,8 +117,8 @@ const Join = () => {
 
   return (
     <div className='join-container'>
-     <GlobalStyle />
-       <div className="join_index">
+    <GlobalStyle />
+      <div className="join_index">
         
               <div className="join_bg">
                 <div className="join_overlap">
