@@ -16,7 +16,7 @@ import { useParams } from 'react-router-dom';
 
 
 export const TourOrder = () => {
-  const { prd_id } = useParams();
+  
   const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
   const [pickup_time, setPickupTime] = useState(new Date());
   const [pickup_date, setPickupDate] = useState(new Date());
@@ -28,6 +28,12 @@ export const TourOrder = () => {
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
+  const prd_id = searchParams.get('prd_id');
+  console.log('가게정보cake_prd_id:', prd_id);
+
   const [order_user, setOrderUser] = useState(null);
 
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
@@ -36,9 +42,7 @@ export const TourOrder = () => {
   const [cust_id, setCustId] = useState(null);
   const [sale_dy, setSaleDy] = useState(null);
 
-  const location = useLocation();
 
-  const searchParams = new URLSearchParams(location.search);
   const selectedCake = location.state && JSON.parse(location.state.cake);
   const cake = selectedCake || {}; // 기본값으로 빈 객체 설정
 
