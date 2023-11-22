@@ -53,6 +53,13 @@ const TourDet2 = () => {
     fetchData();
   }, [prd_id]);
   
+ // 시작 시간과 종료 시간을 초까지 포함된 형식에서 시간만 표시하는 함수
+const formatTime = (timeString) => {
+  if (timeString) {
+    return timeString.split(":").slice(0, 2).join(":");
+  }
+  return ""; // timeString이 없을 때는 빈 문자열 반환
+};
 
     return (
       <div>
@@ -102,7 +109,7 @@ const TourDet2 = () => {
                               <div className="TourDet2_infoLabel">상담가능 시간</div>
                             </div>
                             <div className="TourDet2_Introadinput">
-                              <div className="TourDet2_infoValue">{storeInfo.START_TIME} ~ {storeInfo.END_TIME}</div>
+                              <div className="TourDet2_infoValue">{formatTime(storeInfo.START_TIME)} ~ {formatTime(storeInfo.END_TIME)}</div>
                             </div>
                           </div>
                           <div className="TourDet2_Intronumfr">

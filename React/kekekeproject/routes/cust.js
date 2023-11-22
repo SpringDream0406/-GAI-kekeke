@@ -188,5 +188,48 @@ router.post('/check', async (req, res) => {
     }
 });
 
+//커스터머 주문내역 리스트
+router.post('/orderlist', async (req, res) => {
+    try {
+        const { custId } = req.body;
+        console.log(req.body);
+
+        let sql = `SELECT
+        TPO.PRD_ID,
+        TPO.CAKE_NAME,
+        TPO.CAKE_SIZE,
+        TPO.CAKE_FLAVOR,
+        TPO.SALE_DY,
+        TPO.PICKUP_DATE,
+        TS.STORE_NAME,
+        TCR.CONS_OR_OC,
+        TPI.IMG_NAME2
+    FROM
+        TB_PRODUCT_ORDER AS TPO
+    JOIN
+        TB_PRODUCT AS TP ON TPO.PRD_ID = TP.PRD_ID
+    JOIN
+        TB_SELLER AS TS ON TP.SELLER_ID = TS.SELLER_ID
+        LEFT JOIN
+    TB_CHAT_ROOM AS TCR ON TP.PRD_ID = TCR.PRD_ID
+    LEFT JOIN
+        TB_PRODUCT_IMG AS TPI ON TP.PRD_ID = TPI.PRD_ID
+    WHERE
+        TPO.CUST_ID = ?;`;
+
+        const userorders = await query(sql, [custId])
+        console.log('Fetched user orders:', userorders);
+
+        if(userorders.length === 0 ) {
+            return res.status(404).send({ message : '제품을 찾을 수 없음'});
+        }
+        res.status(200).send({
+            userorders : userorders
+        });
+    } catch (error) {
+        console.error(`SQL 에러 : ${error}`);
+        res.status(500).send({ message: '서버에러'});
+    }
+})
 
 module.exports = router;

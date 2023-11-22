@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/MpOrderList.css';
 import GlobalStyle from '../component/GlobalStyle'
 import '../css/MpOrderListPopup.css'
 import { AiOutlineCamera } from 'react-icons/ai';
+import axios from 'axios'; // axios 라이브러리 추가
+import API_URL from '../api_url';
 
 // 예시 주문 데이터
 const orders = [
@@ -86,9 +88,16 @@ const orders = [
 
 const MpOrderList = () => {
 
+
   // 팝업 상태 관리
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedOrderDetail, setSelectedOrderDetail] = useState(null);
+  const [userOrderlist, setUserOrderList] = useState();
+
+  const userStorageData = sessionStorage.getItem('userData');
+  const initialCustId = userStorageData ? JSON.parse(userStorageData).cust_id : '';
+
+  const [custId, setCustId] = useState(initialCustId);
 
   const openPopup = (orderDetail) => {
     setSelectedOrderDetail(orderDetail); // 선택된 주문의 상세 정보를 상태에 설정
@@ -99,23 +108,41 @@ const MpOrderList = () => {
     setIsPopupOpen(false);
   };
 
+    
+    useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        if (custId) {
+          const response = await axios.post(`${API_URL}/cust/orderlist`, {custId : custId});
+          const responseData = response.data
+          console.log('받아온 값 ' ,responseData);
+          setUserOrderList(responseData);
+        }
+      } catch (error) {
+          console.error('데이터 가져오기 실패:', error);
+        }
+      };
+      fetchData();
+    },[custId]);
+
+
   return (
     <div className="order-list-container">
       <GlobalStyle />
       <img className='message-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
       <div className='message-text'>주문 내역</div>
       <div className="order-card">
-        {orders.map(order => (
-          <div key={order.id} className="order-item">
-            <img src={order.thumbnail} alt="Cake" className="order-thumbnail" />
+        {userOrderlist.map(order => (
+          <div key={order.PRD_ID} className="order-item">
+            <img src={order.IMG_NAME2} alt="Cake" className="order-thumbnail" />
             <div className="order-content">
               <div className="order-date-status">
-                <h2 className="pickup-date">{order.pickupDate}</h2>
-                <div className="order-status">{`${order.status} | ${order.orderDate}`}</div>
+                <h2 className="pickup-date">{order.PICKUP_DATE}</h2>
+                <div className="order-status">{`${order.CONS_OR_OC} | ${order.SALE_DY}`}</div>
               </div>
               <div className="order-description">
-                <p className="cake-size-flavor">{`케이크 사이즈: ${order.size} | 케이크 맛: ${order.flavor}`}</p>
-                <p className="store-name">{`${order.storeName}: ${order.productName}`}</p>
+                <p className="cake-size-flavor">{`케이크 사이즈: ${order.CAKE_SIZE} | 케이크 맛: ${order.CAKE_FLAVOR}`}</p>
+                <p className="store-name">{`${order.STORE.NAME}: ${order.CAKE_NAME}`}</p>
               </div>
               <div className="review-button-container">
                 <button onClick={() => openPopup(order)} className="review-button">리뷰쓰기</button>
