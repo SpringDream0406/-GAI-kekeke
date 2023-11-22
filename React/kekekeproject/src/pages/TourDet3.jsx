@@ -1,177 +1,93 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/TourDet3.css";
 import TourDetContainer from '../component/TourDetContainer'
 import PageButton from "../component/PageButton";
 import "../css/TourReviewPopup.css";
+import axios from 'axios';
+import API_URL from '../api_url';
+import { useLocation } from 'react-router-dom';
 
 export const TourDet3 = () => {
+  const [storeInfo, setStoreInfo] = useState({
+    StoreAddr1: "",
+    // 다른 필드들에 대한 초기값도 추가할 수 있음
+  });
+  const [reviewData, setReviewData] = useState([]);
+  const [selectedReview, setSelectedReview] = useState(null);
+  
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const prd_id = searchParams.get('prd_id');
+
+
+  // 리뷰작성날짜 포맷팅
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
+  
+  // 가게정보조회
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (prd_id) {
+          const response = await axios.post(`${API_URL}/sample/samplecake`, { prd_id });
+          const responseData = response.data;
+
+          // 상태 업데이트
+          setStoreInfo({
+            CakeLogo: responseData.productInfo.SELLER_PROFILE1, //가게 로고
+            StoreName: responseData.productInfo.STORE_NAME,   // 상호명
+            StoreAddr1: responseData.productInfo.SHOP_ADDR1,  // 주소1
+            StoreDetail: responseData.productInfo.STORE_DETAIL ,// 가게소개
+          });
+        }
+      } catch (error) {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      }
+    };
+
+    fetchData();
+  }, [prd_id]);
+
+  // 리뷰
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (prd_id) {
+          const response = await axios.post(`${API_URL}/sample/review`, { prd_id });
+          const responseData = response.data;
+          setReviewData(responseData.sellerReviews)
+        
+          // 상태 업데이트
+          console.log(responseData.sellerReviews);
+        }
+      } catch (error) {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      }
+    };
+
+    fetchData();
+  }, [prd_id]);
 
   
   // 리뷰 내용
-  const Reviews = [
-    {
-      DEAL_ID: 1,
-      IMG_NAME: "/assets/images/cake1.jpg",
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1호',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
- 
   
-
-    },
-    {
-      DEAL_ID: 2,
-      IMG_NAME: '/assets/images/cake3.jpg',
-      CAKE_NAME: '곰도리',
-      CREATED_AT: '2023-11-14',
-      CUST_NICK: '서유정',
-      CAKE_SIZE: '도시락',
-      CAKE_FLAVOR: '쿠키앤크림',
-      REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증',
-      storeName: '랑랑케이크',
-      request: '초코너뭄달아서못먹어요 덜달게해줘요 제발요 제발 덜달게 너무 달아',
-
-
-    },
-    {
-      DEAL_ID: 3,
-      IMG_NAME: '/assets/images/cakelogo3.jpg',
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '2호',
-      CAKE_FLAVOR: '초콜릿',
-      REVIEW_MSG: '아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다아마싯다',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    },
-    {
-      DEAL_ID: 4,
-      IMG_NAME: '/assets/images/cakelogo2.jpg',
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '사장님이 친절하구 어쩌구쩌쩌구저쩌구 저쩌구해요 곰돌이기여워 곰돌이 맛있어 케이크 맛있어 케이크 귀여워 케이크가 너무 맛있어요! 다음에도 또 주문할게요!',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    }, {
-      DEAL_ID: 5,
-      IMG_NAME: "/assets/images/cake1.jpg",
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    },
-    {
-      DEAL_ID: 6,
-      IMG_NAME: '/assets/images/cake3.jpg',
-      CAKE_NAME: '곰도리',
-      CREATED_AT: '2023-11-14',
-      CUST_NICK: '서유정',
-      CAKE_SIZE: '도시락',
-      CAKE_FLAVOR: '쿠키앤크림',
-      REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    },
-    {
-      DEAL_ID: 7,
-      IMG_NAME: '/assets/images/cakelogo3.jpg',
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    }, {
-      DEAL_ID: 8,
-      IMG_NAME: "/assets/images/cake1.jpg",
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    },
-    {
-      DEAL_ID: 9,
-      IMG_NAME: '/assets/images/cake3.jpg',
-      CAKE_NAME: '곰도리',
-      CREATED_AT: '2023-11-14',
-      CUST_NICK: '서유정',
-      CAKE_SIZE: '도시락',
-      CAKE_FLAVOR: '쿠키앤크림',
-      REVIEW_MSG: '아짜증나너무맛잇어요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증나요짜증',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-
-    },
-    {
-
-      DEAL_ID: 10,
-      IMG_NAME: '/assets/images/cakelogo3.jpg',
-      CAKE_NAME: '티아라케이크',
-      CREATED_AT: '2023-11-15',
-      CUST_NICK: '김은호',
-      CAKE_SIZE: '1',
-      CAKE_FLAVOR: '바닐라',
-      REVIEW_MSG: '꼭 사고 싶었던 케이크에요 ㅠ 너무 예쁜거아니야? 진짜? 케이크도 맛있고 냠냠 여기서 꼭사세여 진짜존맛탱 진짜',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-      storeName: '랑랑케이크',
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-    },
-  ];
-
-    // 리뷰 팝업 임시 데이터
-
-    const [reviewData, setReviewData] = useState({
-
-      request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당',
-
-    });
-
     const handleReviewClick = (review) => {
-      setReviewData({
+      setSelectedReview({
         id: review.DEAL_ID,
-        thumbnail: review.IMG_NAME,
+        thumbnail: `/img/product/${review.IMG_NAME2}`,
         productName: review.CAKE_NAME,
-        customerName: review.CUST_NICK,
-        reviewDate: review.CREATED_AT,
+        customerName: review.NICK_NAME,
+        reviewDate: formatDate(review.CREATED_AT),
         size: review.CAKE_SIZE,
         flavor: review.CAKE_FLAVOR,
         reviewContent: review.REVIEW_MSG,
-        storeName: review.storeName, // 가게 이름 설정
-        request: review.request, // 요청사항 설정
+        request: review.ADD_REQUIRE, // 요청사항 설정
+        
+        
       });
       setShowDetailReview(true);
     };
@@ -181,11 +97,11 @@ export const TourDet3 = () => {
   const itemsPerPage = 3; // 한 페이지에 표시할 아이템 수
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = Reviews.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = reviewData.slice(indexOfFirstItem, indexOfLastItem);
 
 
   const reviewpageNum = [];
-  for (let i = 1; i <= Math.ceil(Reviews.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(reviewData.length / itemsPerPage); i++) {
     reviewpageNum.push(i);
   }
 
@@ -225,12 +141,15 @@ export const TourDet3 = () => {
      const handleCloseDetailReview = () => {
          setShowDetailReview(false);
      };
+     useEffect(() => {
+      console.log("현재 리뷰 데이터:11", reviewData);
+    }, [reviewData]);
  
 
   return (
     <div>
 
-      <TourDetContainer containerHeight="2200px">
+      <TourDetContainer containerHeight="2200px" storeInfo = {storeInfo}>
 
         <div className="review-section">
           <h2 className="review-list-title">리뷰 목록</h2>
@@ -240,12 +159,12 @@ export const TourDet3 = () => {
                 <img
                   className="review-image"
                   alt={`Review ${review.DEAL_ID}`}
-                  src={review.IMG_NAME}
+                  src={`/img/product/${review.IMG_NAME2}`}
                 />
                 <div className="tour-review-content">
                 <div className="tour-review-header">
-                    <p className="tour-review-date">{review.CREATED_AT}</p>
-                    <p className="tour-review-customer">{review.CUST_NICK} 님</p>
+                    <p className="tour-review-date">{formatDate(review.CREATED_AT)}</p>
+                    <p className="tour-review-customer">{review.NICK_NAME} 님</p>
                   </div>
                   <div  className="tour-review-header2">
                   <h3 className="tour-review-cake-name">{review.CAKE_NAME}</h3>
@@ -274,7 +193,7 @@ export const TourDet3 = () => {
           </div>
         </div>
       </TourDetContainer>
-      {showDetailReview && <DetailReviewPopup onClose={handleCloseDetailReview} reviewData={reviewData} />}
+      {showDetailReview && <DetailReviewPopup onClose={handleCloseDetailReview} reviewData={selectedReview} />}
     </div>
 
   );

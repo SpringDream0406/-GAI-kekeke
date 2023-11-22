@@ -6,16 +6,16 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import TourDetContainer from '../component/TourDetContainer'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from 'axios';
-import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import API_URL from '../api_url';
 
 
 
 export const TourOrder = () => {
 
-  
+
   const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
 
   const [pickup_time, setPickupTime] = useState(new Date());
@@ -29,15 +29,38 @@ export const TourOrder = () => {
   const [order_num, setOrderNum] = useState(null);
   const [order_user, setOrderUser] = useState(null);
 
-
-  const location = useLocation();
+  const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
+  const location = useLocation(null);
   const searchParams = new URLSearchParams(location.search);
 
   const [productData, setProductData] = useState(null);
   const prd_id = searchParams.get('prd_id');
   console.log('cake_prd_id:', prd_id);
 
+  useEffect(() => { //prd_id를가지고 데이터를 가져올거임 tourDetContainer
+    const postData = async () => {
+      try {
+        const response = await axios.post(`${API_URL}/store/tour-order`, { prd_id: prd_id });
+        const data = response.data[0];
+        setStoreInfo({
+           CakeLogo :  data.SELLER_PROFILE1,
+           StoreName : data.STORE_NAME,
+           StoreAddr1 : data.SHOP_ADDR1,
+           StoreDetail: data.STORE_DETAIL
+        })
+        console.log('응답:', response.data);
+      } catch (error) {
+        console.error('오류:', error);
+      }
+    };
+  
+    if (prd_id) {
+      postData();
+    }
+  }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
+
+  
   const [additionalCosts] = useState({
     vanilla: 0,
     chocolate: 1000,
@@ -135,7 +158,7 @@ export const TourOrder = () => {
 
   return (
     <div>
-      <TourDetContainer containerHeight="2200px">
+      <TourDetContainer containerHeight="2200px" storeInfo={storeInfo}>
       <div className='to-bg-container'>
     <div className="to-container">
     <div className="to-div">
