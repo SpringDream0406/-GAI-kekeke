@@ -3,11 +3,11 @@ import '../ad_css/AdPagebutton.css';
 
 const MAX_PAGE_NUMBERS = 5;
 
-const PageButton = ({ pages, currentPage, onPageChange, height ,left }) => {
+const PageButton = ({ pages, currentPage, onPageChange,  marginTop }) => {
   // 인라인 스타일 객체를 만듭니다.
   const containerStyle = {
-    height: height, // 전달받은 height 값을 사용합니다.
-    left : left
+    marginTop :  marginTop, // 전달받은 height 값을 사용합니다.
+   
   };
 
   const getPaginationGroup = () => {
@@ -42,11 +42,11 @@ const PageButton = ({ pages, currentPage, onPageChange, height ,left }) => {
         )
       ))}
 
-      {currentPage < pages && (
+    
         <button onClick={() => onPageChange(currentPage + 1)} className="page-item control">
         &#9654; {/* 다음 페이지 삼각형 */}
       </button>
-      )}
+      
     </div>
   );
 };

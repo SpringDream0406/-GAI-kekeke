@@ -4,6 +4,7 @@ import AdMenubar from '../component/AdMenubar'
 import AdBG from '../ad_component/AdBG'
 import '../ad_css/AdminOrderlist.css';
 import PageButton from '../component/PageButton';
+import AdHeader from '../component/AdHeader';
 
 const AdminOrderlist = () => {
 
@@ -85,12 +86,12 @@ const onPageChange = (pageNumber) => {
 
     return (
         <div>
+            <AdHeader/>
                 <PageButton
         pages={totalPages}
         currentPage={currentPage}
         onPageChange={onPageChange}
-        height={1100}
-        left={900}
+        marginTop={'1800px'}
       /> 
         
             <AdMT>주문내역</AdMT>

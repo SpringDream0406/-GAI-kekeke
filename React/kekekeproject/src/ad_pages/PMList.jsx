@@ -190,8 +190,7 @@ const handleAddProduct = (newProduct) => {
         pages={totalPages}
         currentPage={currentPage}
         onPageChange={onPageChange}
-        height={1180}
-        left={900}
+       marginTop={'1800px'}
       /> 
       <AdMT>상품목록</AdMT>
       <AdMenubar/>
