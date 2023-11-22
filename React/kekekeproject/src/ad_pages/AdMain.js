@@ -1,11 +1,11 @@
-import React , { useState , useEffect }from 'react'
-import Ad_Menubar from '../component/Ad_Menubar'
-import Ad_BG from '../ad_component/Ad_BG'
+import React , { useState }from 'react'
+import AdMenubar from '../component/AdMenubar'
+import AdBG from '../ad_component/AdBG'
 import AdMT from '../ad_component/AdMT'
 import AdBarChart from '../ad_component/AdBarChart'
-import '../ad_css/Ad_Main.css'
+import '../ad_css/AdMain.css'
 import { Link } from 'react-router-dom';
-import Ad_Header from '../component/Ad_Header'
+import AdHeader from '../component/AdHeader'
 
 
 
@@ -14,7 +14,7 @@ const AdMain = () => {
   const [activeSection, setActiveSection] = useState('ongoing'); // 'ongoing' 또는 'completed'
  
  // 임시 주문 데이터 상태
- const [orders, setOrders] = useState([
+ const [orders] = useState([
   { id: 1, cakeName: 'ㅇㅇ케이크', userName: '정건식', orderDate: '2023.03.10' },
   { id: 2, cakeName: 'ㅇㅇ케이크', userName: '서유정', orderDate: '2023.03.10' },
   { id: 3, cakeName: 'ㅇㅇ케이크', userName: '송민아', orderDate: '2023.03.10' },
@@ -38,12 +38,12 @@ const AdMain = () => {
   return (
     <div>
      
-<Ad_Header></Ad_Header>
-        <Ad_Menubar/>
+<AdHeader></AdHeader>
+        <AdMenubar/>
         
         <AdMT>주문현황</AdMT>
 
-        <Ad_BG height={1430}>
+        <AdBG height={1430}>
           
 
     <div className='ad-main-continer'>
@@ -58,7 +58,7 @@ const AdMain = () => {
             <div className='admain-msgmt'>채팅</div>
             <div className='admain-msgst'>상담중</div>
             <div className='admain-msg-cir'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg' alt='msg-uimg'/>
             <div className='admin-msg-uname'>정건식 고객님</div>
             <div className='admin-msg-uday'>2023.10.30 접수</div>
           </Link>
@@ -67,7 +67,7 @@ const AdMain = () => {
             <div className='admain-msgmt'>채팅</div>
             <div className='admain-msgst'>상담중</div>
             <div className='admain-msg-cir'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'  alt='msg-uimg'/>
             <div className='admin-msg-uname'>정건식 고객님</div>
             <div className='admin-msg-uday'>2023.10.30 접수</div>
           </Link>
@@ -76,7 +76,7 @@ const AdMain = () => {
             <div className='admain-msgmt'>채팅</div>
             <div className='admain-msgst'>상담중</div>
             <div className='admain-msg-cir'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'  alt='msg-uimg'/>
             <div className='admin-msg-uname'>정건식 고객님</div>
             <div className='admin-msg-uday'>2023.10.30 접수</div>
           </Link>
@@ -85,7 +85,7 @@ const AdMain = () => {
             <div className='admain-msgmt'>채팅</div>
             <div className='admain-msgst'>상담중</div>
             <div className='admain-msg-cir'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg'  alt='msg-uimg'/>
             <div className='admin-msg-uname'>정건식 고객님</div>
             <div className='admin-msg-uday'>2023.10.30 접수</div>
           </Link>
@@ -102,7 +102,7 @@ const AdMain = () => {
             <div className='admain-msgmt2'>채팅</div>
             <div className='admain-msgst2'>상담완료</div>
             <div className='admain-msg-cir2'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'  alt='msg-uimg'/>
             <div className='admin-msg-uname2'>정건식 고객님</div>
             <div className='admin-msg-uday2'>2023.10.30 접수</div>
           </Link>
@@ -111,7 +111,7 @@ const AdMain = () => {
             <div className='admain-msgmt2'>채팅</div>
             <div className='admain-msgst2'>상담완료</div>
             <div className='admain-msg-cir2'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'  alt='msg-uimg'/>
             <div className='admin-msg-uname2'>정건식 고객님</div>
             <div className='admin-msg-uday2'>2023.10.30 접수</div>
           </Link>
@@ -121,7 +121,7 @@ const AdMain = () => {
             <div className='admain-msgmt2'>채팅</div>
             <div className='admain-msgst2'>상담완료</div>
             <div className='admain-msg-cir2'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'  alt='msg-uimg'/>
             <div className='admin-msg-uname2'>정건식 고객님</div>
             <div className='admin-msg-uday2'>2023.10.30 접수</div>
           </Link>
@@ -130,7 +130,7 @@ const AdMain = () => {
             <div className='admain-msgmt2'>채팅</div>
             <div className='admain-msgst2'>상담완료</div>
             <div className='admain-msg-cir2'/>
-            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'/>
+            <img src={'assets/images/cake1.jpg'} className='admin-msg-uimg2'  alt='msg-uimg'/>
             <div className='admin-msg-uname2'>정건식 고객님</div>
             <div className='admin-msg-uday2'>2023.10.30 접수</div>
           </Link>
@@ -158,7 +158,7 @@ const AdMain = () => {
        <AdBarChart />
 
        </div>
-        </Ad_BG>
+        </AdBG>
         
 
     </div>

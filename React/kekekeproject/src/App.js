@@ -35,7 +35,7 @@ import GlobalStyle from "./component/GlobalStyle";
 
 import Header_bf from "./component/Header_bf";
 import Header_af from './component/Header_af';
-import Ad_Header from "./component/Ad_Header";
+import Ad_Header from "./component/AdHeader";
 import PMquantity from "./ad_pages/PMquantity";
 import PMList from "./ad_pages/PMList";
 import PMOption from "./ad_pages/PMOption";

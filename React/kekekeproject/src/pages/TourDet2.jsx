@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/TourDet2.css";
-import { Link } from 'react-router-dom';
 import TourDetContainer from '../component/TourDetContainer'
 
 

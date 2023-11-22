@@ -1,6 +1,5 @@
 import React , {useEffect, useState} from "react";
-import "../css/Ad_Header.css";
-import Ad_Menubar from "./Ad_Menubar";
+import "../css/AdHeader.css";
 import { Link } from "react-router-dom";
 
 const Ad_Header = () => {
@@ -32,7 +31,7 @@ useEffect(() => {
             <div className="view-3" />
             </Link>
              <div className="ellipse-wrapper">
-                   <img className="ellipse" src="/assets/images/cake1.jpg"/>
+                   <img className="ellipse" src="/assets/images/cake1.jpg" alt="케이크2"/>
                    </div>
              
              

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef, useRef } from 'react';
+import React, { useState, useEffect, forwardRef} from 'react';
 import { Link } from "react-router-dom";
 import "../css/TourOrder.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,17 +19,14 @@ export const TourOrder = () => {
   const [pickup_date, setPickupDate] = useState(new Date());
   const [cake_flavor, setCakeFlavor] = useState(null);
   const [cake_size, setCakeSize] = useState(null);
-  const [cake_name, setCakeName] = useState(null);
+  const [cake_name] = useState(null);
   const [add_require, setAddRequire] = useState(null);
   const [lettering, setLettering] = useState(null);
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
-  const [seller_id, setSellerId] = useState(null);
   const [cust_id, setCustId] = useState(null);
-  const [sale_dy, setSaleDy] = useState(null);
 
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
   const selectedCake = location.state && JSON.parse(location.state.cake);
   const cake = selectedCake || {}; // 기본값으로 빈 객체 설정
 
@@ -152,10 +149,10 @@ export const TourOrder = () => {
     <div className="to-container">
     <div className="to-div">
       <div>
-      <img  src={'/assets/images/cake1.jpg'} className='to-cakeimg1'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg2'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg3'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg4'/>
+      <img  src={'/assets/images/cake1.jpg'} className='to-cakeimg1' alt='cake1'/>
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
     <div className="to-cakename"
     value={cake_name}
     >{prd_id}</div>

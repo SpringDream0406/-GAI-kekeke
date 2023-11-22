@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../css/SampleCake.css";
 import "../component/TourDetContainer"
 import TourDetContainer from "../component/TourDetContainer";
@@ -107,8 +106,6 @@ const SampleCake = () => {
     pageNumbers.push(i);
   }
 
-  // 페이지 번호 변경 함수
-  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   // 이전 페이지 이동 함수
   const goToPrevPage = () => {

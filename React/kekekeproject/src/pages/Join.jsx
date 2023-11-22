@@ -5,7 +5,7 @@ import axios from 'axios';
 import API_URL from '../api_url';
 import { useNavigate } from 'react-router-dom';
 import '../css/Join.css'
-import { Navigate } from 'react-router-dom';
+
 
 
 
@@ -17,7 +17,6 @@ const Join = () => {
   const [passwordcheck, setPasswordcheck] = useState('');
   const [nick_name, setUsernickname] = useState('');
   const [phone, setphone] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate(); 
         
           
@@ -225,7 +224,7 @@ const Join = () => {
 
                         {/* Custom upload button */}
                         <label htmlFor="fileInput" className="custom-file-upload">
-                          <img src={'/assets/images/camera.png'} className='upload-img'/>
+                          <img src={'/assets/images/camera.png'} className='upload-img' alt='uploadimg'/>
                         </label>
 
                         {/* Image preview */}

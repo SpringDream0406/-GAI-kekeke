@@ -2,8 +2,8 @@
 
 import React, {useState} from 'react'
 import AdMT from '../ad_component/AdMT'
-import Ad_BG from '../ad_component/Ad_BG'
-import Ad_Menubar from '../component/Ad_Menubar'
+import AdBG from '../ad_component/AdBG'
+import AdMenubar from '../component/AdMenubar'
 import ProductManagement from '../ad_component/ProductManagement'
 import {FaTrash} from 'react-icons/fa';
 import '../ad_css/PMList.css'
@@ -167,7 +167,7 @@ const handleAddProduct = (newProduct) => {
   // 페이지네이션을 위한 상태
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
-  const [totalPages, setTotalPages] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
+  const [totalPages] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
 
   // 현재 페이지에 따라 표시할 상품 목록을 계산합니다.
   const indexOfLastProduct = currentPage * itemsPerPage;
@@ -194,8 +194,8 @@ const handleAddProduct = (newProduct) => {
         left={900}
       /> 
       <AdMT>상품목록</AdMT>
-      <Ad_Menubar/>
-      <Ad_BG height={1620}>
+      <AdMenubar/>
+      <AdBG height={1620}>
   
       <ProductManagement initialActiveTab="list" />
       
@@ -288,7 +288,7 @@ const handleAddProduct = (newProduct) => {
       </div>
     
     
-      </Ad_BG>
+      </AdBG>
 
 
 {/* 삭제 확인 모달 */}
