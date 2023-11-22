@@ -123,13 +123,10 @@ const handleCakeClick = (selectedCake) =>{
             <div className="tour-cake">
               <div className="tour-container">
                 {currentCakes.map((cake) => (
-                  <Link
-                  to={{pathname: `/tour-order`,
-                    state: { cake: JSON.stringify(cake) }, // cake 객체를 문자열로 직렬화하여 보냅니다.
-                  }}
-                  key={cake.prd_id}
-                  onClick={() => handleCakeClick(cake)}
-                >
+
+                  <Link to={`/tour-order?prd_id=${cake.prd_id}`} key={cake.prd_id}>
+                
+
                     <div className="tour-cake-container">
                       <div className="tour-cake-img">
                         <img

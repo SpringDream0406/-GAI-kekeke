@@ -1,29 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/TourDet2.css";
 import TourDetContainer from '../component/TourDetContainer'
-
+import axios from 'axios';
+import API_URL from '../api_url';
+import { useLocation } from 'react-router-dom';
 
 
 const TourDet2 = () => {
-  const Det2_addrImg = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNjEyMThfNjIg%2FMDAxNDgyMDEwOTYyMjE3.NBz1SUuPdMIeljh7qMeh9bopCaRXoSDJdaWJDQm-MS4g.1QeSqdg_GX69J-9A6vLsCYrhD73sc7pbrl-GLgXhgJYg.JPEG.mistralnam%2F00000_161117_083404_9852.jpg&type=a340"
+  const [storeInfo, setStoreInfo] = useState({
+    StoreAddr1: "",
+    // 다른 필드들에 대한 초기값도 추가할 수 있음
+  });
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const prd_id = searchParams.get('prd_id');
+
   
-  const SellerData = {
-    shopInfo: {
-      name: "랑랑케이크",
-      phoneNumber: "010-1234-1234",
-      availableTime: "09:00 ~ 21:00",
-      businessNumber: "613-13-21032135",
-      representativeName: "홍길동",
-      address: "서울 강남구 남부순환로363길 16 1층",
-      orderInfo: "주문은 최소 7일전에 부탁합니다. \n\n하루에 정해진 양만 만들기 때문에 마감을 예상하지 못합니다.\n\n주문제작 특성상 제작 순서는 입금순으로 정해집니다. \n\n당일 100% 환불, 주문 다음날부터 픽업 5일전 50% 환불, 픽업 3일전 30% 환불, 픽업 1~2일전 환불 불가. 직접 픽업을 원칙으로 합니다.\n\n 고객님께서 퀵업체를 픽업시간에 맞추어 공방으로 보내주시기 바랍니다. (퀵요금 현금 선불입니다.) \n\n배송요청시 구매자가 파손면책 동의한 것으로 간주되며 발송후 어떠한 문제에 대하여 책임지지 않습니다.",
-      storageUsage: "제품 특성상 당일 섭취를 권장드립니다. \n\n픽업 후 고온의 장소, 차안이나 밀폐된 공간은 보관 금지합니다. \n\n수령 후 30분 이내로 냉장 (0~5도 이하) 보관하셔야 하며, 섭취 전 미리 꺼내어 놓으시면 좋습니다. \n\n생크림 제품은 제작 2일 이내에 모두 드시는 것을 추천드립니다."
-    },
-    
-  };
+  
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (prd_id) {
+          const response = await axios.post(`${API_URL}/sample/samplecake`, { prd_id });
+          const responseData = response.data;
+
+          // 상태 업데이트
+          setStoreInfo({
+            CakeLogo: responseData.productInfo.SELLER_PROFILE1, //가게 로고
+            StoreName: responseData.productInfo.STORE_NAME,   // 상호명
+            StoreAddr1: responseData.productInfo.SHOP_ADDR1,  // 주소1
+            StoreDetail: responseData.productInfo.STORE_DETAIL ,// 가게소개
+            SHOP_ADDR2: responseData.productInfo.SHOP_ADDR2,//가게 상세주소
+            SEL_LAT: responseData.productInfo.SEL_LAT,//위도
+            SEL_LONG: responseData.productInfo.SEL_LONG,//경도
+            STRG_USE: responseData.productInfo.STRG_USE,//보관및이용방법
+            ADD_DETAIL: responseData.productInfo.ADD_DETAIL, // 예약주의사항
+            PHONE: responseData.productInfo.PHONE,// 전화번호
+            START_TIME: responseData.productInfo.START_TIME, //가게시간 시작
+            END_TIME: responseData.productInfo.END_TIME, // 가게시간끝
+            BUSINESS_NUM: responseData.productInfo.BUSINESS_NUM,// 사업자등록번호
+            USER_NAME: responseData.productInfo.USER_NAME,// 대표자명(닉네임?)
+          });
+
+        
+        }
+      } catch (error) {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      }
+    };
+
+    fetchData();
+  }, [prd_id]);
+  
 
     return (
       <div>
-      <TourDetContainer containerHeight="2050px">
+      <TourDetContainer containerHeight="2050px" storeInfo={storeInfo}>
         <div className="index">
             <div className="TourDet2_bluebox2">
 
@@ -32,10 +65,10 @@ const TourDet2 = () => {
 
               <div className="TourDet2_tour-det-map-fr">{/*지도*/}
                 <div className="TourDet2_tour-det-addr-fr">
-                  <p className="TourDet2_mapAddr">{SellerData.shopInfo.address}</p>
+                  <p className="TourDet2_mapAddr">{storeInfo.StoreAddr1} {storeInfo.SHOP_ADDR2}</p>
                 </div>
                 <div className="TourDet2_tour-det-map-wrapper">
-                  <img className="TourDet2_tour-det-map" alt="Tour det map" src={Det2_addrImg} />
+                  <img className="TourDet2_tour-det-map" alt="Tour det map" src={`${storeInfo.SEL_LAT} ${storeInfo.SEL_LONG}`} />
                 </div>
               </div>{/*지도끝*/}
 
@@ -47,7 +80,7 @@ const TourDet2 = () => {
             
                 <div className="TourDet2_useinput">
                   <pre className="TourDet2_useinputtx">
-                    {SellerData.shopInfo.storageUsage}                 
+                    {storeInfo.STRG_USE}                 
                   </pre>
                   </div>
                     
@@ -61,7 +94,7 @@ const TourDet2 = () => {
                               <div className="TourDet2_infoLabel">문의 전화</div>
                             </div>
                             <div className="TourDet2_Introcallinput">
-                              <div className="TourDet2_infoValue">{SellerData.shopInfo.phoneNumber}</div>
+                              <div className="TourDet2_infoValue">{storeInfo.PHONE}</div>
                             </div>
                           </div>
                           <div className="TourDet2_Introadvicefr">
@@ -69,12 +102,12 @@ const TourDet2 = () => {
                               <div className="TourDet2_infoLabel">상담가능 시간</div>
                             </div>
                             <div className="TourDet2_Introadinput">
-                              <div className="TourDet2_infoValue">{SellerData.shopInfo.availableTime}</div>
+                              <div className="TourDet2_infoValue">{storeInfo.START_TIME} ~ {storeInfo.END_TIME}</div>
                             </div>
                           </div>
                           <div className="TourDet2_Intronumfr">
                             <div className="TourDet2_Introreginput">
-                              <div className="TourDet2_infoValue">{SellerData.shopInfo.businessNumber}</div>
+                              <div className="TourDet2_infoValue">{storeInfo.BUSINESS_NUM}</div>
                             </div>
                             <div className="TourDet2_Introregnum">
                               <div className="TourDet2_infoLabel">사업자등록번호</div>
@@ -85,13 +118,13 @@ const TourDet2 = () => {
                               <div className="TourDet2_infoLabel">대표자명</div>
                             </div>
                             <div className="TourDet2_Intronamefr">
-                              <div className="TourDet2_infoValue">{SellerData.shopInfo.representativeName}</div>
+                              <div className="TourDet2_infoValue">{storeInfo.USER_NAME}</div>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="TourDet2_Introintro">
-                        <div className="TourDet2_infoLabel" style={{fontSize : '28px'}}>★ {SellerData.shopInfo.name} ★</div>
+                        <div className="TourDet2_infoLabel" style={{fontSize : '28px'}}>★ {storeInfo.StoreName} ★</div>
                       </div>
                     </div>{/*랑랑케이크를 소개합니다끝*/}
 
@@ -100,7 +133,7 @@ const TourDet2 = () => {
                     <div className="TourDet2_resinputfr">
                       <p className="TourDet2_resinputtx">
 
-                        {SellerData.shopInfo.orderInfo}
+                        {storeInfo.ADD_DETAIL}
 
                       </p>
                     </div>
