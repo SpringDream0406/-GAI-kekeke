@@ -91,6 +91,7 @@
     border-radius: 20px;
     position: absolute;
     margin-top: -40px;
+    font-family: pretendard-black;
   }
   .text3-content{
     margin-left: 400px;
@@ -101,6 +102,11 @@
     padding-left: 10px;
     border-radius: 20px;
     margin-top: -70px;
+    border: none;
+    padding-top: 10px;
+    resize: none;
+    font-family: pretendard-black;
+
   }
   .text4-content{
     margin-left: 400px;
@@ -111,6 +117,11 @@
     padding-left: 10px;
     border-radius: 20px;
     margin-top: -40px;
+    border: none;
+    padding-top: 10px;
+    resize: none;
+    font-family: pretendard-black;
+
   }
   .text5-content{
     margin-left: 400px;
@@ -121,12 +132,18 @@
     padding-left: 10px;
     border-radius: 20px;
     margin-top: -40px;
+    border: none;
+    padding-top: 10px;
+    resize: none;
+    font-family: pretendard-black;
+
   }
   .config-time{
     margin-left: 550px;
     font-size: 20px;
     margin-top: -30px;
     position: absolute;
+    font-family: pretendard-black;
 
   }
   .text6-content1{
@@ -140,6 +157,7 @@
     margin-top: -40px;
     text-align: center;
     padding: 1px;
+    font-family: pretendard-black;
     
   }
   .text6-content2{
@@ -153,6 +171,7 @@
     margin-top: -40px;
     text-align: center;
     padding: 1px;
+    font-family: pretendard-black;
 
   }
   .text7-content{
@@ -163,6 +182,8 @@
     position: absolute;
     width: 470px;
     margin-top: -40px;
+    font-family: pretendard-black;
+
   }
   .text8-content{
     margin-left: 400px;
@@ -172,6 +193,8 @@
     position: absolute;
     width: 470px;
     margin-top: -40px;
+    font-family: pretendard-black;
+
   }
   .text9-content{
     margin-left: 400px;
@@ -181,6 +204,13 @@
     position: absolute;
     width: 470px;
     margin-top: -90px;
+    font-family: pretendard-black;
+
+  }
+  .ll{
+    font-family: pretendard-black;
+    color:#787878;
+    margin-top: 5px;
   }
   .modify-button{
     border: 3px solid #FFA0B7;

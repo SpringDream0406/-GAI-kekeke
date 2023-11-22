@@ -12,13 +12,13 @@ import { color } from 'd3-color';
 const AdminStoreInfo = () => {
 
 
-    const [store_name, setStore_name] = useState('');
-    const [store_detail, setStore_detail] = useState('');
-    const [shop_tel, setShop_tel] = useState('');
-    const [add_detail, setAdd_detail] = useState('');
-    const [strg_use, setStrg_use] = useState('');
-    const [business_num, setBusiness_num] = useState('');
-    const [address, setAddress] = useState('');
+    const [store_name, setStore_name] = useState('따라라');
+    const [store_detail, setStore_detail] = useState('특별한 행복을 드려요');
+    const [shop_tel, setShop_tel] = useState('062-333-3333');
+    const [add_detail, setAdd_detail] = useState('주의사항 알고있쬬? 냉동하면 맛없어요~');
+    const [strg_use, setStrg_use] = useState('케이크는 보관하지말고 바로 드세요');
+    const [business_num, setBusiness_num] = useState('511-95-13919');
+    const [address, setAddress] = useState('광주야~');
     const [address_detail, setAddress_detail] = useState('');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
@@ -86,7 +86,7 @@ const AdminStoreInfo = () => {
         ) : (
           <label htmlFor="image-upload" className="upload-label2">
             <AiOutlineCamera className="camera-icon2" />
-            <span>이미지 수정</span>
+            <span className='ll'>이미지 수정</span>
           </label>
         )}
         <input
@@ -104,22 +104,23 @@ const AdminStoreInfo = () => {
           value={store_name}
           onChange={(e)=>setStore_name(e.target.value)}/>
           <div className='store-text3'>가게 설명</div>
-          <div>100자 이내로 작성</div>
-          <input
+          <div className='ll'>100자 이내로 작성</div>
+          <textarea
           className='text3-content' 
           type='textarea'
           placeholder='가게 설명 입력'
           value={store_detail}
-          onChange={(e)=>setStore_detail(e.target.value)}/>
+          onChange={(e)=>setStore_detail(e.target.value)}
+          />
           <div className='store-text4'>예약 주의사항</div>
-          <input
+          <textarea
           className='text4-content' 
           type='textarea'
           placeholder='예약 주의사항 입력'
           value={add_detail}
           onChange={(e)=>setAdd_detail(e.target.value)}/>
           <div className='store-text5'>보관 및 이용방법</div>
-          <input
+          <textarea
           className='text5-content' 
           type='textarea'
           placeholder='보관 및 이용방법 입력'
