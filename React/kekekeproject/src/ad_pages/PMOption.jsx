@@ -95,6 +95,7 @@ const PMOption = () => {
                      placeholder='추가 금액을 입력해주세요'
                      value={additionalCost}
                      onChange={(e) => setAdditionalCost(e.target.value)}
+                     min={0}
               />
             </div>
             <div className='pmoption_screen3'>
@@ -121,6 +122,7 @@ const PMOption = () => {
                      placeholder='추가 금액을 입력해주세요'
                      value={additionalCost2}
                      onChange={(e) => setAdditionalCost2(e.target.value)}
+                     min={0}
               />
             </div>
             <div className='pmoption_screen6'>

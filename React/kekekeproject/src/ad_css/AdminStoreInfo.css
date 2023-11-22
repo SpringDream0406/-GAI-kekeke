@@ -41,7 +41,7 @@
 .store-text8{
     font-family: 'Pretendard-semibold';
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 140px;
 }
 .store-text9{
     font-family: 'Pretendard-semibold';
@@ -192,10 +192,35 @@
     border-radius: 20px;
     position: absolute;
     width: 470px;
+    margin-top: 40px;
+    font-family: 'Pretendard-regular';
+    font-size: 20px;
+    
+  }
+  .text7_btn{
+    margin-left: 808px;
+    margin-top: -32px;
+    position: absolute;
+    border: 3px solid #FFA0B7;
+   background-color: #FFA0B7;
+   border-radius: 10px;
+   color: #ffffff;
+   font-family: "Pretendard-semibold";
+   font-size: 18px;
+   padding: 11px;
+   cursor: pointer;
+   z-index: 1000;
+  }
+  .text7-content2{
+    margin-left: 400px;
+    background-color: #eeeeee;
+    padding: 20px 20px 20px 20px;
+    border-radius: 20px;
+    position: absolute;
+    width: 470px;
     margin-top: -40px;
     font-family: 'Pretendard-regular';
     font-size: 20px;
-
   }
   .text8-content{
     margin-left: 400px;
@@ -242,5 +267,6 @@
     line-height: normal;
     cursor: pointer;
     margin-left: 35%;
-    margin-top: 40px;
+    margin-top: 60px;
   }
+  
