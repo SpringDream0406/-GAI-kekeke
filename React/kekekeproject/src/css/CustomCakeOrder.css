@@ -95,6 +95,7 @@ width: 440px;
 }
 
 .co-container .co-reqtxt {
+  text-decoration: none;
   color: #ffffff;
   font-family: 'Pretendard-bold';
   font-size: 32px;
@@ -119,9 +120,10 @@ width: 440px;
 }
 
 .co-container .co-cakeplus {
+  border: none;
   background-color: #ffffff;
   border-radius: 30px;
-  
+  outline: none;
   left: 772px;
   position: absolute;
   top: 1514px;
@@ -320,7 +322,7 @@ input {
 .co-container .co-imgpic {
   background-color: #ffffff;
   border-radius: 44px;
-  height: 398px;
+  height: 220px;
   left: 177px;
   position: absolute;
   top: 1127px;
@@ -332,7 +334,7 @@ input {
   font-family: 'Pretendard-Medium';
   color: lightgray;
   position: absolute;
-  top: 199px;
+  top: 80px;
   cursor: pointer;
   padding: 20p;
   left: 184px;
@@ -342,7 +344,7 @@ input {
 .co-selected-image{
   border-radius: 44px;
   width: 489px;
-  height: 398px;
+  height: 220px;
 }
 
 .co-container .co-costomtitle {
@@ -355,6 +357,110 @@ input {
   line-height: normal;
   position: absolute;
   top: 551px;
+}
+.co-choad{
+  font-family: 'Pretendard-bold';
+  font-size: 24px;
+  position: absolute;
+  top: 1399px;
+  
+  left: 177px;
+  
+}
+
+.cco-location{
+  border-radius: 20px;
+  position: absolute; /* 절대적 위치 지정 */
+  top: 1430px; /* 버튼의 바로 아래 */
+  left: 280px;
+  color: lightgray;
+  font-family: "Pretendard-Regular";
+  text-align: center;
+  
+  z-index: 9999; /* 다른 요소들 위에 표시 */
+  /* 필요한 경우 추가 스타일링 */
+
+}
+.cco-location :hover{
+ background-color: #ff85a3;
+ color: white;
+ 
+
+}
+.cco-location.active{
+  background-color: #ff85a3;
+  color: white;
+  
+ 
+ }
+.cco-select-location-2{
+ 
+  height: 53px;
+  border: 2px solid rgb(233, 233, 233);
+  position: relative;
+
+  top: 100px;
+  width: 238px;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+.cco-select-gj{
+ 
+  font-size: 20px;
+  
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  left: 80px;
+  padding: 5px;
+}
+
+.cco-select-gu {
+ 
+  left: 110px;
+ 
+  font-size: 18px;
+  font-weight: 400;
+
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  white-space: nowrap;
+  padding: 5px;
+}
+.cco-select-gu-gu {
+
+  left: 100px;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  white-space: nowrap;
+  padding: 5px;
+}
+
+.cc-input{
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 44px; 
+  position: absolute;
+  font-size: 18px;
+  top: 1471px;
+  left: 177px;
+  font-family: 'Pretendard-Regular';
+  padding-left: 20px;
+  width: 438px;
+  height: 63px;
 }
 
 .co-container .co-custompic {
@@ -416,14 +522,10 @@ input {
   display: none;
 }
 
-.react-datepicker button{
-  color: white;
 
-  left: 267px;
-  position: absolute;
-  top: 1370px;
-}
 .react-datepicker__navigation--previous {
+  color: black;
+  background-color: #ffffff;
   margin-right: 50px; /* 오른쪽 마진 추가 */
 }
 
@@ -435,6 +537,7 @@ input {
   width: 300px;
   
 }
+
 
 .react-datepicker__time-list-item {
   font-family: 'Pretendard-bold';
@@ -521,11 +624,18 @@ input {
   grid-gap: 16px; /* 열 사이의 간격 조절 */
   align-items: center; /* 세로 정렬 방식 (가운데 정렬) */
   gap: 10px;
+  font-size: 20px;
+  font-family:'Pretendard-Semibold';
   left: 650px;
+  padding: 20px;
   padding: 10px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  line-height: normal;
   position: absolute;
   top: 959px;
   width: 76px;
+
 }
 
 
@@ -557,6 +667,9 @@ input {
 
 
 .co-check-2 {
+  font-size: 20px;
+  font-family:'Pretendard-Semibold';
+  white-space: nowrap;
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -580,7 +693,9 @@ input {
   width: 50px;
 }
 
-.co-check-3 {
+.co-check-3 {font-size: 20px;
+  font-family:'Pretendard-Semibold';
+  white-space: nowrap;
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */
@@ -595,6 +710,9 @@ input {
 
 
 .co-check-4 {
+  font-size: 20px;
+  font-family:'Pretendard-Semibold';
+  white-space: nowrap;
   display: grid;
   grid-template-columns: auto auto; /* 두 개의 열 생성 */
   grid-gap: 16px; /* 열 사이의 간격 조절 */

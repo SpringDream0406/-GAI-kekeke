@@ -64,12 +64,11 @@ const captureImage = () => {
 
 
 
-  const handleTextClick = (index) => {
-    if (!isTextEditing) {
-      setIsTextEditing(true);
-    }
-    setSelectedTextIndex(index); // 클릭한 텍스트 엘리먼트의 인덱스를 저장
-  };
+const handleTextClick = (index) => {
+  // 텍스트를 클릭하면 그리기 상태를 비활성화하고 선택된 텍스트 인덱스를 설정합니다.
+  setIsTextEditing(true);
+  setSelectedTextIndex(index);
+};
 
   const handleAddText = () => {
     // 새로운 텍스트 엘리먼트를 생성하고 배열에 추가
@@ -80,27 +79,27 @@ const captureImage = () => {
   };
 
   const handleMouseDown = (e) => {
-    console.log('Mouse Down Event', e);
-    if (tool) {
-      const pos = e.target.getStage().getPointerPosition();
-      const newElement = {
-        id: nextId.current.toString(), // ID를 문자열로 변환하여 할당
-        tool,
-        type: tool,
-        points: [pos.x, pos.y],
-        color,
-        lineWidth,
-        x: pos.x,
-        y: pos.y,
-        width: 0,
-        height: 0,
-      };
-      setElements([...elements, newElement]);
-      nextId.current += 1; // ID 증가
-      isDrawing.current = true;
-    }
-    
+    // 도구가 선택되지 않았으면 그리기를 시작하지 않습니다.
+    if (!tool) return;
+  
+    const pos = e.target.getStage().getPointerPosition();
+    const newElement = {
+      id: nextId.current.toString(),
+      tool,
+      type: tool,
+      points: [pos.x, pos.y],
+      color,
+      lineWidth,
+      x: pos.x,
+      y: pos.y,
+      width: 0,
+      height: 0,
+    };
+    setElements([...elements, newElement]);
+    nextId.current += 1;
+    isDrawing.current = true;
   };
+  
   
 
   const handleMouseMove = (e) => {
@@ -122,19 +121,24 @@ const captureImage = () => {
   };
 
   const handleDragEnd = (e) => {
-    console.log('DragEnd', e);
-    const id = e.target.id(); // Konva는 id를 문자열로 처리합니다. 필요에 따라 parseInt(id, 10)을 사용하세요.
+    const id = e.target.id();
     const { x, y } = e.target.position();
-    setElements((prevElements) =>
-      prevElements.map((elem) => {
+    setElements(prevElements =>
+      prevElements.map(elem => {
         if (elem.id === id) {
-          // 현재 드래그된 도형의 위치를 업데이트
+          // 현재 드래그된 도형의 위치를 업데이트합니다.
           return { ...elem, x, y };
         }
         return elem;
       })
     );
-
+  
+    // 드래그가 끝나면 그리기 상태를 비활성화합니다.
+    isDrawing.current = false;
+    // 선택된 도구도 해제합니다.
+    setTool(null);
+    // 선택된 텍스트도 해제합니다.
+    setSelectedTextIndex(-1);
   };
 
   const handleMouseUp = () => {
@@ -151,7 +155,13 @@ const captureImage = () => {
   };
 
   const selectTool = (selectedTool) => {
-    setTool((currentTool) => currentTool === selectedTool ? null : selectedTool);
+   // 도구를 선택하면 현재 선택된 도형/텍스트의 선택 상태를 초기화합니다.
+  if (tool !== selectedTool) {
+    setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
+    // 추가적으로, 선택된 도형이 있다면 그 선택 상태도 초기화해야 합니다.
+    // 예를 들어, Konva.Node를 사용하여 선택된 도형을 추적하고 있으면 해당 노드의 선택 상태를 초기화합니다.
+  }
+  setTool(currentTool => currentTool === selectedTool ? null : selectedTool);
   };
   const clearAll = () => {
     setElements([]);
@@ -164,6 +174,7 @@ const captureImage = () => {
     setTextElements((prevTextElements) =>
       prevTextElements.map((elem, i) => (i === index ? { ...elem, position: { x, y } } : elem))
     );
+    
   };
   const handleTextIconClick = () => {
     setIsTextEditing(!isTextEditing);
@@ -177,6 +188,22 @@ const captureImage = () => {
       setSelectedTextIndex(-1); // 선택 취소
     }
   };
+
+
+
+
+
+// 드래그 시작 시 도형을 최상위로 이동시키는 함수
+const handleDragStart = (e) => {
+// 드래그 시작 시 그리기 상태를 비활성화하고 도형을 최상위로 이동합니다.
+const shape = e.target;
+shape.moveToTop();
+shape.getLayer().batchDraw();
+isDrawing.current = false;
+setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
+};
+
+
 
   return (
     <div className="custom-container">
@@ -257,7 +284,9 @@ const captureImage = () => {
                   stroke={elem.color}
                   strokeWidth={elem.lineWidth}
                   draggable
-                  onDragEnd={(e) => handleDragEnd(e, elem.id)}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
+                  
                 />
               );
             } else if (elem.type === 'circle') {
@@ -271,8 +300,9 @@ const captureImage = () => {
                   fill={elem.color}
                   stroke={elem.color}
                   strokeWidth={elem.lineWidth}
-                  draggable
-                  onDragEnd={(e) => handleDragEnd(e, elem.id)}
+                  draggable={tool === null}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                 />
               );
             } else if (elem.type === 'heart') {
@@ -288,7 +318,8 @@ const captureImage = () => {
                   scaleX={elem.width / 100}
                   scaleY={elem.height / 100}
                   draggable
-                  onDragEnd={(e) => handleDragEnd(e, elem.id)}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                 />
               );
             }
@@ -303,7 +334,8 @@ const captureImage = () => {
               fontSize={20}
               draggable={isTextEditing}
               onClick={handleTextClick}
-              onDragEnd={(e) => handleTextDragEnd(e, i)}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
             />
           ))}
    
