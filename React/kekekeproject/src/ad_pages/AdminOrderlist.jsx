@@ -3,6 +3,7 @@ import AdMT from '../ad_component/AdMT'
 import Ad_Menubar from '../component/Ad_Menubar'
 import Ad_BG from '../ad_component/Ad_BG'
 import '../ad_css/AdminOrderlist.css';
+import PageButton from '../component/PageButton';
 
 const AdminOrderlist = () => {
 
@@ -67,12 +68,37 @@ const AdminOrderlist = () => {
         },
     ];
 
+// 페이지네이션을 위한 상태
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
+const [totalPages, setTotalPages] = useState(Math.ceil(orders.length / itemsPerPage));
+
+// 현재 페이지에 따라 표시할 주문 목록을 계산합니다.
+const indexOfLastOrder = currentPage * itemsPerPage;
+const indexOfFirstOrder = indexOfLastOrder - itemsPerPage;
+const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+
+
+const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
     return (
         <div>
+                <PageButton
+        pages={totalPages}
+        currentPage={currentPage}
+        onPageChange={onPageChange}
+        height={1100}
+        left={900}
+      /> 
+        
             <AdMT>주문내역</AdMT>
             <Ad_Menubar />
             <Ad_BG height={1600}>
+        
             <div className='AOListContainer'>
+                
                     <div className="AOListHeader">
                         <div className="AOCake">케이크</div>
                         <div className="AODetails">상세 내용</div>
@@ -80,7 +106,7 @@ const AdminOrderlist = () => {
                         <div className="AOOrderInfo">주문 정보</div>
                         <div className="AOBuyer">구매자</div>
                     </div>
-                    {orders.map(order => (
+                    {currentOrders.map((order, index) => (
                         <div className="AOListBody" key={order.id}>
                             <div className="AOCake">
                                 <img src={order.cakeImage} alt="케이크 이미지" className="CakeImage" />
@@ -106,6 +132,7 @@ const AdminOrderlist = () => {
                         </div>
                     ))}
                 </div>
+                
             </Ad_BG>
         </div>
     )
