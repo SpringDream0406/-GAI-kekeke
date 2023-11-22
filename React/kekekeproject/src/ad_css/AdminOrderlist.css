@@ -1,11 +1,13 @@
 .AOListContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 85%;
     padding: 40px;
     box-sizing: border-box;
     margin-top: 230px;
     font-family: 'Pretendard-medium';
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .AOListHeader,
