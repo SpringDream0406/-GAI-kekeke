@@ -1,16 +1,16 @@
-import React , { useState  }from 'react'
+import React , { useState , useEffect }from 'react'
 import Ad_Menubar from '../component/Ad_Menubar'
 import Ad_BG from '../ad_component/Ad_BG'
 import AdMT from '../ad_component/AdMT'
 import AdBarChart from '../ad_component/AdBarChart'
 import '../ad_css/Ad_Main.css'
 import { Link } from 'react-router-dom';
+import Ad_Header from '../component/Ad_Header'
 
 
 
 const AdMain = () => {
   
- 
   const [activeSection, setActiveSection] = useState('ongoing'); // 'ongoing' 또는 'completed'
  
  // 임시 주문 데이터 상태
@@ -34,10 +34,11 @@ const AdMain = () => {
   ));
 };
 
+
   return (
     <div>
      
-
+<Ad_Header></Ad_Header>
         <Ad_Menubar/>
         
         <AdMT>주문현황</AdMT>
@@ -53,7 +54,6 @@ const AdMain = () => {
 {/* activeSection 상태에 따라 조건부 렌더링 */}
 {activeSection === 'ongoing' && (
         <div className='admain-msgbg-all'>
-           
           <Link className='admain-msgbg1' to='/admin/message' >
             <div className='admain-msgmt'>채팅</div>
             <div className='admain-msgst'>상담중</div>
