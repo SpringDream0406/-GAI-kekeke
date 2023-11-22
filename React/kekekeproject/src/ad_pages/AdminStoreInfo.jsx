@@ -77,7 +77,7 @@ const AdminStoreInfo = () => {
     <div>
       <AdMT>가게정보</AdMT>
       <Ad_Menubar />
-      <Ad_BG height={1500}>
+      <Ad_BG height={1650}>
         <div className='admin-store-container'>
           <div className='store-text1'>가게 프로필</div>
               <div className="modify-picture">
