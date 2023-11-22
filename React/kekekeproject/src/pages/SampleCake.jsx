@@ -6,7 +6,6 @@ import axios from "axios";
 import API_URL from "../api_url";
 import { useLocation } from 'react-router-dom';
 import PageButton from '../component/PageButton';
-import TourDetContainer from "../component/TourDetContainer";
 import "../css/SampleCake.css";
 
 const SampleCake = () => {
