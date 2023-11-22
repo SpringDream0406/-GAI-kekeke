@@ -4,7 +4,7 @@ import TourDetContainer from '../component/TourDetContainer'
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
-
+import MapContainer from "./MapContainer";
 
 const TourDet2 = () => {
   const [storeInfo, setStoreInfo] = useState({
@@ -68,7 +68,8 @@ const TourDet2 = () => {
                   <p className="TourDet2_mapAddr">{storeInfo.StoreAddr1} {storeInfo.SHOP_ADDR2}</p>
                 </div>
                 <div className="TourDet2_tour-det-map-wrapper">
-                  <img className="TourDet2_tour-det-map" alt="Tour det map" src={`${storeInfo.SEL_LAT} ${storeInfo.SEL_LONG}`} />
+                {/* <MapContainer lat={storeInfo.SEL_LAT} lng={storeInfo.SEL_LONG} /> */}
+                <MapContainer lat={37.5665} lng={126.9780} />
                 </div>
               </div>{/*지도끝*/}
 

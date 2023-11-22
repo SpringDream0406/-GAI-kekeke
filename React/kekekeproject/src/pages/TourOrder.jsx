@@ -257,7 +257,7 @@ export const TourOrder = () => {
         </div>
       </div>
       <div className="to-cakeplusttitle">케이크 추가 요청사항</div>
-      <input className="to-cakeplus"
+      <textarea className="to-cakeplus"
                     type='text'
                     placeholder='요청사항을 입력하세요'
                     value={add_require}
@@ -269,6 +269,7 @@ export const TourOrder = () => {
                     placeholder='문구를 입력하세요'
                     value={lettering}
                     onChange={(e)=>setLettering(e.target.value)}
+                    maxLength={50}
                   />
       <div className="to-cakesizetitle">케이크 크기선택</div>
    
