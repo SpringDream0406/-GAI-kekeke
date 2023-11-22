@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from "react";
 import "../css/Cake.css";
 import { Link } from 'react-router-dom'
-import PageButton from '../component/PageButton';
 import axios from "axios";
 import API_URL from "../api_url";
 //import prdimg from '../../public/img/product/';
-
+import AdPagebtn from '../ad_component/AdPagebtn'
 
 
 /*둘러보기 케이크 리스트*/
@@ -158,7 +157,7 @@ const handleCakeClick = (selectedCake) =>{
           </div>
         </div>
         <div className="Tourpagination">
-          <PageButton type="prev" onClick={goToPrevPage} />
+          <AdPagebtn type="prev" onClick={goToPrevPage} />
           {pageNumbers.map(num => (
             <button
               key={num}
@@ -168,7 +167,7 @@ const handleCakeClick = (selectedCake) =>{
               {num}
             </button>
           ))}
-          <PageButton type="next" onClick={goToNextPage} />
+          <AdPagebtn type="next" onClick={goToNextPage} />
 
         </div>
       </div>
