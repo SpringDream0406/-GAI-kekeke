@@ -62,7 +62,7 @@ const AdCustom2 = () => {
                               ></textarea>
 
                 <div className='ccd-sendbtn' onClick={handleSendClick}>보내기</div>
-                <div className='ccd-backbtn' onClick={handleBackClick}>취소</div>
+                <div className='ccd-backbtn' onClick={handleBackClick}>삭제</div>
 
             
              </div>

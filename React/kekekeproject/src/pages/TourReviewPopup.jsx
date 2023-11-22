@@ -30,6 +30,8 @@ const TourReviewPopup = () => {
      // 리뷰 팝업을 닫는 함수
      const handleCloseDetailReview = () => {
          setShowDetailReview(false);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+
      };
  
 
@@ -51,6 +53,8 @@ const DetailReviewPopup = ({ onClose, reviewData }) => {
     const handleClose = () => {
         setIsOpen(false);
         onClose();
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+
       };
   
     if (!isOpen) return null;

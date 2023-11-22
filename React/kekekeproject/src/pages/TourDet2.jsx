@@ -4,9 +4,11 @@ import TourDetContainer from '../component/TourDetContainer'
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
-
+import MapContainer from "./MapContainer";
 
 const TourDet2 = () => {
+
+
   const [storeInfo, setStoreInfo] = useState({
     StoreAddr1: "",
     // 다른 필드들에 대한 초기값도 추가할 수 있음
@@ -63,7 +65,7 @@ const formatTime = (timeString) => {
 
     return (
       <div>
-      <TourDetContainer containerHeight="2050px" storeInfo={storeInfo}>
+        <TourDetContainer initialActiveTab="tour-det2" containerHeight="2050px" storeInfo={storeInfo}>
         <div className="index">
             <div className="TourDet2_bluebox2">
 
@@ -75,7 +77,8 @@ const formatTime = (timeString) => {
                   <p className="TourDet2_mapAddr">{storeInfo.StoreAddr1} {storeInfo.SHOP_ADDR2}</p>
                 </div>
                 <div className="TourDet2_tour-det-map-wrapper">
-                  <img className="TourDet2_tour-det-map" alt="Tour det map" src={`${storeInfo.SEL_LAT} ${storeInfo.SEL_LONG}`} />
+                {/* <MapContainer lat={storeInfo.SEL_LAT} lng={storeInfo.SEL_LONG} /> */}
+                <MapContainer lat={37.5665} lng={126.9780} />
                 </div>
               </div>{/*지도끝*/}
 

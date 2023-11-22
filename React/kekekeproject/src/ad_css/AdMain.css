@@ -13,6 +13,25 @@
     color: #61A5D6;
 }
 
+.admsgPlus{
+  position: absolute;
+  top: 200px;
+  left: 1080px;
+  font-size: 21px;
+  font-family: 'Pretendard-semibold';
+  color: #777;
+  text-decoration: none;
+}
+
+.adproductPlus{
+  position: absolute;
+  top: 708px;
+  left: 530px;
+  font-size: 21px;
+  font-family: 'Pretendard-semibold';
+  color: #777;
+  text-decoration: none;
+}
 
 .admain-afmsg{
     font-family: 'Pretendard-bold';
@@ -22,7 +41,6 @@
     left: 280px;
     cursor: pointer;
     color: lightgray;
-    z-index: 999;
 }
 .admain-afmsg:hover  {
     color: #61A5D6;

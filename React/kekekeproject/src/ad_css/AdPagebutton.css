@@ -1,11 +1,11 @@
 .pagination-container{
-    position: relative;
-    top: 1260px;
-    left: 540px;
+ 
     font-family: 'Pretendard-bold';
     display: flex;
     gap: 10px;
+   justify-content: center;
     cursor: pointer;
+ 
 }
 .page-item{
     cursor: pointer;

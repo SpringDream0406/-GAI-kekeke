@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios';
 import API_URL from '../api_url';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // import { ADDRCONFIG } from "dns";
 // import { NONAME } from "dns";
@@ -412,7 +412,7 @@ export const AdminJoin = () => {
           </div>
 
           <div className="join-button">
-            <div className="qq" onClick={handleJoin}>가입하기</div>
+            <Link className="qq" onClick={handleJoin} to={'/admin/login'}>가입하기</Link>
 
 
 

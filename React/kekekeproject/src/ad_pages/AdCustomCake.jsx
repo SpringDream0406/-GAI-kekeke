@@ -44,15 +44,17 @@ const AdCustomCake = () => {
   };
   return (
     <div>
+       <PageButton pages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} marginTop={'1500px'}/>
       <AdHeader></AdHeader>
       <AdMenubar/>
       <AdMT>커스텀케이크</AdMT>
       <AdBG height={1350}>
-        <PageButton pages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} height='80px'/>
+        
         <div className='adcc-btn-all'>
           <button className='adcc-btn-1'>제안대기</button>
           <button className='adcc-btn-2'>제안완료</button>
         </div>
+        
         <div className='adcc-list-container'>
           {pageContent.map((item, index) => (
             <Link to='/admin/customcake/detail' className='adcc-link' key={index}>
@@ -61,8 +63,11 @@ const AdCustomCake = () => {
                 <div className='adcc-cday'>{item.date}</div>
                 <div className='adcc-ctime'>{item.time}</div>
               </div>
+              
             </Link>
+            
           ))}
+ 
         </div>
       </AdBG>
     </div>

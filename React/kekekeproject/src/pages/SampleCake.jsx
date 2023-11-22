@@ -69,7 +69,7 @@ const SampleCake = () => {
 
   return (
     <div className="Sample__Container">
-      <TourDetContainer containerHeight='1900px' storeInfo={storeInfo}>
+      <TourDetContainer initialActiveTab="samplecake" containerHeight='1900px' storeInfo={storeInfo}>
       
         <div className="Sam_index">
           <div className="Sam_samplecontainer">

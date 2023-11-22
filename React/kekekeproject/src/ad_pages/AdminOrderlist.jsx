@@ -4,6 +4,7 @@ import AdMenubar from '../component/AdMenubar'
 import AdBG from '../ad_component/AdBG'
 import '../ad_css/AdminOrderlist.css';
 import PageButton from '../component/PageButton';
+import AdHeader from '../component/AdHeader';
 
 const AdminOrderlist = () => {
 
@@ -18,7 +19,6 @@ const AdminOrderlist = () => {
             cakeFlavor: '다크 초콜릿',
             cakeText: '생일 축하해!',
             orderDate: '2023-11-22',
-            pickupStatus: '픽업 대기',
             price: '35000원',
             buyerName: '정건식',
             buyerPhone: '010-1234-5678',
@@ -32,7 +32,6 @@ const AdminOrderlist = () => {
             cakeFlavor: '바닐라',
             cakeText: '케케케 수고해또',
             orderDate: '2023-11-18',
-            pickupStatus: '픽업 완료',
             price: '46000원',
             buyerName: '서유정',
             buyerPhone: '010-1234-5678',
@@ -46,7 +45,6 @@ const AdminOrderlist = () => {
             cakeFlavor: '오레오',
             cakeText: '로또 번호',
             orderDate: '2023-11-22',
-            pickupStatus: '픽업 대기',
             price: '35000원',
             buyerName: '정건식',
             buyerPhone: '010-1234-5678',
@@ -60,7 +58,6 @@ const AdminOrderlist = () => {
             cakeFlavor: '다크 초콜릿',
             cakeText: '생일 축하해!',
             orderDate: '2023-11-22',
-            pickupStatus: '픽업 대기',
             price: '35000원',
             buyerName: '정건식',
             buyerPhone: '010-1234-5678',
@@ -85,12 +82,12 @@ const onPageChange = (pageNumber) => {
 
     return (
         <div>
+            <AdHeader/>
                 <PageButton
         pages={totalPages}
         currentPage={currentPage}
         onPageChange={onPageChange}
-        height={1100}
-        left={900}
+        marginTop={'1800px'}
       /> 
         
             <AdMT>주문내역</AdMT>
@@ -122,7 +119,6 @@ const onPageChange = (pageNumber) => {
                             </div>
                             <div className="AOOrderInfo">
                                 <p>{order.orderDate}</p>
-                                <p>{order.pickupStatus}</p>
                                 <p>가격: {order.price}</p>
                             </div>
                             <div className="AOBuyer">
