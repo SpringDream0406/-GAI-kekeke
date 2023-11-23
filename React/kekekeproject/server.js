@@ -7,6 +7,7 @@ const sellerRouter = require('./routes/seller')
 const productRouter = require('./routes/product')
 const storeRouter = require('./routes/store')
 const sampleRouter = require('./routes/sample')
+const orderRouter = require('./routes/order')
 
 app.use(cors()); // react와 node 방화벽 제거
 app.use(bodyParser.json()); // form 파싱
@@ -17,6 +18,7 @@ app.use('/seller', sellerRouter); // 판매자 라우터
 app.use('/product', productRouter);
 app.use('/store',storeRouter); // 
 app.use('/sample',sampleRouter);// 샘플케이크
+app.use('/order', orderRouter);
 
 
 app.set('port', process.env.PORT || 3333);

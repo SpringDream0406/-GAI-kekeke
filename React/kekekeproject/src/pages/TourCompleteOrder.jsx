@@ -1,8 +1,13 @@
 import React from "react";
 import "../css/TourCompleteOrder.css";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const TourCompleteOrder = () => {
+
+  const location = useLocation();
+  const orderData = location.state?.orderData;
+  console.log("여기서받으면됩니다용", orderData)
 
 
   return (
@@ -43,30 +48,30 @@ const TourCompleteOrder = () => {
 
       <div className="tco-st-container">
         <div className="tco-st-1">
-          홍길동
+        {orderData ? `${orderData.order_name}` : ""}
         </div>
 
         <div className="tco-st-2">
-         010-1234-1234
+        {orderData ? `${orderData.order_num}` : ""}
         </div>
 
         <div className="tco-st-3">
-          1호
+        {orderData ? `${orderData.cake_size}` : ""}
         </div>
 
         <div className="tco-st-4">
-          오레오
+        {orderData? `${orderData.cake_flavor}` : ""}
         </div>
         <div className="tco-st-5">
-          생일축하해바보야
+        {orderData? `${orderData.lettering}` : ""}
         </div>
 
         <div className="tco-st-6">
-          오레오듬뿍넣어주시고 사랑해주시고dddddd
+        {orderData ? `${orderData.add_require}` : '추가요청사항없음'}
         </div>
 
         <div className="tco-st-7">
-          100000 원
+        {orderData ? `${orderData.cake_price} 원` : '가격 정보 없음'}
         </div>
       </div>
 

@@ -11,7 +11,7 @@ const TourDetContainer = ({ children, containerHeight, storeInfo  }) => {
     const searchParams = new URLSearchParams(location.search);
   
     const prd_id = searchParams.get('prd_id');
-    console.log('가게정보cake_prd_id:', prd_id);
+    
   
 
   
