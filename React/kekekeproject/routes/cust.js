@@ -231,5 +231,43 @@ router.post('/orderlist', async (req, res) => {
         res.status(500).send({ message: '서버에러'});
     }
 })
+//마이페이지 내정보 수정
+router.post('/update', upload.single('profile_img'), async (req, res) => {
+    try {
+        const { cust_id, nick_name, cust_pw, phone } = req.body;
+
+        // Handle profile image update (if provided).
+        let profile_img = req.file ? req.file.filename : '';
+
+        // Check if any required field is missing and assign null if missing.
+        if (!nick_name || !cust_pw || !phone || !cust_id) {
+            console.log('Required fields are missing');
+            res.status(400).send({ message: 'Required fields are missing' });
+            return;
+        }
+
+                // 비번 암호화
+                const md5HashedPw = await md5Hash(cust_pw);
+
+        // Update user information in the database using SQL queries.
+        const sql = `
+            UPDATE TB_CUSTOMER
+            SET nick_name = ?, cust_pw = ?, phone = ?, profile_img = ?
+            WHERE cust_id = ?;
+        `;
+
+        const updatedRows = await query(sql, [nick_name, md5HashedPw, phone, profile_img, cust_id]); 
+        if (updatedRows.affectedRows > 0) {
+            console.log('User information updated successfully');
+            res.status(200).send({ message: 'User information updated successfully' });
+        } else {
+            console.log('User information update failed');
+            res.status(500).send({ message: 'User information update failed' });
+        }
+    } catch (error) {
+        console.error('Error updating user information:', error);
+        res.status(500).send({ message: 'Server error' });
+    }
+});
 
 module.exports = router;

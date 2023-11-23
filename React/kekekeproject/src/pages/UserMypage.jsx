@@ -1,19 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import '../css/UserMypage.css';
 import GlobalStyle from '../component/GlobalStyle'
 import { AiOutlineCamera } from 'react-icons/ai';
+import axios from 'axios';
+import API_URL from '../api_url';
 
 const UserMypage = () => {
 
 
   // ***** 사용자 정보 데이터 (임시)
 
-  const [nickname, setNickname] = useState('케로로'); // 임의의 초기 닉네임
+  const [nick_name, setNickname] = useState(''); // 임의의 초기 닉네임
   const [password, setPassword] = useState(''); // 임의의 초기 비밀번호
-  const [phone, setPhone] = useState('010-1234-5678'); // 임의의 초기 전화번호
+  const [phone, setPhone] = useState(''); // 임의의 초기 전화번호
+  const [imageSrc, setImageSrc] = useState(''); //초기 프로필사진
+  const [userInfo, setUserInfo] = useState({});
+  const [passwordcheck, setPasswordcheck] = useState('');
+  const [cust_Id, setCust_Id] = useState('');
 
-  // 비밀번호 확인 상태 추가
-  const [confirmPassword, setConfirmPassword] = useState('');
+  useEffect(() => {
+    const userStorageData = sessionStorage.getItem('userData');
+    if (userStorageData) {
+      const userData = JSON.parse(userStorageData);
+      console.log('Message from Session Storage:', userData);
+      setUserInfo(userData);
+      setNickname(userData.nick_name);
+      setPhone(userData.phone);
+      setImageSrc(userData.profile_img);
+      setCust_Id(userData.cust_id)
+    }
+  }, []);
+
+  
 
   // 비밀번호 변경 핸들러
   const handlePasswordChange = (event) => {
@@ -21,7 +39,7 @@ const UserMypage = () => {
   };
   // 비밀번호 확인 변경 핸들러
   const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
+    setPasswordcheck(event.target.value);
   };
 
   // 전화번호 변경 핸들러
@@ -32,30 +50,51 @@ const UserMypage = () => {
   // 수정 사항 저장 핸들러
   const handleSaveChanges = () => {
     // 모든 입력란이 채워져 있는지 확인
-    if (!nickname.trim() || !password.trim() || !phone.trim()) {
+    if (!nick_name.trim() || !password.trim() || !phone.trim()) {
       // 하나라도 비어있다면 경고 메시지를 띄움
       alert('모든 필드를 채워주세요.');
       return; // 함수를 여기서 종료하여 API 호출이나 다른 로직이 실행되지 않도록 함
     }
-
     // 닉네임 중복 확인
     if (!isNicknameAvailable) {
       alert('이미 사용 중인 닉네임입니다. 다른 닉네임을 선택해 주세요.');
       return;
     }
     // 비밀번호와 비밀번호 확인이 일치하는지 확인
-    if (password !== confirmPassword) {
+    if (password !== passwordcheck) {
       alert('비밀번호가 일치하지 않습니다.');
       return;
     }
 
-
     // 여기에서 수정 사항을 처리합니다. 예를 들어, API 호출을 통해 백엔드에 업데이트를 요청할 수 있습니다.
-    console.log('닉네임:', nickname);
+    console.log('닉네임:', nick_name);
     console.log('비밀번호:', password);
     console.log('전화번호:', phone);
+    console.log('회원아이디',cust_Id);
     alert('수정이 완료되었습니다.');
     // API 호출이나 다른 로직을 추가하세요.
+        
+    const url = `${API_URL}/cust/update`;
+    const updateformData = new FormData();
+
+    const fileInput = document.getElementById('image-upload');
+    updateformData.append('nick_name', nick_name);
+    updateformData.append('cust_pw', password);
+    updateformData.append('phone', phone);
+    updateformData.append('cust_id', cust_Id);
+    if (fileInput && fileInput.files[0]) {
+      updateformData.append('profile_img', fileInput.files[0]);
+    }
+
+    axios.post(url, updateformData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(response => {
+      console.log(response.data);
+      alert('값이 잘 받아와 졌습니다')
+    })
 
     window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
@@ -80,12 +119,7 @@ const UserMypage = () => {
     setNickname(event.target.value);
   };
 
- // 중복 확인 버튼을 눌렀을 때 호출되는 함수
- const handleDuplicateCheckClick = () => {
-  const isAvailable = !existingNicknames.includes(nickname);
-  setIsNicknameAvailable(isAvailable);
-  setIsDuplicateCheckDone(true); // 중복 확인이 시도되었다는 것을 표시합니다.
-};
+
 
   // -------------------------------------------------------------
 
@@ -105,6 +139,24 @@ const UserMypage = () => {
       reader.readAsDataURL(file);
     }
 
+  }    
+  //닉네임 중복체크
+  const handlechecknick = () => {
+    const url = `${API_URL}/cust/check`;
+    const data = {nick_name : nick_name}
+
+    axios.post(url,data)
+      .then(response=>{
+        console.log(response.data);
+        if (userInfo.nick_name === nick_name){
+          console.log(`${nick_name}은 현재 사용하고 있는 닉네입입니다.`);
+        }
+        alert(response.data.message)
+      })
+      .catch(error => {
+        console.log(error);
+        alert(error.response.data.message)
+      })
   }
 
   // ----------------------------------------------------
@@ -123,9 +175,10 @@ const UserMypage = () => {
               {image ? (
                 <img src={image} alt="사용자 정보 수정" className="uploaded-image" />
               ) : (
+                
                 <label htmlFor="image-upload" className="upload-label">
-                  <AiOutlineCamera className="camera-icon" />
-                  <span>이미지 업로드</span>
+                  {imageSrc ? <img src={imageSrc} alt="프로필 이미지"/> :<AiOutlineCamera className="camera-icon" />}
+
                 </label>
               )}
               <input
@@ -148,7 +201,7 @@ const UserMypage = () => {
                   className="nick_input_text"
                   type='text'
                   placeholder='닉네임을 입력하세요'
-                  value={nickname}
+                  value={nick_name}
                   onChange={handleNicknameChange}
                 />
 
@@ -157,15 +210,15 @@ const UserMypage = () => {
                 <div className="div">닉네임 변경</div>
               </div>
               <div className="duplicate-btn">
-                <button className="duplicatetxt" onClick={handleDuplicateCheckClick}>
+                <button className="duplicatetxt" onClick={handlechecknick}>
                   <div className="text-wrapper-3">중복확인</div>
                 </button>
               </div>
               {isDuplicateCheckDone && !isNicknameAvailable && (
-          <div className="adminmp-nickname-unavailable">이미 사용 중인 닉네임입니다.</div>
+          <div className="adminmp-nick_name-unavailable">이미 사용 중인 닉네임입니다.</div>
         )}
         {isDuplicateCheckDone && isNicknameAvailable && (
-          <div className="adminmp-nickname-available">사용 가능한 아이디입니다.</div>
+          <div className="adminmp-nick_name-available">사용 가능한 닉네임입니다.</div>
         )}
             </div>
 
@@ -196,7 +249,7 @@ const UserMypage = () => {
                   className="pw-cheak-text"
                   type="password"
                   placeholder="비밀번호 확인"
-                  value={confirmPassword} // 상태를 value에 연결
+                  value={passwordcheck} // 상태를 value에 연결
                   onChange={handleConfirmPasswordChange} // 이벤트 핸들러를 onChange에 연결
                 />
               </div>

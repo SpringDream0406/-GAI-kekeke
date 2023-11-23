@@ -95,7 +95,6 @@ useEffect(() => {
   const adminStorageData = sessionStorage.getItem('adminData');
   if (adminStorageData) {
     const adminData = JSON.parse(adminStorageData);
-    console.log('Data from Session Storage:', adminData);
     setSellerInfo(adminData);
   }
 }, []);
@@ -123,8 +122,10 @@ const [isDropdownOpen, setDropdownOpen] = useState(false);
   };
 
   const handleLogout = () => {
-  
+    // 세션스토리지에서 userData 제거
+    sessionStorage.removeItem('adminData');
     console.log("Logging out...");
+    window.location.href = '/admin/login';
   };
 
     return (
@@ -153,7 +154,7 @@ const [isDropdownOpen, setDropdownOpen] = useState(false);
               </Li>
               <Li>
                {/* 로그아웃 버튼 */}
-        <LinkWrapper to={'/admin/login'} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
+        <LinkWrapper onClick={handleLogout} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
           로그아웃
         </LinkWrapper>
               </Li>

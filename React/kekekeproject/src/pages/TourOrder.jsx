@@ -178,6 +178,11 @@ export const TourOrder = () => {
 
   // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
   const submitOrder = async() => {
+    if (cust_id === null){
+      alert('로그인 후 다시 오세요')
+      //로그인창으로 보내버리는 로직 마지막에 구현하기
+      navigate('/login')
+    }
     const url = `${API_URL}/order/orders`;
 
     const orderData = {
@@ -195,10 +200,8 @@ export const TourOrder = () => {
       prd_id: prd_id,
       seller_id: storeInfo ? storeInfo.seller_id : null
       
-    
     };
     
-
     try {
       const response = await axios.post(url, orderData);
       console.log("서버 응답:", response.data); // 서버 응답 확인

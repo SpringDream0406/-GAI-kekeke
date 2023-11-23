@@ -1,137 +1,117 @@
-import React, { useState } from 'react'
-import AdMT from '../ad_component/AdMT'
-import AdMenubar from '../component/AdMenubar'
-import AdBG from '../ad_component/AdBG'
+import React, { useState, useEffect } from 'react';
+import AdMT from '../ad_component/AdMT';
+import AdMenubar from '../component/AdMenubar';
+import AdBG from '../ad_component/AdBG';
 import '../ad_css/AdminOrderlist.css';
 import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
+import axios from 'axios'; // axios 라이브러리 추가
+import API_URL from '../api_url';
 
 const AdminOrderlist = () => {
+  // sellerOrders 상태 초기화
+  const [sellerOrders, setSellerOrders] = useState([]);
 
-    // 임시 주문 데이터
-    const orders = [
-        // 예시 데이터, 실제 데이터로 대체해야 합니다.
-        {
-            id: 1,
-            cakeImage: "/assets/images/cake1.jpg",
-            cakeName: '초콜릿 케이크',
-            cakeSize: '1호',
-            cakeFlavor: '다크 초콜릿',
-            cakeText: '생일 축하해!',
-            orderDate: '2023-11-22',
-            price: '35000원',
-            buyerName: '정건식',
-            buyerPhone: '010-1234-5678',
-            specialRequest: '빨간 리본으로 포장해 주시고 어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고',
-        },
-          {
-            id: 2,
-            cakeImage: "/assets/images/cake3.jpg",
-            cakeName: '티아라 케이크',
-            cakeSize: '도시락',
-            cakeFlavor: '바닐라',
-            cakeText: '케케케 수고해또',
-            orderDate: '2023-11-18',
-            price: '46000원',
-            buyerName: '서유정',
-            buyerPhone: '010-1234-5678',
-            specialRequest: '글씨 너무 크게 하지 마시고11111111111글씨 너무 크게 하지 마시고 글씨 너무 크게 하지 마시고 글씨 너무 크게 하지 마시고'
-        },
-          {
-            id: 3,
-            cakeImage: "/assets/images/cake2.png",
-            cakeName: '로또 케이크',
-            cakeSize: '1호',
-            cakeFlavor: '오레오',
-            cakeText: '로또 번호',
-            orderDate: '2023-11-22',
-            price: '35000원',
-            buyerName: '정건식',
-            buyerPhone: '010-1234-5678',
-            specialRequest: '어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고'
-          },
-          {
-            id: 4,
-            cakeImage: "/assets/images/cake1.jpg",
-            cakeName: '초콜릿 케이크',
-            cakeSize: '1호',
-            cakeFlavor: '다크 초콜릿',
-            cakeText: '생일 축하해!',
-            orderDate: '2023-11-22',
-            price: '35000원',
-            buyerName: '정건식',
-            buyerPhone: '010-1234-5678',
-            specialRequest: '빨간 리본으로 포장해 주시고 어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고어쪼고저쩌고',
-        },
-    ];
+  // 페이지네이션을 위한 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
 
-// 페이지네이션을 위한 상태
-const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
-const [totalPages] = useState(Math.ceil(orders.length / itemsPerPage));
+  const [sellerinfo, setSellerInfo] = useState({});
+  const [sellerId, setSellerID] = useState([]);
 
-// 현재 페이지에 따라 표시할 주문 목록을 계산합니다.
-const indexOfLastOrder = currentPage * itemsPerPage;
-const indexOfFirstOrder = indexOfLastOrder - itemsPerPage;
-const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+  // 세션 스토리지에서 데이터 불러오기
+  useEffect(() => {
+    const adminStorageData = sessionStorage.getItem('adminData');
+    if (adminStorageData) {
+      const adminData = JSON.parse(adminStorageData);
+      setSellerInfo(adminData);
+      setSellerID(adminData.seller_id);
+    }
+  }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (sellerId) {
+          const response = await axios.post(`${API_URL}/seller/sellerorderlist`, {
+            sellerId: sellerId,
+          });
+          const responseData = response.data;
+          console.log('받아온 값 ', responseData);
+          setSellerOrders(responseData.sellerorders);
+        }
+      } catch (error) {
+        console.error('데이터 가져오기 실패:', error);
+      }
+    };
+    fetchData();
+  }, [sellerId]);
 
-const onPageChange = (pageNumber) => {
+  // 날짜를 받아서 "YYYY-MM-DD" 형식으로 변환하는 함수
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고 2자리로 맞춤
+    const day = String(date.getDate()).padStart(2, '0'); // 일도 2자리로 맞춤
+    return `${year}-${month}-${day}`;
+  }
+
+  const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-    return (
-        <div>
-            <AdHeader/>
-                <PageButton
-        pages={totalPages}
+  // 현재 페이지에 따라 표시할 주문 목록을 계산하지 않고, 해당 페이지의 데이터만 표시
+  const currentOrders = sellerOrders.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  return (
+    <div>
+      <AdHeader />
+      <PageButton
+        pages={Math.ceil(sellerOrders.length / itemsPerPage)} // 페이지 수 계산
         currentPage={currentPage}
         onPageChange={onPageChange}
         marginTop={'1800px'}
-      /> 
-        
-            <AdMT>주문내역</AdMT>
-            <AdMenubar />
-            <AdBG height={1600}>
-        
-            <div className='AOListContainer'>
-                
-                    <div className="AOListHeader">
-                        <div className="AOCake">케이크</div>
-                        <div className="AODetails">상세 내용</div>
-                        <div className="AORequest">요청사항</div>
-                        <div className="AOOrderInfo">주문 정보</div>
-                        <div className="AOBuyer">구매자</div>
-                    </div>
-                    {currentOrders.map((order, index) => (
-                        <div className="AOListBody" key={order.id}>
-                            <div className="AOCake">
-                                <img src={order.cakeImage} alt="케이크 이미지" className="CakeImage" />
-                                <p>{order.cakeName}</p>
-                            </div>
-                            <div className="AODetails">
-                                <p>사이즈: {order.cakeSize}</p>
-                                <p>맛: {order.cakeFlavor}</p>  jiyyy
-                                <p>문구: {order.cakeText}</p>
-                            </div>
-                            <div className="AORequest">
-                                <p>{order.specialRequest}</p>
-                            </div>
-                            <div className="AOOrderInfo">
-                                <p>{order.orderDate}</p>
-                                <p>가격: {order.price}</p>
-                            </div>
-                            <div className="AOBuyer">
-                                <p>{order.buyerName}</p>
-                                <p>{order.buyerPhone}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                
-            </AdBG>
-        </div>
-    )
-}
+      />
 
-export default AdminOrderlist
+      <AdMT>주문내역</AdMT>
+      <AdMenubar />
+      <AdBG height={1600}>
+        <div className="AOListContainer">
+          <div className="AOListHeader">
+            <div className="AOCake">케이크</div>
+            <div className="AODetails">상세 내용</div>
+            <div className="AORequest">요청사항</div>
+            <div className="AOOrderInfo">주문 정보</div>
+            <div className="AOBuyer">구매자</div>
+          </div>
+          {currentOrders.map((order, index) => (
+            <div className="AOListBody" key={order.PRD_ID}>
+              <div className="AOCake">
+                <img src={`/img/product/${order.IMG_NAME2}`} alt="케이크 이미지" className="CakeImage" />
+                <p>{order.CAKE_NAME}</p>
+              </div>
+              <div className="AODetails">
+                <p>사이즈: {order.CAKE_SIZE}</p>
+                <p>맛: {order.CAKE_PRICE}</p>
+                <p>문구: {order.LETTERING}</p>
+              </div>
+              <div className="AORequest">
+                <p>{order.ADD_REQUIRE}</p>
+              </div>
+              <div className="AOOrderInfo">
+                <p>{formatDate(order.SALE_DY)}</p>
+                <p>가격: {order.CAKE_PRICE}</p>
+              </div>
+              <div className="AOBuyer">
+                <p>{order.NICK_NAME}</p>
+                <p>{order.PHONE}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </AdBG>
+    </div>
+  );
+};
+
+export default AdminOrderlist;
