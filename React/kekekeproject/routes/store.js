@@ -9,11 +9,12 @@ router.post('/tour-order', async (req, res) => {
     try {
       const { prd_id } = req.body;
   
-      let sql = `SELECT p.*, s.*
-                 FROM TB_PRODUCT p
-                 JOIN TB_SELLER s ON p.seller_id = s.seller_id
-                 WHERE p.prd_id = ?;`;
-  
+      let sql = `SELECT p.*, s.*, i.IMG_NAME2
+                  FROM TB_PRODUCT p
+                  JOIN TB_SELLER s ON p.seller_id = s.seller_id
+                  LEFT JOIN TB_PRODUCT_IMG i ON p.prd_id = i.prd_id
+                  WHERE p.prd_id = ?;`
+              
       const rows = await query(sql, [prd_id]);
   
       if (rows.length > 0) {
@@ -51,5 +52,31 @@ router.get('/store/:prd_id', (req, res) => {
       res.json(productData);
     });
 });
+
+
+// cust_id 를 가지고 커스텀상품테이블 조회해서 정볼르 검색합니다
+router.get('/custom', (req, res) => {
+  const { cust_id } = req.params;
+
+  //cust_id를 사용하여 데이터베이스에서 정보를 검색합니다.
+  const sql = 'SELECT * FROM TB_CUSTOM_PRODUCT WHERE cust_id = ?;'; // 데이터베이스 테이블 및 컬럼명을 설정하세요.
+
+  conn.query(sql, [prd_id], (err, rows) => {
+    if (err) {
+      console.error(`SQL 에러: ${err}`);
+      return res.status(500).json({ error: '서버 에러' });
+    }
+
+    if (rows.length === 0) {
+      return res.status(404).json({ error: '제품을 찾을 수 없음' });
+    }
+
+    // 제품 정보를 클라이언트에게 응답합니다.
+    const productData = rows[0]; // 예시로 첫 번째 행을 가져옴
+
+    res.json(productData);
+  });
+});
+
 
 module.exports = router;

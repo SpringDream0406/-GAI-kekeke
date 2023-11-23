@@ -26,21 +26,14 @@ export const TourOrder = () => {
   const [lettering, setLettering] = useState(null);
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
+  const [prd_img, setPrdImg] = useState(null);
 
 
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-
   const prd_id = searchParams.get('prd_id');
- 
-
-  const [order_user, setOrderUser] = useState(null);
-
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
-
-  const [seller_id, setSellerId] = useState(null);
-
   const [cust_id, setCustId] = useState(null);
 
  
@@ -74,7 +67,8 @@ export const TourOrder = () => {
            StoreDetail: data.STORE_DETAIL,
            prd_name : data.PRD_NAME,
            cake_detail : data.CAKE_DETAIL,
-           seller_id : data.SELLER_ID
+           seller_id : data.SELLER_ID,
+           prd_img : `/img/product/${data.IMG_NAME2}`
            
         })
       
@@ -173,7 +167,7 @@ export const TourOrder = () => {
   };
 
 
-    // TourOrder 컴포넌트 내에서
+    // TourOrder->order.js데이터보낼려고사용했음
   const navigate = useNavigate();
 
   // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
@@ -218,7 +212,7 @@ export const TourOrder = () => {
     <div className="to-container">
     <div className="to-div">
       <div>
-      <img  src={'/assets/images/cake1.jpg'} className='to-cakeimg1' alt='cake1'/>
+      <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
