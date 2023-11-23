@@ -1,12 +1,38 @@
+import React, { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import React from 'react';
 import Slider from 'react-slick';
 import '../css/Slider.css'
+import axios from 'axios';
+import API_URL from '../api_url';
 
 
 
 const SimpleSlider = () => {
+  const [mainReview, setMainReview] = useState([]);
+  const [loading, setLoading] = useState(true); // 데이터 로딩 상태
+
+  useEffect(() => {
+    // 서버로부터 데이터를 가져옵니다.
+    axios.post(`${API_URL}/sample/mainreview`)
+      .then((response) => {
+        console.log('받아온값:',response.data);
+        const { mainreview } = response.data;
+        setMainReview(mainreview);
+        setLoading(false); // 데이터 로딩 완료
+      })
+      .catch((error) => {
+        console.error('데이터 가져오기 실패:', error);
+        setLoading(false); // 데이터 로딩 실패
+      });
+  }, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행되도록 합니다.
+
+
+  useEffect (()=>{
+    console.log('변환한 값', mainReview[0]);
+  }, [mainReview]);
+
+
   // 슬라이더 설정
   const settings = {
     dots: false, // 점 페이지네이션 비활성화
@@ -18,116 +44,37 @@ const SimpleSlider = () => {
     autoplaySpeed: 2000, // 자동 재생 속도 (2000ms = 2초)
   };
 
+    // 날짜 형식 변환 함수
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      const formattedDate = date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
+      return formattedDate;
+    };
+
 
   return (
     // 설정을 props로 전달합니다.
-    <Slider {...settings} className="slider-container">
-  
-      <div className="slider-bg">
-        <img src={'/assets/images/cake1.jpg'} alt="Content 1" className="slider-img"/>
+<Slider {...settings} className="slider-container">
+    {mainReview.map((review, index) => (
+      <div key={index} className="slider-bg">
+        <img src={'/assets/images/cake1.jpg'} alt={`Content ${index + 1}`} className="slider-img" />
         <div className="slider-rvtxt">
-          케이크맛이따 헤헤ㅁ마시/다헤헤마시따헤헤헿헤헤헤헤헤마
+          {review.REVIEW_MSG}
         </div>
         <div className="slider-usernick">
-          김은호
+        {review.NICK_NAME}
         </div>
         <p className="slider-day">
-          2023-04-05
+        {formatDate(review.CREATED_AT)}
         </p>
         <div className="slider-cakename">
-          ㅇㅇ케이크
+        {review.CAKE_NAME}
         </div>
-        <hr className="slider-hr"/>
+        <hr className="slider-hr" />
       </div>
-      <div className="slider-bg">
-        <img  src={'/assets/images/cake2.png'} alt="Content 2" className="slider-img"/>
-        <div className="slider-rvtxt">
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-        </div>
-        <div className="slider-usernick">
-          김은호
-        </div>
-        <p className="slider-day">
-          2023-04-05
-        </p>
-        <div className="slider-cakename">
-          ㅇㅇ케이크
-        </div>
-        <hr className="slider-hr"/>
-      </div>
-      <div className="slider-bg">
-        <img  src={'/assets/images/cake3.jpg'} alt="Content 3" className="slider-img"/>
-        <div className="slider-rvtxt">
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-        </div>
-        <div className="slider-usernick">
-          김은호
-        </div>
-        <p className="slider-day">
-          2023-04-05
-        </p>
-        <div className="slider-cakename">
-          ㅇㅇ케이크
-        </div>
-        <hr className="slider-hr"/>
-      </div>
-      <div className="slider-bg">
-        <img src={'/assets/images/cake1.jpg'} alt="Content 4" className="slider-img"/>
-        <div className="slider-rvtxt">
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-        </div>
-        <div className="slider-usernick">
-          김은호
-        </div>
-        <p className="slider-day">
-          2023-04-05
-        </p>
-        <div className="slider-cakename">
-          ㅇㅇ케이크
-        </div>
-        <hr className="slider-hr"/>
-      </div>
-      <div className="slider-bg">
-        <img  src={'/assets/images/cake2.png'} alt="Content 5" className="slider-img"/>
-        <div className="slider-rvtxt">
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-        </div>
-        <div className="slider-usernick">
-          김은호
-        </div>
-        <p className="slider-day">
-          2023-04-05
-        </p>
-        <div className="slider-cakename">
-          ㅇㅇ케이크
-        </div>
-        <hr className="slider-hr"/>
-      </div>
-      <div  className="slider-bg">
-        <img  src={'/assets/images/cake3.jpg'} alt="Content 6" className="slider-img"/>
-        <div className="slider-rvtxt">
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-          케이크가너무맛있어여진짜개맛있음진짜맛있
-        </div>
-        <div className="slider-usernick">
-          김은호
-        </div>
-        <p className="slider-day">
-          2023-04-05
-        </p>
-        <div className="slider-cakename">
-          ㅇㅇ케이크
-        </div>
-        <hr className="slider-hr"/>
-      </div>
-    
-      {/* 더 많은 슬라이드를 추가할 수 있습니다. */}
-    </Slider>
-  );
+    ))}
+  </Slider>
+);
 }
 
 export default SimpleSlider;

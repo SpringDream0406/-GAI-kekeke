@@ -1,9 +1,10 @@
-import React ,{useState}from 'react'
-import Ad_Menubar from '../component/Ad_Menubar'
+import React from 'react'
+import AdMenubar from '../component/AdMenubar'
 import AdMT from '../ad_component/AdMT'
-import Ad_BG from '../ad_component/Ad_BG'
+import AdBG from '../ad_component/AdBG'
 import '../ad_css/AdCustom2.css'
-import {Navigate, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+import AdHeader from '../component/AdHeader'
 
 
 
@@ -23,9 +24,10 @@ const AdCustom2 = () => {
     
   return (
     <div>
-         <Ad_Menubar/>
+      <AdHeader></AdHeader>
+         <AdMenubar/>
         <AdMT>커스텀케이크</AdMT>
-        <Ad_BG height={1280}>
+        <AdBG height={1280}>
 
              <img src={'/assets/images/cake3.jpg'} alt='커스텀케이크이미지' className='ccd-img'/>
 
@@ -60,11 +62,11 @@ const AdCustom2 = () => {
                               ></textarea>
 
                 <div className='ccd-sendbtn' onClick={handleSendClick}>보내기</div>
-                <div className='ccd-backbtn' onClick={handleBackClick}>취소</div>
+                <div className='ccd-backbtn' onClick={handleBackClick}>삭제</div>
 
             
              </div>
-        </Ad_BG>
+        </AdBG>
     </div>
   )
 }

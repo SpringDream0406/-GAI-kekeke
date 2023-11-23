@@ -149,10 +149,9 @@ export const TourDet3 = () => {
   return (
     <div>
 
-      <TourDetContainer containerHeight="2200px" storeInfo = {storeInfo}>
+      <TourDetContainer initialActiveTab="tour-det3" containerHeight="2200px" storeInfo = {storeInfo}>
 
         <div className="review-section">
-          <h2 className="review-list-title">리뷰 목록</h2>
           <div className="review-list">
           {currentItems.map((review) => (
             <div key={review.DEAL_ID} className="review-item" onClick={() => handleReviewClick(review)}>

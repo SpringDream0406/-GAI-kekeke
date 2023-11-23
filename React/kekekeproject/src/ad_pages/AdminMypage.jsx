@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import '../ad_css/AdminMypage.css';
-import GlobalStyle from '../component/GlobalStyle'
 import { AiOutlineCamera } from 'react-icons/ai';
-import Ad_Menubar from '../component/Ad_Menubar';
-import Ad_BG from '../ad_component/Ad_BG';
+import AdMenubar from '../component/AdMenubar';
+
 
 
 const AdminMypage = () => {
@@ -90,10 +89,7 @@ const AdminMypage = () => {
   };
   // -------------------------------------------------------------
 
-  // 모든 입력란에 값이 있는지 확인하는 함수
-  const isFormValid = () => {
-    return nickname.trim() && password.trim() && phone.trim();
-  };
+
 
   // ****** 이미지 등록 기능
 
@@ -117,7 +113,7 @@ const AdminMypage = () => {
   return (
 
     <div>
-    <Ad_Menubar/>
+    <AdMenubar/>
     
     <div className='adminmp-Container'>
       

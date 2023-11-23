@@ -1,12 +1,11 @@
 import React from 'react'
 import GlobalStyle from '../component/GlobalStyle'
 import '../css/Login.css'
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import axios from 'axios';
 import API_URL from '../api_url';
-import Footer from '../component/Footer';
+
 
 
 const AuthContext = React.createContext(null);
@@ -20,12 +19,11 @@ const AuthContext = React.createContext(null);
 const Login = () => {
 
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
 
   const [cust_id, setCust_id] = useState('');
 
   const [cust_pw, setCust_pw] = useState('');
-  const [error, setError] = useState('');
+
 
   const handleLogin = () => {
     const url = `${API_URL}/cust/login`;

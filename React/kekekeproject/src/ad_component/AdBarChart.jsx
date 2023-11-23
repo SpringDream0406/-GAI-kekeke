@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,Cell, Legend, ResponsiveContainer } from 'recharts';
-import '../ad_css/Ad_BG.css'
+import '../ad_css/AdBG.css'
 const data = [
   {
     name: 'ㄱㄱ케이크',

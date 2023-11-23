@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../css/TourDet2.css";
-import { Link } from 'react-router-dom';
 import TourDetContainer from '../component/TourDetContainer'
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
-
+import MapContainer from "./MapContainer";
 
 const TourDet2 = () => {
+
+
   const [storeInfo, setStoreInfo] = useState({
     StoreAddr1: "",
     // 다른 필드들에 대한 초기값도 추가할 수 있음
@@ -54,10 +55,17 @@ const TourDet2 = () => {
     fetchData();
   }, [prd_id]);
   
+ // 시작 시간과 종료 시간을 초까지 포함된 형식에서 시간만 표시하는 함수
+const formatTime = (timeString) => {
+  if (timeString) {
+    return timeString.split(":").slice(0, 2).join(":");
+  }
+  return ""; // timeString이 없을 때는 빈 문자열 반환
+};
 
     return (
       <div>
-      <TourDetContainer containerHeight="2050px" storeInfo={storeInfo}>
+        <TourDetContainer initialActiveTab="tour-det2" containerHeight="2050px" storeInfo={storeInfo}>
         <div className="index">
             <div className="TourDet2_bluebox2">
 
@@ -69,7 +77,8 @@ const TourDet2 = () => {
                   <p className="TourDet2_mapAddr">{storeInfo.StoreAddr1} {storeInfo.SHOP_ADDR2}</p>
                 </div>
                 <div className="TourDet2_tour-det-map-wrapper">
-                  <img className="TourDet2_tour-det-map" alt="Tour det map" src={`${storeInfo.SEL_LAT} ${storeInfo.SEL_LONG}`} />
+                {/* <MapContainer lat={storeInfo.SEL_LAT} lng={storeInfo.SEL_LONG} /> */}
+                <MapContainer lat={37.5665} lng={126.9780} />
                 </div>
               </div>{/*지도끝*/}
 
@@ -103,7 +112,7 @@ const TourDet2 = () => {
                               <div className="TourDet2_infoLabel">상담가능 시간</div>
                             </div>
                             <div className="TourDet2_Introadinput">
-                              <div className="TourDet2_infoValue">{storeInfo.START_TIME} ~ {storeInfo.END_TIME}</div>
+                              <div className="TourDet2_infoValue">{formatTime(storeInfo.START_TIME)} ~ {formatTime(storeInfo.END_TIME)}</div>
                             </div>
                           </div>
                           <div className="TourDet2_Intronumfr">

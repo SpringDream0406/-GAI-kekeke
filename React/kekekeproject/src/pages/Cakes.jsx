@@ -2,21 +2,20 @@
 import React, { useState, useEffect } from "react";
 import "../css/Cake.css";
 import { Link } from 'react-router-dom'
-import PageButton from '../component/PageButton';
 import axios from "axios";
 import API_URL from "../api_url";
 //import prdimg from '../../public/img/product/';
-
+import AdPagebtn from '../ad_component/AdPagebtn'
 
 
 /*둘러보기 케이크 리스트*/
 export const Cakes = () => {
 
   const [selectedLocation, setSelectedLocation] = useState("");
-  const [filteredCakes, setFilteredCakes] = useState([]);// 필터링된 케이크 목록을 위한 상태
+  const [filteredCakes, setFilteredCakes] = useState([]);
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
   const [myLocation, setMyLocation] = useState(false);
-  const [cake, setCake] = useState(null); // cake 객체 상태 추가
+  const [ setCake] = useState(null); // cake 객체 상태 추가
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cakesFromServer, setCakesFromServer] = useState([]);
@@ -77,11 +76,7 @@ export const Cakes = () => {
     }
   };
 
-  const handlePageClick = (event, number) => {
-    event.preventDefault(); // 페이지 새로고침 방지
-    setCurrentPage(number);
-    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
-  };
+
 
   /*이전페이지로 가는 로직 */
   const goToPrevPage = () => {
@@ -158,7 +153,7 @@ const handleCakeClick = (selectedCake) =>{
           </div>
         </div>
         <div className="Tourpagination">
-          <PageButton type="prev" onClick={goToPrevPage} />
+          <AdPagebtn type="prev" onClick={goToPrevPage} />
           {pageNumbers.map(num => (
             <button
               key={num}
@@ -168,7 +163,7 @@ const handleCakeClick = (selectedCake) =>{
               {num}
             </button>
           ))}
-          <PageButton type="next" onClick={goToNextPage} />
+          <AdPagebtn type="next" onClick={goToNextPage} />
 
         </div>
       </div>

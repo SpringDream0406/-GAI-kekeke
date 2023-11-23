@@ -310,12 +310,13 @@ width: 428px;
   line-height: normal;
   position: absolute;
   top: 1414px;
+  
 }
 
 .to-container .to-cakeplus {
   background-color: #ffffff;
   border-radius: 30px;
-  
+  resize: none;
   left: 772px;
   position: absolute;
   top: 1474px;
@@ -326,6 +327,7 @@ width: 428px;
   font-size: 20px;
   padding-top: 30px;
   padding-bottom: 140px;
+  border: none;
  
 }
 

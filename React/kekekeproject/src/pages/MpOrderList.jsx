@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/MpOrderList.css';
 import GlobalStyle from '../component/GlobalStyle'
 import '../css/MpOrderListPopup.css'
 import { AiOutlineCamera } from 'react-icons/ai';
+import axios from 'axios'; // axios 라이브러리 추가
+import API_URL from '../api_url';
 
 // 예시 주문 데이터
-const orders = [
+const initialOrders = [
   {
     id: 1,
     thumbnail: '/assets/images/cake1.jpg',
@@ -16,6 +18,7 @@ const orders = [
     flavor: '초콜릿',
     storeName: '주주케이크',
     productName: '곰돌이케이크',
+    isReviewed: false, // 기본값을 false로 설정
     request: '이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당이렇게저렇게어쩌구해주시고이러케이러케이케부탁드립니당'
 
   },
@@ -29,6 +32,7 @@ const orders = [
     flavor: '바닐라',
     storeName: '스위트케이크',
     productName: '로또케이크',
+    isReviewed: false,
     request: '맛있게 해주세용용구리'
   },
   {
@@ -41,6 +45,7 @@ const orders = [
     flavor: '바닐라',
     storeName: '파스텔케이크',
     productName: '산타케이크',
+    isReviewed: false,
     request: '이 로또 번호 진짜 당첨되면 사장님 나눠드릴게요'
   },
   {
@@ -53,6 +58,7 @@ const orders = [
     flavor: '초콜릿',
     storeName: '주주케이크',
     productName: '곰돌이케이크',
+    isReviewed: false,
     request: '곰돌이 귀때기 크게 해주세요'
   },
   {
@@ -65,6 +71,7 @@ const orders = [
     flavor: '바닐라',
     storeName: '스위트케이크',
     productName: '로또케이크',
+    isReviewed: false,
     request: '오레오크림 무슨 오레오 쓰시나요?'
 
   },
@@ -78,6 +85,7 @@ const orders = [
     flavor: '바닐라',
     storeName: '파스텔케이크',
     productName: '산타케이크',
+    isReviewed: false,
     request: '곰돌아멜이크리쓰마스'
   }
 
@@ -86,9 +94,16 @@ const orders = [
 
 const MpOrderList = () => {
 
+
   // 팝업 상태 관리
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedOrderDetail, setSelectedOrderDetail] = useState(null);
+  const [userOrderlist, setUserOrderList] = useState();
+
+  const userStorageData = sessionStorage.getItem('userData');
+  const initialCustId = userStorageData ? JSON.parse(userStorageData).cust_id : '';
+
+  const [custId, setCustId] = useState(initialCustId);
 
   const openPopup = (orderDetail) => {
     setSelectedOrderDetail(orderDetail); // 선택된 주문의 상세 정보를 상태에 설정
@@ -99,27 +114,60 @@ const MpOrderList = () => {
     setIsPopupOpen(false);
   };
 
+
+    
+    useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        if (custId) {
+          const response = await axios.post(`${API_URL}/cust/orderlist`, {custId : custId});
+          const responseData = response.data
+          console.log('받아온 값 ' ,responseData);
+          setUserOrderList(responseData);
+        }
+      } catch (error) {
+          console.error('데이터 가져오기 실패:', error);
+        }
+      };
+      fetchData();
+    },[custId]);
+
+
+
+  // orders 상태에 기존 주문 데이터를 사용하여 초기화
+  const [orders, setOrders] = useState(initialOrders);
+
+  const markOrderAsReviewed = (orderId) => {
+    const updatedOrders = orders.map(order =>
+      order.id === orderId ? { ...order, isReviewed: true } : order
+    );
+    setOrders(updatedOrders); // 상태 업데이트
+  };
+
   return (
     <div className="order-list-container">
       <GlobalStyle />
       <img className='message-title' alt="Menu name bar" src='../assets/images/menu-name-bar.png' />
       <div className='message-text'>주문 내역</div>
       <div className="order-card">
-        {orders.map(order => (
-          <div key={order.id} className="order-item">
-            <img src={order.thumbnail} alt="Cake" className="order-thumbnail" />
+        {userOrderlist.map(order => (
+          <div key={order.PRD_ID} className="order-item">
+            <img src={order.IMG_NAME2} alt="Cake" className="order-thumbnail" />
             <div className="order-content">
+              
               <div className="order-date-status">
-                <h2 className="pickup-date">{order.pickupDate}</h2>
-                <div className="order-status">{`${order.status} | ${order.orderDate}`}</div>
+                <h2 className="pickup-date">{order.PICKUP_DATE}</h2>
+                <div className="order-status">{`${order.CONS_OR_OC} | ${order.SALE_DY}`}</div>
               </div>
               <div className="order-description">
-                <p className="cake-size-flavor">{`케이크 사이즈: ${order.size} | 케이크 맛: ${order.flavor}`}</p>
-                <p className="store-name">{`${order.storeName}: ${order.productName}`}</p>
+                <p className="cake-size-flavor">{`케이크 사이즈: ${order.CAKE_SIZE} | 케이크 맛: ${order.CAKE_FLAVOR}`}</p>
+                <p className="store-name">{`${order.STORE.NAME}: ${order.CAKE_NAME}`}</p>
               </div>
-              <div className="review-button-container">
-                <button onClick={() => openPopup(order)} className="review-button">리뷰쓰기</button>
-              </div>
+              {!order.isReviewed && (
+            <div className="review-button-container">
+              <button onClick={() => openPopup(order)} className="review-button">리뷰쓰기</button>
+            </div>
+          )}
             </div>
           </div>
 
@@ -127,8 +175,12 @@ const MpOrderList = () => {
 
         {/* 팝업 상태에 따라 팝업 렌더링 */}
         {isPopupOpen && selectedOrderDetail && (
-          <ReviewPopup orderDetail={selectedOrderDetail} onClose={closePopup} />
-        )}
+        <ReviewPopup
+          orderDetail={selectedOrderDetail}
+          onClose={closePopup}
+          markOrderAsReviewed={markOrderAsReviewed} // 함수를 props로 전달
+        />
+      )}
       </div>
     </div>
   );
@@ -140,8 +192,8 @@ export default MpOrderList;
 
 // ****** 팝업 컴포넌트
 
-const ReviewPopup = ({ onClose, orderDetail }) => {
-  const [isOpen, setIsOpen] = React.useState(true);
+const ReviewPopup = ({ onClose, orderDetail, markOrderAsReviewed }) => {
+  const [isOpen] = React.useState(true);
   const [reviewContent, setReviewContent] = useState('');
   const [image, setImage] = useState(null);
 
@@ -151,6 +203,9 @@ const ReviewPopup = ({ onClose, orderDetail }) => {
 
     // 리뷰 등록 후 알림 창 표시
     alert('리뷰가 등록되었습니다.');
+
+    // 리뷰 등록 후 해당 주문의 isReviewed 상태를 true로 변경
+    markOrderAsReviewed(orderDetail.id); // 부모 컴포넌트에 정의된 함수를 호출
 
     // 리뷰 등록 후 팝업 닫기
     onClose();

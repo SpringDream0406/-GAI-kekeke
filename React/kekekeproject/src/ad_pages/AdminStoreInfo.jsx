@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Ad_Menubar from '../component/Ad_Menubar';
+import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
-import Ad_BG from '../ad_component/Ad_BG';
+import AdBG from '../ad_component/AdBG';
 import "../ad_css/AdminStoreInfo.css";
 import { AiOutlineCamera } from 'react-icons/ai';
-import { color } from 'd3-color';
+
 
 
 
@@ -18,16 +18,16 @@ const AdminStoreInfo = () => {
     const [add_detail, setAdd_detail] = useState('주의사항 알고있쬬? 냉동하면 맛없어요~');
     const [strg_use, setStrg_use] = useState('케이크는 보관하지말고 바로 드세요');
     const [business_num, setBusiness_num] = useState('511-95-13919');
-    const [address, setAddress] = useState('광주야~');
-    const [address_detail, setAddress_detail] = useState('');
+    const [address_detail, setAddress_detail] = useState('광주야~');
     const [start_time, setStart_time] = useState('');
     const [end_time, setEnd_time] = useState('');
-
+    const [address, setAddress] = useState('');
+    
 
 
     const handleSaveChanges = () => {
       // 모든 입력란이 채워져 있는지 확인
-      if (!storeName.trim() || !store_detail.trim() || !add_detail.trim() || !strg_use.trim() || !address.trim() || !shop_tel.trim() || !business_num.trim()) {
+      if (!storeName.trim() || !store_detail.trim() || !add_detail.trim() || !strg_use.trim() || !address_detail.trim() || !shop_tel.trim() || !business_num.trim()) {
         // 하나라도 비어있다면 경고 메시지를 띄움
         alert('모든 필드를 채워주세요.');
         return; // 함수를 여기서 종료하여 API 호출이나 다른 로직이 실행되지 않도록 함
@@ -50,7 +50,7 @@ const AdminStoreInfo = () => {
   };
 
 
-  const [storeName, setStoreName] = useState('');
+  const [storeName] = useState('');
   // 다른 수정 필드들에 대한 상태들도 추가해주세요
 
   // 페이지 로딩 시 기존 정보 불러오기 (예시)
@@ -60,15 +60,16 @@ const AdminStoreInfo = () => {
     // fetchStoreName().then(data => setStoreName(data));
   }, []);
 
-  // 폼 제출 시 처리
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 이 부분에 API 호출 등을 통해 서버에 수정된 정보를 전송하는 로직을 작성해야 합니다.
-    // 서버로 보낼 정보는 상태에 저장된 값을 활용합니다.
-    // 예를 들어, 가게 이름을 서버에 보내는 로직이 있다면:
-    // sendUpdatedStoreNameToServer(storeName);
+  
+  const handleAddressSearch = () => {
+    new window.daum.Postcode({
+      oncomplete: function (data) {
+        // 주소 상태를 업데이트합니다.
+        setAddress(data.address);
+        // 필요하다면 다른 상태도 업데이트할 수 있습니다. 예: 지번, 도로명 주소 등
+      }
+    }).open();
   };
-
 
 
 
@@ -76,8 +77,8 @@ const AdminStoreInfo = () => {
   return (
     <div>
       <AdMT>가게정보</AdMT>
-      <Ad_Menubar />
-      <Ad_BG height={1650}>
+      <AdMenubar />
+      <AdBG height={1750}>
         <div className='admin-store-container'>
           <div className='store-text1'>가게 프로필</div>
               <div className="modify-picture">
@@ -142,12 +143,21 @@ const AdminStoreInfo = () => {
           value={end_time}
           onChange={(e)=>setEnd_time(e.target.value)}/>
           <div className='store-text7'>가게 주소</div>
+          <button className="text7_btn" onClick={handleAddressSearch}>주소 찾기</button>
+          <input
+                    className="text7-content2"
+                    type="text"
+                    placeholder="가게 주소"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
+                    readOnly // 혹은 주소 입력을 API를 통해서만 하게 하려면 readOnly 속성을 사용합니다.
+                  />
           <input
           className='text7-content' 
           type='text'
-          placeholder='가게 주소 입력'
-          value={address}
-          onChange={(e)=>setAddress(e.target.value)}/>
+          placeholder='상세 주소 입력'
+          value={address_detail}
+          onChange={(e)=>setAddress_detail(e.target.value)}/>
           <div className='store-text8'>가게 번호</div>
           <input
           className='text8-content' 
@@ -164,7 +174,7 @@ const AdminStoreInfo = () => {
           onChange={(e)=>setBusiness_num(e.target.value)}/>
           <button className='modify-button' onClick={handleSaveChanges}>수정</button>
         </div>   
-      </Ad_BG>
+      </AdBG>
     </div>
   
           

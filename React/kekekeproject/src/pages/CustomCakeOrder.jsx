@@ -1,9 +1,10 @@
 import React, { useState, useEffect, forwardRef,} from 'react';
-import Blue_Box from '../component/Blue_Box.jsx'
+
 import { Link } from 'react-router-dom';
 import '../css/CustomCakeOrder.css'
 import { useLocation } from 'react-router-dom';
 import DatePicker from "react-datepicker";
+import { ko } from "date-fns/esm/locale";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -22,18 +23,13 @@ const CustomCakeOrder = () => {
 
   const [pickupDateTime, setPickupDateTime] = useState(new Date()); // 픽업 날짜와 시간 상태
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const imageUrl = searchParams.get('image');
-  const [startDate, setStartDate] = useState(new Date());
   const [savedImage, setSavedImage] = useState(null);
-  const [pickupTime, setPickupTime] = useState(''); // 픽업 시간 상태
   console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
   const [pickupDate, setPickupDate] = useState(new Date()); // 날짜 선택을 위한 상태
-
+  const [selectedSize, setSelectedSize] = useState(null);
 
   
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -42,8 +38,9 @@ const CustomCakeOrder = () => {
     }
   };
   
-  const handlePickupTimeChange = (e) => {
-    setPickupTime(e.target.value); // 시간 상태 업데이트
+  // 체크박스 선택 핸들러를 수정합니다.
+  const handleCheckboxChange = (size) => {
+    setSelectedSize(size);
   };
 
   const TimeInput = forwardRef(({ value, onClick }, ref) => (
@@ -69,6 +66,24 @@ const CustomCakeOrder = () => {
   }, []);
 
 
+
+
+
+   // 드롭다운 상태와 위치 선택 상태
+   const [selectedLocation, setSelectedLocation] = useState("");
+   const [showSelectLocation, setShowSelectLocation] = useState(false);
+ 
+   // 위치 선택 핸들러
+   const handleLocationSelect = (location) => {
+     setSelectedLocation(location);
+     setShowSelectLocation(false); // 선택 후 드롭다운 숨기기
+   };
+ 
+   const toggleSelectLocationDropdown = () => {
+    setShowSelectLocation(!showSelectLocation);
+  };
+
+ 
   return (
     <div className='co-bg-container'>
     <div className="co-container">
@@ -88,14 +103,18 @@ const CustomCakeOrder = () => {
         </div>
       </div>
       <div className="co-cakeplusttitle">케이크 추가 요청사항</div>
-      <input className="co-cakeplus"
-                    type='text'
-                    placeholder='문구를 입력하세요'
-                   
-                  />
+      <textarea
+                  className="co-cakeplus"
+                  maxLength="100"
+                  placeholder="요청사항을 입력해주세요"
+                  rows="2" // 원하는 줄 수를 설정할 수 있습니다.
+                  cols="40" // 가로 너비를 문자 수로 설정할 수 있습니다.
+                  style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                ></textarea>
       <div className="co-caketxttitle">케이크 위 문구</div>
       <input className="co-caketxt"
                     type='text'
+                    maxLength="50"
                     placeholder='문구를 입력하세요'
                    
                   />
@@ -103,20 +122,33 @@ const CustomCakeOrder = () => {
    
        <div className='co-check-container'>
           <div className="co-check-1">
-            <Checkbox></Checkbox>
-            <div className="co-check1-txt">도시락</div>
+            <Checkbox
+            size="도시락" 
+            isChecked={selectedSize === "도시락"} 
+            onChange={handleCheckboxChange} 
+            ></Checkbox>
+            
           </div>
           <div className="co-check-2">
-          <Checkbox></Checkbox>
-            <div className="co-check-txt1">1호</div>
+          <Checkbox
+            size="1호" 
+            isChecked={selectedSize === "1호"} 
+            onChange={handleCheckboxChange} 
+            ></Checkbox>
           </div>
           <div className="co-check-3">
-          <Checkbox></Checkbox>
-            <div className="co-check-txt2">2호</div>
+          <Checkbox
+            size="2호" 
+            isChecked={selectedSize === "2호"} 
+            onChange={handleCheckboxChange} 
+            ></Checkbox>
           </div>
           <div className="co-check-4">
-          <Checkbox></Checkbox>
-            <div className="co-check-txt3">3호</div>
+          <Checkbox
+            size="3호" 
+            isChecked={selectedSize === "3호"} 
+            onChange={handleCheckboxChange} 
+            ></Checkbox>
           </div>
        </div>
       <div className="rectangle" />
@@ -128,6 +160,7 @@ const CustomCakeOrder = () => {
                   />
       <div className="co-time">픽업 시간</div>
       <DatePicker
+     
   selected={pickupDateTime}
   onChange={(date) => setPickupDateTime(date)}
   showTimeSelect
@@ -146,14 +179,19 @@ const CustomCakeOrder = () => {
       <div className="co-daytitle">픽업 날짜</div>
       <div className='co-datepicker-container'>
       <DatePicker 
+       locale={ko}
+       minDate={new Date()}
         selected={pickupDate} 
         onChange={(date) => setPickupDate(date)}
         className="co-day"
         
         dateFormat="yyyy/MM/dd"
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
+        
       />
       </div>
+
+
       <p className="co-omgtitle">참고할 케이크 이미지 사진 첨부(택)</p>
       <div className="co-imgpic" >
       <label htmlFor="cakeImage" className='cakeImage'>이미지 첨부하기</label>
@@ -188,9 +226,24 @@ const CustomCakeOrder = () => {
 <div className='white-bg'/>
 
 
+ <div className="co-choad">주소 선택</div>
 
 
+ <input
+ className='cc-input'
+ type="text" // input 태그의 type을 "text"로 지정
+ value={selectedLocation} // 선택된 주소를 input에 표시
+ readOnly // input이 읽기 전용임을 명시
+ placeholder='주소를 선택해주세요'
+ onClick={toggleSelectLocationDropdown} // input 클릭 시 드롭다운 메뉴 토글
+/>
 
+{showSelectLocation && (
+      <SelectLocation 
+        selectedLocation={selectedLocation}
+        handleLocationSelect={handleLocationSelect} // 위치 선택 함수를 prop으로 전달
+      />
+    )}
   <div className="co-custompic">
 </div>
       <div className="co-usernametitle">예약자 성함</div>
@@ -214,24 +267,48 @@ export default CustomCakeOrder
 
 
 
-function Checkbox() {
-  // 상태 초기화: 체크박스의 기본 상태는 false로 설정
-  const [isChecked, setIsChecked] = useState(false);
-
-  // 체크박스 상태가 변경될 때 실행되는 이벤트 핸들러
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // 현재 상태의 반대 값을 설정
-  };
-
+function Checkbox({ size, isChecked, onChange }) {
   return (
     <div>
       <label>
         <input
           type="checkbox"
-          checked={isChecked} // 현재 상태를 반영
-          onChange={handleCheckboxChange}
+          checked={isChecked}
+          onChange={() => onChange(size)}
         />
+        {size}
       </label>
     </div>
   );
 }
+
+const SelectLocation = ({ handleLocationSelect }) => {
+
+
+
+  return (
+    <div className="cco-location">
+
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("광주광역시")}>
+        <div className="cco-select-gj">광주광역시</div>
+      </div>
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("남구")}>
+        <div className="cco-select-gu">남구</div>
+      </div>
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("서구")}>
+        <div className="cco-select-gu">서구</div>
+      </div>
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("광산구")}>
+        <div className="cco-select-gu-gu">광산구</div>
+      </div>
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("동구")}>
+        <div className="cco-select-gu">동구</div>
+      </div>
+      <div className="cco-select-location-2" onClick={() => handleLocationSelect("북구")}>
+        <div className="cco-select-gu">북구</div>
+      </div>
+   
+    </div>
+
+  );
+};
