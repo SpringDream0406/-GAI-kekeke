@@ -57,6 +57,8 @@ div{
 
 .product-image {
   flex: 0 0 150px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
+  cursor: pointer;
+
 }
 
 .product-image img {
@@ -190,7 +192,6 @@ div{
   display: flex;
   justify-content: flex-end; /* 컨테이너 오른쪽 끝으로 요소 정렬 */
   margin: 20px;
-  margin-bottom: 50px;
 }
 
 .product-button{
@@ -204,8 +205,6 @@ div{
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s, color 0.3s;
-  margin: 20px;
-  margin-bottom: 30px;
   margin-right: 50px;
 }
 
@@ -214,3 +213,4 @@ div{
  border: 3px solid #797979; 
  color: white;
 }
+
