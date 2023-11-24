@@ -7,6 +7,7 @@ import AdMenubar from '../component/AdMenubar'
 import ProductManagement from '../ad_component/ProductManagement'
 import '../ad_css/PMOption.css'
 import {FaTrash} from 'react-icons/fa';
+import AdHeader from '../component/AdHeader'
 
 const PMOption = () => {
 
@@ -75,6 +76,7 @@ const PMOption = () => {
 
   return (
     <div>
+      <AdHeader />
         <AdMT>상품옵션</AdMT>
         <AdMenubar/>
         <AdBG>

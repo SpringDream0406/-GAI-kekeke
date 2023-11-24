@@ -372,7 +372,7 @@ input {
   border-radius: 20px;
   position: absolute; /* 절대적 위치 지정 */
   top: 1430px; /* 버튼의 바로 아래 */
-  left: 280px;
+  left: 340px;
   color: lightgray;
   font-family: "Pretendard-Regular";
   text-align: center;
@@ -400,28 +400,28 @@ input {
   position: relative;
 
   top: 100px;
-  width: 238px;
+  width: 138px;
   background-color: white;
   cursor: pointer;
-  padding: 5px;
+  padding: 0px;
   border-bottom: 1px solid lightgray;
 }
 .cco-select-gj{
  
-  font-size: 20px;
+  font-size: 18px;
   
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 15px;
-  left: 80px;
+  top: 10px;
+  left: 27px;
   padding: 5px;
 }
 
 .cco-select-gu {
  
-  left: 110px;
+  left: 50px;
  
   font-size: 18px;
   font-weight: 400;
@@ -429,13 +429,13 @@ input {
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 15px;
+  top: 10px;
   white-space: nowrap;
   padding: 5px;
 }
 .cco-select-gu-gu {
 
-  left: 100px;
+  left: 45px;
 
   font-size: 18px;
   font-weight: 400;
@@ -443,7 +443,7 @@ input {
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 15px;
+  top: 10px;
   white-space: nowrap;
   padding: 5px;
 }
@@ -514,95 +514,8 @@ input {
 
 
 }
-.react-datepicker__time-container .react-datepicker__header--time--only{
-  display: none;
-}
-
-.react-datepicker__triangle{
-  display: none;
-}
-
-
-.react-datepicker__navigation--previous {
-  color: black;
-  background-color: #ffffff;
-  margin-right: 50px; /* 오른쪽 마진 추가 */
-}
 
 /* 다음 버튼에 대한 스타일 */
-.react-datepicker__navigation--next {
-  margin-left: 255px; /* 왼쪽 마진 추가 */
-}
-.react-datepicker__time{
-  width: 300px;
-  
-}
-
-
-.react-datepicker__time-list-item {
-  font-family: 'Pretendard-bold';
-  font-size: 20px;
-  color: white;
- 
-  background-color: #ffa0b7;
-}
-.react-datepicker__time-list-item:hover{
-  color: #ff85a3;
-}
-
-.react-datepicker__time-list  {
-  width: 300px;
-  border-radius: 20px;
-  position: absolute;
-  top: 1530px;
-  left: 270px;
-  background-color: white;
-}
-.co-day {
-
-  height: 63px;
-  left: 177px;
-  position: absolute;
-}
-
-.co-timepicker-container {
-  position: absolute;
-  top: 1818px; /* 실제 위치에 맞게 조정해야 할 수 있음 */
-  left: 177px;
-  z-index: 999; /* 다른 요소들 위에 표시되도록 z-index 설정 */
-}
-
-
-.react-datepicker__month-container{
-  position: absolute;
-  cursor: pointer;
-  top: 1340px;
-  left: 260px;
-  color: white;
-  border: 2px solid #ff85a3;
-  border-radius: 20px;
-}
-.react-datepicker__header {
-  border-top-left-radius: 10px;
- 
-  padding-bottom: 20px;
-  background-color: #ff85a3;
-  color: white;
-}
-:global(.react-datepicker__month-container) {
-  /* 전역 스타일 적용 */
- border-radius: 20px;
-  /* ... */
-}
-
-
-.react-datepicker__month-container{
-  width: 300px;
-  color: white;
-  background-color: #ffb6c8;
-  font-size: 13px;
-  font-family: 'Pretendard-Regular';
-}
 
 
 
@@ -735,4 +648,41 @@ input {
   margin-top: -1px;
   position: relative;
   width: 33px;
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select){
+ background-color: white;
+ border-top-right-radius: 20px;
+ border-top-left-radius: 20px;
+}
+.react-datepicker__day, .react-datepicker__month-text, .react-datepicker__quarter-text, .react-datepicker__year-text{
+  color: white;
+}
+.react-datepicker__navigation-icon react-datepicker__navigation-icon--next{
+color: #ff85a3;
+}
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover{
+  background-color: #ef4b74;
+}
+.react-datepicker__current-month{
+  color: #ff85a3;
+}
+
+.react-datepicker__day-name{
+  color: #ff85a3;
+}
+
+.react-datepicker__navigation-icon--next::before{
+  border-color: #ffa0b7 ;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 999;
+}
+
+.react-datepicker__navigation-icon--previous::before{
+  border-color: #ffa0b7 ;
+  position: absolute;
+  top: -2px;
+  left: -2px;
 }

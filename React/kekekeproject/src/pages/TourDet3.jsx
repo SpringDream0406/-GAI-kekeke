@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../css/TourDet3.css";
 import TourDetContainer from '../component/TourDetContainer'
-import PageButton from "../component/PageButton";
+import AdPagebtn from '../ad_component/AdPagebtn';
 import "../css/TourReviewPopup.css";
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
+import BlueBg from "../component/BlueBg";
 
 export const TourDet3 = () => {
   const [storeInfo, setStoreInfo] = useState({
@@ -149,7 +150,7 @@ export const TourDet3 = () => {
   return (
     <div>
 
-      <TourDetContainer initialActiveTab="tour-det3" containerHeight="2200px" storeInfo = {storeInfo}>
+      <TourDetContainer initialActiveTab="tour-det3" storeInfo = {storeInfo}>
 
         <div className="review-section">
           <div className="review-list">
@@ -175,7 +176,7 @@ export const TourDet3 = () => {
             ))}
           </div>
           <div className="pagination">
-            <PageButton type="prev" onClick={goToPrervPage} />
+            <AdPagebtn type="prev" onClick={goToPrervPage} />
 
             {/* 페이지 번호들 렌더링 */}
             {reviewpageNum.map(num => (
@@ -188,10 +189,11 @@ export const TourDet3 = () => {
               </button>
             ))}
 
-            <PageButton type="next" onClick={goToNextrvPage} />
+            <AdPagebtn type="next" onClick={goToNextrvPage} />
           </div>
         </div>
       </TourDetContainer>
+
       {showDetailReview && <DetailReviewPopup onClose={handleCloseDetailReview} reviewData={selectedReview} />}
     </div>
 

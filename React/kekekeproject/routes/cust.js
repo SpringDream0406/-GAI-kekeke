@@ -211,7 +211,7 @@ router.post('/orderlist', async (req, res) => {
     JOIN
         TB_SELLER AS TS ON TP.SELLER_ID = TS.SELLER_ID
         LEFT JOIN
-    TB_CHAT_ROOM AS TCR ON TP.PRD_ID = TCR.PRD_ID
+    TB_CHAT_ROOM AS TCR ON TPO.DEAL_ID = TCR.DEAL_ID
     LEFT JOIN
         TB_PRODUCT_IMG AS TPI ON TP.PRD_ID = TPI.PRD_ID
     WHERE

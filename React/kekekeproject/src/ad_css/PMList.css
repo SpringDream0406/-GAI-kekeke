@@ -1,3 +1,7 @@
+div{
+  font-family: 'Pretendard-regular';
+
+}
 .product-list {
   width: 90%;
   margin: auto; /* 가로 방향으로 중앙 정렬 */
@@ -53,6 +57,8 @@
 
 .product-image {
   flex: 0 0 150px; /* flex-grow: 0, flex-shrink: 0, flex-basis: 100px */
+  cursor: pointer;
+
 }
 
 .product-image img {
@@ -186,7 +192,6 @@
   display: flex;
   justify-content: flex-end; /* 컨테이너 오른쪽 끝으로 요소 정렬 */
   margin: 20px;
-  margin-bottom: 50px;
 }
 
 .product-button{
@@ -200,8 +205,6 @@
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s, color 0.3s;
-  margin: 20px;
-  margin-bottom: 30px;
   margin-right: 50px;
 }
 
@@ -210,3 +213,4 @@
  border: 3px solid #797979; 
  color: white;
 }
+
