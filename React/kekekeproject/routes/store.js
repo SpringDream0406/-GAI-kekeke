@@ -3,7 +3,7 @@ const router = express.Router();
 // conn 모듈 및 getNowTime 함수를 import하세요.
 const { getNowTime } = require('../config/getNowTime');
 const { query } = require('../config/poolDatabase');
-
+const conn = require('../config/database'); // DB 연결
 // 케이크 둘러보기 엔드포인트
 router.post('/tour-order', async (req, res) => {
     try {
@@ -55,13 +55,13 @@ router.get('/store/:prd_id', (req, res) => {
 
 
 // cust_id 를 가지고 커스텀상품테이블 조회해서 정볼르 검색합니다
-router.get('/custom', (req, res) => {
-  const { cust_id } = req.params;
+router.post('/custom', (req, res) => {
+  const { cust_id } = req.body;
 
   //cust_id를 사용하여 데이터베이스에서 정보를 검색합니다.
-  const sql = 'SELECT * FROM TB_CUSTOM_PRODUCT WHERE cust_id = ?;'; // 데이터베이스 테이블 및 컬럼명을 설정하세요.
+  const sql = 'SELECT * FROM TB_CUSTOM_PRODUCT WHERE cust_id = ? ORDER BY CREATED_AT DESC;'; // 데이터베이스 테이블 및 컬럼명을 설정하세요.
 
-  conn.query(sql, [prd_id], (err, rows) => {
+  conn.query(sql, [cust_id ], (err, rows) => {
     if (err) {
       console.error(`SQL 에러: ${err}`);
       return res.status(500).json({ error: '서버 에러' });
@@ -72,9 +72,9 @@ router.get('/custom', (req, res) => {
     }
 
     // 제품 정보를 클라이언트에게 응답합니다.
-    const productData = rows[0]; // 예시로 첫 번째 행을 가져옴
+    const custData = rows[0]; // 예시로 첫 번째 행을 가져옴
 
-    res.json(productData);
+    res.json(custData);
   });
 });
 

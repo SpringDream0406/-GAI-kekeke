@@ -52,6 +52,15 @@ const MpOrderList = () => {
       fetchData();
     },[custId]);
 
+    userOrders.sort((a, b) => {
+      // 날짜를 Date 객체로 변환하여 비교
+      const dateA = new Date(a.PICKUP_DATE);
+      const dateB = new Date(b.PICKUP_DATE);
+      
+      // 오름차순 정렬
+      return dateA - dateB;
+    });
+
 
 
   // orders 상태에 기존 주문 데이터를 사용하여 초기화
