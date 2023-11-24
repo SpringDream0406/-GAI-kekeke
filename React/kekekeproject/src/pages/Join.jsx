@@ -26,14 +26,12 @@ const Join = () => {
     reader.readAsDataURL(fileBlob);
     return new Promise((resolve) => {
       reader.onload = () => {
-   setImageSrc(reader.result);
+  setImageSrc(reader.result);
         resolve();
       };
     });
 
   };
-
-
 
 
   const handleJoin = () => {
@@ -69,7 +67,7 @@ const Join = () => {
         alert(error.response.data.message)
       });
           
-   
+  
   for (let [key, value] of formData.entries()) {
     console.log(`${key}:`, value);
   }
@@ -150,7 +148,7 @@ const Join = () => {
                       <div className="div-9">
                         <div className="overlap-group-3">
                           <div className="div-wrapper-31">
-                             
+                            
                           <input className="join_id_input"
                                     type='text'
                                     placeholder='아이디를 입력하세요'
@@ -158,7 +156,7 @@ const Join = () => {
                                     onChange={(e)=>setcust_id(e.target.value)}
                                     />
                           </div>
-                     
+                    
                             <div className="join_btn_wrapper2">
                               <div className="join_btn2" onClick={handlecheckid}>중복 확인</div>
                             
@@ -242,9 +240,9 @@ const Join = () => {
               </div>
             </div>
           </div>
-       
       
-     </div>
+      
+    </div>
 
 
   )

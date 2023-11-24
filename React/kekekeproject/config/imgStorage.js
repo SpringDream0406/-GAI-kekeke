@@ -92,4 +92,19 @@ const seller_fileFilter = (req, file, cb) => {
 }
 
 
-module.exports = { imgStorage, cust_fileFilter, seller_fileFilter };
+
+const custom_fileFilter = (req, file, cb) => {
+    const extname = path.extname(file.originalname).toLowerCase();
+
+    if (!allowedImageExtensions.includes(extname)) {
+        req.fileValidationError = "jpg, jpeg, png 파일만 업로드 가능합니다.";
+        cb(null, false);
+    } else {
+        cb(null, true);
+    }
+};
+
+
+
+
+module.exports = { imgStorage, cust_fileFilter, seller_fileFilter,custom_fileFilter };

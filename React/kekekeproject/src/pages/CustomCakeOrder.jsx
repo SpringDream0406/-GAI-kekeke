@@ -9,7 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import API_URL from '../api_url';
 
 
 
@@ -17,18 +19,34 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 const CustomCakeOrder = () => {
 
 
-
-
-
-
-
+  const [clientNum, setClientNum] = useState(null); // 번호
+  const [selectedSize, setSelectedSize] = useState(null); // 사이즈
+  const [clientName, setClientName] = useState(null); //예약자이름
+  const [cakeFlavor, setCakeFlavor] = useState(null); // 맛
+  const [cakeDetail, setCakeDetail] = useState(null); //문구
+  const [custAddr, setCustAddr] = useState(null);
+  const [addDetail, setAddDetail] = useState(null);
   const [pickupDateTime, setPickupDateTime] = useState(new Date()); // 픽업 날짜와 시간 상태
   const location = useLocation();
   const [savedImage, setSavedImage] = useState(null);
-  console.log(location.state); // 상태 확인을 위해 콘솔에 출력
   const [selectedImage, setSelectedImage] = useState(null);
   const [pickupDate, setPickupDate] = useState(new Date()); // 날짜 선택을 위한 상태
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [cust_id, setCustId] = useState(null); //회원아이디
+ 
+  
+  
+
+
+
+  // 구매자 ID(cust_id불러오기)
+  useEffect(() => {
+    const userStorageData = sessionStorage.getItem('userData');
+    if (userStorageData) {
+      const userData = JSON.parse(userStorageData);
+      console.log('세션 스토리지에서 가져온 유저아이디값:', userData.cust_id);
+      setCustId(userData.cust_id);
+    }
+  }, []);
 
   
   const handleImageChange = (e) => {
@@ -73,6 +91,7 @@ const CustomCakeOrder = () => {
    // 드롭다운 상태와 위치 선택 상태
    const [selectedLocation, setSelectedLocation] = useState("");
    const [showSelectLocation, setShowSelectLocation] = useState(false);
+
  
    // 위치 선택 핸들러
    const handleLocationSelect = (location) => {
@@ -84,6 +103,66 @@ const CustomCakeOrder = () => {
     setShowSelectLocation(!showSelectLocation);
   };
 
+
+
+  
+
+  // customCakeOrder-> oreder.js 데이터보낼려고사용함
+  const navigate = useNavigate();
+  const submitOrder = async () => {
+    const url = `${API_URL}/order/custorders`;
+    const orderDatainfo = document.getElementById('cakeImage');
+
+    // FormData 객체 생성
+    const customdata = new FormData();
+
+    // 폼 데이터 추가
+    customdata.append('clientNum', clientNum);
+    customdata.append('cakeSize', selectedSize);
+    customdata.append('clientName', clientName);
+    customdata.append('cakeFlavor', cakeFlavor);
+    customdata.append('cakeDetail', cakeDetail);
+    customdata.append('addDetail', addDetail);
+    customdata.append('pickupDate', pickupDate);
+    customdata.append('pickupDateTime', pickupDateTime);
+    customdata.append('custId', cust_id);
+    customdata.append('custAddr', selectedLocation);
+    
+    // 이미지 파일 추가
+    if (orderDatainfo.files && orderDatainfo.files[0]) {
+      customdata.append('cakeImage', orderDatainfo.files[0]);
+    }
+ // 로컬 스토리지에서 저장된 이미지 처리
+ const savedImageURL = localStorage.getItem('savedImage');
+ if (savedImageURL) {
+   try {
+     const response = await fetch(savedImageURL);
+     const blob = await response.blob();
+     const file = new File([blob], "custom_cake_preview.jpg", { type: "image/jpeg" });
+     customdata.append('previewImage', file);
+    
+   } catch (error) {
+     console.error('로컬 스토리지 이미지 처리 중 오류 발생:', error);
+   }
+ }
+
+  navigate('/tour-complete-order', { state: { customdata } });
+
+ // 서버에 데이터 전송
+ try {
+   const response = await axios.post(url, customdata, {
+     headers: { 'Content-Type': 'multipart/form-data' }
+     
+   });
+  
+  
+ } catch (error) {
+   alert(error.response.data.message);
+ }
+};
+   
+
+
  
   return (
     <div className='co-bg-container'>
@@ -93,6 +172,9 @@ const CustomCakeOrder = () => {
       <input className="co-cakeflovor"
                     type='text'
                     placeholder='케이크 맛을 입력하세요'
+                    value={cakeFlavor}
+                    onChange={(e)=>setCakeFlavor(e.target.value)}
+                    maxLength={50}
                    
                   />
           </div>
@@ -100,7 +182,7 @@ const CustomCakeOrder = () => {
       <p className="co-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
       <div className="co-reqbtn">
         <div className="co-overlap-group">
-          <Link className="co-reqtxt" to={'/tourcompleteorder'}>요청하기</Link>
+          <Link className="co-reqtxt" to={'/tour-complete-order'} onClick={submitOrder}>요청하기</Link>
         </div>
       </div>
       <div className="co-cakeplusttitle">케이크 추가 요청사항</div>
@@ -111,13 +193,17 @@ const CustomCakeOrder = () => {
                   rows="2" // 원하는 줄 수를 설정할 수 있습니다.
                   cols="40" // 가로 너비를 문자 수로 설정할 수 있습니다.
                   style={{ resize: 'none' }} // 사용자가 크기를 조정하지 못하도록 설정합니다.
+                  value={addDetail}
+                  onChange={(e)=>setAddDetail(e.target.value)}
                 ></textarea>
       <div className="co-caketxttitle">케이크 위 문구</div>
       <input className="co-caketxt"
                     type='text'
                     maxLength="50"
                     placeholder='문구를 입력하세요'
-                   
+                    value={cakeDetail}
+                    onChange={(e)=>setCakeDetail(e.target.value)}
+                    
                   />
       <div className="co-cakesizetitle">케이크 크기선택</div>
    
@@ -126,7 +212,8 @@ const CustomCakeOrder = () => {
             <Checkbox
             size="도시락" 
             isChecked={selectedSize === "도시락"} 
-            onChange={handleCheckboxChange} 
+            onChange={()=> handleCheckboxChange("도시락")}
+            
             ></Checkbox>
             
           </div>
@@ -134,21 +221,24 @@ const CustomCakeOrder = () => {
           <Checkbox
             size="1호" 
             isChecked={selectedSize === "1호"} 
-            onChange={handleCheckboxChange} 
+            onChange={()=> handleCheckboxChange("1호")}
+           
             ></Checkbox>
           </div>
           <div className="co-check-3">
           <Checkbox
             size="2호" 
             isChecked={selectedSize === "2호"} 
-            onChange={handleCheckboxChange} 
+            onChange={()=> handleCheckboxChange("2호")}
+           
             ></Checkbox>
           </div>
           <div className="co-check-4">
           <Checkbox
             size="3호" 
             isChecked={selectedSize === "3호"} 
-            onChange={handleCheckboxChange} 
+            onChange={()=> handleCheckboxChange("3호")}
+           
             ></Checkbox>
           </div>
        </div>
@@ -157,6 +247,8 @@ const CustomCakeOrder = () => {
       <input className="co-userphone"
                     type='text'
                     placeholder='전화번호를 입력하세요'
+                    value={clientNum}
+                    onChangeCapture={(e)=>setClientNum(e.target.value)}
                    
                   />
       <div className="co-time">픽업 시간</div>
@@ -251,6 +343,8 @@ const CustomCakeOrder = () => {
       <input className="co-username"
                     type='text'
                     placeholder='이름을 입력하세요'
+                    value={clientName}
+                    onChange={(e)=>setClientName(e.target.value)}
                    
                   />
           </div>

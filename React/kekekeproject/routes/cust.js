@@ -188,5 +188,86 @@ router.post('/check', async (req, res) => {
     }
 });
 
+//커스터머 주문내역 리스트
+router.post('/orderlist', async (req, res) => {
+    try {
+        const { custId } = req.body;
+        console.log(req.body);
+
+        let sql = `SELECT
+        TPO.PRD_ID,
+        TPO.CAKE_NAME,
+        TPO.CAKE_SIZE,
+        TPO.CAKE_FLAVOR,
+        TPO.SALE_DY,
+        TPO.PICKUP_DATE,
+        TS.STORE_NAME,
+        TCR.CONS_OR_OC,
+        TPI.IMG_NAME2
+    FROM
+        TB_PRODUCT_ORDER AS TPO
+    JOIN
+        TB_PRODUCT AS TP ON TPO.PRD_ID = TP.PRD_ID
+    JOIN
+        TB_SELLER AS TS ON TP.SELLER_ID = TS.SELLER_ID
+        LEFT JOIN
+    TB_CHAT_ROOM AS TCR ON TP.PRD_ID = TCR.PRD_ID
+    LEFT JOIN
+        TB_PRODUCT_IMG AS TPI ON TP.PRD_ID = TPI.PRD_ID
+    WHERE
+        TPO.CUST_ID = ?;`;
+
+        const userorders = await query(sql, [custId])
+        console.log('Fetched user orders:', userorders);
+
+        if(userorders.length === 0 ) {
+            return res.status(404).send({ message : '제품을 찾을 수 없음'});
+        }
+        res.status(200).send({
+            userorders : userorders
+        });
+    } catch (error) {
+        console.error(`SQL 에러 : ${error}`);
+        res.status(500).send({ message: '서버에러'});
+    }
+})
+//마이페이지 내정보 수정
+router.post('/update', upload.single('profile_img'), async (req, res) => {
+    try {
+        const { cust_id, nick_name, cust_pw, phone } = req.body;
+
+        // Handle profile image update (if provided).
+        let profile_img = req.file ? req.file.filename : '';
+
+        // Check if any required field is missing and assign null if missing.
+        if (!nick_name || !cust_pw || !phone || !cust_id) {
+            console.log('Required fields are missing');
+            res.status(400).send({ message: 'Required fields are missing' });
+            return;
+        }
+
+                // 비번 암호화
+                const md5HashedPw = await md5Hash(cust_pw);
+
+        // Update user information in the database using SQL queries.
+        const sql = `
+            UPDATE TB_CUSTOMER
+            SET nick_name = ?, cust_pw = ?, phone = ?, profile_img = ?
+            WHERE cust_id = ?;
+        `;
+
+        const updatedRows = await query(sql, [nick_name, md5HashedPw, phone, profile_img, cust_id]); 
+        if (updatedRows.affectedRows > 0) {
+            console.log('User information updated successfully');
+            res.status(200).send({ message: 'User information updated successfully' });
+        } else {
+            console.log('User information update failed');
+            res.status(500).send({ message: 'User information update failed' });
+        }
+    } catch (error) {
+        console.error('Error updating user information:', error);
+        res.status(500).send({ message: 'Server error' });
+    }
+});
 
 module.exports = router;

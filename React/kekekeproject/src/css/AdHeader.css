@@ -40,7 +40,7 @@
     letter-spacing: 0;
     line-height: normal;
     margin-top: 10px;
-    left: 50px;
+    left: -10px;
     position: relative;
     width: fit-content;
   }

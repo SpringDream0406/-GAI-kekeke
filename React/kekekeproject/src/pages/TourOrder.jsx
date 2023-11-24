@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
 
-
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -26,21 +26,14 @@ export const TourOrder = () => {
   const [lettering, setLettering] = useState(null);
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
+  const [prd_img, setPrdImg] = useState(null);
 
 
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-
   const prd_id = searchParams.get('prd_id');
-  console.log('가게정보cake_prd_id:', prd_id);
-
-  const [order_user, setOrderUser] = useState(null);
-
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
-
-  const [seller_id, setSellerId] = useState(null);
-
   const [cust_id, setCustId] = useState(null);
 
  
@@ -66,12 +59,19 @@ export const TourOrder = () => {
       try {
         const response = await axios.post(`${API_URL}/store/tour-order`, { prd_id: prd_id });
         const data = response.data[0];
+        console.log(data);
         setStoreInfo({
            CakeLogo :  data.SELLER_PROFILE1,
            StoreName : data.STORE_NAME,
            StoreAddr1 : data.SHOP_ADDR1,
-           StoreDetail: data.STORE_DETAIL
+           StoreDetail: data.STORE_DETAIL,
+           prd_name : data.PRD_NAME,
+           cake_detail : data.CAKE_DETAIL,
+           seller_id : data.SELLER_ID,
+           prd_img : `/img/product/${data.IMG_NAME2}`
+           
         })
+      
         console.log('응답:', response.data);
       } catch (error) {
         console.error('오류:', error);
@@ -83,17 +83,15 @@ export const TourOrder = () => {
     }
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
-  useEffect(() => {
-    console.log('둘러보기에서 보내준 케이크 객체값', selectedCake);
-  }, [selectedCake]);
+
+
+
+ 
 
  
 
  // 빈 의존성 배열을 전달하여 이 효과가 초기 렌더링 중에만 실행되도록 합니다.
 
-
-
-  
   const [additionalCosts] = useState({
     vanilla: 0,
     chocolate: 1000,
@@ -104,6 +102,19 @@ export const TourOrder = () => {
     two: 20000,
     three: 30000,
   });
+  const flavorMapping = {
+    vanilla: '바닐라',
+    chocolate: '초콜릿',
+    oreo: '오레오',
+    fruit: '생과일'
+  };
+  
+  const sizeMapping = {
+    do: '도시락',
+    one: '1호',
+    two: '2호',
+    three: '3호'
+  };
 
   const TimeInput = forwardRef(({ value, onClick }, ref) => (
     <button className="to-time-input to-timetitle" onClick={onClick} ref={ref}>
@@ -133,6 +144,7 @@ export const TourOrder = () => {
     const costToSubtract = cake_size ? additionalCosts[cake_size] : 0;
     return costToAdd - costToSubtract;
   };
+  
 
   // 맛 선택 핸들러
   const handleFlavorChange = (flavor) => {
@@ -154,34 +166,45 @@ export const TourOrder = () => {
     });
   };
 
+
+    // TourOrder->order.js데이터보낼려고사용했음
+  const navigate = useNavigate();
+
   // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
-  const submitOrder = () => {
-    const url = `${API_URL}/cust/order`;
+  const submitOrder = async() => {
+    if (cust_id === null){
+      alert('로그인 후 다시 오세요')
+      //로그인창으로 보내버리는 로직 마지막에 구현하기
+      navigate('/login')
+    }
+    const url = `${API_URL}/order/orders`;
 
     const orderData = {
-      cake_name: cake_name,
+      cake_name: storeInfo ? storeInfo.prd_name : null,
       cust_id: cust_id,
       add_require: add_require,
-      cake_size: cake_size,
-      cake_flavor: cake_flavor,
+      cake_size: sizeMapping[cake_size], // 영어 -> 한글 변환
+      cake_flavor: flavorMapping[cake_flavor], // 영어 -> 한글 변환
       cake_price: cakeprice,
       lettering: lettering,
       order_name: order_name,
       order_num: order_num,
       pickup_date: pickup_date.toISOString(),
       pickup_time: pickup_time.toISOString(),
+      prd_id: prd_id,
+      seller_id: storeInfo ? storeInfo.seller_id : null
+      
     };
-
-    axios
-      .post(url, orderData)
-      .then((response) => {
-        console.log('주문이 성공적으로 전송되었습니다.', response.data);
-        // 주문이 성공적으로 전송되었을 때 할 작업을 추가할 수 있습니다.
-      })
-      .catch((error) => {
-        console.error('주문 전송 에러', error);
-        // 주문 전송에 실패했을 때 에러 처리를 추가할 수 있습니다.
-      });
+    
+    try {
+      const response = await axios.post(url, orderData);
+      console.log("서버 응답:", response.data); // 서버 응답 확인
+  
+      // 서버 응답을 navigate 함수에 전달
+      navigate('/tour-complete-order', { state: { orderData } });
+    } catch (error) {
+      console.error('주문 전송 에러', error.response);
+    }
   };
 
 
@@ -192,19 +215,19 @@ export const TourOrder = () => {
     <div className="to-container">
     <div className="to-div">
       <div>
-      <img  src={'/assets/images/cake1.jpg'} className='to-cakeimg1' alt='cake1'/>
+      <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
       <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
     <div className="to-cakename"
     value={cake_name}
-    >{prd_id}</div>
+    > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
     </div>
 
     <div>
       <div className='co-cakesm'>케이크 설명</div>
       <div className='co-cakesmct'
-      >이거 케이크 예쁘고 멋지고 맛있어여 이거 케이크 예쁘고 멋지고 맛있어여 이거 케이크 예쁘고 멋지고 맛있어여</div >
+      >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
     </div>
 
       <div className="to-cakeflavortitle">케이크 맛 선택
