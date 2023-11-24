@@ -1,9 +1,5 @@
 /* PageButton.css */
-.pagination-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   
   .page-button {
     background-color: transparent;

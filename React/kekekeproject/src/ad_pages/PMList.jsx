@@ -13,6 +13,7 @@ import AdHeader from '../component/AdHeader';
 
 const PMList = () => {
 
+  
   // 임시 데이터
   const products = [
     {
@@ -181,7 +182,33 @@ const PMList = () => {
   };
 
 
+// -------------------------------------------------------
 
+// 이미지 수정 팝업
+
+const [selectedProduct, setSelectedProduct] = useState(null);
+const [isImagePopupVisible, setImagePopupVisible] = useState(false);
+const fileInputRef = React.createRef(); // 파일 입력을 위한 ref 생성
+
+ // 이미지 클릭 핸들러
+ const handleImageClick = (product) => {
+  setSelectedProduct(product); // 선택된 상품 상태 업데이트
+  setImagePopupVisible(true); // 이미지 팝업 표시
+};
+
+ // 이미지 팝업 닫기 핸들러
+ const handleImageClosePopup = () => {
+  setImagePopupVisible(false);
+};
+
+// 이미지 업데이트 핸들러
+const handleImageUpdate = (newImageUrl) => {
+  // 상품의 이미지 URL을 업데이트하는 로직
+  const updatedProducts = currentProducts.map((p) =>
+    p.id === selectedProduct.id ? { ...p, imageUrl: newImageUrl } : p
+  );
+  setImagePopupVisible(false); // 이미지 팝업 숨김
+};
 
 
   return (
@@ -189,18 +216,15 @@ const PMList = () => {
     <div>
 
       <AdHeader></AdHeader>
-      <PageButton
-        pages={totalPages}
-        currentPage={currentPage}
-        onPageChange={onPageChange}
-       marginTop={'1800px'}
-      /> 
+
 
       <AdMT>상품목록</AdMT>
       <AdMenubar />
       <AdBG height={1620}>
 
         <ProductManagement initialActiveTab="list" />
+
+        <div>
 
         <div className="search-container">
           <input
@@ -223,16 +247,16 @@ const PMList = () => {
             <div className="header-sales">누적 판매량</div>
           </div>
 
-          {currentProducts.map((product, index) => (
+            {currentProducts.map((product, index) => (
 
 
-            <div key={index} className="product-item">
-              <div className="product-image">
-                <img src={product.imageUrl} alt={product.name} />
-              </div>
+              <div key={product.id} className="product-item">
+                <div className="product-image" onClick={() => handleImageClick(product)}>
+                  <img src={product.imageUrl} alt={product.name} />
+                </div>
 
 
-              {editingProductId === product.id ? (
+                {editingProductId === product.id ? (
                 <div className='product-details'>
                   <input
                     type="text"
@@ -295,6 +319,13 @@ const PMList = () => {
           </button>
         </div>
 
+        <PageButton className = "pmlistpgbtn"
+        pages={totalPages}
+        currentPage={currentPage}
+        onPageChange={onPageChange}
+      /> 
+        </div>
+
 
       </AdBG>
 
@@ -312,6 +343,7 @@ const PMList = () => {
         </div>
       )}
 
+{/* 상품 등록 모달 */}
       {isPopupVisible && (
         <ProductRegisterPopup
           onClose={handleClosePopup}
@@ -319,6 +351,14 @@ const PMList = () => {
         />
       )}
 
+{/* 이미지 수정 팝업 모달 */}
+{isImagePopupVisible && selectedProduct && (
+    <ImageEditPopup
+      existingImageUrl={selectedProduct.imageUrl}
+      onSave={handleImageUpdate}
+      onClose={handleImageClosePopup}
+    />
+  )}
 
 
     </div>
@@ -455,6 +495,65 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
         <div className="adminPopupFooter">
           <button className="adminRegisterButton" onClick={handleRegister}>등록</button>
           <button className="adminCancelButton" onClick={onClose}>취소</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// -----------------------------------------------------------------------------------------------
+
+const ImageEditPopup = ({ existingImageUrl, onSave, onClose }) => {
+  const [newImage, setNewImage] = useState(null);
+  const [newImageFile, setNewImageFile] = useState(null);
+  const fileInputRef = React.createRef(); // 파일 입력을 위한 ref 생성
+  
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setNewImage(URL.createObjectURL(file));
+      setNewImageFile(file);
+    }
+  };
+
+  const handleImageClick = () => {
+    fileInputRef.current.click(); // 파일 입력 창을 트리거
+  };
+
+  const handleSave = () => {
+    if (newImageFile) {
+      // 파일 업로드 로직 구현
+      console.log('Image file to upload:', newImageFile);
+      // 파일 업로드 후 onSave 함수를 호출
+    } else {
+      alert('변경할 이미지를 업로드해주세요.');
+    }
+  };
+
+  return (
+    <div className="imageEditPopupOverlay">
+      <div className="imageEditPopupContainer">
+        <div className="imageEditPopupHeader">이미지 수정</div>
+        <div className="imageEditPopupContent">
+        {existingImageUrl && (
+            <img
+              src={existingImageUrl}
+              alt="Current"
+              className="current-image"
+              onClick={handleImageClick} // 이미지 클릭 이벤트 추가
+            />
+          )}
+          <input
+            type="file"
+            onChange={handleImageChange}
+            ref={fileInputRef}
+            style={{ display: 'none' }} // 파일 입력 숨기기
+          />
+          {newImage && <img src={newImage} alt="New Preview" />}
+          <div className="imageEditActions">
+            <button onClick={handleSave}>저장</button>
+            <button onClick={onClose}>취소</button>
+          </div>
         </div>
       </div>
     </div>

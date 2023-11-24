@@ -4,6 +4,7 @@ import AdMT from '../ad_component/AdMT';
 import AdBG from '../ad_component/AdBG';
 import "../ad_css/AdminStoreInfo.css";
 import { AiOutlineCamera } from 'react-icons/ai';
+import AdHeader from '../component/AdHeader'
 
 
 
@@ -102,6 +103,7 @@ const AdminStoreInfo = () => {
 
   return (
     <div>
+      <AdHeader/>
       <AdMT>가게정보</AdMT>
       <AdMenubar />
       <AdBG height={1750}>

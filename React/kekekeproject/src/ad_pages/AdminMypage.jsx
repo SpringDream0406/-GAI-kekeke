@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../ad_css/AdminMypage.css';
 import { AiOutlineCamera } from 'react-icons/ai';
 import AdMenubar from '../component/AdMenubar';
+import AdHeader from '../component/AdHeader'
 
 
 
@@ -113,6 +114,7 @@ const AdminMypage = () => {
   return (
 
     <div>
+      <AdHeader />
     <AdMenubar/>
     
     <div className='adminmp-Container'>

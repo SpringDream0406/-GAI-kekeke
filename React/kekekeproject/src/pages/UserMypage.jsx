@@ -174,11 +174,11 @@ const UserMypage = () => {
             {/* 이미지 업로드 섹션 */}
             <div className="UserMypagePhoto">
               {image ? (
-                <img src={image} alt="사용자 정보 수정" className="uploaded-image" />
+                <img src={image} alt="사용자 정보 수정" className="uploaded-image12" />
               ) : (
                 
                 <label htmlFor="image-upload" className="upload-label">
-                  {imageSrc ? <img src={imageSrc} alt="프로필 이미지"/> :<AiOutlineCamera className="camera-icon" />}
+                  <AiOutlineCamera className="camera-icon" />
 
                 </label>
               )}
@@ -208,7 +208,7 @@ const UserMypage = () => {
 
               </div>
               <div className="nicktxt">
-                <div className="div">닉네임 변경</div>
+                <div className="divinput">닉네임 변경</div>
               </div>
               <div className="duplicate-btn">
                 <button className="duplicatetxt" onClick={handlechecknick}>
@@ -243,7 +243,7 @@ const UserMypage = () => {
             </div>
             <div className="pw-cheak-input">
               <div className="pwcheaktxt">
-                <div className="div">비밀번호 확인</div>
+                <div className="divinput">비밀번호 확인</div>
               </div>
               <div className="pw-cheak-box">
                 <input
@@ -260,7 +260,7 @@ const UserMypage = () => {
 
             <div className="phone-input">
               <div className="phonetxt">
-                <div className="div">전화번호</div>
+                <div className="divinput">전화번호</div>
               </div>
               <div className="phone-input-box">
                 <input
