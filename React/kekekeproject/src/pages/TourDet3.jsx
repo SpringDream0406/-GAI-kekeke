@@ -6,6 +6,7 @@ import "../css/TourReviewPopup.css";
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
+import BlueBg from "../component/BlueBg";
 
 export const TourDet3 = () => {
   const [storeInfo, setStoreInfo] = useState({
@@ -149,7 +150,7 @@ export const TourDet3 = () => {
   return (
     <div>
 
-      <TourDetContainer initialActiveTab="tour-det3" containerHeight="2200px" storeInfo = {storeInfo}>
+      <TourDetContainer initialActiveTab="tour-det3" storeInfo = {storeInfo}>
 
         <div className="review-section">
           <div className="review-list">
@@ -192,6 +193,7 @@ export const TourDet3 = () => {
           </div>
         </div>
       </TourDetContainer>
+
       {showDetailReview && <DetailReviewPopup onClose={handleCloseDetailReview} reviewData={selectedReview} />}
     </div>
 

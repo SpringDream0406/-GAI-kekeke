@@ -5,6 +5,7 @@ import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
 import MapContainer from "./MapContainer";
+import BlueBg from "../component/BlueBg";
 
 const TourDet2 = () => {
 
@@ -65,7 +66,7 @@ const formatTime = (timeString) => {
 
     return (
       <div>
-        <TourDetContainer initialActiveTab="tour-det2" containerHeight="2050px" storeInfo={storeInfo}>
+        <TourDetContainer initialActiveTab="tour-det2"  storeInfo={storeInfo}>
         <div className="index">
             <div className="TourDet2_bluebox2">
 
@@ -157,6 +158,7 @@ const formatTime = (timeString) => {
             </div>
           </div>
           </TourDetContainer>
+         
           </div>
       );
     };

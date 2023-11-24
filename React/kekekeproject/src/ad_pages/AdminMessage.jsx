@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import '../ad_css/AdminMessage.css';
 import Chatroom from '../component/Chatroom';
-import Ad_Menubar from '../component/AdMenubar';
+import AdMenubar from '../component/AdMenubar';
+import AdHeader from '../component/AdHeader';
 
 
 // 임시 유저 데이터 목록
@@ -122,7 +123,8 @@ const AdminMessage = () => {
     
     <div>
 
-      <Ad_Menubar/>
+      <AdMenubar/>
+      <AdHeader />
 
       <div className='adminmessage-container'>
       <div className="adminchatContainer">

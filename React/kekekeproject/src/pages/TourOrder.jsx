@@ -11,6 +11,7 @@ import axios from 'axios';
 import API_URL from '../api_url';
 
 import { useNavigate } from 'react-router-dom';
+import BlueBg from '../component/BlueBg';
 
 
 
@@ -210,7 +211,8 @@ export const TourOrder = () => {
 
   return (
     <div>
-      <TourDetContainer containerHeight="2200px" storeInfo={storeInfo}>
+   
+      <TourDetContainer storeInfo={storeInfo}>
       <div className='to-bg-container'>
     <div className="to-container">
     <div className="to-div">
@@ -380,10 +382,12 @@ export const TourOrder = () => {
           <div className="co-cakemoneytt">가격</div>
           <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
           <div className='co-cakemoney'>원</div>
-     
-     
+      
     </div>
+
+     
     </TourDetContainer>
+  <BlueBg top={-1900}/>
     </div>
             
               

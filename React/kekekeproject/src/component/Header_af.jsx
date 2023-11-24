@@ -264,7 +264,14 @@ const StyledHR =styled.hr`
     background-color: #ececec;
     
 `
-
+const Button =styled.button`
+  color: black;
+  text-align: center;
+  position: relative;
+  font-size: 16px;
+  font-family: 'Pretendard-Regular';
+  text-decoration: none;
+`
 
 const handleLogout = () => {
   // 세션스토리지에서 userData 제거
@@ -331,9 +338,9 @@ const Header_af = () => {
               </Li>
               <Li>
                {/* 로그아웃 버튼 */}
-        <button onClick={handleLogout} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
+        <Button onClick={handleLogout} style={{ background: 'none', border: 'none', padding: '5px', cursor: 'pointer', color: 'black', textAlign: 'left' }}>
           로그아웃
-        </button>
+        </Button>
               </Li>
             </Ul>
           </Menu>
