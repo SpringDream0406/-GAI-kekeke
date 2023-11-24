@@ -7,11 +7,13 @@ import '../ad_css/PMquantity.css'
 import AdMT from '../ad_component/AdMT'
 import AdBG from '../ad_component/AdBG'
 import AdCalendar from '../ad_component/AdCalendar'
+import AdHeader from '../component/AdHeader'
 
 
 const PMquantity = () => {
   return (
     <div>
+      <AdHeader />
       <AdMT>수랑확인</AdMT>
       <AdMenubar/>
       <AdCalendar/>
