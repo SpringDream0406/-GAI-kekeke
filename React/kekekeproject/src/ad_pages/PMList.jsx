@@ -186,7 +186,7 @@ const PMList = () => {
 
   return (
 
-    <div>
+    <div className='c'>
 
       <AdHeader></AdHeader>
       <PageButton
@@ -201,6 +201,8 @@ const PMList = () => {
       <AdBG height={1620}>
 
         <ProductManagement initialActiveTab="list" />
+
+        <div>
 
         <div className="search-container">
           <input
@@ -293,6 +295,7 @@ const PMList = () => {
           <button onClick={handleRegisterClick} className="product-button">
             상품 등록
           </button>
+        </div>
         </div>
 
 
