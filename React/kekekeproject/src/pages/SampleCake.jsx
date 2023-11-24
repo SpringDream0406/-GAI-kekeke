@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import API_URL from "../api_url";
 import { useLocation } from 'react-router-dom';
-import PageButton from '../component/PageButton';
+import AdPagebtn from '../ad_component/AdPagebtn'
 import "../css/SampleCake.css";
 
 const SampleCake = () => {
@@ -84,7 +84,7 @@ const SampleCake = () => {
           </div>
           {/* 페이징 */}
           <div className="Samplepagination">
-            <PageButton type="prev" onClick={goToPrevPage} />
+            <AdPagebtn type="prev" onClick={goToPrevPage} />
             {pageNumbers.map(num => (
               <button
                 key={num}
@@ -94,7 +94,7 @@ const SampleCake = () => {
                 {num}
               </button>
             ))}
-            <PageButton type="next" onClick={goToNextPage} />
+            <AdPagebtn type="next" onClick={goToNextPage} />
           </div>
         </div>
       </TourDetContainer>
