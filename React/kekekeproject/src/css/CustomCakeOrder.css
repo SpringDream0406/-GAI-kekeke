@@ -661,3 +661,28 @@ input {
 .react-datepicker__navigation-icon react-datepicker__navigation-icon--next{
 color: #ff85a3;
 }
+.react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover, .react-datepicker__year-text:hover{
+  background-color: #ef4b74;
+}
+.react-datepicker__current-month{
+  color: #ff85a3;
+}
+
+.react-datepicker__day-name{
+  color: #ff85a3;
+}
+
+.react-datepicker__navigation-icon--next::before{
+  border-color: #ffa0b7 ;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  z-index: 999;
+}
+
+.react-datepicker__navigation-icon--previous::before{
+  border-color: #ffa0b7 ;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
