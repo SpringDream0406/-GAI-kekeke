@@ -11,18 +11,44 @@ import { AiOutlineCamera } from 'react-icons/ai';
 
 const AdminStoreInfo = () => {
 
+  const [sellerinfo, setSellerInfo] = useState({});
 
-    const [store_name, setStore_name] = useState('따라라');
-    const [store_detail, setStore_detail] = useState('특별한 행복을 드려요');
-    const [shop_tel, setShop_tel] = useState('062-333-3333');
-    const [add_detail, setAdd_detail] = useState('주의사항 알고있쬬? 냉동하면 맛없어요~');
-    const [strg_use, setStrg_use] = useState('케이크는 보관하지말고 바로 드세요');
-    const [business_num, setBusiness_num] = useState('511-95-13919');
-    const [address_detail, setAddress_detail] = useState('광주야~');
-    const [start_time, setStart_time] = useState('');
-    const [end_time, setEnd_time] = useState('');
-    const [address, setAddress] = useState('');
+      // 세션 스토리지에서 데이터 불러오기 및 초기 데이터 작성
+      useEffect(() => {
+        const adminStorageData = sessionStorage.getItem('adminData');
+        if (adminStorageData) {
+          const adminData = JSON.parse(adminStorageData);
+          setSellerInfo(adminData);
+          setStore_name(adminData.store_name)
+          setStore_detail(adminData.store_detail)
+          setShop_tel(adminData.shop_tel)
+          setAdd_detail(adminData.add_detail)
+          setStrg_use(adminData.strg_use)
+          setBusiness_num(adminData.business_num)
+          setAddress_detail(adminData.shop_addr2)
+          setStart_time(adminData.start_time)
+          setEnd_time(adminData.end_time)
+          setAddress(adminData.shop_addr1)
+          setImg(adminData.seller_profile1)
+        }
+      }, []);
+
+    const [store_name, setStore_name] = useState();
+    const [store_detail, setStore_detail] = useState();
+    const [shop_tel, setShop_tel] = useState();
+    const [add_detail, setAdd_detail] = useState();
+    const [strg_use, setStrg_use] = useState();
+    const [business_num, setBusiness_num] = useState();
+    const [address_detail, setAddress_detail] = useState();
+    const [start_time, setStart_time] = useState();
+    const [end_time, setEnd_time] = useState();
+    const [address, setAddress] = useState();
+    const [img, setImg] = useState()
+
+
     
+  console.log('셀러정보' ,sellerinfo.store_name);
+
 
 
     const handleSaveChanges = () => {
@@ -82,8 +108,8 @@ const AdminStoreInfo = () => {
         <div className='admin-store-container'>
           <div className='store-text1'>가게 프로필</div>
               <div className="modify-picture">
-              {image ? (
-          <img src={image} alt="가게 프로필" className="modify_picture_uploaded" />
+              {img ? (
+          <img src={`/img/seller/${img}`} alt="가게 프로필" className="modify_picture_uploaded" />
         ) : (
           <label htmlFor="image-upload" className="upload-label2">
             <AiOutlineCamera className="camera-icon2" />
