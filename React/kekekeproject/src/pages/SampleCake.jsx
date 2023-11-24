@@ -7,6 +7,7 @@ import API_URL from "../api_url";
 import { useLocation } from 'react-router-dom';
 import PageButton from '../component/PageButton';
 import "../css/SampleCake.css";
+import BlueBg from "../component/BlueBg";
 
 const SampleCake = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,7 +70,7 @@ const SampleCake = () => {
 
   return (
     <div className="Sample__Container">
-      <TourDetContainer initialActiveTab="samplecake" containerHeight='1900px' storeInfo={storeInfo}>
+      <TourDetContainer initialActiveTab="samplecake"  storeInfo={storeInfo}>
       
         <div className="Sam_index">
           <div className="Sam_samplecontainer">
@@ -98,6 +99,7 @@ const SampleCake = () => {
           </div>
         </div>
       </TourDetContainer>
+   
     </div>
 
      

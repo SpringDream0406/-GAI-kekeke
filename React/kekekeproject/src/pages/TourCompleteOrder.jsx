@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
+import BlueBg from "../component/BlueBg";
 
 
 const TourCompleteOrder = () => {
@@ -146,7 +147,7 @@ const TourCompleteOrder = () => {
       
     </div>
 
-     
+    <BlueBg top={340} height={2300}/>
     </div>
   );
 };

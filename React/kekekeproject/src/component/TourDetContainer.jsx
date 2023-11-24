@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/TourDetContainer.css'
 import { useLocation } from 'react-router-dom';
+import BlueBg from "./BlueBg";
 
 // import axios from "axios";
 // import API_URL from "../api_url";
 
-const TourDetContainer = ({ children, containerHeight, storeInfo, initialActiveTab }) => {
+const TourDetContainer = ({ children, containerHeight, containerTop ,storeInfo, initialActiveTab }) => {
 
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
@@ -25,6 +26,7 @@ const TourDetContainer = ({ children, containerHeight, storeInfo, initialActiveT
 
     const containerStyle = {
         height: containerHeight || 'auto', // prop으로 받은 높이 또는 기본값 'auto'
+        top : containerTop || 'auto'
     };
 
 
@@ -34,8 +36,11 @@ const TourDetContainer = ({ children, containerHeight, storeInfo, initialActiveT
 
 
     return (
+        <div>
         <div className="frame">
+          
             <div className="tour-detail-container" style={containerStyle}>
+                <img src="/assets/images/bluebox.png" className="blue-bg"/>
                 <div className="frameTour">
 
                     <div className="tour-detail-content">
@@ -76,15 +81,21 @@ const TourDetContainer = ({ children, containerHeight, storeInfo, initialActiveT
                                 리뷰
                             </Link>
 
+                           
 
-
-
+                            
                         </div>
+                     
                         {children}
                     </div>
+                   
                 </div>
+          
             </div>
+      
         </div>
+
+              </div>
     )
 }
 

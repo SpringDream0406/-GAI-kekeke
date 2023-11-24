@@ -6,6 +6,7 @@ import axios from "axios";
 import API_URL from "../api_url";
 //import prdimg from '../../public/img/product/';
 import AdPagebtn from '../ad_component/AdPagebtn'
+import BlueBg from "../component/BlueBg";
 
 
 /*둘러보기 케이크 리스트*/
@@ -164,10 +165,10 @@ const handleCakeClick = (selectedCake) =>{
             </button>
           ))}
           <AdPagebtn type="next" onClick={goToNextPage} />
-
+         
         </div>
       </div>
-
+   
     </div>
   );
 };

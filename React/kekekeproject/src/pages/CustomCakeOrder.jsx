@@ -12,6 +12,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
+import BlueBg from '../component/BlueBg';
 
 
 
@@ -165,8 +166,13 @@ const CustomCakeOrder = () => {
 
  
   return (
+    <div>
+   
+   
     <div className='co-bg-container'>
+    
     <div className="co-container">
+  
     <div className="co-div">
       <div className="co-cakeflavortitle">케이크 맛 선택
       <input className="co-cakeflovor"
@@ -348,13 +354,14 @@ const CustomCakeOrder = () => {
                    
                   />
           </div>
-     
+       
+          
     </div>
 
- 
-
+   
     </div>
- 
+    <BlueBg height={1800} top={-2000}/>
+    </div>
   )
 }
 
