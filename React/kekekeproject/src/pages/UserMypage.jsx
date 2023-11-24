@@ -109,11 +109,6 @@ const UserMypage = () => {
   // 중복 확인이 완료되었는지 여부를 저장하는 상태
   const [isDuplicateCheckDone, setIsDuplicateCheckDone] = useState(false);
 
-  // 임시 중복 확인 데이터
-  const existingNicknames = ['케로로빵', 'kekeke', '케케케',
-    '송민아줌마', '미나곤듀언니티비', '김은호나마에와', '기므노', '김용민달팽이',
-    '정건식사료', '정건식사하셨나요', '서유정말예쁘다', '용용이보고싶어요'];
-
   // 닉네임 변경 핸들러
   const handleNicknameChange = (event) => {
     setNickname(event.target.value);
@@ -148,14 +143,21 @@ const UserMypage = () => {
     axios.post(url,data)
       .then(response=>{
         console.log(response.data);
-        if (userInfo.nick_name === nick_name){
-          console.log(`${nick_name}은 현재 사용하고 있는 닉네입입니다.`);
-        }
+        setIsDuplicateCheckDone(true)
+        setIsNicknameAvailable(true)
         alert(response.data.message)
       })
       .catch(error => {
         console.log(error);
+        setIsDuplicateCheckDone(true)
+        if (userInfo.nick_name === nick_name){
+          console.log(`${nick_name}은 현재 사용하고 있는 닉네입입니다.`);
+          setIsNicknameAvailable(true)
+          alert('현재 사용하는 닉네임입니다.')
+        } else{
         alert(error.response.data.message)
+        setIsNicknameAvailable(false)
+      }
       })
   }
 
@@ -215,10 +217,10 @@ const UserMypage = () => {
                 </button>
               </div>
               {isDuplicateCheckDone && !isNicknameAvailable && (
-          <div className="adminmp-nick_name-unavailable">이미 사용 중인 닉네임입니다.</div>
+          <div className="nickname-unavailable">이미 사용 중인 닉네임입니다.</div>
         )}
         {isDuplicateCheckDone && isNicknameAvailable && (
-          <div className="adminmp-nick_name-available">사용 가능한 닉네임입니다.</div>
+          <div className="nickname-available">사용 가능한 닉네임입니다.</div>
         )}
             </div>
 
