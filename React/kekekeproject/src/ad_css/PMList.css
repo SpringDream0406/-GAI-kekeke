@@ -1,3 +1,7 @@
+div{
+  font-family: 'Pretendard-regular';
+
+}
 .product-list {
   width: 90%;
   margin: auto; /* 가로 방향으로 중앙 정렬 */

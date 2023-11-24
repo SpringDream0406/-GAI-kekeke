@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/TourDet3.css";
 import TourDetContainer from '../component/TourDetContainer'
-import PageButton from "../component/PageButton";
+import AdPagebtn from '../ad_component/AdPagebtn';
 import "../css/TourReviewPopup.css";
 import axios from 'axios';
 import API_URL from '../api_url';
@@ -176,7 +176,7 @@ export const TourDet3 = () => {
             ))}
           </div>
           <div className="pagination">
-            <PageButton type="prev" onClick={goToPrervPage} />
+            <AdPagebtn type="prev" onClick={goToPrervPage} />
 
             {/* 페이지 번호들 렌더링 */}
             {reviewpageNum.map(num => (
@@ -189,7 +189,7 @@ export const TourDet3 = () => {
               </button>
             ))}
 
-            <PageButton type="next" onClick={goToNextrvPage} />
+            <AdPagebtn type="next" onClick={goToNextrvPage} />
           </div>
         </div>
       </TourDetContainer>
