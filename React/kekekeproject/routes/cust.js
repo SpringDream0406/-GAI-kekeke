@@ -203,7 +203,9 @@ router.post('/orderlist', async (req, res) => {
         TPO.PICKUP_DATE,
         TS.STORE_NAME,
         TCR.CONS_OR_OC,
-        TPI.IMG_NAME2
+        TPI.IMG_NAME2,
+        TPO.ADD_REQUIRE,
+        TPO.DEAL_ID
     FROM
         TB_PRODUCT_ORDER AS TPO
     JOIN

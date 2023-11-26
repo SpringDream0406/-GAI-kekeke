@@ -32,7 +32,7 @@ const [capturedImage, setCapturedImage] = useState(null);
 
 const handleSave = () => {
   const uri = stageRef.current.toDataURL(); // toDataURL()을 사용하여 데이터 URL을 가져옴
-  console.log(uri); // 콘솔에 데이터 URL 로깅
+  
   localStorage.setItem('savedImage', uri); // 로컬 스토리지에 저장
   setSavedImage(uri); // 이미지 데이터를 상태에 저장
   navigate('/customcake/order', { state: { image: uri } }); // 이미지 데이터와 함께 네비게이트

@@ -11,10 +11,9 @@ const TourCompleteOrder = () => {
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
   const location = useLocation();
   const orderData = location.state?.orderData;
-  console.log("여기서받으면됩니다용", orderData)
   const [custid, setCustId] = useState()
   const [customInfo, setCustomInfo] = useState(null);
-
+ 
   
   // 구매자 ID(cust_id불러오기)
   useEffect(() => {
@@ -50,12 +49,12 @@ const TourCompleteOrder = () => {
  }
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
-  useEffect(() => { //cust_id를가지고 데이터를 가져올거임 
+  useEffect(() => { //cust_id를가지고  커스텀데이터 조회
     const custData = async () => {
       try {
         const response = await axios.post(`${API_URL}/store/custom`, { cust_id :custid });
         const data = response.data[0];
-        console.log(data);
+      
         setCustomInfo(response.data); // 수정된 부분: 응답 데이터를 상태에 저장
         
         console.log('응답:', response.data);
@@ -68,11 +67,19 @@ const TourCompleteOrder = () => {
       custData();
  }
   }, [custid]); // custid 의존성 배열에 추가하여 custid 값이 변경될 때마다 실행
+  
+  //커스텀 이미지가 널일경우
+  useEffect(() => {
+    const imagePath = customInfo?.CUSTOM_IMG || "/img/cust/pzzzz12.png";
+    console.log(imagePath.split("\\").join("/"));
+  }, [customInfo]);
  
  // customInfo 상태가 변경될 때마다 실행되는 useEffect
-useEffect(() => {
+ useEffect(() => {
   if (customInfo) {
-    console.log(customInfo ? `${customInfo.CUSTOM_IMG.split("\\").join("/")}` : "이미지 경로 없음");
+    const imagePath = customInfo.CUSTOM_IMG ? customInfo.CUSTOM_IMG.split("\\").join("/") : "이미지  없음";
+    console.log(imagePath);
+    console.log("커스텀아이디", customInfo?.CUSTOM_ID );
   }
 }, [customInfo]);
 
@@ -154,10 +161,16 @@ useEffect(() => {
 
 
     <div className="tco-btn-container">
-      <Link to={'/message'} className='tco-msgbtn'>문의하기</Link>
+      <Link to={{
+        pathname: '/message',
+        state: { CUSTOM_ID: customInfo?.CUSTOM_ID } // storeInfo에서 customId 전달
+        }}  className='tco-msgbtn'>문의하기</Link>
 
-      <Link to={'/mporderlist'} className = 'tco-okbtn'> 확인</Link>
-      
+        <Link to={{
+          pathname: '/mporderlist',
+          state: { CUSTOM_ID: customInfo?.CUSTOM_ID }
+        }} className='tco-okbtn'> 확인</Link>
+              
     </div>
 
     <BlueBg top={340} height={2300}/>
