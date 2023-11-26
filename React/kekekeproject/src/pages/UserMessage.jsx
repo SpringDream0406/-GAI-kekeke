@@ -3,8 +3,8 @@ import '../css/UserMessage.css';
 import Chatroom from '../component/Chatroom';
 
 const UserMessage = () => {
-  const roomId = 'userChatRoom'; // 고유한 roomId를 설정합니다.
-
+  const sellerRoomId = 'sellerRoom';
+  const buyerRoomId = 'buyerRoom';
   const chatData = [
     {
       id: 1,
@@ -94,7 +94,7 @@ const UserMessage = () => {
             )}
           </div>
         <div className="chatForm">
-        <Chatroom roomId={roomId} sender="user"/>
+        <Chatroom roomId={buyerRoomId} sender="Buyer" />
         </div>
       </div>
     </div>

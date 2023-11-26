@@ -13,7 +13,7 @@ const UserMypage = () => {
   const [nick_name, setNickname] = useState(''); // 임의의 초기 닉네임
   const [password, setPassword] = useState(''); // 임의의 초기 비밀번호
   const [phone, setPhone] = useState(''); // 임의의 초기 전화번호
-  const [imageSrc, setImageSrc] = useState(''); //초기 프로필사진
+  const [imageSrc, setImageSrc] = useState(null); //초기 프로필사진
   const [userInfo, setUserInfo] = useState({});
   const [passwordcheck, setPasswordcheck] = useState('');
   const [cust_Id, setCust_Id] = useState('');
@@ -31,7 +31,6 @@ const UserMypage = () => {
     }
   }, []);
 
-  
 
   // 비밀번호 변경 핸들러
   const handlePasswordChange = (event) => {
@@ -77,11 +76,11 @@ const UserMypage = () => {
     const url = `${API_URL}/cust/update`;
     const updateformData = new FormData();
 
-    const fileInput = document.getElementById('image-upload');
     updateformData.append('nick_name', nick_name);
     updateformData.append('cust_pw', password);
     updateformData.append('phone', phone);
     updateformData.append('cust_id', cust_Id);
+    const fileInput = document.getElementById('image-upload');
     if (fileInput && fileInput.files[0]) {
       updateformData.append('profile_img', fileInput.files[0]);
     }
@@ -172,23 +171,27 @@ const UserMypage = () => {
         <div className="overlap">
           <div className="input-area">
             {/* 이미지 업로드 섹션 */}
-            <div className="UserMypagePhoto">
-              {image ? (
-                <img src={image} alt="사용자 정보 수정" className="uploaded-image12" />
-              ) : (
-                
-                <label htmlFor="image-upload" className="upload-label">
-                  <AiOutlineCamera className="camera-icon" />
-
-                </label>
-              )}
-              <input
-                type="file"
-                id="image-upload"
-                onChange={handleImageChange}
-                style={{ display: 'none' }}
-              />
-            </div>
+<div className="UserMypagePhoto">
+  {image ? (
+    <label htmlFor="image-upload" className="uploaded-image12-label">
+      <img src={image} alt="사용자 정보 수정" className="uploaded-image12" />
+    </label>
+  ) : imageSrc ? (
+    <label htmlFor="image-upload" className="uploaded-image12-label">
+      <img src={`/img/cust/${imageSrc}`} alt="사용자 정보 수정" className="uploaded-image12" />
+    </label>
+  ) : (
+    <label htmlFor="image-upload" className="upload-label">
+      <AiOutlineCamera className="camera-icon" />
+    </label>
+  )}
+  <input
+    type="file"
+    id="image-upload"
+    onChange={handleImageChange}
+    style={{ display: 'none' }}
+  />
+</div>
 
             <div className="overlap-group">
             </div>
