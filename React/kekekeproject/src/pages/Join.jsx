@@ -5,7 +5,7 @@ import axios from 'axios';
 import API_URL from '../api_url';
 import { useNavigate } from 'react-router-dom';
 import '../css/Join.css'
-
+import Swal from 'sweetalert2'
 
 
 
@@ -56,15 +56,36 @@ const Join = () => {
     })
       .then(response => { // status(200) 인 경우
           console.log(response.data);
-          alert(response.data.message);
-          navigate('/login');
+          Swal.fire({
+            title: '로그인 성공!',
+            text: '케케케에 오신걸 환영합니다~',
+            imageUrl:
+              'https://cdn.class101.net/images/02279595-b8f5-4753-8d57-0000d8ac64ae',
+            imageWidth: 250,
+            imageHeight: 300,
+            imageAlt: 'Custom image',
+            showConfirmButton: true, // 확인 버튼 표시
+            timer: 2000, // 모달이 자동으로 닫히는 시간 (예: 2초)
+            customClass: {
+              confirmButton: 'custom-swal-button', // 사용자 지정 CSS 클래스 적용
+            },
+          }).then(() => {
+            // 일정 시간(2초)이 지난 후에 페이지를 리다이렉트
+            window.location.href = '/login';
+          });
           // 성공적으로 로그인되었을 때 처리
           // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
           // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
       })
       .catch(error => { // status(200)이 아닌 경우 ex status(500)
         // console.error('에러', error, error.response.data);
-        alert(error.response.data.message)
+        Swal.fire({
+        
+          icon: "warning",
+          title: "빈칸이 존재합니다!",
+          showConfirmButton: false,
+          timer: 1500
+        });
       });
           
   
@@ -82,11 +103,22 @@ const Join = () => {
       axios.post(url,data)
         .then(response=>{
           console.log(response.data);
-          alert(response.data.message)
+          Swal.fire({
+            icon: "success",
+            title: "사용 가능한 닉네임입니다.",
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
         .catch(error => {
           console.log(error);
-          alert(error.response.data.message)
+          Swal.fire({
+        
+            icon: "error",
+            title: "이미 존재하는 닉네임입니다.",
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
     }
     const handlecheckid = () => {
@@ -96,11 +128,22 @@ const Join = () => {
       axios.post(url,data)
         .then(response=>{
           console.log(response.data);
-          alert(response.data.message)
+          Swal.fire({
+            icon: "success",
+            title: "사용 가능한 아이디입니다.",
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
         .catch(error => {
           console.log(error);
-          alert(error.response.data.message)
+          Swal.fire({
+        
+            icon: "error",
+            title: "이미 존재하는 아이디입니다.",
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
     }
 

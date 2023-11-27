@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
+import Swal from 'sweetalert2'
 
 import { useNavigate } from 'react-router-dom';
 import BlueBg from '../component/BlueBg';
@@ -193,9 +194,14 @@ export const TourOrder = () => {
   // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
   const submitOrder = async() => {
     if (cust_id === null){
-      alert('로그인 후 다시 오세요')
-      //로그인창으로 보내버리는 로직 마지막에 구현하기
-      navigate('/login')
+      Swal.fire({
+      
+        title: "로그인을 완료 한 후 다시 오세요!",
+        icon: "error"
+      }).then(() => {
+        // 일정 시간(2초)이 지난 후에 페이지를 리다이렉트
+        window.location.href = '/login';
+      });
     }
     const url = `${API_URL}/order/orders`;
 
