@@ -129,14 +129,6 @@ useEffect(() => {
   
     console.log('Payload:', payload);
 
-  const handleNumberChange = (e, setterFunction) => {
-    const value = e.target.value;
-    const numberValue = parseFloat(value); // 입력값을 숫자로 변환합니다.
-    // 입력값이 숫자이고 양수인 경우에만 상태를 업데이트합니다.
-    if (!isNaN(numberValue) && numberValue >= 0) {
-      setterFunction(value); // 상태 업데이트 함수를 호출합니다.
-    }
-
   };
 
 
@@ -239,6 +231,6 @@ useEffect(() => {
       </AdBG>
     </div>
   )
-}}
+}
 
-export default PMOption;
+export default PMOption 
