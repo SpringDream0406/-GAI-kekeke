@@ -21,6 +21,14 @@ const MpOrderList = () => {
   const [custId, setCustId] = useState(initialCustId);
   const [additionalData, setAdditionalData] = useState(null); // 추가 커스텀데이터 목록
   
+  
+  // 날짜를 "YYYY-MM-DD" 형식으로 변환하는 함수
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  };
+
+  
 
  
   const closePopup = () => {
@@ -36,8 +44,7 @@ const MpOrderList = () => {
         const response = await axios.post(`${API_URL}/store/customorderlist`, { cust_id: custId });
         const formattedData = response.data.map(item => {
           // 날짜 포매팅
-          const pickupDate = new Date(item.PICKUP_DATE);
-          const formattedDate = pickupDate.toISOString().split('T')[0];
+          const formattedDate = item.PICKUP_DATE;
           
           // 시간 포매팅 (HH:mm 형식)
           const formattedTime = item.PICKUP_TIME.slice(0, 5);
@@ -81,15 +88,8 @@ const MpOrderList = () => {
       fetchData();
     },[custId]);
 
-    //일반상품날짜 정렬
-    userOrders.sort((a, b) => {
-      // 날짜를 Date 객체로 변환하여 비교
-      const dateA = new Date(a.PICKUP_DATE);
-      const dateB = new Date(b.PICKUP_DATE);
-      
-      // 내림차순 정렬
-      return dateB - dateA;
-    });
+  
+    
 
 
     // 커스텀제품 상태업데이트(리뷰쓰면 그거 적용되는코드)
@@ -119,26 +119,16 @@ const MpOrderList = () => {
 
 
 
-  // 날짜를 받아서 "YYYY-MM-DD" 형식으로 변환하는 함수
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고 2자리로 맞춤
-  const day = String(date.getDate()).padStart(2, '0'); // 일도 2자리로 맞춤
-  return `${year}-${month}-${day}`;
-}
 
 
 // 일반상품이랑 커스텀상품 배열합침
 const [combinedOrders, setCombinedOrders] = useState([]);
 useEffect(() => {
   if (userOrders && customOrders) { // userOrders와 customOrders가 둘 다 유효한 경우에만 실행
+
+
     
-  // 날짜 포매팅을 위한 함수
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toISOString().split('T')[0]; // "YYYY-MM-DD" 형식으로 변환
-  };  
+
    // 일반 주문과 커스텀 주문을 하나의 배열로 합칩니다
    const combinedOrders = [
     ...userOrders.map(order => ({ ...order, formattedDate: formatDate(order.PICKUP_DATE), orderType: 'user' })),
@@ -153,6 +143,9 @@ useEffect(() => {
 }
 }, [userOrders, customOrders]);
 
+useEffect(() => {
+  console.log('Combined Orders:', combinedOrders);
+}, [combinedOrders]);
 
 // 이미지 경로 변환 함수 커스텀
 const formatImagePath = (path) => {
@@ -185,7 +178,7 @@ const openPopup = (orderDetail, orderType) => {
               <div className="order-content">
                 <div className="order-date-status">
                   <h2 className="pickup-date">{order.formattedDate}</h2>
-                  <div className="order-status"> {order.CONS_OR_OC ? `${order.CONS_OR_OC} | ${formatDate(order.SALE_DY)}` : `만들까말까 | ${formatDate(order.SALE_DY)}`}</div>
+                  <div className="order-status"> {order.CONS_OR_OC ? `${order.CONS_OR_OC} | ${formatDate(order.SALE_DY)}` : `주문완료 | ${formatDate(order.SALE_DY)}`}</div>
                 </div>
                 <div className="order-description">
                   <p className="cake-size-flavor">{`케이크 사이즈: ${order.CAKE_SIZE} | 케이크 맛: ${order.CAKE_FLAVOR}`}</p>
@@ -214,7 +207,7 @@ const openPopup = (orderDetail, orderType) => {
               <div className="order-content">
                 <div className="order-date-status">
                   <h2 className="pickup-date">{order.formattedDate}</h2>
-                  <div className="order-status"> {order.CONS_OR_OC ? `${order.CONS_OR_OC} | ${formatDate(order.PICKUP_DATE)}` : `만들까말까 | ${formatDate(order.PICKUP_DATE)}`}</div>
+                  <div className="order-status"> {order.CONS_OR_OC ? `${order.CONS_OR_OC} | ${formatDate(order.PICKUP_DATE)}` : `주문완료 | ${formatDate(order.PICKUP_DATE)}`}</div>
                 </div>
                 <div className="order-description">
                 <p className="cake-size-flavor">{`케이크 사이즈: ${order.CAKE_SIZE} | 케이크 맛: ${order.CAKE_FLAVOR}`}</p>

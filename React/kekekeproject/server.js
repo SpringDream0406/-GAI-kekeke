@@ -9,7 +9,7 @@ const storeRouter = require('./routes/store')
 const sampleRouter = require('./routes/sample')
 const orderRouter = require('./routes/order')
 const chatRouter = require('./routes/chating')
-
+const cationRouter = require('./routes/cation')
 
 app.use(cors()); // react와 node 방화벽 제거
 app.use(bodyParser.json()); // form 파싱
@@ -19,10 +19,11 @@ app.use(express.static('public'));
 app.use('chat', chatRouter);
 app.use('/cust', custRouter); // 구매자 라우터
 app.use('/seller', sellerRouter); // 판매자 라우터
-app.use('/product', productRouter);
-app.use('/store',storeRouter); // 
+app.use('/product', productRouter); // 상품 라우터
+app.use('/store',storeRouter); // 가게정보 라우터
 app.use('/sample',sampleRouter);// 샘플케이크
-app.use('/order', orderRouter);
+app.use('/order', orderRouter); //주문 라우터
+app.use('/cation' , cationRouter);//알림 라우터
 
 app.set('port', process.env.PORT || 3333);
 app.listen(app.get('port'));

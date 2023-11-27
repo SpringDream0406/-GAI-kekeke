@@ -6,6 +6,7 @@ const { query } = require('../config/poolDatabase');
 const path = require('path'); // 경로 작성 방법 변경
 const multer = require('multer'); // 이미지 처리
 const { imgStorage, custom_fileFilter } = require('../config/imgStorage');
+const conn = require('../config/database');
 
 
 
@@ -112,6 +113,66 @@ const upload = multer({ storage: storage }).fields([
         }
     });
 
+    //판매자 페이지에서 옵션 저장
+    router.post('/saveoption', async (req, res) => {
+        try {
+          const { flavors, sizes, letteringGuide, sellerId } = req.body;
+      
+          await query('START TRANSACTION');
+      
+          // 셀러 ID에 해당하는 기존 옵션 삭제
+          await query('DELETE FROM TB_FLAVOR_OPT WHERE SELLER_ID = ?', [sellerId]);
+          await query('DELETE FROM TB_SIZE_OPT WHERE SELLER_ID = ?', [sellerId]);
+          await query('DELETE FROM TB_LET WHERE SELLER_ID = ?', [sellerId]);
+      
+          // 새 옵션 데이터 추가
+          for (const flavorData of flavors) {
+            let sql1 = 'INSERT INTO TB_FLAVOR_OPT (FLAVOR_NAME, ADD_MONEY, SELLER_ID) VALUES (?, ?, ?)';
+            await query(sql1, [flavorData.flavor, flavorData.cost, sellerId]);
+          }
+          
+          for (const sizeData of sizes) {
+            let sql2 = 'INSERT INTO TB_SIZE_OPT (SIZE, ADD_MONEY, SELLER_ID) VALUES (?, ?, ?)';
+            await query(sql2, [sizeData.size, sizeData.cost, sellerId]);
+          }
+      
+          let sql3 = 'INSERT INTO TB_LET (LET_TEXT, SELLER_ID) VALUES (?, ?)';
+          await query(sql3, [letteringGuide, sellerId]);
+      
+          await query('COMMIT');
+          res.status(200).send({ message: '옵션 저장 성공' });
+        } catch (error) {
+          await query('ROLLBACK');
+          console.error(`SQL 에러 : ${error}`);
+          res.status(500).send({ message: '서버 오류 발생' });
+        }
+      });
+
+      //둘러보기페이지 사용자가입력한 옵션 보여주기
+      router.post('/loadoption', async (req, res) => {
+        try {
+          const { seller_id } = req.body;
+      
+          // 케이크 맛 옵션을 가져오는 쿼리
+          const flavorQuery = 'SELECT * FROM TB_FLAVOR_OPT WHERE SELLER_ID = ?';
+          const flavors = await query(flavorQuery, [seller_id]);
+      
+          // 케이크 크기 옵션을 가져오는 쿼리
+          const sizeQuery = 'SELECT * FROM TB_SIZE_OPT WHERE SELLER_ID = ?';
+          const sizes = await query(sizeQuery, [seller_id]);
+      
+          // 클라이언트에 반환할 데이터
+          const options = {
+            flavors,
+            sizes
+          };
+      
+          res.status(200).json(options);
+        } catch (error) {
+          console.error(`데이터 로드 중 에러 발생: ${error}`);
+          res.status(500).send({ error: '서버 오류 발생' });
+        }
+      });
 
 
 module.exports = router;
