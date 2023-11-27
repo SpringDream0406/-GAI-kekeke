@@ -1,4 +1,10 @@
-
+.custom-swal-button {
+  background-color: #ffa0b7 !important; /* 버튼 배경색을 빨간색으로 설정 */
+  color: white !important; /* 버튼 텍스트 색상을 흰색으로 설정 */
+  border:2px solid #ffa0b7 !important;
+  /* 기타 원하는 스타일을 여기에 추가할 수 있습니다 */
+  font-family: 'Pretendard-bold';
+}
 
 .login-container{
   
