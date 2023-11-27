@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect,useInsertionEffect,useState } from "react";
 import "../css/TourCompleteOrder.css";
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
@@ -11,9 +11,9 @@ const TourCompleteOrder = () => {
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
   const location = useLocation();
   const orderData = location.state?.orderData;
-  console.log("여기서받으면됩니다용", orderData)
   const [custid, setCustId] = useState()
-
+  const [customInfo, setCustomInfo] = useState(null);
+ 
   
   // 구매자 ID(cust_id불러오기)
   useEffect(() => {
@@ -49,36 +49,57 @@ const TourCompleteOrder = () => {
  }
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
-
- 
-
-  useEffect(() => { //prd_id를가지고 데이터를 가져올거임 tourDetContainer
-    const postData = async () => {
+  useEffect(() => { //cust_id를가지고  커스텀데이터 조회
+    const custData = async () => {
       try {
-        const response = await axios.post(`${API_URL}/store/tour-order`, { prd_id: prd_id });
+        const response = await axios.post(`${API_URL}/store/custom`, { cust_id :custid });
         const data = response.data[0];
-        console.log(data);
-        setStoreInfo({
-          prd_img : `/img/product/${data.IMG_NAME2}`
-        })
       
+        setCustomInfo(response.data); // 수정된 부분: 응답 데이터를 상태에 저장
+        
         console.log('응답:', response.data);
       } catch (error) {
         console.error('오류:', error);
       }
     };
+   
+    if (custid) {
+      custData();
+ }
+  }, [custid]); // custid 의존성 배열에 추가하여 custid 값이 변경될 때마다 실행
   
-    if (prd_id) {
-      postData();
-    }
-  }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
-
-
+  //커스텀 이미지가 널일경우
+  useEffect(() => {
+    const imagePath = customInfo?.CUSTOM_IMG || "/img/cust/pzzzz12.png";
+    console.log(imagePath.split("\\").join("/"));
+  }, [customInfo]);
+ 
+ // customInfo 상태가 변경될 때마다 실행되는 useEffect
+ useEffect(() => {
+  if (customInfo) {
+    const imagePath = customInfo.CUSTOM_IMG ? customInfo.CUSTOM_IMG.split("\\").join("/") : "이미지  없음";
+    console.log(imagePath);
+    console.log("커스텀아이디", customInfo?.CUSTOM_ID );
+  }
+}, [customInfo]);
 
   return (
     <div className="tour-detail-container">
       <div className="tco-mt">주문내역 확인</div>
-      <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className="tco-cakeimg" alt="케이크1"/>
+      {storeInfo ? (
+    <img src={storeInfo.prd_img} className="tco-cakeimg" alt="케이크" />
+  ) : (
+    <>
+    <div className="image-container123">
+      {customInfo && customInfo.CUSTOM_IMG && (
+        <img src={`/${customInfo.CUSTOM_IMG.substring("public/".length)}`} className="tco-cakeimg2" alt="케이크1" />
+      )}
+      {customInfo && customInfo.CUST_DRAW && (
+        <img src={`/${customInfo.CUST_DRAW.substring("public/".length)}`} className="tco-cakeimg2" alt="케이크2" />
+      )}
+    </div>
+    </>
+  )}
 
       <div className="tco-mt-container">
         <div className="tco-mt-1">
@@ -108,30 +129,29 @@ const TourCompleteOrder = () => {
           가격 :
         </div>
       </div>
-
-
+      
       <div className="tco-st-container">
         <div className="tco-st-1">
-        {orderData ? `${orderData.order_name}` : ""}
+        {orderData ? orderData.order_name : (customInfo ? customInfo.CLIENT_NAME : "정보없음")}
         </div>
        
         <div className="tco-st-2">
-        {orderData ? `${orderData.order_num}` : ""}
+         {orderData ? orderData.order_num : (customInfo ? customInfo.CLIENT_NUM : "정보없음")}
         </div>
 
         <div className="tco-st-3">
-        {orderData ? `${orderData.cake_size}` : ""}
+        {orderData ? orderData.cake_size : (customInfo ? customInfo.CAKE_SIZE : "정보없음")}
         </div>
 
         <div className="tco-st-4">
-        {orderData? `${orderData.cake_flavor}` : ""}
+       {orderData ? orderData.cake_flavor : (customInfo ? customInfo.CAKE_FLAVOR : "정보없음")}
         </div>
         <div className="tco-st-5">
-        {orderData? `${orderData.lettering}` : ""}
+        {orderData ? orderData.lettering : (customInfo ? customInfo.CKAE_DETAIL : "정보없음")}
         </div>
 
         <div className="tco-st-6">
-        {orderData ? `${orderData.add_require}` : '추가요청사항없음'}
+        {orderData ? orderData.add_require : (customInfo ? customInfo.ADD_DETAIL : "정보없음")}
         </div>
 
         <div className="tco-st-7">
@@ -141,10 +161,16 @@ const TourCompleteOrder = () => {
 
 
     <div className="tco-btn-container">
-      <Link to={'/message'} className='tco-msgbtn'>문의하기</Link>
+      <Link to={{
+        pathname: '/message',
+        state: { CUSTOM_ID: customInfo?.CUSTOM_ID } // storeInfo에서 customId 전달
+        }}  className='tco-msgbtn'>문의하기</Link>
 
-      <Link to={'/mporderlist'} className = 'tco-okbtn'> 확인</Link>
-      
+        <Link to={{
+          pathname: '/mporderlist',
+          state: { CUSTOM_ID: customInfo?.CUSTOM_ID }
+        }} className='tco-okbtn'> 확인</Link>
+              
     </div>
 
     <BlueBg top={340} height={2300}/>

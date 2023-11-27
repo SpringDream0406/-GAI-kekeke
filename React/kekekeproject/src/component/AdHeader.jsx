@@ -87,7 +87,7 @@ color: black;
 
 const Ad_Header = () => {  
  
-
+const [sellerImg , setSellerImg] = useState(null);
 
 
   // 세션 스토리지에서 데이터 불러오기
@@ -96,6 +96,7 @@ useEffect(() => {
   if (adminStorageData) {
     const adminData = JSON.parse(adminStorageData);
     setSellerInfo(adminData);
+    setSellerImg(adminData.seller_profile1);
   }
 }, []);
 
@@ -143,7 +144,7 @@ const [isDropdownOpen, setDropdownOpen] = useState(false);
             <div className="view-3" />
             </Link>
              <div className="ellipse-wrapper"  onClick={toggleDropdown}>
-                   <img className="ellipse" src="/assets/images/cake1.jpg" alt="케이크2"/>
+                   <img className="ellipse" src={`/img/seller/${sellerImg}`} alt="케이크2"/>
                    {isDropdownOpen && (
           <AdSubMenu>
             {/* 드롭다운 메뉴 내용 */}

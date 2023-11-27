@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import '../ad_css/AdminMypage.css';
 import { AiOutlineCamera } from 'react-icons/ai';
 import AdMenubar from '../component/AdMenubar';
@@ -10,9 +10,24 @@ const AdminMypage = () => {
 
   // ***** 사용자 정보 데이터 (임시)
 
-  const [nickname, setNickname] = useState('케로로'); // 임의의 초기 닉네임
+  const [nickname, setNickname] = useState(''); // 임의의 초기 닉네임
   const [password, setPassword] = useState(''); // 임의의 초기 비밀번호
-  const [phone, setPhone] = useState('010-1234-5678'); // 임의의 초기 전화번호
+  const [phone, setPhone] = useState(''); // 임의의 초기 전화번호
+  const [sellerImg , setSellerImg] = useState(null)
+
+  const [sellerinfo, setSellerInfo] = useState();
+
+    // 세션 스토리지에서 데이터 불러오기
+useEffect(() => {
+  const adminStorageData = sessionStorage.getItem('adminData');
+  if (adminStorageData) {
+    const adminData = JSON.parse(adminStorageData);
+    setSellerInfo(adminData);
+    setNickname(adminData.user_name)
+    setPhone(adminData.phone)
+    setSellerImg(adminData.seller_profile1)
+  }
+}, []);
 
   // 비밀번호 확인 상태 추가
   const [confirmPassword, setConfirmPassword] = useState('');

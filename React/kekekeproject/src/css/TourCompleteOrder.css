@@ -25,6 +25,14 @@
   border-radius: 20px;
 }
 
+.tco-cakeimg2 {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  position: relative; /* 또는 absolute, 부모 요소에 따라 다름 */
+  top: -200px;
+  background-color: white;
+}
 .tco-st-container{
   position: absolute;
   text-align: right;
@@ -113,3 +121,4 @@
   background-color: rgb(188, 188, 188);
   color: white;
 }
+

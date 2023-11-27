@@ -3,7 +3,8 @@ import io from 'socket.io-client';
 import '../css/Chatroom.css';
 
 // 소켓 연결을 컴포넌트 외부에서 한 번만 생성합니다.
-const socket = io('http://localhost:4000');
+const socket = io('http://localhost:4000', { transports: ['websocket'] });
+
 
 const Chatroom = ({ roomId, sender, adminStyle }) => {
   const [message, setMessage] = useState('');

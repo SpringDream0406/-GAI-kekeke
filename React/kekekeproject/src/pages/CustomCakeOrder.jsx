@@ -147,7 +147,8 @@ const CustomCakeOrder = () => {
    }
  }
 
-  navigate('/tour-complete-order', { state: { customdata } });
+
+ 
 
  // 서버에 데이터 전송
  try {
@@ -155,7 +156,7 @@ const CustomCakeOrder = () => {
      headers: { 'Content-Type': 'multipart/form-data' }
      
    });
-  
+   navigate('/tour-complete-order', { state: { orderResponse: response.data } });
   
  } catch (error) {
    alert(error.response.data.message);
