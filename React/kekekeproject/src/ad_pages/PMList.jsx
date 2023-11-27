@@ -1,5 +1,3 @@
-// 상품 관리의 상품 목록 페이지
-
 import React, { useState } from 'react'
 import AdMT from '../ad_component/AdMT'
 import AdBG from '../ad_component/AdBG'
@@ -95,6 +93,15 @@ const PMList = () => {
     setEditingProductId(null); // 편집 모드 종료
   };
 
+  const handleNumberChange = (e, field) => {
+    const value = e.target.value;
+    // 입력값이 숫자이고 길이가 5자를 초과하지 않는 경우에만 상태를 업데이트합니다.
+    if (field === 'price' && value && value.toString().length <= 7) {
+      setEditProductDetails({ ...editProductDetails, [field]: value });
+    }
+  };
+  
+  
   // 편집 모드에서 입력 변경 핸들러
   const handleInputChange = (e, field) => {
     setEditProductDetails({ ...editProductDetails, [field]: e.target.value });
@@ -211,6 +218,8 @@ const handleImageUpdate = (newImageUrl) => {
 };
 
 
+
+
   return (
 
     <div>
@@ -268,11 +277,11 @@ const handleImageUpdate = (newImageUrl) => {
                   <input
                     type="number"
                     value={editProductDetails.price}
-                    onChange={(e) => handleInputChange(e, 'price')}
+                    onChange={(e) => handleNumberChange(e, 'price')}
                     className='PM-edit-input PM-edit-price'
                     step="1" // 소수점 입력 방지
                     min="0" // 0 이상의 값만 허용
-                    maxLength="7"
+                    maxLength="5"
                   />
                   <select
                     value={editProductDetails.status}
@@ -507,24 +516,29 @@ const ImageEditPopup = ({ existingImageUrl, onSave, onClose }) => {
   const [newImage, setNewImage] = useState(null);
   const [newImageFile, setNewImageFile] = useState(null);
   const fileInputRef = React.createRef(); // 파일 입력을 위한 ref 생성
-  
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // 기존 이미지 URL 해제
+      if (newImage) {
+        URL.revokeObjectURL(newImage);
+      }
+      // 새 이미지로 상태 업데이트
       setNewImage(URL.createObjectURL(file));
-      setNewImageFile(file);
+      setNewImageFile(file); // 새 이미지 파일 저장
     }
   };
 
   const handleImageClick = () => {
-    fileInputRef.current.click(); // 파일 입력 창을 트리거
+    // This will trigger the file input to open the file dialog
+    fileInputRef.current.click();
   };
+
 
   const handleSave = () => {
     if (newImageFile) {
-      // 파일 업로드 로직 구현
-      console.log('Image file to upload:', newImageFile);
-      // 파일 업로드 후 onSave 함수를 호출
+      onSave(newImageFile); // 새 이미지 파일을 onSave 함수를 통해 부모 컴포넌트에 전달
     } else {
       alert('변경할 이미지를 업로드해주세요.');
     }
@@ -535,21 +549,19 @@ const ImageEditPopup = ({ existingImageUrl, onSave, onClose }) => {
       <div className="imageEditPopupContainer">
         <div className="imageEditPopupHeader">이미지 수정</div>
         <div className="imageEditPopupContent">
-        {existingImageUrl && (
-            <img
-              src={existingImageUrl}
-              alt="Current"
-              className="current-image"
-              onClick={handleImageClick} // 이미지 클릭 이벤트 추가
-            />
-          )}
+        <img 
+            src={newImage || existingImageUrl} 
+            alt="Current" 
+            className='current-image'
+            onClick={handleImageClick} 
+          />
           <input
             type="file"
             onChange={handleImageChange}
             ref={fileInputRef}
             style={{ display: 'none' }} // 파일 입력 숨기기
           />
-          {newImage && <img src={newImage} alt="New Preview" />}
+          
           <div className="imageEditActions">
             <button onClick={handleSave}>저장</button>
             <button onClick={onClose}>취소</button>

@@ -1,0 +1,33 @@
+.key-mt{
+    font-family: 'Pretendard-bold';
+    font-size: 22px;
+    color: #61a4d5;
+    position: absolute;
+    top: 180px;
+    
+    left: 440px;
+}
+.key-btn-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-items: center;
+    position: absolute;
+    top: 230px;
+    left: 440px;
+}
+.key-btn{
+    cursor: pointer;
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+    color: rgb(178, 178, 178);
+    border: 2px solid rgb(178, 178, 178);
+    border-radius: 15px;
+    padding: 5px 20px;
+    background: none;
+}
+.key-btn:hover{
+    color: white;
+    background-color: #61a4d5;
+    border: 2px solid #61a4d5;
+}

@@ -3,6 +3,7 @@ import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
 import AdBG from '../ad_component/AdBG';
 import "../ad_css/AdminStoreInfo.css";
+import { useRef } from 'react';
 import { AiOutlineCamera } from 'react-icons/ai';
 import AdHeader from '../component/AdHeader'
 
@@ -62,19 +63,17 @@ const AdminStoreInfo = () => {
     }
 
 
-  const [image, setImage] = useState(null);
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onloadend = () => {
-      setImage(reader.result);
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // 변경된 이미지 URL을 상태에 설정합니다.
+          setUpdatedImg(reader.result);
+        };
+        reader.readAsDataURL(file);
+      }
     };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
 
 
   const [storeName] = useState('');
@@ -99,7 +98,22 @@ const AdminStoreInfo = () => {
   };
 
 
+ // 숨겨진 파일 입력을 위한 ref
+ const fileInputRef = useRef(null);
 
+ // 이미지 클릭 핸들러
+ const handleImageClick = () => {
+  fileInputRef.current.click(); // 숨겨진 파일 입력 필드를 클릭하도록 합니다.
+};
+
+// 기존 이미지 URL을 저장하는 상태
+const [originalImg, setOriginalImg] = useState(null);
+// 변경된 이미지 URL을 저장하는 상태
+const [updatedImg, setUpdatedImg] = useState(null);
+useEffect(() => {
+  // 기존 이미지 URL을 상태에 설정합니다.
+  setOriginalImg(`/img/seller/${sellerinfo.seller_profile1}`);
+}, [sellerinfo.seller_profile1]);
 
   return (
     <div>
@@ -110,18 +124,18 @@ const AdminStoreInfo = () => {
         <div className='admin-store-container'>
           <div className='store-text1'>가게 프로필</div>
               <div className="modify-picture">
-              {img ? (
-          <img src={`/img/seller/${img}`} alt="가게 프로필" className="modify_picture_uploaded" />
-        ) : (
-          <label htmlFor="image-upload" className="upload-label2">
-            <AiOutlineCamera className="camera-icon2" />
-            <span className='ll'>이미지 수정</span>
-          </label>
-        )}
+       
+          <img
+          src={updatedImg || originalImg} // 변경된 이미지가 있으면 그것을, 없으면 기존 이미지를 표시합니다.
+          alt="가게 프로필"
+          className="modify_picture_uploaded"
+          onClick={handleImageClick}
+        />
         <input
           type="file"
           id="image-upload"
-          onChange={handleImageChange}
+          ref={fileInputRef}
+          onChange={handleImageChange} 
           style={{ display: 'none' }}
         />
               </div>
