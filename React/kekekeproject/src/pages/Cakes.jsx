@@ -4,9 +4,8 @@ import "../css/Cake.css";
 import { Link } from 'react-router-dom'
 import axios from "axios";
 import API_URL from "../api_url";
-//import prdimg from '../../public/img/product/';
 import AdPagebtn from '../ad_component/AdPagebtn'
-import BlueBg from "../component/BlueBg";
+import Keyword from '../component/Keyword'
 
 
 /*둘러보기 케이크 리스트*/
@@ -98,9 +97,11 @@ const handleCakeClick = (selectedCake) =>{
 
   return (
     <div className="tour">
+      <Keyword />
       <div className="tour-contents-fr">
         <div className="tour-contents">
           {/* 상단 지역 선택 */}
+          <hr/>
           <div className="tour-locationbutton">
             <button
               className="locationbutton"

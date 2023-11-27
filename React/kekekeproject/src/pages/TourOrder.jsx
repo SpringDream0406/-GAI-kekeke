@@ -36,9 +36,8 @@ export const TourOrder = () => {
   const prd_id = searchParams.get('prd_id');
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
   const [cust_id, setCustId] = useState(null);
-
- 
-
+  const [flavorOptions, setFlavorOptions] = useState([]);
+  const [sizeOptions, setSizeOptions] = useState([]);
 
 
   const selectedCake = location.state && JSON.parse(location.state.cake);
@@ -55,6 +54,9 @@ export const TourOrder = () => {
   }, []);
 
 
+
+
+
   useEffect(() => { //prd_id를가지고 데이터를 가져올거임 tourDetContainer
     const postData = async () => {
       try {
@@ -69,8 +71,8 @@ export const TourOrder = () => {
            prd_name : data.PRD_NAME,
            cake_detail : data.CAKE_DETAIL,
            seller_id : data.SELLER_ID,
-           prd_img : `/img/product/${data.IMG_NAME2}`
-           
+           prd_img : `/img/product/${data.IMG_NAME2}`,
+           prd_atm :data.PRD_AMT
         })
       
         console.log('응답:', response.data);
@@ -85,8 +87,25 @@ export const TourOrder = () => {
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
 
-
-
+  useEffect(() => {
+    const fetchOptions = async () => {
+      if (storeInfo && storeInfo.seller_id) {
+        try {
+          const response = await axios.post(`${API_URL}/order/loadoption`, { seller_id: storeInfo.seller_id });
+          console.log("서버 응답:", response); // 서버로부터의 응답 전체를 로그로 출력
+          setFlavorOptions(response.data.flavors);
+          setSizeOptions(response.data.sizes);
+        } catch(error) {
+          console.log("옵션 불러오기 오류", error);
+        }
+      }
+    };
+  
+    if (storeInfo && storeInfo.seller_id) {
+      fetchOptions();
+    }
+  
+  }, [storeInfo]);
  
 
  

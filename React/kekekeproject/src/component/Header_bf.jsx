@@ -68,6 +68,7 @@ const NavManu = styled.ul`
     color: black;
     font-family: 'Pretendard-Regular';
     display: block;
+    cursor: pointer;
     padding: 10px 15px;
   }
 
