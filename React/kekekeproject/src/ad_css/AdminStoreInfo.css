@@ -53,6 +53,7 @@
     background-color: #eeeeee;
     top: -100px;
     left : 545px;
+    cursor: pointer;
     position: relative;
     width: 200px; /* 가게 프로필 이미지의 가로 너비 */
     height: 200px; /* 가게 프로필 이미지의 세로 높이 */

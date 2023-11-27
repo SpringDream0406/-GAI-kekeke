@@ -21,18 +21,18 @@ const AdMain = () => {
     { id: 4, cakeName: 'ㅇㅇ케이크', userName: '김은호', orderDate: '2023.03.10' },
     { id: 5, cakeName: 'ㅇㅇ케이크', userName: '김용민', orderDate: '2023.03.10' },
   ]);
-  // 주문 목록 렌더링 함수
   const renderOrderList = () => {
     return orders.map((order) => (
-      <Link key={order.id} className='admain-list-all' to={`/order/${order.id}`}> {/* 임시 */}
-
+      <div key={order.id} className='admain-list-all'> {/* 임시 */}
+  
         <div className='adlist-cname'>{order.cakeName}</div>
         <div className='adlist-uname'>{order.userName}</div>
         <div className='adlist-listday'>{order.orderDate}</div>
         <hr className='adlist-hr' />
-      </Link>
+      </div>
     ));
   };
+  
 
 
   return (

@@ -10,7 +10,14 @@ import interactionPlugin from '@fullcalendar/interaction'; // 사용자 상호�
 // 간단한 모달 컴포넌트 예시입니다. 실제 사용할 모달은 이보다 복잡할 수 있습니다.
 const QuantityModal = ({ isOpen, onClose, date, onQuantitySubmit }) => {
   const [quantity, setQuantity] = useState('');
-
+  
+  const handleQuantityChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 4) {
+      setQuantity(parseInt(value, 10));
+    }
+  };
+  
 
 
   if (!isOpen) {
@@ -24,7 +31,7 @@ const QuantityModal = ({ isOpen, onClose, date, onQuantitySubmit }) => {
             className='modalinput'
             type="number"
             value={quantity}
-            onChange={e => setQuantity(e.target.value ? parseInt(e.target.value, 10) : 0)}
+            onChange={handleQuantityChange}
               min="0" // 최소값을 0으로 설정
               step="1" // 증가하는 단위를 1로 설정하여 정수만 입력받음
           />

@@ -86,6 +86,7 @@ useEffect(() => {
 
   const [letteringText, setLetteringText] = useState(''); // 레터링 안내문구 상태
 
+
   const saveOptions = async () => {
     // 케이크 맛과 크기 정보를 JSON 형식으로 변환
     const payload = {
@@ -127,6 +128,15 @@ useEffect(() => {
     }
   
     console.log('Payload:', payload);
+
+  const handleNumberChange = (e, setterFunction) => {
+    const value = e.target.value;
+    const numberValue = parseFloat(value); // 입력값을 숫자로 변환합니다.
+    // 입력값이 숫자이고 양수인 경우에만 상태를 업데이트합니다.
+    if (!isNaN(numberValue) && numberValue >= 0) {
+      setterFunction(value); // 상태 업데이트 함수를 호출합니다.
+    }
+
   };
 
 
@@ -153,7 +163,12 @@ useEffect(() => {
                      type='number'
                      placeholder='추가 금액을 입력해주세요'
                      value={additionalCost}
-                     onChange={(e) => setAdditionalCost(e.target.value)}
+                     onChange={(e) => {
+                      // Make sure the input value is not longer than 7 digits
+                      if (e.target.value.length <= 7) {
+                        setAdditionalCost(e.target.value);
+                      }
+                    }}
                      min={0}
               />
             </div>
@@ -175,15 +190,22 @@ useEffect(() => {
                 value={cakeSize}
                 onChange={(e)=>setCakeSize(e.target.value)}></input>
             </div>
-            <div className='pmoption_screen5'>
-              <input className='taste_cost'
-                     type='number'
-                     placeholder='추가 금액을 입력해주세요'
-                     value={additionalCost2}
-                     onChange={(e) => setAdditionalCost2(e.target.value)}
-                     min={0}
-              />
-            </div>
+           
+<div className='pmoption_screen5'>
+  <input className='taste_cost'
+         type='number'
+         placeholder='추가 금액을 입력해주세요'
+         value={additionalCost2} // 이 부분을 setAdditionalCost2로 바꿔야 합니다.
+         onChange={(e) => {
+          // Make sure the input value is not longer than 7 digits
+          if (e.target.value.length <= 7) {
+            setAdditionalCost2(e.target.value); // 이 부분도 setAdditionalCost2로 바꿔야 합니다.
+          }
+        }}
+         min={0}
+  />
+</div>
+
             <div className='pmoption_screen6'>
               <div className='add_button' onClick={addFlavorAndCost2}>+</div>
             </div>
@@ -217,6 +239,6 @@ useEffect(() => {
       </AdBG>
     </div>
   )
-}
+}}
 
-export default PMOption 
+export default PMOption;

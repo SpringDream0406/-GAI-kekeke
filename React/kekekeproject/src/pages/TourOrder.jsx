@@ -240,19 +240,22 @@ export const TourOrder = () => {
     <div className="to-div">
       <div>
       <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
+     
     <div className="to-cakename"
     value={cake_name}
     > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
     </div>
 
-    <div>
-      <div className='co-cakesm'>케이크 설명</div>
+    <div className='co-cake-sm-container'>
+      
       <div className='co-cakesmct'
       >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
     </div>
+    <div className='co-money-container'>
+          <div className="co-cakemoneytt">가격</div>
+          <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
+          <div className='co-cakemoney'>원</div>
+          </div>
 
       <div className="to-cakeflavortitle">케이크 맛 선택
       </div>
@@ -363,6 +366,8 @@ export const TourOrder = () => {
                     value={order_num}
                     onChange={(e)=>setOrderNum(e.target.value)}
                   />
+
+     <div className='to-time-container'>
       <div className="to-time">픽업 시간</div>
       <DatePicker
         selected={pickup_time}
@@ -377,8 +382,9 @@ export const TourOrder = () => {
         value={pickup_time}
         customInput={<TimeInput />} // Use the TimeInput component for time picker
       />
+      </div>
       
-   
+    <div className='to-day-container'>
       <div className="to-daytitle">픽업 날짜</div>
       <div className='to-datepicker-container'>
       <DatePicker 
@@ -390,7 +396,7 @@ export const TourOrder = () => {
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
       />
       </div>
-
+      </div>
       </div>
       
       <div className="to-usernametitle">예약자 성함</div>
@@ -401,10 +407,7 @@ export const TourOrder = () => {
                     onChange={(e)=>setOrderName(e.target.value)}
                   />
           </div>
-          <div className="co-cakemoneytt">가격</div>
-          <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
-          <div className='co-cakemoney'>원</div>
-      
+       
     </div>
 
      

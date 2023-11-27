@@ -12,7 +12,7 @@
 .tour .tour-contents {
   height: 1515px;
   position: relative;
-  top: 150px;
+  top: 190px;
   width: 1020px;
 
 }
@@ -26,7 +26,7 @@
 }
 
 .locationbutton {
-  border: 5px solid #61a4d5; /* 테두리 색상 적용 */
+  border: 3px solid #61a4d5; /* 테두리 색상 적용 */
   background-color: #ffffe7; /* 배경색 적용 */
   border-radius: 30px; /* 테두리 둥글기 적용 */
   color: #61a4d5; /* 글씨 색상 적용 */
