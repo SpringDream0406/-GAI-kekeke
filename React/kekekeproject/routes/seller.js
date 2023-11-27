@@ -6,8 +6,9 @@ const { sellerjoin_check, join_res } = require('../config/join');
 const { md5Hash } = require('../config/crypto');
 const { getNowTime } = require('../config/getNowTime');
 const { imgStorage, seller_fileFilter } = require('../config/imgStorage');
-const { query } = require('../config/poolDatabase')
-
+const { query } = require('../config/poolDatabase');
+const { route } = require('./store');
+const conn = require('../config/database'); // DB 연결
 
 
 
@@ -268,6 +269,8 @@ router.post('/sellerorderlist', async (req, res) => {
         res.status(500).send({ message: '서버에러'});
     }
 })
+
+
 
 
 module.exports = router;
