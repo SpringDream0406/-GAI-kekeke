@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 import '../css/Chatroom.css';
 
@@ -9,6 +9,18 @@ const socket = io('http://localhost:4000', { transports: ['websocket'] });
 const Chatroom = ({ roomId, sender, adminStyle }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+
+// 메시지 리스트의 DOM 참조를 위한 ref 생성
+const messageListRef = useRef(null);
+
+// 메시지 목록이 업데이트될 때마다 스크롤 위치를 조정하는 useEffect
+useEffect(() => {
+  // 새 메시지가 추가될 때 마다 스크롤을 맨 아래로 이동시킵니다.
+  if (messageListRef.current) {
+    const { scrollHeight, clientHeight } = messageListRef.current;
+    messageListRef.current.scrollTop = scrollHeight - clientHeight;
+  }
+}, [messages]);
 
   useEffect(() => {
     // 'join room' 이벤트를 서버로 보내어 현재 채팅방에 참여합니다.
@@ -45,7 +57,7 @@ const Chatroom = ({ roomId, sender, adminStyle }) => {
 
   return (
     <div className="chat-room">
-      <div className="message-list">
+     <div className="message-list" ref={messageListRef}>
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender === sender ? 'my-message' : 'other-message'}`}>
             {msg.text}

@@ -144,6 +144,7 @@
   }
   .chatForm {
     display: flex;
+    overflow-y: auto;
     padding-top: 20px;
   }
   
