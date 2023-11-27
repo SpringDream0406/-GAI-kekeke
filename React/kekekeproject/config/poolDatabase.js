@@ -14,10 +14,15 @@ const pool = mysql.createPool({
 async function query(sql, values) {
     const connection = await pool.getConnection();
     try {
-        const [rows] = await connection.execute(sql, values);
+        let rows;
+        if (values) {
+            [rows] = await connection.execute(sql, values);
+        } else {
+            [rows] = await connection.query(sql);
+        }
         return rows;
     } finally {
-        connection.release(); // 사용이 끝난 커넥션을 다시 풀에 반환
+        connection.release();
     }
 }
 module.exports = { pool, query };

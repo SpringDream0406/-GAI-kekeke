@@ -37,9 +37,8 @@ export const TourOrder = () => {
   const prd_id = searchParams.get('prd_id');
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
   const [cust_id, setCustId] = useState(null);
-
- 
-
+  const [flavorOptions, setFlavorOptions] = useState([]);
+  const [sizeOptions, setSizeOptions] = useState([]);
 
 
   const selectedCake = location.state && JSON.parse(location.state.cake);
@@ -56,6 +55,9 @@ export const TourOrder = () => {
   }, []);
 
 
+
+
+
   useEffect(() => { //prd_id를가지고 데이터를 가져올거임 tourDetContainer
     const postData = async () => {
       try {
@@ -70,8 +72,8 @@ export const TourOrder = () => {
            prd_name : data.PRD_NAME,
            cake_detail : data.CAKE_DETAIL,
            seller_id : data.SELLER_ID,
-           prd_img : `/img/product/${data.IMG_NAME2}`
-           
+           prd_img : `/img/product/${data.IMG_NAME2}`,
+           prd_atm :data.PRD_AMT
         })
       
         console.log('응답:', response.data);
@@ -86,8 +88,25 @@ export const TourOrder = () => {
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
 
-
-
+  useEffect(() => {
+    const fetchOptions = async () => {
+      if (storeInfo && storeInfo.seller_id) {
+        try {
+          const response = await axios.post(`${API_URL}/order/loadoption`, { seller_id: storeInfo.seller_id });
+          console.log("서버 응답:", response); // 서버로부터의 응답 전체를 로그로 출력
+          setFlavorOptions(response.data.flavors);
+          setSizeOptions(response.data.sizes);
+        } catch(error) {
+          console.log("옵션 불러오기 오류", error);
+        }
+      }
+    };
+  
+    if (storeInfo && storeInfo.seller_id) {
+      fetchOptions();
+    }
+  
+  }, [storeInfo]);
  
 
  
@@ -224,22 +243,19 @@ export const TourOrder = () => {
     <div className="to-div">
       <div>
       <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
-     
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
+      <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
     <div className="to-cakename"
     value={cake_name}
     > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
     </div>
 
-    <div className='co-cake-sm-container'>
-      
+    <div>
+      <div className='co-cakesm'>케이크 설명</div>
       <div className='co-cakesmct'
       >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
     </div>
-    <div className='co-money-container'>
-          <div className="co-cakemoneytt">가격</div>
-          <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
-          <div className='co-cakemoney'>원</div>
-          </div>
 
       <div className="to-cakeflavortitle">케이크 맛 선택
       </div>
@@ -350,8 +366,6 @@ export const TourOrder = () => {
                     value={order_num}
                     onChange={(e)=>setOrderNum(e.target.value)}
                   />
-
-     <div className='to-time-container'>
       <div className="to-time">픽업 시간</div>
       <DatePicker
         selected={pickup_time}
@@ -366,9 +380,8 @@ export const TourOrder = () => {
         value={pickup_time}
         customInput={<TimeInput />} // Use the TimeInput component for time picker
       />
-      </div>
       
-    <div className='to-day-container'>
+   
       <div className="to-daytitle">픽업 날짜</div>
       <div className='to-datepicker-container'>
       <DatePicker 
@@ -380,7 +393,7 @@ export const TourOrder = () => {
         customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
       />
       </div>
-      </div>
+
       </div>
       
       <div className="to-usernametitle">예약자 성함</div>
@@ -391,7 +404,10 @@ export const TourOrder = () => {
                     onChange={(e)=>setOrderName(e.target.value)}
                   />
           </div>
-       
+          <div className="co-cakemoneytt">가격</div>
+          <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
+          <div className='co-cakemoney'>원</div>
+      
     </div>
 
      

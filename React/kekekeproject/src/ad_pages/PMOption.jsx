@@ -1,6 +1,6 @@
 // 상품 관리의 상품 옵션 페이지
 
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import AdMT from '../ad_component/AdMT'
 import AdBG from '../ad_component/AdBG'
 import AdMenubar from '../component/AdMenubar'
@@ -8,7 +8,8 @@ import ProductManagement from '../ad_component/ProductManagement'
 import '../ad_css/PMOption.css'
 import {FaTrash} from 'react-icons/fa';
 import AdHeader from '../component/AdHeader'
-
+import API_URL from '../api_url';
+import axios from 'axios';
 const PMOption = () => {
 
   const [cakeFlavor, setCakeFlavor] = useState(''); // 케이크 맛 입력 상태
@@ -19,6 +20,22 @@ const PMOption = () => {
   const [cakeSize, setCakeSize] = useState(''); 
   const [additionalCost2, setAdditionalCost2] = useState(''); // 추가 금액 입력 상태
   const [flavorList2, setFlavorList2] = useState([]); // 케이크 맛 리스트
+  const [sellerinfo, setSellerInfo] = useState([]);
+
+
+
+  
+  // 세션 스토리지에서 데이터 불러오기
+useEffect(() => {
+  const adminStorageData = sessionStorage.getItem('adminData');
+  if (adminStorageData) {
+    const adminData = JSON.parse(adminStorageData);
+    setSellerInfo(adminData);
+    console.log('어드민정보',adminData);
+    
+    
+  }
+}, []);
 
 
 
@@ -58,24 +75,60 @@ const PMOption = () => {
   };
 
   
-  const [ setLog] = useState(''); // 로그를 저장할 상태
+  const [logInfo,setLog] = useState(''); // 로그를 저장할 상태
 
   const saveLog = () => {
     // flavorList, flavorList2, 그리고 레터링 안내문구를 로그에 저장
     const logInfo = `Flavor List: ${flavorList.join(', ')}, Flavor List 2: ${flavorList2.join(', ')}, 레터링 안내문구: ${letteringText}`;
     setLog(logInfo); // 로그 상태 업데이트
-    console.log(logInfo); // 콘솔에 로그 출력
+    console.log("로그정보다운받는곳",logInfo); // 콘솔에 로그 출력
   };
 
   const [letteringText, setLetteringText] = useState(''); // 레터링 안내문구 상태
 
-  const handleNumberChange = (e, setterFunction) => {
-    const value = e.target.value;
-    const numberValue = parseFloat(value); // 입력값을 숫자로 변환합니다.
-    // 입력값이 숫자이고 양수인 경우에만 상태를 업데이트합니다.
-    if (!isNaN(numberValue) && numberValue >= 0) {
-      setterFunction(value); // 상태 업데이트 함수를 호출합니다.
+
+  const saveOptions = async () => {
+    // 케이크 맛과 크기 정보를 JSON 형식으로 변환
+    const payload = {
+      flavors: flavorList.map(item => {
+        const [flavor, cost] = item.replace('케이크 맛 : ', '').split(', 추가 금액 : ');
+        return { flavor, cost };
+      }),
+      sizes: flavorList2.map(item => {
+        const [size, cost] = item.replace('케이크 크기 : ', '').split(', 추가 금액 : ');
+        return { size, cost };
+      }),
+      sellerId: sellerinfo.seller_id,
+      letteringGuide: letteringText
+    };
+  
+    try {
+      // API 요청
+      const response = await fetch(`${API_URL}/order/saveoption`, { // 경로 수정
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+  
+      if (response.ok) {
+        console.log("옵션 저장 성공");
+        // 여기에서 로그를 저장하는 함수를 호출
+        saveLog();
+         // 성공 시 페이지 새로고침
+        window.location.reload();
+        alert("수정되었습니다.");
+     
+      } else {
+        console.error("옵션 저장 실패");
+      }
+    } catch (error) {
+      console.error("API 요청 중 에러 발생:", error);
     }
+  
+    console.log('Payload:', payload);
+
   };
 
 
@@ -167,7 +220,7 @@ const PMOption = () => {
       </div>  
    {/* 수정하기 버튼 */}
    <div className="PMOPtion-modify-btn">
-            <button className="PMOPtion-modifytxt" onClick={saveLog}>
+            <button className="PMOPtion-modifytxt" onClick={saveOptions}>
               수정하기
             </button>
           </div>
