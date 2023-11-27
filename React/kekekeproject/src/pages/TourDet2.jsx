@@ -12,6 +12,7 @@ const TourDet2 = () => {
 
   const [storeInfo, setStoreInfo] = useState({
     StoreAddr1: "",
+    SHOP_ADDR2: "",
     // 다른 필드들에 대한 초기값도 추가할 수 있음
   });
   const location = useLocation();
@@ -79,7 +80,7 @@ const formatTime = (timeString) => {
                 </div>
                 <div className="TourDet2_tour-det-map-wrapper">
                 {/* <MapContainer lat={storeInfo.SEL_LAT} lng={storeInfo.SEL_LONG} /> */}
-                <MapContainer lat={37.5665} lng={126.9780} />
+                <MapContainer address={`${storeInfo.StoreAddr1} ${storeInfo.SHOP_ADDR2}`} />
                 </div>
               </div>{/*지도끝*/}
 
