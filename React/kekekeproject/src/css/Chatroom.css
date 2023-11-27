@@ -40,11 +40,12 @@
   
 /* ChatRoom.css */
 .message {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
     max-width: 40%;
     word-wrap: break-word;
+    margin-right: 20px;
   }
   
   /* 현재 사용자의 메시지 스타일 */
