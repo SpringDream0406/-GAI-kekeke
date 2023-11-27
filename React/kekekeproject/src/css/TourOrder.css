@@ -13,19 +13,6 @@
   width: 1293px;
   z-index: 0
 }
-.co-cake-sm-container{
-  position: relative;
-
- top: -280px;
-}
-.to-time-container{
-  position: relative;
-  top: -330px;
-}
-.to-day-container{
-  position: relative;
-  top: -320px;
-}
 .to-cakename{
   font-family: 'Pretendard-bold';
   font-size: 30px;
@@ -752,7 +739,6 @@ margin-left: 40px;
   position: relative;
   top: -30px;
   left: 130px;
-  
 }
 
 
@@ -866,16 +852,16 @@ top: 920px;
   line-height: normal;
  z-index: 99999;
   position: absolute;
-  top: 1160px;
-  left:230px;
+  top: 2120px;
+  left:160px;
 }
 
 .co-cakemn{
   font-family: 'Pretendard-Semibold';
   position: absolute;
   font-size: 24px;
-  top: 1238px;
-left: 410px;
+  top: 2203px;
+left: 340px;
 z-index: 9999;
 }
 .co-cakemoney{
@@ -890,8 +876,8 @@ padding-bottom: 20px;
   border-radius: 30px;
 background-color: white;
 border: 1px solid white;
-top: 1220px;
-left: 230px;
+top: 2185px;
+left: 150px;
 height: 20px;
 width: 360px;
 }
