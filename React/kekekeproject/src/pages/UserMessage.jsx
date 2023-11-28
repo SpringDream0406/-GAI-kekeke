@@ -68,7 +68,7 @@ const UserMessage = () => {
     const fetchData = async () => {
       try {
         if (custId) {
-          const response = await axios.post(`${API_URL}/chatroom/chatroom`, { custId: custId });
+          const response = await axios.post(`${API_URL}/chatroom/userchatroom`, { custId: custId });
           const responseData = response.data;
 
           console.log('받아온 값', responseData);
