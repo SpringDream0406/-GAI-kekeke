@@ -6,8 +6,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "engine.io-client": "^4.0.1",
-
     "@fullcalendar/daygrid": "^6.1.9",
     "@fullcalendar/interaction": "^6.1.9",
     "@fullcalendar/react": "^6.1.9",
@@ -25,6 +23,7 @@
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
+    "engine.io-client": "^4.0.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "html2canvas": "^1.4.1",
@@ -90,6 +89,4 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "cross-env": "^7.0.3"
   }
-
-  
 }
