@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
-
+import Swal from 'sweetalert2'
 
 
 const AuthContext = React.createContext(null);
@@ -27,38 +27,54 @@ const Login = () => {
 
   const handleLogin = () => {
     const url = `${API_URL}/cust/login`;
-
-    const data = { cust_id: cust_id, cust_pw: cust_pw};
-
-
-    axios.post(url, data)
-      .then(response => { // status(200) 인 경우
-          console.log(response.data.cust_id);
-          console.log(response.data);
-          alert(response.data.message)
-          
-          // 성공적으로 로그인되었을 때 처리
-          // setAuthData(response.data); // 인증 데이터를 컨텍스트에 저장
-          // 추가적으로 로그인 후 페이지 이동을 처리할 수 있습니다.
-          sessionStorage.setItem('userData', JSON.stringify(response.data)); // 오타 수정
-      // 세션 스토리지에 데이터가 잘 저장되었는지 확인
-      console.log('Saved in Session Storage:', sessionStorage.getItem('userData'));
-
-            // 세션 스토리지에서 데이터 불러오기
-            const userStorageData = sessionStorage.getItem('userData');
-            if (userStorageData) {
-              const userData = JSON.parse(userStorageData);
-              console.log('Message from Session Storage:', userData.message);
-            }
-            //로그인 성공 후 메인페이지로 이동
-            window.location.href = '/';
+    const data = { cust_id: cust_id, cust_pw: cust_pw };
+  
+    axios
+      .post(url, data)
+      .then((response) => {
+        // 로그인 성공 시 SweetAlert2 모달 표시
+        Swal.fire({
+          title: '로그인 성공!',
+          text: '케케케에 오신걸 환영합니다~',
+          imageUrl:
+            'https://cdn.class101.net/images/bf8761da-e161-488a-b0d1-1ff91a123c26',
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+          showConfirmButton: true, // 확인 버튼 표시
+          timer: 2000, // 모달이 자동으로 닫히는 시간 (예: 2초)
+          customClass: {
+            confirmButton: 'custom-swal-button', // 사용자 지정 CSS 클래스 적용
+          },
+        }).then(() => {
+          // 일정 시간(2초)이 지난 후에 페이지를 리다이렉트
+          window.location.href = '/';
+        });
+  
+        // 성공적으로 로그인되었을 때 처리
+        sessionStorage.setItem('userData', JSON.stringify(response.data));
+        console.log('Saved in Session Storage:', sessionStorage.getItem('userData'));
+  
+        const userStorageData = sessionStorage.getItem('userData');
+        if (userStorageData) {
+          const userData = JSON.parse(userStorageData);
+          console.log('Message from Session Storage:', userData.message);
+        }
       })
-      .catch(error => { // status(200)이 아닌 경우 ex status(500)
+      .catch((error) => {
         console.error('에러', error, error.response.data);
-        alert(error.response.data.message)
+        Swal.fire({
+          icon: 'error',
+          title: '어라?',
+          text: error.response.data.message,
+          customClass: {
+            confirmButton: 'custom-swal-button',
+          },
+        });
       });
   };
-
+  
+  
   const handleJoinClick = () => {
     navigate('/join');
   };

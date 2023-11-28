@@ -314,6 +314,7 @@ width: 428px;
 }
 
 .to-container .to-cakeplus {
+  outline: none;
   background-color: #ffffff;
   border-radius: 30px;
   resize: none;

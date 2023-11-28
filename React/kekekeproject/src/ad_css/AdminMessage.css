@@ -144,6 +144,7 @@
     .adminchatForm {
       display: flex;
       padding-top: 20px;
+      overflow-y: auto; /* 세로 스크롤바를 활성화합니다 */
     }
     
     .adminchatInputField {

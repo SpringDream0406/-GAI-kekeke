@@ -70,6 +70,7 @@ const UserMypage = () => {
     console.log('비밀번호:', password);
     console.log('전화번호:', phone);
     console.log('회원아이디',cust_Id);
+    console.log('사진' , imageSrc);
     alert('수정이 완료되었습니다.');
     // API 호출이나 다른 로직을 추가하세요.
         
