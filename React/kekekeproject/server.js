@@ -10,6 +10,7 @@ const sampleRouter = require('./routes/sample')
 const orderRouter = require('./routes/order')
 const chatRouter = require('./routes/chating')
 const cationRouter = require('./routes/cation')
+const chatroomRouter = require('./routes/chat')
 
 app.use(cors()); // react와 node 방화벽 제거
 app.use(bodyParser.json()); // form 파싱
@@ -24,6 +25,8 @@ app.use('/store',storeRouter); // 가게정보 라우터
 app.use('/sample',sampleRouter);// 샘플케이크
 app.use('/order', orderRouter); //주문 라우터
 app.use('/cation' , cationRouter);//알림 라우터
+app.use('/chatroom', chatroomRouter);
+
 
 app.set('port', process.env.PORT || 3333);
 app.listen(app.get('port'));
