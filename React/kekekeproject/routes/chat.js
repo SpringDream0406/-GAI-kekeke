@@ -34,9 +34,7 @@ router.post('/chatroom', async (req, res) => {
         if (userchatroom.length === 0) {
           return res.status(404).send({ message: '채팅룸을 찾을 수 없음' });
         }
-        res.status(200).send({
-          userchatroom: userchatroom
-        });
+        res.status(200).send(userchatroom);
           
     } catch (error) {
         console.error(`SQL 에러 : ${error}`);
