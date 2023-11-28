@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import '../css/UserMessage.css';
 import Chatroom from '../component/Chatroom';
+import axios from 'axios'; // axios 라이브러리 추가
+import API_URL from '../api_url';
 
 const UserMessage = () => {
-  const sellerRoomId = 'sellerRoom';
   const buyerRoomId = 'buyerRoom';
   const chatData = [
     {
@@ -33,6 +34,42 @@ const UserMessage = () => {
   ];
 
   const [selectedChat, setSelectedChat] = useState(null);
+  const [custId , setCustId] = useState(null);
+  const [chatId , setChatId] = useState(null);
+  const [chatroomId, setChatroomId] = useState(null);
+  const [prdId, setPrdId] = useState(null);
+
+  useEffect(() => {
+    const userStorageData = sessionStorage.getItem('userData');
+    if (userStorageData) {
+      const userData = JSON.parse(userStorageData);
+      console.log('Message from Session Storage:', userData);
+      setCustId(userData.cust_id)
+    }
+  }, []);
+
+
+useEffect(()=>{
+  console.log('동작',custId);
+// 클라이언트에서 보내는 요청
+const fetchData = async () => {
+  try {
+    if (custId) {
+      const response = await axios.post(`${API_URL}/chatroom/chatroom`, { custId: custId });
+      const responseData = response.data;
+
+      console.log('받아온 값', responseData);
+    }
+  } catch (error) {
+    console.error('데이터 가져오기 실패:', error);
+  }
+};
+fetchData();
+    },[custId]);
+
+
+
+
 
   const handleChatItemClick = (chat) => {
     setSelectedChat(chat);
