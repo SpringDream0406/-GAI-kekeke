@@ -271,6 +271,26 @@ router.post('/sellerorderlist', async (req, res) => {
 })
 
 
+router.post('/customreivew', async (req, res) => {
+    try {
+        // 클라이언트에서 보낸 데이터 추출
+        const { seller_id, custom_id, message } = req.body;
+
+        console.log(req.body);
+
+        // 여기서 데이터를 사용하여 필요한 작업 수행
+        // 예: 데이터베이스에 저장, 처리 로직 수행 등
+        let sql = `INSERT INTO TB_SELLER_APPLY (SELLER_ID, CUSTOM_ID, REVIEW_MSG) VALUES (?, ?, ?);`;
+        let rows = await query(sql, [seller_id, custom_id, message]);
+        // 성공적으로 처리했다고 클라이언트에 응답
+        res.status(200).json({ message: '리뷰가 성공적으로 처리되었습니다.' });
+    } catch (error) {
+        console.log('데이터 에러', error);
+        // 에러 발생 시 클라이언트에 에러 응답
+        res.status(500).json({ error: '서버 내부 오류' });
+    }
+});
+
 
 
 module.exports = router;

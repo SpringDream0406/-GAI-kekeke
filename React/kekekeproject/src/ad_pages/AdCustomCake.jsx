@@ -3,7 +3,7 @@ import AdBG from '../ad_component/AdBG';
 import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
 import '../ad_css/AdCustomCake.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
 import axios from 'axios';
@@ -28,6 +28,8 @@ const AdCustomCake = () => {
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
   const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
   const [customData, setCustomData] = useState(null);
+  const [selectedImageData, setSelectedImageData] = useState(null);
+
 
   // 페이지에 맞는 콘텐츠를 가져오는 함수
   const fetchPageContent = async (pageNumber) => {
@@ -37,10 +39,13 @@ const AdCustomCake = () => {
     setPageContent(newContent);
   };
 
-  
+const navigate = useNavigate();
+const handleItemClick = (item) => {
+  navigate('/admin/customcake/detail', { state: { selectedData: item } });
+};
 
-  
 
+  //szzz
   useEffect(() => {
     const fetchCustomCake = async () => {
       try {
@@ -63,6 +68,7 @@ const AdCustomCake = () => {
 const convertImagePathToUrl = (imagePath) => {
   const pathWithoutPublic = imagePath.split('public\\').pop(); // 'public\' 부분을 제거합니다.
   return `${API_URL}/${pathWithoutPublic.replace(/\\/g, '/')}`; // 경로 구분자를 웹 표준에 맞게 변경합니다.
+
 };
 
  // 날짜를 "YYYY-MM-DD" 형식으로 변환하는 함수
@@ -70,6 +76,7 @@ const convertImagePathToUrl = (imagePath) => {
   const date = new Date(dateString);
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 };
+
 
 
 // 시간을 "HH:mm" 형식으로 변환하는 함수
@@ -91,6 +98,7 @@ const formatTime = (timeString) => {
   };
   return (
     <div>
+      
        <PageButton pages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} marginTop={'1500px'}/>
       <AdHeader></AdHeader>
       <AdMenubar/>
@@ -103,18 +111,18 @@ const formatTime = (timeString) => {
         </div>
         
         <div className='adcc-list-container'>
-          {customData ? (
-            customData.map((item, index) => (
-              <Link to='/admin/customcake/detail' className='adcc-link' key={index}>
-                <div className='adcc-c-list'>
-               <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
+        {customData ? (
+          customData.map((item, index) => (
+            <div className='adcc-link' key={index} onClick={() => handleItemClick(item)}>
+              <div className='adcc-c-list'>
+                <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
                 <div className='adcc-cday'>{formatDate(item.PICKUP_DATE)}</div>
                 <div className='adcc-ctime'>{formatTime(item.PICKUP_TIME)}</div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <div>데이터가 없습니다.</div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div>데이터가 없습니다.</div>
           )}
         </div>
       </AdBG>

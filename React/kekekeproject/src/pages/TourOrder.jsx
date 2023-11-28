@@ -88,6 +88,7 @@ export const TourOrder = () => {
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
 
+  // 셀러아이디로 테이터불러옴
   useEffect(() => {
     const fetchOptions = async () => {
       if (storeInfo && storeInfo.seller_id) {
