@@ -175,12 +175,13 @@ const upload = multer({ storage: storage }).fields([
       });
 
 
+      // 제안대기 
 
+      router.post('/prdcustom', async (req,res)=>{
+        try{
 
-      //판매자 커스텀케이크 목록보기
-      router.post('/prdcustom', async (req, res) => {
-        try {
-          conn.query('SELECT * FROM TB_CUSTOM_PRODUCT', (error, results, fields) => {
+          conn.query(`SELECT * FROM TB_CUSTOM_PRODUCT 
+                      WHERE CUSTOM_ID NOT IN (SELECT CUSTOM_ID FROM TB_SELLER_APPLY);`, (error, results, fields) => {
             if (error) {
               throw error;
             }
@@ -192,8 +193,25 @@ const upload = multer({ storage: storage }).fields([
           res.status(500).send('Server error');
         }
       });
+      // 제안완료
+      router.post('/sellerapply', async (req,res)=>{
+        try{
 
-
+          conn.query(`SELECT a.* FROM TB_CUSTOM_PRODUCT a
+                    ,TB_SELLER_APPLY b
+                    WHERE a.CUSTOM_ID = b.CUSTOM_ID;`, (error, results, fields) => {
+            if (error) {
+              throw error;
+            }
+      
+            res.json(results); // 결과를 JSON 형식으로 클라이언트에게 전송
+            console.log();
+          });
+        } catch (err) {
+          console.error('Database query error:', err);
+          res.status(500).send('Server error');
+        }
+      });
 
 module.exports = router;
 
