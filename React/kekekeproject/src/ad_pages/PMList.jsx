@@ -30,23 +30,22 @@ const PMList = () => {
   // seller_id 로 데이터 불러오기
   useEffect(() => {
     const fetchData = async () => {
-      let pdprd; // pdprd 변수를 try 블록 외부에서 선언
+      let pdprd;
       try {
         const response = await axios.post(`${API_URL}/order/adproduct`, { seller_id: sellerinfo.seller_id });
-        pdprd = response.data; // 데이터를 pdprd에 할당
+        pdprd = response.data;
         console.log("데이터 받아옴", response.data);
       } catch (error) {
         console.log("데이터 오류", error);
-        pdprd = []; // 오류 발생 시 pdprd를 빈 배열로 초기화
+        pdprd = [];
       }
-      setProducts(pdprd); // 오류가 발생하더라도 setProducts를 호출
+      setProducts(pdprd); // products 업데이트
+      setFilteredProducts(pdprd); // filteredProducts도 동시에 업데이트
     };
-
+  
     fetchData();
- 
-    
   }, [sellerinfo.seller_id]);
-
+  
  
   
   
@@ -60,8 +59,6 @@ const PMList = () => {
     const filtered = products.filter((product) =>
       product.PRD_NAME.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    console.log("필터",filtered);
-    setFilteredProducts(filtered);
     setFilteredProducts(filtered); // 검색 결과에 따라 filteredProducts 업데이트
   };
 
@@ -283,7 +280,7 @@ const handleImageUpdate = (newImageUrl) => {
             <div className="header-sales">누적 판매량</div>
           </div>
 
-            {products.map((product, index) => (
+            {currentProducts.map((product, index) => (
 
 
               <div key={product.id} className="product-item">
@@ -413,6 +410,7 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   const [images, setImages] = useState([]);
   const [sellerinfo, setSellerInfo] = useState('');
+
   // 상품 목록 및 검색 관련 상태
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
