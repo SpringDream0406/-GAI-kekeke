@@ -13,6 +13,7 @@ const TourCompleteOrder = () => {
   const orderData = location.state?.orderData;
   const [custid, setCustId] = useState()
   const [customInfo, setCustomInfo] = useState(null);
+  const [sellerInfo, setSellerInfo] = useState();
  
   
   // 구매자 ID(cust_id불러오기)
@@ -33,12 +34,13 @@ const TourCompleteOrder = () => {
       try {
         const response = await axios.post(`${API_URL}/store/tour-order`, { prd_id: prd_id });
         const data = response.data[0];
-        console.log(data);
+        console.log('무슨값?',data);
         setStoreInfo({
         prd_img : `/img/product/${data.IMG_NAME2}`
         })
-      
+        setSellerInfo(data)
         console.log('응답:', response.data);
+
       } catch (error) {
         console.error('오류:', error);
       }
@@ -82,6 +84,24 @@ const TourCompleteOrder = () => {
     console.log("커스텀아이디", customInfo?.CUSTOM_ID );
   }
 }, [customInfo]);
+
+
+const handleclickcheck = async () => {
+    const chatroomData = {
+      cust_id: custid,
+      seller_id: sellerInfo.SELLER_ID,
+      created_ID: new Date().toISOString().slice(0, 19).replace('T', ' '), // 문자열로 변환
+      cons_or_oc: 'N',
+    };
+
+    try {
+      // axios를 사용하여 서버로 POST 요청을 보냅니다.
+      await axios.post(`${API_URL}/store/createchat`, chatroomData);
+
+    } catch (error) {
+      console.error('메시지 전송 오류:', error);
+    }
+};
 
   return (
     <div className="tour-detail-container">
@@ -169,7 +189,8 @@ const TourCompleteOrder = () => {
         <Link to={{
           pathname: '/mporderlist',
           state: { CUSTOM_ID: customInfo?.CUSTOM_ID }
-        }} className='tco-okbtn'> 확인</Link>
+        }} className='tco-okbtn'
+        onClick={handleclickcheck}> 확인</Link>
               
     </div>
 

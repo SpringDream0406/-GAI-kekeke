@@ -236,7 +236,31 @@ router.put('/updateReview', multer().single('image'), async (req, res) => {
   }
 });
 
+// 주문완료시 채팅방 생성
+router.post('/createchat', async (req, res) => {
+  try {
+    // 클라이언트에서 전송한 데이터 추출
+    const { cust_id, seller_id, created_ID, cons_or_oc } = req.body;
 
+    // SQL 쿼리 작성
+    const sql = `INSERT INTO TB_CHAT_ROOM ( cust_id, seller_id, created_id, cons_or_oc )
+                VALUES (?, ?, ?, ?)`;
+
+    // SQL 쿼리 실행
+    conn.query(sql, [cust_id, seller_id, created_ID, cons_or_oc], (err, result) => {
+      if (err) {
+        console.error('SQL 에러:', err);
+        res.status(500).send({ message: '서버 에러' });
+      } else {
+        console.log('데이터 저장 완료');
+        res.status(200).send({ message: '데이터 저장 완료' });
+      }
+    });
+  } catch (error) {
+    console.error('에러:', error);
+    res.status(500).send({ message: '서버 에러' });
+  }
+});
 
 
 
