@@ -17,6 +17,7 @@ const imgName = 'seller_id';
 const imgPath = path.join('public', 'img', 'seller');
 const storage = imgStorage(imgPath, imgName);
 const upload = multer({ storage: storage, fileFilter: seller_fileFilter });
+const upload2 = multer({ storage: storage });
 
 
 // 판매자 회원가입
@@ -292,8 +293,6 @@ router.post('/customreivew', async (req, res) => {
 });
 
 
-
-
 router.put('/updateprd', async (req, res) => {
     try {
       const { PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID } = req.body; // 구조 분해 할당 사용
@@ -310,6 +309,39 @@ router.put('/updateprd', async (req, res) => {
     }
   });
 
+
+  //판매자마이페이지 내정보 수정
+router.post('/update', upload2.single('seller_profile1'), async (req, res) => {
+    try {
+        const { seller_id, store_name , store_detail, add_detail, strg_use, start_time, end_time, shop_addr1, shop_addr2, shop_tel, business_num } = req.body;
+
+        // 이미지 파일 처리
+        let imgFile = req.file || { filename: `null` };
+        console.log(imgFile);
+        let seller_profile1 = imgFile.filename;
+
+
+        // Update user information in the database using SQL queries.
+        const sql = `UPDATE TB_SELLER
+        SET store_name = ? , store_detail = ?, add_detail = ?,
+        strg_use = ?, start_time = ?, end_time = ?, shop_addr1 = ?,
+        shop_addr2 = ?, shop_tel = ?, business_num = ?,
+        seller_profile1 = ?
+        WHERE seller_id = ?;`;
+
+        const updatedRows = await query(sql, [seller_profile1, seller_id, store_name , store_detail, add_detail, strg_use, start_time, end_time, shop_addr1, shop_addr2, shop_tel, business_num]); 
+        if (updatedRows.affectedRows > 0) {
+            console.log('User information updated successfully');
+            res.status(200).send({ message: 'User information updated successfully' });
+        } else {
+            console.log('User information update failed');
+            res.status(500).send({ message: 'User information update failed' });
+        }
+    } catch (error) {
+        console.error('Error updating user information:', error);
+        res.status(500).send({ message: 'Server error' });
+    }
+});
 
 
 module.exports = router;
