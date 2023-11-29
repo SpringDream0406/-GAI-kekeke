@@ -68,7 +68,7 @@ const UserMessage = () => {
     const fetchData = async () => {
       try {
         if (custId) {
-          const response = await axios.post(`${API_URL}/chatroom/chatroom`, { custId: custId });
+          const response = await axios.post(`${API_URL}/chatroom/userchatroom`, { custId: custId });
           const responseData = response.data;
 
           console.log('받아온 값', responseData);
@@ -125,7 +125,7 @@ const UserMessage = () => {
                 <img className="chatItemLogo" src={`img/seller/${chat.SELLER_PROFILE1}`} alt={chat.STORE_NAME} />
                 <div className="chatItemDetails">
                   <h2 className="chatItemName">{chat.STORE_NAME}</h2>
-                  <p className="chatItemLastMessage">{chat.LAST_MESSAGE || "메시지가 없습니다."}</p>
+                  <p className="chatItemLastMessage">{chat.CHAT_MSG || "메시지가 없습니다."}</p>
                   <span className="chatItemDate">{chat.LAST_MESSAGE_DATE || `${formatTime(chat.START_TIME)} - ${formatTime(chat.END_TIME)}`}</span>
                 </div>
               </div>

@@ -175,12 +175,13 @@ const upload = multer({ storage: storage }).fields([
       });
 
 
+      // 제안대기 
 
+      router.post('/prdcustom', async (req,res)=>{
+        try{
 
-      //판매자 커스텀케이크 목록보기
-      router.post('/prdcustom', async (req, res) => {
-        try {
-          conn.query('SELECT * FROM TB_CUSTOM_PRODUCT', (error, results, fields) => {
+          conn.query(`SELECT * FROM TB_CUSTOM_PRODUCT 
+                      WHERE CUSTOM_ID NOT IN (SELECT CUSTOM_ID FROM TB_SELLER_APPLY);`, (error, results, fields) => {
             if (error) {
               throw error;
             }
@@ -192,8 +193,56 @@ const upload = multer({ storage: storage }).fields([
           res.status(500).send('Server error');
         }
       });
+      // 제안완료
+      router.post('/sellerapply', async (req,res)=>{
+        try{
+
+          conn.query(`SELECT a.* FROM TB_CUSTOM_PRODUCT a
+                    ,TB_SELLER_APPLY b
+                    WHERE a.CUSTOM_ID = b.CUSTOM_ID;`, (error, results, fields) => {
+            if (error) {
+              throw error;
+            }
+      
+            res.json(results); // 결과를 JSON 형식으로 클라이언트에게 전송
+            console.log();
+          });
+        } catch (err) {
+          console.error('Database query error:', err);
+          res.status(500).send('Server error');
+        }
+      });
 
 
+
+
+  router.post('/adproduct', async(req,res)=>{
+    try{
+      const { seller_id } = req.body;
+      conn.query(`SELECT a.*, b.IMG_NAME2, 
+                  COALESCE(po.prd_order_count, 0) AS total_product_orders
+                  FROM TB_PRODUCT a
+                  JOIN TB_PRODUCT_IMG b ON a.prd_id = b.prd_id
+                  LEFT JOIN (
+                  SELECT PRD_ID, COUNT(PRD_ID) AS prd_order_count
+                  FROM TB_PRODUCT_ORDER
+                  GROUP BY PRD_ID
+                  ) po ON a.prd_id = po.PRD_ID
+                  WHERE a.SELLER_ID = ?;`, [seller_id], (error, results) => {
+                if (error) {
+          console.log('데이터 오류', error);
+          res.status(500).json({ error: '데이터 오류' });
+          return;
+        }
+  
+        // 쿼리 결과(results)를 클라이언트에게 응답합니다.
+        res.json(results);
+      });
+    } catch (error) {
+      console.log('데이터 오류', error);
+      res.status(500).json({ error: '데이터 오류' });
+    }
+  });
 
 module.exports = router;
 

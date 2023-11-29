@@ -89,19 +89,40 @@ export const Cakes = () => {
     window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   };
 
-const handleCakeClick = (selectedCake) =>{
-  setCake(selectedCake)
-}
+// const handleCakeClick = (selectedCake) =>{
+//   setCake(selectedCake)
+// }
+
+// 키워드
+
+const [selectedKeyword, setSelectedKeyword] = useState("");
+
+ // 키워드 필터링 로직
+ useEffect(() => {
+  let filtered = cakesFromServer;
+
+  if (selectedLocation) {
+    filtered = filtered.filter(cake => cake.shop_addr1.includes(selectedLocation));
+  }
+
+  if (selectedKeyword) {
+    // 선택된 키워드에 따라 케이크를 필터링합니다.
+    filtered = filtered.filter(cake => cake.tags && cake.tags.includes(selectedKeyword));
+  }
+
+  setFilteredCakes(filtered);
+  setCurrentPage(1); // 페이지 번호 초기화
+}, [selectedLocation, selectedKeyword, cakesFromServer]);
   
 
 
   return (
     <div className="tour">
-      <Keyword />
+      <Keyword onSelectKeyword={setSelectedKeyword}/>
       <div className="tour-contents-fr">
         <div className="tour-contents">
           {/* 상단 지역 선택 */}
-          <hr/>
+          <hr className="tour-hr"/>
           <div className="tour-locationbutton">
             <button
               className="locationbutton"
@@ -176,7 +197,7 @@ const handleCakeClick = (selectedCake) =>{
 
 export default Cakes
 
-const SelectLocation = ({ selectedLocation, setSelectedLocation, isLocationModalOpen, setLocationModalOpen }) => {
+const SelectLocation = ({ setSelectedLocation, setLocationModalOpen }) => {
 
   const handleLocationSelect = (location) => {
     setSelectedLocation(location);

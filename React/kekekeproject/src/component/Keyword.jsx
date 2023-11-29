@@ -1,25 +1,30 @@
-import React from 'react'
-import '../css/Keyword.css'
+import React, { useState } from 'react';
+import '../css/Keyword.css';
 
+const Keyword = ({ onSelectKeyword }) => {
+  const [activeKeyword, setActiveKeyword] = useState(null);
 
-const Keyword = () => {
+  const handleKeywordClick = (keyword) => {
+    setActiveKeyword(keyword); // 현재 컴포넌트 상태 업데이트
+    onSelectKeyword(keyword);   // 부모 컴포넌트에 선택된 키워드 전달
+  };
+
   return (
-    <div>\
-        <div className='key-mt'>AI추천</div>
-        <div className='key-btn-container'>
-            <button className='key-btn'>#귀여운</button>
-            <button className='key-btn'>#럭셔리</button>
-            <button className='key-btn'>#밤하늘</button>
-            <button className='key-btn'>#화려한</button>
-            <button className='key-btn'>#간단한</button>
-            <button className='key-btn'>#특이한</button>
-            <button className='key-btn'>#인물</button>
-            <button className='key-btn'>#유화</button>
-            <button className='key-btn'>#취미생활</button>
-            <button className='key-btn'>#크리스마스</button>
-        </div>
+    <div>
+      <div className='key-mt'>AI추천</div>
+      <div className='key-btn-container'>
+        {['귀여운', '럭셔리', '밤하늘', '화려한', '심플한', '특이한', '인물', '유화', '취미생활', '크리스마스'].map((keyword, index) => (
+          <button
+            key={index}
+            className={`key-btn ${activeKeyword === keyword ? 'active' : ''}`}
+            onClick={() => handleKeywordClick(keyword)}
+          >
+            #{keyword}
+          </button>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Keyword
+export default Keyword;

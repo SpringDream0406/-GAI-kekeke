@@ -88,13 +88,17 @@ export const TourOrder = () => {
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
 
+  // 셀러아이디로 테이터불러옴
   useEffect(() => {
     const fetchOptions = async () => {
       if (storeInfo && storeInfo.seller_id) {
         try {
           const response = await axios.post(`${API_URL}/order/loadoption`, { seller_id: storeInfo.seller_id });
           console.log("서버 응답:", response); // 서버로부터의 응답 전체를 로그로 출력
+
+          console.log("서버 응답2:", response.data.flavors);
           setFlavorOptions(response.data.flavors);
+
           setSizeOptions(response.data.sizes);
         } catch(error) {
           console.log("옵션 불러오기 오류", error);

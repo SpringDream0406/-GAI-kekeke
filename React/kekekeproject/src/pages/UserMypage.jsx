@@ -84,6 +84,7 @@ const UserMypage = () => {
     const fileInput = document.getElementById('image-upload');
     if (fileInput && fileInput.files[0]) {
       updateformData.append('profile_img', fileInput.files[0]);
+      console.log(fileInput.files[0].name);
     }
 
     axios.post(url, updateformData, {
@@ -95,8 +96,9 @@ const UserMypage = () => {
       console.log(response.data);
       alert('값이 잘 받아와 졌습니다')
     })
-
-    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+    sessionStorage.removeItem('userData');
+    // 로그아웃 후 리디렉션, 필요에 따라 변경 가능
+    window.location.href = '/';
   };
 
   // -------------------------------------------------------------

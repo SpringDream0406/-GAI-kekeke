@@ -1,10 +1,11 @@
 .key-mt{
+    outline: none;
     font-family: 'Pretendard-bold';
     font-size: 22px;
     color: #61a4d5;
     position: absolute;
     top: 180px;
-    
+  
     left: 440px;
 }
 .key-btn-container{
@@ -15,6 +16,7 @@
     position: absolute;
     top: 230px;
     left: 440px;
+    
 }
 .key-btn{
     cursor: pointer;
@@ -25,8 +27,15 @@
     border-radius: 15px;
     padding: 5px 20px;
     background: none;
+    margin-bottom: 20px;
 }
 .key-btn:hover{
+    color: white;
+    background-color: #61a4d5;
+    border: 2px solid #61a4d5;
+}
+
+.key-btn.active{
     color: white;
     background-color: #61a4d5;
     border: 2px solid #61a4d5;

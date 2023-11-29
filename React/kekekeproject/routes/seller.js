@@ -10,13 +10,12 @@ const { query } = require('../config/poolDatabase');
 const { route } = require('./store');
 const conn = require('../config/database'); // DB 연결
 
-
-
 // 판매자 이미지 저장 관련
 const imgName = 'seller_id';
 const imgPath = path.join('public', 'img', 'seller');
 const storage = imgStorage(imgPath, imgName);
 const upload = multer({ storage: storage, fileFilter: seller_fileFilter });
+const upload2 = multer({ storage: storage });
 
 
 // 판매자 회원가입
@@ -269,6 +268,81 @@ router.post('/sellerorderlist', async (req, res) => {
         res.status(500).send({ message: '서버에러'});
     }
 })
+
+
+router.post('/customreivew', async (req, res) => {
+    try {
+        // 클라이언트에서 보낸 데이터 추출
+        const { seller_id, custom_id, message } = req.body;
+
+        console.log(req.body);
+
+        // 여기서 데이터를 사용하여 필요한 작업 수행
+        // 예: 데이터베이스에 저장, 처리 로직 수행 등
+        let sql = `INSERT INTO TB_SELLER_APPLY (SELLER_ID, CUSTOM_ID, REVIEW_MSG) VALUES (?, ?, ?);`;
+        let rows = await query(sql, [seller_id, custom_id, message]);
+        // 성공적으로 처리했다고 클라이언트에 응답
+        res.status(200).json({ message: '리뷰가 성공적으로 처리되었습니다.' });
+    } catch (error) {
+        console.log('데이터 에러', error);
+        // 에러 발생 시 클라이언트에 에러 응답
+        res.status(500).json({ error: '서버 내부 오류' });
+    }
+});
+
+
+router.put('/updateprd', async (req, res) => {
+    try {
+      const { PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID } = req.body; // 구조 분해 할당 사용
+        // 여기에서 로그를 추가하여 각 변수의 값을 확인
+        console.log({ PRD_NAME, RPD_ATM,  SALE_STATUS, PRD_ID });
+  
+      let sql = `UPDATE TB_PRODUCT SET prd_name = ?, prd_amt = ?, sale_status = ? WHERE prd_id = ?`;
+      let rows = await query(sql, [PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID]); // 매개변수 순서 조정
+  
+      res.status(200).send("상품 업데이트 성공");
+    } catch (error) {
+      console.error("서버 업데이트 오류", error);
+      res.status(500).send("서버 오류 발생");
+    }
+  });
+
+
+  //판매자마이페이지 내정보 수정
+router.post('/update', upload2.single('seller_profile1'), async (req, res) => {
+    try {
+        const { seller_id, store_name , store_detail, add_detail, strg_use, start_time, end_time, shop_addr1, shop_addr2, shop_tel, business_num } = req.body;
+
+        // 이미지 파일 처리
+        let imgFile = req.file || { filename: `null` };
+        console.log(imgFile);
+        let seller_profile1 = imgFile.filename;
+
+
+        // Update user information in the database using SQL queries.
+        const sql = `UPDATE TB_SELLER
+        SET store_name = ? , store_detail = ?, add_detail = ?,
+        strg_use = ?, start_time = ?, end_time = ?, shop_addr1 = ?,
+        shop_addr2 = ?, shop_tel = ?, business_num = ?,
+        seller_profile1 = ?
+        WHERE seller_id = ?;`;
+
+        const updatedRows = await query(sql, [seller_profile1, seller_id, store_name , store_detail, add_detail, strg_use, start_time, end_time, shop_addr1, shop_addr2, shop_tel, business_num]); 
+        if (updatedRows.affectedRows > 0) {
+            console.log('User information updated successfully');
+            res.status(200).send({ message: 'User information updated successfully' });
+        } else {
+            console.log('User information update failed');
+            res.status(500).send({ message: 'User information update failed' });
+        }
+    } catch (error) {
+        console.error('Error updating user information:', error);
+        res.status(500).send({ message: 'Server error' });
+    }
+});
+
+
+  
 
 
 

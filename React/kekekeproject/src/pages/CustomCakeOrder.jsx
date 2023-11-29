@@ -148,8 +148,6 @@ const CustomCakeOrder = () => {
  }
 
 
- 
-
  // 서버에 데이터 전송
  try {
    const response = await axios.post(url, customdata, {

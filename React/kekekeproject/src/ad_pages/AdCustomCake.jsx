@@ -3,7 +3,7 @@ import AdBG from '../ad_component/AdBG';
 import AdMenubar from '../component/AdMenubar';
 import AdMT from '../ad_component/AdMT';
 import '../ad_css/AdCustomCake.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
 import axios from 'axios';
@@ -28,19 +28,67 @@ const AdCustomCake = () => {
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
   const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
   const [customData, setCustomData] = useState(null);
+  const [pendingOffers, setPendingOffers] = useState([]);
+  const [completedOffers, setCompletedOffers] = useState([]);
 
-  // 페이지에 맞는 콘텐츠를 가져오는 함수
-  const fetchPageContent = async (pageNumber) => {
-    const allData = createDummyData(customData); // 총 40개의 데이터 항목을 생성합니다.
-    // 페이지 번호에 맞는 콘텐츠를 계산합니다.
-    const newContent = allData.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage);
-    setPageContent(newContent);
+
+
+  const fetchPageContent = (pageNumber) => {
+    if (customData && customData.length > 0) {
+      const startIndex = (pageNumber - 1) * itemsPerPage;
+      const newContent = customData.slice(startIndex, startIndex + itemsPerPage);
+      setPageContent(newContent);
+    }
   };
+// 상세페이지로 데이터 이동을위한 navigate
+const navigate = useNavigate();
+const handleItemClick = (item) => {
+  navigate('/admin/customcake/detail', { state: { selectedData: item } });
+};
 
+
+// 필터링을 위한 데이터 api 콜
+const fetchCustomCake = async () => {
+  try{
+    // TB_CUSTOM_PRODUCT에서 데이터 가져오기
+    const responseCustom = await axios.post(`${API_URL}/order/prdcustom`)
+    const customProducts  = responseCustom.data;
+
+    // TB_SELLER에서 데이터 가져오기
+    const responseSeller = await axios.post(`${API_URL}/order/sellerapply`)
+    const sellerApplies  = responseSeller.data;
   
 
+    //제안대기와 제안완료 데이터를 필터링
+    const pendingOffers = customProducts.filter(product =>
+      !sellerApplies.some(apply => apply.CUSTOM_ID === product.CUSTOM_ID));
   
+      const completedOffers = sellerApplies;
+      
 
+       // 콘솔에 데이터 출력
+    console.log("제안대기 데이터:", pendingOffers);
+    console.log("제안완료 데이터:", sellerApplies);
+
+    // 상태 업데이트
+    setPendingOffers(pendingOffers);
+    setCompletedOffers(completedOffers );
+   
+
+  } catch(error){
+    console.log("데이터오류", error);
+  }
+}
+useEffect(() => {
+  fetchCustomCake(); // 이 함수가 페이지 로드 시 제안대기 데이터를 가져옵니다.
+}, []);
+
+
+
+
+
+
+  //맨처음 렌더링시 불러오는데이터api
   useEffect(() => {
     const fetchCustomCake = async () => {
       try {
@@ -59,10 +107,14 @@ const AdCustomCake = () => {
     fetchCustomCake();
   }, []);
 
+
+
+
   // 이미지 경로를 웹 URL로 변환하는 함수
 const convertImagePathToUrl = (imagePath) => {
   const pathWithoutPublic = imagePath.split('public\\').pop(); // 'public\' 부분을 제거합니다.
   return `${API_URL}/${pathWithoutPublic.replace(/\\/g, '/')}`; // 경로 구분자를 웹 표준에 맞게 변경합니다.
+
 };
 
  // 날짜를 "YYYY-MM-DD" 형식으로 변환하는 함수
@@ -70,6 +122,7 @@ const convertImagePathToUrl = (imagePath) => {
   const date = new Date(dateString);
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 };
+
 
 
 // 시간을 "HH:mm" 형식으로 변환하는 함수
@@ -89,8 +142,22 @@ const formatTime = (timeString) => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+
+
+  // 제안대기버튼 핸들러
+  const handlePendingClick = () => {
+    setCustomData(pendingOffers);
+  };
+
+  // 제안완료버튼 핸들러
+  const handleCompletedClick = () => {
+    setCustomData(completedOffers);
+  };
+
   return (
     <div>
+      
        <PageButton pages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} marginTop={'1500px'}/>
       <AdHeader></AdHeader>
       <AdMenubar/>
@@ -98,24 +165,21 @@ const formatTime = (timeString) => {
       <AdBG height={1350}>
         
         <div className='adcc-btn-all'>
-          <button className='adcc-btn-1'>제안대기</button>
-          <button className='adcc-btn-2'>제안완료</button>
+          <button className='adcc-btn-1' onClick={handlePendingClick}>제안대기</button>
+          <button className='adcc-btn-2' onClick={handleCompletedClick}>제안완료</button>
         </div>
         
         <div className='adcc-list-container'>
-          {customData ? (
-            customData.map((item, index) => (
-              <Link to='/admin/customcake/detail' className='adcc-link' key={index}>
-                <div className='adcc-c-list'>
-               <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
-                <div className='adcc-cday'>{formatDate(item.PICKUP_DATE)}</div>
-                <div className='adcc-ctime'>{formatTime(item.PICKUP_TIME)}</div>
-                </div>
-              </Link>
-            ))
-          ) : (
-            <div>데이터가 없습니다.</div>
-          )}
+    
+        {pageContent.map((item, index) => (
+        <div className='adcc-link' key={index} onClick={() => handleItemClick(item)}>
+          <div className='adcc-c-list'>
+            <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
+            <div className='adcc-cday'>{formatDate(item.PICKUP_DATE)}</div>
+            <div className='adcc-ctime'>{formatTime(item.PICKUP_TIME)}</div>
+          </div>
+        </div>
+      ))}
         </div>
       </AdBG>
     </div>

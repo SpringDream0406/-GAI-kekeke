@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AdMT from '../ad_component/AdMT'
 import AdBG from '../ad_component/AdBG'
 import AdMenubar from '../component/AdMenubar'
@@ -8,53 +8,47 @@ import '../ad_css/PMList.css'
 import '../ad_css/ProductPopup.css'
 import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
+import API_URL from '../api_url'
+import axios from 'axios'
+
 
 const PMList = () => {
+  const [sellerinfo, setSellerInfo] = useState('');
+  const [products, setProducts] = useState([]);
+  //세션에서 데이터불러오기!
+  useEffect(()=>{
+    const adminStorageData =sessionStorage.getItem('adminData');
+    if(adminStorageData){
+      const adminData = JSON.parse(adminStorageData);
+      setSellerInfo(adminData);
+      console.log(adminData);
+    }
+  },[]);
+
 
   
-  // 임시 데이터
-  const products = [
-    {
-      id: 1,
-      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
-      name: "플라워 케이크", // 상품명
-      price: "50000", // 상품 가격
-      status: "판매중", // 판매 상태
-      sales: "21" // 누적 판매량
-    },
-    {
-      id: 2,
-      imageUrl: "/assets/images/cake2.png",
-      name: "베리 초콜릿 케이크",
-      price: "45000",
-      status: "품절",
-      sales: "34"
-    },
-    {
-      id: 3,
-      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
-      name: "고소하고짭짤한맛소금팝콘케이쿠", // 상품명
-      price: "50000", // 상품 가격
-      status: "품절", // 판매 상태
-      sales: "50" // 누적 판매량
-    },
-    {
-      id: 4,
-      imageUrl: "/assets/images/cake2.png",
-      name: "베리 초콜릿 케이크",
-      price: "45000",
-      status: "판매중",
-      sales: "14"
-    },
-    {
-      id: 5,
-      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
-      name: "플라워 케이크플라워 케이크플라워 케이크", // 상품명
-      price: "50000", // 상품 가격
-      status: "판매중", // 판매 상태
-      sales: "21" // 누적 판매량
-    },
-  ];
+  // seller_id 로 데이터 불러오기
+  useEffect(() => {
+    const fetchData = async () => {
+      let pdprd; // pdprd 변수를 try 블록 외부에서 선언
+      try {
+        const response = await axios.post(`${API_URL}/order/adproduct`, { seller_id: sellerinfo.seller_id });
+        pdprd = response.data; // 데이터를 pdprd에 할당
+        console.log("데이터 받아옴", response.data);
+      } catch (error) {
+        console.log("데이터 오류", error);
+        pdprd = []; // 오류 발생 시 pdprd를 빈 배열로 초기화
+      }
+      setProducts(pdprd); // 오류가 발생하더라도 setProducts를 호출
+    };
+
+    fetchData();
+ 
+    
+  }, [sellerinfo.seller_id]);
+ 
+  
+  
 
   // 검색어 상태와 필터링된 상품 목록 상태 추가
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,8 +57,9 @@ const PMList = () => {
   // 검색 버튼 클릭 이벤트 핸들러
   const handleSearch = () => {
     const filtered = products.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      product.PRD_NAME.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    console.log("필터",filtered);
     setFilteredProducts(filtered);
   };
 
@@ -72,35 +67,50 @@ const PMList = () => {
   const [editingProductId, setEditingProductId] = useState(null);
   const [editProductDetails, setEditProductDetails] = useState({});
 
+
+  //수정핸들러
   const handleEdit = (product) => {
-    setEditingProductId(product.id);
-    setEditProductDetails({ name: product.name, price: product.price, status: product.status, sales: product.sales });
+    setEditingProductId(product.PRD_ID);
+    setEditProductDetails({ name: product.PRD_NAME, price: product.PRD_AMT, status: product.SALE_STATUS, sales: product.total_product_orders });
   };
+  useEffect(() => {
+    console.log("업데이트된 editingProductId:", editingProductId,editProductDetails);
+  }, [editingProductId]);
 
   // 확인 버튼 클릭 핸들러
   // 입력값 저장해서 바뀌게 하는 부분
-
-  const handleConfirm = () => {
-    // 새로운 상품 정보 배열 생성
-    const updatedProducts = filteredProducts.map((product) => {
-      if (product.id === editingProductId) {
-        return { ...product, ...editProductDetails };
-      }
-      return product;
-    });
-
-    setFilteredProducts(updatedProducts); // 상태 업데이트
+  const handleConfirm = async () => {
+    try {
+      // 서버로 보낼 수정된 상품 데이터 구성
+      const updatedProductData = {
+        PRD_ID: editingProductId,
+        SALE_STATUS: editProductDetails.status === "판매중" ? "Y" : "N",
+        PRD_ATM: editProductDetails.price,
+        PRD_NAME: editProductDetails.name,
+      };
+  
+      // 서버 요청
+      const response = await axios.put(`${API_URL}/seller/updateprd`, updatedProductData);
+      console.log("상품 업데이트 성공", response.data);
+  
+      // 상태 업데이트
+      setFilteredProducts(prevProducts => prevProducts.map(product => 
+        product.PRD_ID === editingProductId ? { ...product, ...updatedProductData } : product
+      ));
+    } catch (error) {
+      console.error("업데이트 실패", error);
+    }
+  
     setEditingProductId(null); // 편집 모드 종료
   };
 
   const handleNumberChange = (e, field) => {
     const value = e.target.value;
-    // 입력값이 숫자이고 길이가 5자를 초과하지 않는 경우에만 상태를 업데이트합니다.
+    // 입력값이 숫자이고 길이가 7자 이하인 경우에만 상태 업데이트
     if (field === 'price' && value && value.toString().length <= 7) {
-      setEditProductDetails({ ...editProductDetails, [field]: value });
+      setEditProductDetails(prevDetails => ({ ...prevDetails, [field]: value }));
     }
   };
-  
   
   // 편집 모드에서 입력 변경 핸들러
   const handleInputChange = (e, field) => {
@@ -146,7 +156,7 @@ const PMList = () => {
 
   // 삭제 확인 핸들러
   const handleDeleteConfirm = () => {
-    const updatedProducts = filteredProducts.filter(product => product.id !== deleteProductId);
+    const updatedProducts = filteredProducts.filter(product => product.PRD_ID !== deleteProductId);
     setFilteredProducts(updatedProducts);
     setShowDeleteModal(false);
   };
@@ -160,7 +170,6 @@ const PMList = () => {
   // ----------------------------------------------------
 
   // 상품 등록 팝업에서의 데이터 로직
-
   const [productList, setProductList] = useState(products); // 실제 상품 목록 상태
 
 
@@ -217,6 +226,13 @@ const handleImageUpdate = (newImageUrl) => {
   setImagePopupVisible(false); // 이미지 팝업 숨김
 };
 
+  // 이미지 경로를 웹 URL로 변환하는 함수
+  const convertImagePathToUrl = (imagePath) => {
+    const pathWithoutPublic = imagePath.split('public\\').pop(); // 'public\' 부분을 제거합니다.
+    return `${API_URL}/${pathWithoutPublic.replace(/\\/g, '/')}`; // 경로 구분자를 웹 표준에 맞게 변경합니다.
+  
+  };
+
 
 
 
@@ -256,16 +272,16 @@ const handleImageUpdate = (newImageUrl) => {
             <div className="header-sales">누적 판매량</div>
           </div>
 
-            {currentProducts.map((product, index) => (
+            {products.map((product, index) => (
 
 
               <div key={product.id} className="product-item">
                 <div className="product-image" onClick={() => handleImageClick(product)}>
-                  <img src={product.imageUrl} alt={product.name} />
+                  <img src={`/img/product/${product.IMG_NAME2}`} alt={product.IMG_NAME2}/>
                 </div>
 
 
-                {editingProductId === product.id ? (
+                {editingProductId === product.PRD_ID ? (
                 <div className='product-details'>
                   <input
                     type="text"
@@ -290,30 +306,30 @@ const handleImageUpdate = (newImageUrl) => {
                     <option value="판매중">판매중</option>
                     <option value="품절">품절</option>
                   </select>
-                  <div className="PM-edit-sales">{product.sales}</div>
+                  <div className="PM-edit-sales">{product.SALE_STATUS}</div>
                 </div>
               ) : (
                 <div className="product-details">
-                  <div className="product-name">{product.name}</div>
-                  <div className="product-price">{product.price}원</div>
-                  <div className={`product-status ${product.status === "품절" ? "product-status-sold-out" : ""}`}>
-                    {product.status}
+                  <div className="product-name">{product.PRD_NAME}</div>
+                  <div className="product-price">{product.PRD_AMT}원</div>
+                  <div className={`product-status ${product.SALE_STATUS === "Y" ? "product-status-sold-out" : ""}`}>
+                    {product.SALE_STATUS === "Y"?"판매중" : "품절"}
                   </div>
-                  <div className="product-sales">{product.sales}</div>
+                  <div className="product-sales">{product.total_product_orders}</div>
                 </div>
 
               )}
 
               <div className="product-actions">
-                {editingProductId === product.id ? (
-                  <button className="confirm-button" onClick={handleConfirm}>확인</button>
+                {editingProductId === product.PRD_ID? (
+                  <button className="confirm-button" onClick={() => handleConfirm(product)}>확인</button>
                 ) : (
                   <button className="edit-button" onClick={() => handleEdit(product)}>수정</button>
                 )}
                 <FaTrash
                   className="delete-icon"
                   size={15}
-                  onClick={() => handleDeleteClick(product.id)}
+                  onClick={() => handleDeleteClick(product.PRD_ID)}
                 />
               </div>
             </div>
@@ -385,6 +401,19 @@ export default PMList
 const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   const [images, setImages] = useState([]);
+  const [sellerinfo, setSellerInfo] = useState('');
+  const [products, setProducts] = useState([]);
+  //세션에서 데이터불러오기!
+  useEffect(()=>{
+    const adminStorageData =sessionStorage.getItem('adminData');
+    if(adminStorageData){
+      const adminData = JSON.parse(adminStorageData);
+      setSellerInfo(adminData);
+      console.log(adminData);
+    }
+  },[]);
+
+  
   const [imagePreviews, setImagePreviews] = useState([]);
 
   const handleImageChange = (e) => {
@@ -413,28 +442,48 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
   const [productPrice, setProductPrice] = useState('');
 
   // 새 상품 등록 함수
-  const handleRegister = () => {
-    // 입력 검증 또는 필요한 로직 수행
+  const handleRegister = async () => {
     if (!productName || !productPrice) {
-      // 필요한 경우 사용자에게 경고
       alert("상품명과 가격을 입력해주세요.");
       return;
     }
+  
+    // FormData 객체 생성
+    const formData = new FormData();
+  
+   
+    // 상품 정보 추가
+    formData.append('name', productName);
+    formData.append('price', productPrice);
+    formData.append('seller_id', sellerinfo.seller_id);
 
-    // 상품 정보 객체 생성
-    const newProduct = {
-      id: Date.now(), // 실제 앱에서는 더 견고한 ID 생성 방법을 사용
-      imageUrl: imagePreviews[0] || '/assets/images/placeholder.png', // 첫 번째 이미지 또는 기본 이미지
-      name: productName,
-      price: productPrice,
-      status: '판매중',
-      sales: 0,
-    };
+     // 이미지 파일 추가
+    if (images.length > 0) {
+      formData.append('image', images[0]); // 'imagePreviews[0]'가 실제 이미지 파일
+    } else {
+      formData.append('image', '/assets/images/placeholder.png');
+    }
 
-    // 부모 컴포넌트의 상품 추가 함수 호출
-    onAddProduct(newProduct);
+    console.log("들어와라",images);
+  
+  
+    // 서버에 FormData 전송
+    try {
+      const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log("상품 등록 성공", response.data);
+      onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
 
-    // 상태 초기화 및 팝업 닫기
+    // 서버 응답 후 페이지 새로고침
+    window.location.reload();
+    } catch (error) {
+      console.error("상품 등록 실패", error);
+      return;
+    }
+  
     setProductName('');
     setProductPrice('');
     setImagePreviews([]);
