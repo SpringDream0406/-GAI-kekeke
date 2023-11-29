@@ -118,8 +118,6 @@ router.post('/customorderlist', (req, res) => {
 });
 
 
-
-
 // 리뷰이미지 저장
 // 널 값 체크 함수 정의
 function nullify(value) {
@@ -140,36 +138,6 @@ const storage = multer.diskStorage({
 
 // multer 인스턴스 생성
 const upload = multer({ storage: storage }).single('image');
-
-
-
-
-
-// // cust_id 를 가지고 커스텀상품테이블 조회해서 정보를 검색합니다 // 이건 mpordelist에 사용되는 커스텀 api콜임
-// router.get('/get-user-review', (req, res) => {
-//   const { deal_id } = req.query; // GET 요청의 경우 req.query 사용
-
-//   const sql = `SELECT * FROM TB_REVIEW WHERE DEAL_ID = ?;`;
-
-//   conn.query(sql, [deal_id], (err, rows) => {
-//     if (err) {
-//       console.error(`SQL 에러: ${err}`);
-//       return res.status(500).json({ error: '서버 에러' });
-//     }
-
-//     if (rows.length === 0) {
-//       return res.status(404).json({ error: '리뷰를 찾을 수 없음' });
-//     }
-
-//     const reviewData = rows[0]; // 첫 번째 행 데이터 반환
-
-//     res.json(reviewData);
-//   });
-// });
-
-
-
-
 
 
 // 리뷰 데이터를 데이터베이스에 저장하는 API 엔드포인트

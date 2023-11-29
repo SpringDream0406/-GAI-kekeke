@@ -95,7 +95,10 @@ export const TourOrder = () => {
         try {
           const response = await axios.post(`${API_URL}/order/loadoption`, { seller_id: storeInfo.seller_id });
           console.log("서버 응답:", response); // 서버로부터의 응답 전체를 로그로 출력
+
+          console.log("서버 응답2:", response.data.flavors);
           setFlavorOptions(response.data.flavors);
+
           setSizeOptions(response.data.sizes);
         } catch(error) {
           console.log("옵션 불러오기 오류", error);

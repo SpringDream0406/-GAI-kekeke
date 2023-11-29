@@ -28,7 +28,6 @@ const AdCustomCake = () => {
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
   const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
   const [customData, setCustomData] = useState(null);
-  const [selectedImageData, setSelectedImageData] = useState(null);
   const [pendingOffers, setPendingOffers] = useState([]);
   const [completedOffers, setCompletedOffers] = useState([]);
 

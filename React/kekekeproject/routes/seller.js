@@ -293,4 +293,23 @@ router.post('/customreivew', async (req, res) => {
 
 
 
+
+router.put('/updateprd', async (req, res) => {
+    try {
+      const { PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID } = req.body; // 구조 분해 할당 사용
+        // 여기에서 로그를 추가하여 각 변수의 값을 확인
+        console.log({ PRD_NAME, RPD_ATM,  SALE_STATUS, PRD_ID });
+  
+      let sql = `UPDATE TB_PRODUCT SET prd_name = ?, prd_amt = ?, sale_status = ? WHERE prd_id = ?`;
+      let rows = await query(sql, [PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID]); // 매개변수 순서 조정
+  
+      res.status(200).send("상품 업데이트 성공");
+    } catch (error) {
+      console.error("서버 업데이트 오류", error);
+      res.status(500).send("서버 오류 발생");
+    }
+  });
+
+
+
 module.exports = router;

@@ -213,6 +213,37 @@ const upload = multer({ storage: storage }).fields([
         }
       });
 
+
+
+
+  router.post('/adproduct', async(req,res)=>{
+    try{
+      const { seller_id } = req.body;
+      conn.query(`SELECT a.*, b.IMG_NAME2, 
+                  COALESCE(po.prd_order_count, 0) AS total_product_orders
+                  FROM TB_PRODUCT a
+                  JOIN TB_PRODUCT_IMG b ON a.prd_id = b.prd_id
+                  LEFT JOIN (
+                  SELECT PRD_ID, COUNT(PRD_ID) AS prd_order_count
+                  FROM TB_PRODUCT_ORDER
+                  GROUP BY PRD_ID
+                  ) po ON a.prd_id = po.PRD_ID
+                  WHERE a.SELLER_ID = ?;`, [seller_id], (error, results) => {
+                if (error) {
+          console.log('데이터 오류', error);
+          res.status(500).json({ error: '데이터 오류' });
+          return;
+        }
+  
+        // 쿼리 결과(results)를 클라이언트에게 응답합니다.
+        res.json(results);
+      });
+    } catch (error) {
+      console.log('데이터 오류', error);
+      res.status(500).json({ error: '데이터 오류' });
+    }
+  });
+
 module.exports = router;
 
 
