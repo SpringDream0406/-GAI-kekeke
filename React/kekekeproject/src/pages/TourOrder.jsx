@@ -247,16 +247,13 @@ export const TourOrder = () => {
     <div className="to-div">
       <div>
       <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg2' alt='cake2'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg3' alt='cake3'/>
-      <img  src={'/assets/images/cake2.png'} className='to-cakeimg4' alt='cake4'/>
+   
     <div className="to-cakename"
     value={cake_name}
     > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
     </div>
 
     <div>
-      <div className='co-cakesm'>케이크 설명</div>
       <div className='co-cakesmct'
       >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
     </div>
