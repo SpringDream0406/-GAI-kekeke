@@ -20,23 +20,28 @@ export const Cakes = () => {
   const [cakesFromServer, setCakesFromServer] = useState([]);
   const itemsPerPage = 9;
 
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   useEffect(() => {
     const url = `${API_URL}/product/cakes`;
     const data = { gu: selectedLocation };
 
-    axios.post(url, data)
-      .then(response => {
-
-        console.log(response.data);
-        setCakesFromServer(response.data);
-
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-
-
-  }, [selectedLocation]);
+     axios.post(url, data)
+    .then(response => {
+      const shuffledCakes = shuffleArray(response.data); // 데이터 섞기
+      setCakesFromServer(shuffledCakes);
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}, [selectedLocation]);
 
   const getPageNumbers = () => {
     const totalPageCount = Math.ceil(cakesFromServer.length / itemsPerPage);
