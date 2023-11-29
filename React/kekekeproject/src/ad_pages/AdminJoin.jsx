@@ -331,7 +331,7 @@ export const AdminJoin = () => {
               <div className="store-explain-input">
                 <textarea
                   className="ad-info-input"
-                  maxLength="100"
+                 
                   placeholder="주의사항을 입력해주세요"
                   value={add_detail}
                   onChange={(event) => setAdd_detail(event.target.value)}
@@ -351,7 +351,7 @@ export const AdminJoin = () => {
               <div className="store-explain-input">
                 <textarea
                   className="ad-info-input"
-                  maxLength="100"
+              
                   placeholder="보관 및 이용방법을 입력해주세요"
                   value={strg_use}
                   onChange={(event) => setStrg_use(event.target.value)}
