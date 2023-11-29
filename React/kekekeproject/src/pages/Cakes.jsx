@@ -101,7 +101,7 @@ const handleCakeClick = (selectedCake) =>{
       <div className="tour-contents-fr">
         <div className="tour-contents">
           {/* 상단 지역 선택 */}
-          <hr/>
+          <hr className="tour-hr"/>
           <div className="tour-locationbutton">
             <button
               className="locationbutton"

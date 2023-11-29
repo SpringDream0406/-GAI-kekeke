@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import '../css/TourDetContainer.css'
 import { useLocation } from 'react-router-dom';
-import BlueBg from "./BlueBg";
+
 
 // import axios from "axios";
 // import API_URL from "../api_url";
