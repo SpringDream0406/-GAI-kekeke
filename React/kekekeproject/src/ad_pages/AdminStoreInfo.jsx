@@ -4,16 +4,15 @@ import AdMT from '../ad_component/AdMT';
 import AdBG from '../ad_component/AdBG';
 import "../ad_css/AdminStoreInfo.css";
 import { useRef } from 'react';
-import { AiOutlineCamera } from 'react-icons/ai';
 import AdHeader from '../component/AdHeader'
-
-
-
+import axios from 'axios';
+import API_URL from '../api_url';
 
 
 const AdminStoreInfo = () => {
 
   const [sellerinfo, setSellerInfo] = useState({});
+
 
       // 세션 스토리지에서 데이터 불러오기 및 초기 데이터 작성
       useEffect(() => {
@@ -27,39 +26,72 @@ const AdminStoreInfo = () => {
           setAdd_detail(adminData.add_detail)
           setStrg_use(adminData.strg_use)
           setBusiness_num(adminData.business_num)
-          setAddress_detail(adminData.shop_addr2)
+          setShop_addr2(adminData.shop_addr2)
           setStart_time(adminData.start_time)
           setEnd_time(adminData.end_time)
-          setAddress(adminData.shop_addr1)
+          setShop_addr1(adminData.shop_addr1)
           setImg(adminData.seller_profile1)
+          setSeller_id(adminData.seller_id)
         }
       }, []);
 
-    const [store_name, setStore_name] = useState();
-    const [store_detail, setStore_detail] = useState();
-    const [shop_tel, setShop_tel] = useState();
-    const [add_detail, setAdd_detail] = useState();
-    const [strg_use, setStrg_use] = useState();
-    const [business_num, setBusiness_num] = useState();
-    const [address_detail, setAddress_detail] = useState();
-    const [start_time, setStart_time] = useState();
-    const [end_time, setEnd_time] = useState();
-    const [address, setAddress] = useState();
-    const [img, setImg] = useState()
+  const [store_name, setStore_name] = useState();
+  const [store_detail, setStore_detail] = useState();
+  const [shop_tel, setShop_tel] = useState();
+  const [add_detail, setAdd_detail] = useState();
+  const [strg_use, setStrg_use] = useState();
+  const [business_num, setBusiness_num] = useState();
+  const [shop_addr2, setShop_addr2] = useState();
+  const [start_time, setStart_time] = useState();
+  const [end_time, setEnd_time] = useState();
+  const [shop_addr1, setShop_addr1] = useState();
+  const [seller_id , setSeller_id] = useState();
+  const [img, setImg] = useState()
 
 
-    
-  console.log('셀러정보' ,sellerinfo.store_name);
-
-
+    console.log(sellerinfo);
+  
 
     const handleSaveChanges = () => {
       // 모든 입력란이 채워져 있는지 확인
-      if (!storeName.trim() || !store_detail.trim() || !add_detail.trim() || !strg_use.trim() || !address_detail.trim() || !shop_tel.trim() || !business_num.trim()) {
+      if (!store_name.trim() || !store_detail.trim() || !add_detail.trim() || !strg_use.trim() || !shop_addr2.trim() || !shop_tel.trim() || !business_num.trim()) {
         // 하나라도 비어있다면 경고 메시지를 띄움
         alert('모든 필드를 채워주세요.');
         return; // 함수를 여기서 종료하여 API 호출이나 다른 로직이 실행되지 않도록 함
-      }
+      }else{alert('값은 받아와졌음~~~')}
+
+      //업데이트 로직 코드
+      const url = `${API_URL}/seller/update`
+      const sellerupdateform = new FormData()
+
+      sellerupdateform.append('store_name', store_name)
+      sellerupdateform.append('store_detail', store_detail)
+      sellerupdateform.append('add_detail', add_detail)
+      sellerupdateform.append('strg_use', strg_use)
+      sellerupdateform.append('start_time', start_time)
+      sellerupdateform.append('end_time', end_time)
+      sellerupdateform.append('shop_addr1', shop_addr1)
+      sellerupdateform.append('shop_addr2', shop_addr2)
+      sellerupdateform.append('shop_tel', shop_tel)
+      sellerupdateform.append('business_num', business_num)
+      sellerupdateform.append('seller_id' , seller_id)
+      const fileInput = document.getElementById('image-upload');
+    if (fileInput && fileInput.files[0]) {
+      sellerupdateform.append('seller_profile1', fileInput.files[0]);
+      console.log(fileInput.files[0].name);
+    }
+
+    axios.post(url, sellerupdateform, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then(response => {
+      console.log(response.data);
+      alert('값이 잘 받아와 졌습니다')
+    })
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+
     }
 
 
@@ -91,7 +123,7 @@ const AdminStoreInfo = () => {
     new window.daum.Postcode({
       oncomplete: function (data) {
         // 주소 상태를 업데이트합니다.
-        setAddress(data.address);
+        setShop_addr1(data.shop_addr1);
         // 필요하다면 다른 상태도 업데이트할 수 있습니다. 예: 지번, 도로명 주소 등
       }
     }).open();
@@ -190,16 +222,16 @@ useEffect(() => {
                     className="text7-content2"
                     type="text"
                     placeholder="가게 주소"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
+                    value={shop_addr1}
+                    onChange={(e) => setShop_addr1(e.target.value)} // 사용자가 직접 주소를 수정할 수 있도록 합니다.
                     readOnly // 혹은 주소 입력을 API를 통해서만 하게 하려면 readOnly 속성을 사용합니다.
                   />
           <input
           className='text7-content' 
           type='text'
           placeholder='상세 주소 입력'
-          value={address_detail}
-          onChange={(e)=>setAddress_detail(e.target.value)}/>
+          value={shop_addr2}
+          onChange={(e)=>setShop_addr2(e.target.value)}/>
           <div className='store-text8'>가게 번호</div>
           <input
           className='text8-content' 
