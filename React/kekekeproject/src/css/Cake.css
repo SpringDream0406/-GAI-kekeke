@@ -7,6 +7,12 @@
 
 
 }
+.tour-hr{
+  position: relative;
+  top: 15px;
+  color: lightgray;
+  background-color: lightgray;
+}
 
   
 .tour .tour-contents {

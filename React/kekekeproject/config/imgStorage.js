@@ -20,6 +20,8 @@ const imgStorage = (imgPath, imgName) => multer.diskStorage({
         // 이름 설정
         const filename = `${fileName}${extname}`;
         cb(null, filename);
+        console.log('111111');
+        console.log(fileName);
     },
 
 });

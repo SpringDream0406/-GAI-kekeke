@@ -23,6 +23,7 @@
     left: 150px;
     border-radius: 20px;
     border: 8px solid #D1ECFF;
+    margin: auto; /* 중앙 정렬 */
 }
 .adcc-cday{
     font-family: 'Pretendard-semibold';
