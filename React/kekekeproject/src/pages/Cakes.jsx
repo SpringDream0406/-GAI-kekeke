@@ -16,11 +16,9 @@ export const Cakes = () => {
   const [isLocationModalOpen, setLocationModalOpen] = useState(false);
   const [myLocation, setMyLocation] = useState(false);
   const [ setCake] = useState(null); // cake 객체 상태 추가
-
   const [currentPage, setCurrentPage] = useState(1);
   const [cakesFromServer, setCakesFromServer] = useState([]);
   const itemsPerPage = 9;
-
 
   useEffect(() => {
     const url = `${API_URL}/product/cakes`;
@@ -40,9 +38,30 @@ export const Cakes = () => {
 
   }, [selectedLocation]);
 
+  const getPageNumbers = () => {
+    const totalPageCount = Math.ceil(cakesFromServer.length / itemsPerPage);
+    const maxPageNumberDisplay = 5; // 한 번에 표시할 최대 페이지 수
+    let startPage, endPage;
   
-
-
+    if (totalPageCount <= maxPageNumberDisplay) {
+      startPage = 1;
+      endPage = totalPageCount;
+    } else {
+      // 현재 페이지가 최대 페이지 수의 절반 이상인 경우
+      if (currentPage <= Math.floor(maxPageNumberDisplay / 2)) {
+        startPage = 1;
+        endPage = maxPageNumberDisplay;
+      } else if (currentPage + Math.floor(maxPageNumberDisplay / 2) >= totalPageCount) {
+        startPage = totalPageCount - maxPageNumberDisplay + 1;
+        endPage = totalPageCount;
+      } else {
+        startPage = currentPage - Math.floor(maxPageNumberDisplay / 2);
+        endPage = startPage + maxPageNumberDisplay - 1;
+      }
+    }
+  
+    return Array.from({ length: (endPage - startPage + 1) }, (_, idx) => startPage + idx);
+  };
 
    // useEffect 훅을 사용하여 선택된 지역이 변경될 때마다 필터링을 수행
   useEffect(() => {
@@ -62,10 +81,8 @@ export const Cakes = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;  
   const currentCakes = cakesFromServer.slice(indexOfFirstItem, indexOfLastItem);
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(cakesFromServer.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = getPageNumbers();
+
 
   const toggleLocationModal = () => {
     if (myLocation === true) {
@@ -176,19 +193,18 @@ const [selectedKeyword, setSelectedKeyword] = useState("");
           </div>
         </div>
         <div className="Tourpagination">
-          <AdPagebtn type="prev" onClick={goToPrevPage} />
-          {pageNumbers.map(num => (
-            <button
-              key={num}
-              onClick={() => setCurrentPage(num)}
-              className={`page-number ${currentPage === num ? 'active' : ''}`}
-            >
-              {num}
-            </button>
-          ))}
-          <AdPagebtn type="next" onClick={goToNextPage} />
-         
-        </div>
+  <AdPagebtn type="prev" onClick={goToPrevPage} />
+  {pageNumbers.map(num => (
+    <button
+      key={num}
+      onClick={() => setCurrentPage(num)}
+      className={`page-number ${currentPage === num ? 'active' : ''}`}
+    >
+      {num}
+    </button>
+  ))}
+  <AdPagebtn type="next" onClick={goToNextPage} />
+</div>
       </div>
    
     </div>
