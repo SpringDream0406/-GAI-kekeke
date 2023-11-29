@@ -288,3 +288,32 @@
   text-decoration: underline;
 }
 
+.tour-contents-fr {
+  position: relative;
+  /* 기타 스타일 */
+}
+
+.keyword-container {
+  position: absolute;
+  top: 0; /* 원하는 위치로 조정 */
+  left: 0; /* 원하는 위치로 조정 */
+  /* 기타 스타일 */
+}
+
+.Tourpagination {
+  position: absolute;
+  bottom: 0; /* 원하는 위치로 조정 */
+  left: 50%; /* 중앙 정렬 */
+  transform: translateX(-50%); /* 중앙 정렬 */
+  /* 기타 스타일 */
+}
+
+/* 화면 크기에 따른 반응형 스타일 */
+@media screen and (max-width: 768px) {
+
+
+  .Tourpagination {
+    /* 모바일 화면에서의 스타일 */
+    position: static; /* 고정된 위치 해제 */
+  }
+}
