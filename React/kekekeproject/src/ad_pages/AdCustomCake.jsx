@@ -33,14 +33,13 @@ const AdCustomCake = () => {
 
 
 
-// 페이지에 맞는 콘텐츠를 가져오는 함수
-const fetchPageContent = async (pageNumber) => {
-  const allData = createDummyData(customData); // 총 40개의 데이터 항목을 생성합니다.
-  // 페이지 번호에 맞는 콘텐츠를 계산합니다.
-  const newContent = allData.slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage);
-  setPageContent(newContent);
-};
-
+  const fetchPageContent = (pageNumber) => {
+    if (customData && customData.length > 0) {
+      const startIndex = (pageNumber - 1) * itemsPerPage;
+      const newContent = customData.slice(startIndex, startIndex + itemsPerPage);
+      setPageContent(newContent);
+    }
+  };
 // 상세페이지로 데이터 이동을위한 navigate
 const navigate = useNavigate();
 const handleItemClick = (item) => {
@@ -171,19 +170,16 @@ const formatTime = (timeString) => {
         </div>
         
         <div className='adcc-list-container'>
-        {customData ? (
-          customData.map((item, index) => (
-            <div className='adcc-link' key={index} onClick={() => handleItemClick(item)}>
-              <div className='adcc-c-list'>
-                <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
-                <div className='adcc-cday'>{formatDate(item.PICKUP_DATE)}</div>
-                <div className='adcc-ctime'>{formatTime(item.PICKUP_TIME)}</div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div>데이터가 없습니다.</div>
-          )}
+    
+        {pageContent.map((item, index) => (
+        <div className='adcc-link' key={index} onClick={() => handleItemClick(item)}>
+          <div className='adcc-c-list'>
+            <img className='adcc-cimg' src={convertImagePathToUrl(item.CUST_DRAW)} alt={`케이크 ${index}`} />
+            <div className='adcc-cday'>{formatDate(item.PICKUP_DATE)}</div>
+            <div className='adcc-ctime'>{formatTime(item.PICKUP_TIME)}</div>
+          </div>
+        </div>
+      ))}
         </div>
       </AdBG>
     </div>

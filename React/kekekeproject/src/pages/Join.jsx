@@ -19,7 +19,7 @@ const Join = () => {
   const [phone, setphone] = useState('');
   const navigate = useNavigate(); 
         
-          
+  
   const encodeFileToBase64 = (fileBlob) => {
 
     const reader = new FileReader();

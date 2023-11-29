@@ -6,7 +6,7 @@ import "../css/TourReviewPopup.css";
 import axios from 'axios';
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
-import BlueBg from "../component/BlueBg";
+
 
 export const TourDet3 = () => {
   const [storeInfo, setStoreInfo] = useState({
