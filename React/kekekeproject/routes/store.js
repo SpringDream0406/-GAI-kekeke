@@ -6,6 +6,7 @@ const { query } = require('../config/poolDatabase');
 const conn = require('../config/database'); // DB 연결
 const path = require('path');
 const multer = require('multer');
+const { log } = require('console');
 // 케이크 둘러보기 엔드포인트
 router.post('/tour-order', async (req, res) => {
     try {
@@ -117,8 +118,6 @@ router.post('/customorderlist', (req, res) => {
 });
 
 
-
-
 // 리뷰이미지 저장
 // 널 값 체크 함수 정의
 function nullify(value) {
@@ -139,36 +138,6 @@ const storage = multer.diskStorage({
 
 // multer 인스턴스 생성
 const upload = multer({ storage: storage }).single('image');
-
-
-
-
-
-// cust_id 를 가지고 커스텀상품테이블 조회해서 정보를 검색합니다 // 이건 mpordelist에 사용되는 커스텀 api콜임
-router.get('/get-user-review', (req, res) => {
-  const { deal_id } = req.query; // GET 요청의 경우 req.query 사용
-
-  const sql = `SELECT * FROM TB_REVIEW WHERE DEAL_ID = ?;`;
-
-  conn.query(sql, [deal_id], (err, rows) => {
-    if (err) {
-      console.error(`SQL 에러: ${err}`);
-      return res.status(500).json({ error: '서버 에러' });
-    }
-
-    if (rows.length === 0) {
-      return res.status(404).json({ error: '리뷰를 찾을 수 없음' });
-    }
-
-    const reviewData = rows[0]; // 첫 번째 행 데이터 반환
-
-    res.json(reviewData);
-  });
-});
-
-
-
-
 
 
 // 리뷰 데이터를 데이터베이스에 저장하는 API 엔드포인트
@@ -226,59 +195,50 @@ router.get('/check-review-existence', async (req, res) => {
 
 
 
-// 리뷰 업데이트를 위한 라우트
+// 
 router.put('/updateReview', multer().single('image'), async (req, res) => {
   try {
-    const { reviewMsg, custId, dealId, customId } = req.body;
+    const { reviewMsg, DEAL_ID, CUSTOM_ID } = req.body;
     const image = req.file;
     const imagePath = image ? image.path : null;
 
-    let updateSql, queryParams;
+    let deleteSql, insertSql, queryParams;
+    console.log(reviewMsg,DEAL_ID,CUSTOM_ID);
 
-    if (dealId) {
-      // dealId로 리뷰 업데이트
-      updateSql = `UPDATE TB_REVIEW SET cust_id = ?, review_msg = ?, image = ? WHERE deal_id = ?`;
-      queryParams = [custId, reviewMsg, imagePath, dealId];
-    } else if (customId) {
-      // customId로 리뷰 업데이트
-      updateSql = `UPDATE TB_REVIEW SET cust_id = ?, review_msg = ?, image = ? WHERE custom_id = ?`;
-      queryParams = [custId, reviewMsg, imagePath, customId];
+    // 먼저 기존 리뷰 삭제
+    if (DEAL_ID) {
+      deleteSql = `DELETE FROM TB_REVIEW WHERE deal_id = ?`;
+      queryParams = [DEAL_ID];
+    } else if (CUSTOM_ID) {
+      deleteSql = `DELETE FROM TB_REVIEW WHERE custom_id = ?`;
+      queryParams = [CUSTOM_ID];
     } else {
-      // dealId 또는 customId가 없는 경우 오류 반환
       return res.status(400).json({ error: 'deal_id 또는 custom_id가 필요합니다.' });
     }
 
-    await query(updateSql, queryParams);
-    res.status(200).json({ message: '리뷰가 성공적으로 업데이트되었습니다.' });
+    // 기존 리뷰 삭제 실행
+    await query(deleteSql, queryParams);
+
+ // 새 리뷰 삽입
+    insertSql = `INSERT INTO TB_REVIEW (review_msg, REVIEW_IMG, deal_id, custom_id) VALUES (?, ?, ?, ?)`;
+    queryParams = [
+      reviewMsg, 
+      imagePath, 
+      DEAL_ID || null, // DEAL_ID가 없으면 null 사용
+      CUSTOM_ID || null // CUSTOM_ID가 없으면 null 사용
+    ];
+    // 새 리뷰 삽입 실행
+    await query(insertSql, queryParams);
+    res.status(200).json({ message: '리뷰가 성공적으로 생성되었습니다.' });
   } catch (error) {
-    console.error('리뷰 업데이트 중 오류 발생:', error);
-    res.status(500).json({ error: '리뷰 업데이트 중 오류가 발생했습니다.' });
+    console.error('리뷰 생성 중 오류 발생:', error);
+    res.status(500).json({ error: '리뷰 생성 중 오류가 발생했습니다.' });
   }
 });
 
 
 
-// cust_id 를 가지고 커스텀상품테이블 조회해서 정보를 검색합니다 // 이건 mpordelist에 사용되는 커스텀 api콜임
-router.get('/get-custom-review', (req, res) => {
-  const { custom_id } = req.query; // GET 요청의 경우 req.query 사용
 
-  const sql = `SELECT * FROM TB_REVIEW WHERE CUSTOM_ID = ?;`;
-
-  conn.query(sql, [custom_id], (err, rows) => {
-    if (err) {
-      console.error(`SQL 에러: ${err}`);
-      return res.status(500).json({ error: '서버 에러' });
-    }
-
-    if (rows.length === 0) {
-      return res.status(404).json({ error: '리뷰를 찾을 수 없음' });
-    }
-
-    const reviewData = rows[0]; // 첫 번째 행 데이터 반환
-
-    res.json(reviewData);
-  });
-});
 
 
 
