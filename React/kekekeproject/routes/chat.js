@@ -20,11 +20,24 @@ router.post('/userchatroom', async (req, res) => {
         TS.STORE_NAME,
         TS.START_TIME,
         TS.END_TIME,
-        TS.SELLER_PROFILE1
+        TS.SELLER_PROFILE1,
+        TC.CHAT_MSG
     FROM
         TB_CHAT_ROOM AS TCR
     JOIN
         TB_SELLER AS TS ON TCR.SELLER_ID = TS.SELLER_ID
+    JOIN
+        (
+            SELECT
+                CHAT_ROOM_ID,
+                MAX(CREATED_AT) AS MAX_CREATED_AT
+            FROM
+                TB_CHAT
+            GROUP BY
+                CHAT_ROOM_ID
+        ) AS LatestChat ON TCR.CHAT_ROOM_ID = LatestChat.CHAT_ROOM_ID
+    JOIN
+        TB_CHAT AS TC ON TCR.CHAT_ROOM_ID = TC.CHAT_ROOM_ID AND TC.CREATED_AT = LatestChat.MAX_CREATED_AT
     WHERE
         TCR.CUST_ID = ?`;
         
@@ -77,24 +90,46 @@ router.post('/sellerchatroom', async (req, res) => {
     }
 })
 
-// 클라이언트에서 POST 요청을 받는 엔드포인트
+// 클라이언트에서 메시지를 작성하면 TB_CHAT에 저장되는 엔드포인트
 router.post('/saveChat', async (req, res) => {
     try {
       // 클라이언트에서 전송한 데이터 추출
-      const { chatId, sendId, chatMsg, createdAt, chatRoomId } = req.body;
+      const { send_Id, chat_Msg, created_At, chat_Room_Id } = req.body;
   
       // SQL 쿼리 작성
-      const sql = `INSERT INTO tbChat (chatId, sendId, chatMsg, createdAt, chatRoomId)
-                   VALUES (?, ?, ?, ?, ?)`;
+      const sql = `INSERT INTO TB_CHAT (send_Id, chat_Msg, created_At, chat_Room_Id)
+                   VALUES (?, ?, ?, ?)`;
   
       // SQL 쿼리 실행
-      conn.query(sql, [chatId, sendId, chatMsg, createdAt, chatRoomId], (err, result) => {
+      conn.query(sql, [send_Id, chat_Msg, created_At, chat_Room_Id], (err, result) => {
         if (err) {
           console.error('SQL 에러:', err);
           res.status(500).send({ message: '서버 에러' });
         } else {
           console.log('데이터 저장 완료');
           res.status(200).send({ message: '데이터 저장 완료' });
+        }
+      });
+    } catch (error) {
+      console.error('에러:', error);
+      res.status(500).send({ message: '서버 에러' });
+    }
+  });
+
+  // 클라이언트에 메시지들을 보내주는 코드
+router.get('/getChat', async (req, res) => {
+    try {
+      // SQL 쿼리 작성 - 모든 채팅 데이터를 가져오는 쿼리
+      const sql = 'SELECT * FROM TB_CHAT';
+  
+      // SQL 쿼리 실행
+      conn.query(sql, (err, results) => {
+        if (err) {
+          console.error('SQL 에러:', err);
+          res.status(500).send({ message: '서버 에러' });
+        } else {
+          // 쿼리 결과를 클라이언트에 반환
+          res.status(200).json(results);
         }
       });
     } catch (error) {

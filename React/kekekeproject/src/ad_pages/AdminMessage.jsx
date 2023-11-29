@@ -7,69 +7,9 @@ import axios from 'axios'; // axios 라이브러리 추가
 import API_URL from '../api_url';
 
 
-// 임시 유저 데이터 목록
-const initialUserData = [
-  {
-    id: 1,
-    logoSrc: "/assets/images/userProfile1.jpg",
-    name: "워녕",
-    lastMessage: "주문한 케이크 상태 어떤가요? 사진 미리 볼 수 있을까요?",
-    date: "11.16",
-    status: "상담 중",
-  },
-  {
-    id: 2,
-    logoSrc: "/assets/images/userProfile2.jpg",
-    name: "고먀미",
-    lastMessage: "픽업 때 뵐게요!픽업 때 뵐게요!픽업 때 뵐게요!픽업 때 뵐게요!픽업 때 뵐게요! ",
-    date: "11.14",
-    status: "주문 완료",
-  },
-  {
-    id: 3,
-    logoSrc: "/assets/images/userProfile3.png",
-    name: "시나모롤",
-    lastMessage: "픽업 시간 변경 가능한가요?픽업 시간 변경 가능한가요?픽업 시간 변경 가능한가요?픽업 시간 변경 가능한가요?",
-    date: "11.12",
-    status: "상담 중",
-  },
-  {
-    id: 4,
-    logoSrc: "/assets/images/userProfile1.jpg",
-    name: "워녕2",
-    lastMessage: "케이크 너무 예뻐요 감사해요~~~",
-    date: "11.2",
-    status: "주문 완료",
-  },
-  {
-    id: 5,
-    logoSrc: "/assets/images/userProfile2.jpg",
-    name: "고먀미2",
-    lastMessage: "감사합니다",
-    date: "11.1",
-    status: "주문 완료",
-  },
-  {
-    id: 6,
-    logoSrc: "/assets/images/userProfile3.png",
-    name: "시나모롤2",
-    lastMessage: "아 케이크 넘 기대돼요 잘 부탁드려요",
-    date: "11.1",
-    status: "주문 완료",
-  },  {
-    id: 7,
-    logoSrc: "/assets/images/userProfile3.png",
-    name: "시나모롤3",
-    lastMessage: "아 케이크 넘 기대돼요 잘 부탁드려요",
-    date: "11.1",
-    status: "주문 완료",
-  },
-];
-
 const AdminMessage = () => {
-  const roomId = 'adminChatRoom'; // 고유한 roomId를 설정합니다.
 
-  const [userData, setUserData] = useState(initialUserData);
+  const [userData, setUserData] = useState();
   // 서브바의 현재 선택된 탭 상태
   const [activeTab, setActiveTab] = useState('N'); // 초기 탭 설정
   const [sellerinfo, setSellerInfo] = useState({});
@@ -156,7 +96,6 @@ console.log('변환값' , sellerChat);
   };
 
 
-
   return (
     
     <div>
@@ -223,7 +162,10 @@ console.log('변환값' , sellerChat);
           </div>
 
           <div className="adminchatForm">
-            <Chatroom roomId={roomId} sender="admin" adminStyle={true} />
+          <Chatroom
+            //  roomId={buyerRoomId} 
+            roomId={selectedChat ? selectedChat.CHAT_ROOM_ID : null}
+             sender="admin" adminStyle={true}/>
           </div>
         </div>
 
