@@ -254,41 +254,21 @@ const ReviewPopup = ({ onClose, orderDetail, markOrderAsReviewed }) => {
   const [reviewContent, setReviewContent] = useState('');
   const [image, setImage] = useState(null);
   const [existingReview, setExistingReview] = useState(null); // 기존 리뷰 데이터 저장
+  const [custId, setCustId] = useState([]);
 
-  
-// 일반상품 데이터 요청하는 콜
   useEffect(() => {
-    async function fetchReviewData() {
-      try {
-        let response;
-        if (orderDetail.orderType === 'user') {
-          // 일반상품 리뷰 데이터 요청
-          response = await axios.get('/store/get-user-review', { 
-            params: { deal_id: orderDetail.DEAL_ID }
-          });
-        } else {
-          // 커스텀 상품 리뷰 데이터 요청
-          response = await axios.get('/store/get-custom-review', { 
-            params: { custom_id: orderDetail.CUSTOM_ID }
-          });
-        }
-        setExistingReview(response.data); // 응답 데이터로 리뷰 상태 설정
-      } catch (error) {
-        console.error('리뷰 데이터 로드 중 오류 발생:', error);
-      }
+    console.log('Order Detail:', orderDetail);
+  }, [orderDetail]);
+
+  // 구매자 ID(cust_id불러오기)
+  useEffect(() => {
+    const userStorageData = sessionStorage.getItem('userData');
+    if (userStorageData) {
+      const userData = JSON.parse(userStorageData);
+      console.log('세션 스토리지에서 가져온 유저아이디값:', userData.cust_id);
+      setCustId(userData.cust_id);
     }
-  
-    fetchReviewData(); // 함수 호출
-  }, [orderDetail]); // 의존성 배열에 orderDetail 추가
-
-
-  // 2. 리뷰 데이터가 있는 경우 리뷰 텍스트 상태 초기화
-    useEffect(() => {
-      if (existingReview) {
-        setReviewContent(existingReview.review_msg); // 리뷰 데이터에서 review_msg 사용 (실제 필드명에 따라 수정)
-        // 이미지 상태도 설정 가능
-      }
-    }, [existingReview]);
+  }, []);
 
   
     // 등록하기누르면 데이터보내기 
@@ -296,39 +276,49 @@ const ReviewPopup = ({ onClose, orderDetail, markOrderAsReviewed }) => {
       try {
         const formData = new FormData();
         formData.append('review_msg', reviewContent);
+       
+
+        formData.append('cust_id', custId);
+        let idType, idValue;
+        if (orderDetail.orderType === 'user') {
+          idType = 'DEAL_ID';
+          idValue = orderDetail.DEAL_ID;
+        } else if (orderDetail.orderType === 'custom') {
+          idType = 'CUSTOM_ID';
+          idValue = orderDetail.CUSTOM_ID;
+        }
+        formData.append(idType, idValue);
+    
+      
+        formData.append('SELLER_ID', orderDetail.SELLER_ID);
         if (image) {
           formData.append('image', image);
         }
-        // 제품 유형에 따라 추가할 ID를 결정합니다.
-        if (orderDetail.orderType === 'user') {
-          formData.append('DEAL_ID', orderDetail.DEAL_ID);
-        } else if (orderDetail.orderType === 'custom') {
-          formData.append('CUSTOM_ID', orderDetail.CUSTOM_ID);
-        }
-  
-        formData.append('cust_id', orderDetail.CUST_ID);
-        formData.append('SELLER_ID', orderDetail.SELLER_ID);
-  
-        // 리뷰 데이터가 있는 경우 수정 요청 보내기
-        if (existingReview) {
-          // 기존 리뷰의 ID (예: existingReview.id)를 사용하여 수정 요청
-          formData.append('review_id', existingReview.id);
-          const response = await axios.put(`${API_URL}/store/updatereview`, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+
+    
+        // 서버에 리뷰 존재 여부 확인
+        let reviewExistsResponse = await axios.get(`${API_URL}/store/check-review-existence`, {
+          params: { [idType.toLowerCase()]: idValue }
+        });
+
+        console.log(reviewExistsResponse);
+    
+        if (reviewExistsResponse.data.exists) {
+          // 리뷰 업데이트
+          const response = await axios.put(`${API_URL}/store/updateReview`, formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
           });
+          console.log("수정1",formData);
           alert('리뷰가 수정되었습니다.');
         } else {
-          // 리뷰 데이터가 없는 경우 등록 요청 보내기
+          // 새 리뷰 등록
           const response = await axios.post(`${API_URL}/store/reviewcust`, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+            headers: { 'Content-Type': 'multipart/form-data' },
           });
+          console.log("수정2",formData);
           alert('리뷰가 등록되었습니다.');
         }
-  
+    
         markOrderAsReviewed(orderDetail.id);
         onClose();
         window.scrollTo(0, 0);
@@ -337,7 +327,6 @@ const ReviewPopup = ({ onClose, orderDetail, markOrderAsReviewed }) => {
         alert('리뷰 처리 중 오류가 발생했습니다.');
       }
     };
-
 
 
 

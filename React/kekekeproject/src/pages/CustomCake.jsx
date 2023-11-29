@@ -301,7 +301,7 @@ setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
                   stroke={elem.color}
                   strokeWidth={elem.lineWidth}
                   draggable={tool === null}
-                  draggable
+                  
                   onDragStart={handleDragStart}
                   onDragEnd={handleDragEnd}
                 />
@@ -333,7 +333,7 @@ setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
               x={elem.position.x}
               y={elem.position.y}
               fontSize={20}
-              draggable
+              
               draggable={isTextEditing}
               onClick={handleTextClick}
               onDragStart={handleDragStart}
