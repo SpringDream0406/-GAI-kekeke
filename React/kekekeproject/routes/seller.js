@@ -10,8 +10,6 @@ const { query } = require('../config/poolDatabase');
 const { route } = require('./store');
 const conn = require('../config/database'); // DB 연결
 
-
-
 // 판매자 이미지 저장 관련
 const imgName = 'seller_id';
 const imgPath = path.join('public', 'img', 'seller');
@@ -309,6 +307,11 @@ router.put('/updateprd', async (req, res) => {
       res.status(500).send("서버 오류 발생");
     }
   });
+
+
+
+  
+
 
 
 

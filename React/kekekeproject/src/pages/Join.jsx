@@ -48,7 +48,8 @@ const Join = () => {
     if (fileInput && fileInput.files[0]) {
       formData.append('profile_img', fileInput.files[0]);
     }
-  
+    
+    console.log("들어와라",fileInput.files[0]);
     axios.post(url, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',

@@ -41,10 +41,12 @@ const PMList = () => {
       }
       setProducts(pdprd); // 오류가 발생하더라도 setProducts를 호출
     };
-  
-    fetchData();
-  }, [sellerinfo.seller_id]);
 
+    fetchData();
+ 
+    
+  }, [sellerinfo.seller_id]);
+ 
   
   
 
@@ -224,6 +226,13 @@ const handleImageUpdate = (newImageUrl) => {
   setImagePopupVisible(false); // 이미지 팝업 숨김
 };
 
+  // 이미지 경로를 웹 URL로 변환하는 함수
+  const convertImagePathToUrl = (imagePath) => {
+    const pathWithoutPublic = imagePath.split('public\\').pop(); // 'public\' 부분을 제거합니다.
+    return `${API_URL}/${pathWithoutPublic.replace(/\\/g, '/')}`; // 경로 구분자를 웹 표준에 맞게 변경합니다.
+  
+  };
+
 
 
 
@@ -392,6 +401,19 @@ export default PMList
 const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   const [images, setImages] = useState([]);
+  const [sellerinfo, setSellerInfo] = useState('');
+  const [products, setProducts] = useState([]);
+  //세션에서 데이터불러오기!
+  useEffect(()=>{
+    const adminStorageData =sessionStorage.getItem('adminData');
+    if(adminStorageData){
+      const adminData = JSON.parse(adminStorageData);
+      setSellerInfo(adminData);
+      console.log(adminData);
+    }
+  },[]);
+
+  
   const [imagePreviews, setImagePreviews] = useState([]);
 
   const handleImageChange = (e) => {
@@ -420,28 +442,48 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
   const [productPrice, setProductPrice] = useState('');
 
   // 새 상품 등록 함수
-  const handleRegister = () => {
-    // 입력 검증 또는 필요한 로직 수행
+  const handleRegister = async () => {
     if (!productName || !productPrice) {
-      // 필요한 경우 사용자에게 경고
       alert("상품명과 가격을 입력해주세요.");
       return;
     }
+  
+    // FormData 객체 생성
+    const formData = new FormData();
+  
+   
+    // 상품 정보 추가
+    formData.append('name', productName);
+    formData.append('price', productPrice);
+    formData.append('seller_id', sellerinfo.seller_id);
 
-    // 상품 정보 객체 생성
-    const newProduct = {
-      id: Date.now(), // 실제 앱에서는 더 견고한 ID 생성 방법을 사용
-      imageUrl: imagePreviews[0] || '/assets/images/placeholder.png', // 첫 번째 이미지 또는 기본 이미지
-      name: productName,
-      price: productPrice,
-      status: '판매중',
-      sales: 0,
-    };
+     // 이미지 파일 추가
+    if (images.length > 0) {
+      formData.append('image', images[0]); // 'imagePreviews[0]'가 실제 이미지 파일
+    } else {
+      formData.append('image', '/assets/images/placeholder.png');
+    }
 
-    // 부모 컴포넌트의 상품 추가 함수 호출
-    onAddProduct(newProduct);
+    console.log("들어와라",images);
+  
+  
+    // 서버에 FormData 전송
+    try {
+      const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log("상품 등록 성공", response.data);
+      onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
 
-    // 상태 초기화 및 팝업 닫기
+    // 서버 응답 후 페이지 새로고침
+    window.location.reload();
+    } catch (error) {
+      console.error("상품 등록 실패", error);
+      return;
+    }
+  
     setProductName('');
     setProductPrice('');
     setImagePreviews([]);

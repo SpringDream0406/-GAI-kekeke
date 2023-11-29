@@ -107,10 +107,7 @@ export const TourDet3 = () => {
   }
 
   // 1:1 채팅 클릭시 새로운 팝업등장
-  // const handleChatBoxClick =() =>{
-  //   window.open('/TourReviewPopup', '_blank');
-  // }
-
+  
 
   /*이전페이지로 가는 로직 */
 
