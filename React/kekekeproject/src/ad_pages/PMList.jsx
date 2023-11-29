@@ -13,42 +13,51 @@ import axios from 'axios'
 
 
 const PMList = () => {
-  const [sellerinfo, setSellerInfo] = useState('');
-  const [products, setProducts] = useState([]);
-  //세션에서 데이터불러오기!
-  useEffect(()=>{
-    const adminStorageData =sessionStorage.getItem('adminData');
-    if(adminStorageData){
-      const adminData = JSON.parse(adminStorageData);
-      setSellerInfo(adminData);
-      console.log(adminData);
-    }
-  },[]);
-
 
   
-  // seller_id 로 데이터 불러오기
-  useEffect(() => {
-    const fetchData = async () => {
-      let pdprd; // pdprd 변수를 try 블록 외부에서 선언
-      try {
-        const response = await axios.post(`${API_URL}/order/adproduct`, { seller_id: sellerinfo.seller_id });
-        pdprd = response.data; // 데이터를 pdprd에 할당
-        console.log("데이터 받아옴", response.data);
-      } catch (error) {
-        console.log("데이터 오류", error);
-        pdprd = []; // 오류 발생 시 pdprd를 빈 배열로 초기화
-      }
-      setProducts(pdprd); // 오류가 발생하더라도 setProducts를 호출
-    };
-
-    fetchData();
- 
-    
-  }, [sellerinfo.seller_id]);
- 
-  
-  
+  // 임시 데이터
+  const products = [
+    {
+      id: 1,
+      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
+      name: "플라워 케이크", // 상품명
+      price: "50000", // 상품 가격
+      status: "판매중", // 판매 상태
+      sales: "21" // 누적 판매량
+    },
+    {
+      id: 2,
+      imageUrl: "/assets/images/cake2.png",
+      name: "베리 초콜릿 케이크",
+      price: "45000",
+      status: "품절",
+      sales: "34"
+    },
+    {
+      id: 3,
+      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
+      name: "고소하고짭짤한맛소금팝콘케이쿠", // 상품명
+      price: "50000", // 상품 가격
+      status: "품절", // 판매 상태
+      sales: "50" // 누적 판매량
+    },
+    {
+      id: 4,
+      imageUrl: "/assets/images/cake2.png",
+      name: "베리 초콜릿 케이크",
+      price: "45000",
+      status: "판매중",
+      sales: "14"
+    },
+    {
+      id: 5,
+      imageUrl: "/assets/images/cake1.jpg", // 상품 이미지 경로
+      name: "플라워 케이크플라워 케이크플라워 케이크", // 상품명
+      price: "50000", // 상품 가격
+      status: "판매중", // 판매 상태
+      sales: "21" // 누적 판매량
+    },
+  ];
 
   // 검색어 상태와 필터링된 상품 목록 상태 추가
   const [searchTerm, setSearchTerm] = useState('');
@@ -59,7 +68,6 @@ const PMList = () => {
     const filtered = products.filter((product) =>
       product.PRD_NAME.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    console.log("필터",filtered);
     setFilteredProducts(filtered);
   };
 
@@ -182,20 +190,29 @@ const PMList = () => {
 
 
   // 페이지버튼/
-  // 페이지네이션을 위한 상태
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0); // totalPages 상태 추가
   const itemsPerPage = 4; // 한 페이지에 표시할 항목 수
-  const [totalPages] = useState(Math.ceil(filteredProducts.length / itemsPerPage));
 
-  // 현재 페이지에 따라 표시할 상품 목록을 계산합니다.
-  const indexOfLastProduct = currentPage * itemsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
   // 페이지 변경 함수
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  // filteredProducts가 변경될 때마다 totalPages를 업데이트
+  useEffect(() => {
+    const newTotalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    setCurrentPage(1);
+    setTotalPages(newTotalPages); // 'totalPages' 상태 업데이트
+  }, [filteredProducts]);
+
+
+// 현재 페이지에 따라 표시할 상품 목록을 계산합니다.
+const indexOfLastProduct = currentPage * itemsPerPage;
+const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
+const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
 
 
 // -------------------------------------------------------
@@ -343,12 +360,12 @@ const handleImageUpdate = (newImageUrl) => {
             상품 등록
           </button>
         </div>
-
-        <PageButton className = "pmlistpgbtn"
-        pages={totalPages}
-        currentPage={currentPage}
-        onPageChange={onPageChange}
-      /> 
+        <PageButton
+  className="pmlistpgbtn"
+  pages={totalPages}
+  currentPage={currentPage}
+  onPageChange={onPageChange}
+/>
         </div>
 
 
@@ -401,19 +418,6 @@ export default PMList
 const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   const [images, setImages] = useState([]);
-  const [sellerinfo, setSellerInfo] = useState('');
-  const [products, setProducts] = useState([]);
-  //세션에서 데이터불러오기!
-  useEffect(()=>{
-    const adminStorageData =sessionStorage.getItem('adminData');
-    if(adminStorageData){
-      const adminData = JSON.parse(adminStorageData);
-      setSellerInfo(adminData);
-      console.log(adminData);
-    }
-  },[]);
-
-  
   const [imagePreviews, setImagePreviews] = useState([]);
 
   const handleImageChange = (e) => {
