@@ -16,7 +16,7 @@ const imgName = 'cust_id';
 const imgPath = path.join('public', 'img', 'cust');
 const storage = imgStorage(imgPath, imgName);
 const upload = multer({ storage: storage, fileFilter: cust_fileFilter });
-
+const upload2 = multer({ storage: storage });
 
 // 커스터머 회원가입
 router.post('/join', upload.single('profile_img'), async (req, res) => {
@@ -233,13 +233,16 @@ router.post('/orderlist', async (req, res) => {
         res.status(500).send({ message: '서버에러'});
     }
 })
+
 //마이페이지 내정보 수정
-router.post('/update', upload.single('profile_img'), async (req, res) => {
+router.post('/update', upload2.single('profile_img'), async (req, res) => {
     try {
         const { cust_id, nick_name, cust_pw, phone } = req.body;
 
-        // Handle profile image update (if provided).
-        let profile_img = req.file ? req.file.filename : '';
+        // 이미지 파일 처리
+        let imgFile = req.file || { filename: `profile_img` };
+        console.log(imgFile);
+        let profile_img = imgFile.filename;
 
         // Check if any required field is missing and assign null if missing.
         if (!nick_name || !cust_pw || !phone || !cust_id) {
