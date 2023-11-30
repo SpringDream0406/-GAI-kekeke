@@ -43,6 +43,7 @@ export const TourDet3 = () => {
             StoreName: responseData.productInfo.STORE_NAME,   // 상호명
             StoreAddr1: responseData.productInfo.SHOP_ADDR1,  // 주소1
             StoreDetail: responseData.productInfo.STORE_DETAIL ,// 가게소개
+            
           });
         }
       } catch (error) {
@@ -55,22 +56,24 @@ export const TourDet3 = () => {
 
   // 리뷰
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchReviews = async () => {
       try {
         if (prd_id) {
           const response = await axios.post(`${API_URL}/sample/review`, { prd_id });
-          const responseData = response.data;
-          setReviewData(responseData.sellerReviews)
-        
-          // 상태 업데이트
-          console.log(responseData.sellerReviews);
+          if (response.data && response.data.sellerReviews) {
+            setReviewData(response.data.sellerReviews);
+
+            console.log("f리뷰데이터",reviewData[0]);
+          } else {
+            console.error('Seller reviews are missing in the response');
+          }
         }
       } catch (error) {
-        console.error('데이터를 가져오는 중 오류 발생:', error);
+        console.error('Error fetching reviews:', error);
       }
     };
-
-    fetchData();
+  
+    fetchReviews();
   }, [prd_id]);
 
   
@@ -87,8 +90,6 @@ export const TourDet3 = () => {
         flavor: review.CAKE_FLAVOR,
         reviewContent: review.REVIEW_MSG,
         request: review.ADD_REQUIRE, // 요청사항 설정
-        
-        
       });
       setShowDetailReview(true);
     };

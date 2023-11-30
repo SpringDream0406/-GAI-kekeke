@@ -72,7 +72,7 @@
 }
 
 .co-cakesmct{
-  font-size: 18px;
+  font-size: 23px;
   padding :20px;
   border-radius: 30px;
 background-color: white;
@@ -607,6 +607,7 @@ margin-left: 40px;
 
 
 }
+/* .react-datepicker__time-container .react-datepicker__header--time--only{
 
 .react-datepicker__time-container .react-datepicker__header--time--only{
   display: none;
@@ -615,7 +616,7 @@ margin-left: 40px;
 
 .react-datepicker__triangle{
   display: none;
-}
+} */
 
 .react-datepicker button{
   color: white;
@@ -679,6 +680,7 @@ margin-left: 40px;
   color: white;
   border: 2px solid #ff85a3;
   border-radius: 20px;
+  z-index: 2;
 }
 .react-datepicker__header {
   border-top-left-radius: 10px;
