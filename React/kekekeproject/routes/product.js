@@ -24,7 +24,8 @@ router.post('/cakes', async (req, res) => {
                     a.prd_name,
                     b.shop_addr1,
                     c.img_name,
-                    c.img_name2
+                    c.img_name2,
+                    a.tag
                 from TB_PRODUCT a
                 join TB_SELLER b on a.seller_id = b.seller_id
                 join TB_PRODUCT_IMG c on a.prd_id = c.prd_id
