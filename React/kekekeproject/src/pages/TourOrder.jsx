@@ -1,11 +1,12 @@
 import React, { useState, useEffect, forwardRef} from 'react';
 import { Link } from "react-router-dom";
+import DatePicker from "react-datepicker";
 import "../css/TourOrder.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import TourDetContainer from '../component/TourDetContainer'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css"; // 이 부분이 누락되어 DatePicker 스타일이 적용되지 않을 수 있습니다.
+
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../api_url';
@@ -19,8 +20,7 @@ import BlueBg from '../component/BlueBg';
 export const TourOrder = () => {
   
   const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
-  const [pickup_time, setPickupTime] = useState(new Date());
-  const [pickup_date, setPickupDate] = useState(new Date());
+
   const [cake_flavor, setCakeFlavor] = useState(null);
   const [cake_size, setCakeSize] = useState(null);
   const [cake_name] = useState(null);
@@ -28,8 +28,9 @@ export const TourOrder = () => {
   const [lettering, setLettering] = useState(null);
   const [order_name, setOrderName] = useState(null);
   const [order_num, setOrderNum] = useState(null);
-  const [prd_img, setPrdImg] = useState(null);
 
+  const [pickupDate, setPickupDate] = useState(new Date());
+  const [pickupTime, setPickupTime] = useState(new Date());
 
 
   const location = useLocation();
@@ -41,8 +42,11 @@ export const TourOrder = () => {
   const [sizeOptions, setSizeOptions] = useState([]);
 
 
-  const selectedCake = location.state && JSON.parse(location.state.cake);
-  const cake = selectedCake || {}; // 기본값으로 빈 객체 설정
+
+
+
+
+  
 
   // 구매자 ID(cust_id불러오기)
   useEffect(() => {
@@ -141,6 +145,7 @@ export const TourOrder = () => {
     three: '3호'
   };
 
+
   const TimeInput = forwardRef(({ value, onClick }, ref) => (
     <button className="to-time-input to-timetitle" type='button' onClick={onClick} ref={ref}>
       {value}
@@ -220,8 +225,8 @@ export const TourOrder = () => {
       lettering: lettering,
       order_name: order_name,
       order_num: order_num,
-      pickup_date: pickup_date.toISOString(),
-      pickup_time: pickup_time.toISOString(),
+      pickup_date: pickupDate.toISOString(),
+      pickup_time: pickupTime.toISOString(),
       prd_id: prd_id,
       seller_id: storeInfo ? storeInfo.seller_id : null
       
@@ -241,6 +246,7 @@ export const TourOrder = () => {
     console.log("DatePicker changed:", date);
     setPickupDate(date); // 상태 업데이트 또는 필요한 작업 수행
   };
+
 
   return (
     <div>
@@ -373,11 +379,13 @@ export const TourOrder = () => {
                   />
       <div className="to-time">픽업 시간</div>
       <DatePicker
-        selected={pickup_time}
-        onChange={(date) => {
-          console.log('DatePicker onChange called with date:', date);
-          setPickupTime(date);
-        }}
+
+         selected={pickupTime}
+         onChange={(date) => setPickupTime(date)}
+
+     
+ 
+
         showTimeSelect
         onClick = {handleDatePickerChange}
         showTimeSelectOnly // Add this prop to only show the time picker
@@ -386,20 +394,20 @@ export const TourOrder = () => {
         timeCaption="Time"
         dateFormat="h:mm aa"
         className="to-timetitle"
-        value={pickup_time}
-        customInput={<TimeInput />} // Use the TimeInput component for time picker
+        value={pickupTime}
+        customInput={<TimeInput />}
       />
       
    
       <div className="to-daytitle">픽업 날짜</div>
       <div className='to-datepicker-container'>
       <DatePicker 
-        selected={pickup_date} 
+        selected={pickupDate}
         onChange={(date) => setPickupDate(date)}
         className="to-day"
-        value={pickup_date}
+        value={pickupDate}
         dateFormat="yyyy/MM/dd"
-        customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
+        customInput={<CustomInput  />}
       />
       </div>
 
