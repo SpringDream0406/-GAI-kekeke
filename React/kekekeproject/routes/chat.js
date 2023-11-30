@@ -20,26 +20,13 @@ router.post('/userchatroom', async (req, res) => {
         TS.STORE_NAME,
         TS.START_TIME,
         TS.END_TIME,
-        TS.SELLER_PROFILE1,
-        TC.CHAT_MSG
+        TS.SELLER_PROFILE1
     FROM
         TB_CHAT_ROOM AS TCR
     JOIN
         TB_SELLER AS TS ON TCR.SELLER_ID = TS.SELLER_ID
-    JOIN
-        (
-            SELECT
-                CHAT_ROOM_ID,
-                MAX(CREATED_AT) AS MAX_CREATED_AT
-            FROM
-                TB_CHAT
-            GROUP BY
-                CHAT_ROOM_ID
-        ) AS LatestChat ON TCR.CHAT_ROOM_ID = LatestChat.CHAT_ROOM_ID
-    JOIN
-        TB_CHAT AS TC ON TCR.CHAT_ROOM_ID = TC.CHAT_ROOM_ID AND TC.CREATED_AT = LatestChat.MAX_CREATED_AT
     WHERE
-        TCR.CUST_ID = ?`;
+        TCR.CUST_ID = ?;`;
         
         const userchatroom = await query(sql, [custId])
         console.log('Fetched user chat rooms:', userchatroom);

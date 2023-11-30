@@ -108,7 +108,6 @@ const AdminStoreInfo = () => {
     };
 
 
-  const [storeName] = useState('');
   // 다른 수정 필드들에 대한 상태들도 추가해주세요
 
   // 페이지 로딩 시 기존 정보 불러오기 (예시)

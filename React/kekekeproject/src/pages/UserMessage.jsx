@@ -5,34 +5,6 @@ import axios from 'axios'; // axios 라이브러리 추가
 import API_URL from '../api_url';
 
 const UserMessage = () => {
-  const buyerRoomId = 'buyerRoom';
-
-  const chatData = [
-    {
-      id: 1,
-      logoSrc: "/assets/images/cakelogo1.jpg",
-      name: "케케케",
-      lastMessage: "감사합니다~",
-      date: "10.26",
-      availability: { start: '10:00', end: '19:00' },
-    },
-    {
-      id: 2,
-      logoSrc: "/assets/images/cakelogo2.jpg",
-      name: "포포는푸푸야",
-      lastMessage: "픽업 때 뵐게요! 잘 부탁드립니다",
-      date: "10.24",
-      availability: { start: '09:00', end: '18:00' },
-    },
-    {
-      id: 3,
-      logoSrc: "/assets/images/cakelogo3.jpg",
-      name: "모도리 케이크",
-      lastMessage: "케이크맛없으면환불되나요?",
-      date: "10.20",
-      availability: { start: '11:00', end: '20:00' },
-    },
-  ];
 
   const [selectedChat, setSelectedChat] = useState(null);
   const [custId, setCustId] = useState(null);
@@ -40,8 +12,6 @@ const UserMessage = () => {
   const [chatroomId, setChatroomId] = useState(null);
   const [prdId, setPrdId] = useState(null);
   const [chatStore, setChatStore] = useState([]);
-
-  const userRoodId = ''
 
  // 시작 시간과 종료 시간을 초까지 포함된 형식에서 시간만 표시하는 함수
  const formatTime = (timeString) => {
@@ -125,7 +95,7 @@ const UserMessage = () => {
                 <img className="chatItemLogo" src={`img/seller/${chat.SELLER_PROFILE1}`} alt={chat.STORE_NAME} />
                 <div className="chatItemDetails">
                   <h2 className="chatItemName">{chat.STORE_NAME}</h2>
-                  <p className="chatItemLastMessage">{chat.CHAT_MSG || "메시지가 없습니다."}</p>
+                  {/* <p className="chatItemLastMessage">{chat.CHAT_MSG || "메시지가 없습니다."}</p> */}
                   <span className="chatItemDate">{chat.LAST_MESSAGE_DATE || `${formatTime(chat.START_TIME)} - ${formatTime(chat.END_TIME)}`}</span>
                 </div>
               </div>

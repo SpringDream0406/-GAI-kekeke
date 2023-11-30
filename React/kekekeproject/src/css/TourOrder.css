@@ -71,10 +71,10 @@
 background-color: white;
 border: 1px solid white;
 
-min-height: 120px;
+min-height: 200px;
 width: 430px;
 position: absolute;
-top: 915px;
+top: 645px;
   left: 213px;
 }
 .to-container {
@@ -426,7 +426,7 @@ width: 428px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 1320px;
+  top: 1120px;
 }
 
 .to-container .to-timetitle {
@@ -440,7 +440,7 @@ width: 428px;
   height: 63px;
   left: 177px;
   position: absolute;
-  top: 1808px;
+  top: 1608px;
   width: 428px;
 }
 
@@ -453,7 +453,7 @@ width: 428px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 1140px;
+  top: 940px;
 }
 
 .to-day-icon{
@@ -481,7 +481,7 @@ width: 428px;
   cursor: pointer;
   position: absolute;
 margin-left: 40px;
-  top: 1170px;
+  top: 970px;
   width: 460px;
 }
 .to-container .to-timetitle{
@@ -853,7 +853,7 @@ top: 920px;
   line-height: normal;
  z-index: 99999;
   position: absolute;
-  top: 2120px;
+  top: 1920px;
   left:160px;
 }
 
@@ -861,7 +861,7 @@ top: 920px;
   font-family: 'Pretendard-Semibold';
   position: absolute;
   font-size: 24px;
-  top: 2203px;
+  top: 2003px;
 left: 340px;
 z-index: 9999;
 }
@@ -877,7 +877,7 @@ padding-bottom: 20px;
   border-radius: 30px;
 background-color: white;
 border: 1px solid white;
-top: 2185px;
+top: 1985px;
 left: 150px;
 height: 20px;
 width: 360px;

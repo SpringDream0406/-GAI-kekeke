@@ -19,29 +19,34 @@ export const Cakes = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cakesFromServer, setCakesFromServer] = useState([]);
   const itemsPerPage = 9;
+  const [selectedKeyword, setSelectedKeyword] = useState("");
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   useEffect(() => {
-    const url = `${API_URL}/product/cakes`;
-    const data = { gu: selectedLocation };
+  const url = `${API_URL}/product/cakes`;
+  const data = { gu: selectedLocation };
 
-    axios.post(url, data)
-      .then(response => {
-
-        console.log(response.data);
-        setCakesFromServer(response.data);
-
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
-
-
-  }, [selectedLocation]);
+  axios.post(url, data)
+    .then(response => {
+      const shuffledCakes = shuffleArray(response.data);
+      setCakesFromServer(shuffledCakes); // 새로운 데이터를 상태에 저장
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}, [selectedLocation]); // selectedLocation이 변경될 때마다 실행
 
   const getPageNumbers = () => {
-    const totalPageCount = Math.ceil(cakesFromServer.length / itemsPerPage);
-    const maxPageNumberDisplay = 5; // 한 번에 표시할 최대 페이지 수
-    let startPage, endPage;
+   const totalPageCount = Math.ceil(filteredCakes.length / itemsPerPage); // 필터링된 케이크 목록 기준으로 변경
+  const maxPageNumberDisplay = 5;
+  let startPage, endPage;
   
     if (totalPageCount <= maxPageNumberDisplay) {
       startPage = 1;
@@ -63,24 +68,24 @@ export const Cakes = () => {
     return Array.from({ length: (endPage - startPage + 1) }, (_, idx) => startPage + idx);
   };
 
-   // useEffect 훅을 사용하여 선택된 지역이 변경될 때마다 필터링을 수행
   useEffect(() => {
+    let filtered = cakesFromServer;
+  
     if (selectedLocation) {
-      // 선택된 지역과 일치하는 케이크 목록 필터링
-      const filtered = cakesFromServer.filter(cake => cake.shop_addr1.includes(selectedLocation));
-      setFilteredCakes(filtered);
-    } else {
-      // 선택된 지역이 없는 경우 전체 목록 표시
-      setFilteredCakes(cakesFromServer);
+      filtered = filtered.filter(cake => cake.shop_addr1 && cake.shop_addr1.includes(selectedLocation));
     }
-    setCurrentPage(1); // 필터링 후 페이지 번호를 첫 페이지로 초기화
-  }, [selectedLocation, cakesFromServer]);
-
+  
+    if (selectedKeyword) {
+      filtered = filtered.filter(cake => cake.tag && cake.tag.includes(selectedKeyword));
+    }
+  
+    setFilteredCakes(filtered); // 필터링된 케이크 목록 업데이트
+  }, [selectedLocation, selectedKeyword, cakesFromServer]);
 
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;  
-  const currentCakes = cakesFromServer.slice(indexOfFirstItem, indexOfLastItem);
+  const currentCakes = filteredCakes.slice(indexOfFirstItem, indexOfLastItem);
   const pageNumbers = getPageNumbers();
 
 
@@ -112,26 +117,22 @@ export const Cakes = () => {
 
 // 키워드
 
-const [selectedKeyword, setSelectedKeyword] = useState("");
 
- // 키워드 필터링 로직
- useEffect(() => {
+useEffect(() => {
   let filtered = cakesFromServer;
 
   if (selectedLocation) {
-    filtered = filtered.filter(cake => cake.shop_addr1.includes(selectedLocation));
+    filtered = filtered.filter(cake => cake.shop_addr1 && cake.shop_addr1.includes(selectedLocation));
   }
 
   if (selectedKeyword) {
-    // 선택된 키워드에 따라 케이크를 필터링합니다.
-    filtered = filtered.filter(cake => cake.tags && cake.tags.includes(selectedKeyword));
+    // cake.tag가 정의되었는지 확인하고, 정의되지 않았다면 필터링에서 제외합니다.
+    filtered = filtered.filter(cake => cake.tag && cake.tag.includes(selectedKeyword));
   }
 
   setFilteredCakes(filtered);
   setCurrentPage(1); // 페이지 번호 초기화
 }, [selectedLocation, selectedKeyword, cakesFromServer]);
-  
-
 
   return (
     <div className="tour">
@@ -161,8 +162,8 @@ const [selectedKeyword, setSelectedKeyword] = useState("");
             {/* 중앙 케이크 지역 */}
             <div className="tour-cake">
               <div className="tour-container">
-                {currentCakes.map((cake) => (
-
+              {currentCakes.map((cake) => (
+    selectedKeyword === '' || (cake.tag && cake.tag.includes(selectedKeyword)) ? (
                   <Link to={`/tour-order?prd_id=${cake.prd_id}`} key={cake.prd_id}>
                 
 
@@ -183,6 +184,7 @@ const [selectedKeyword, setSelectedKeyword] = useState("");
                     </div>
 
                   </Link>
+                ) : null
                 ))}
                 {/* 빈 요소 추가 */}
                 {Array(9 - currentCakes.length).fill().map((_, index) => (
