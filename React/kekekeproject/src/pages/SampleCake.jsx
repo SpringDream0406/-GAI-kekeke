@@ -7,16 +7,19 @@ import API_URL from "../api_url";
 import { useLocation } from 'react-router-dom';
 import AdPagebtn from '../ad_component/AdPagebtn'
 import "../css/SampleCake.css";
-import BlueBg from "../component/BlueBg";
+import { useNavigate } from 'react-router-dom';
 
 const SampleCake = () => {
+
+  const navigate = useNavigate();
+  
   const [currentPage, setCurrentPage] = useState(1);
   const cakesPerPage = 12;
   const [storeInfo, setStoreInfo] = useState(null);
   const [sellerProducts, setSellerProducts] = useState([]);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const prd_id = searchParams.get('prd_id');
+  const [prd_id , setPrd_id] = useState(searchParams.get('prd_id'))
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,6 +71,12 @@ const SampleCake = () => {
     setCurrentPage(prev => prev < totalPages ? prev + 1 : totalPages);
   };
 
+  const handleclickorder = (prd_id) => {
+    setPrd_id(prd_id);
+    console.log('선택한 케이크의 prd_id:', prd_id);
+    navigate(`/tour-order?prd_id=${prd_id}`);
+  }
+  
   return (
     <div className="Sample__Container">
       <TourDetContainer initialActiveTab="samplecake"  storeInfo={storeInfo}>
@@ -76,7 +85,7 @@ const SampleCake = () => {
           <div className="Sam_samplecontainer">
             
                 {currentCakes.map((product, index) => (
-              <div key={index} className="Sam_cake-item">
+              <div key={index} className="Sam_cake-item" onClick={() => handleclickorder(product.PRD_ID)}>
                 <img className="Sam_img" alt={product.PRD_NAME} src={`/img/product/${product.IMG_NAME2}`} />
                 <div className="Sam_cake-name">{product.PRD_NAME}</div>
                 <div className="Sam_cake-price">{product.PRD_AMT}</div>
