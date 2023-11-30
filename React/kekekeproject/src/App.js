@@ -45,6 +45,7 @@ import AdminStoreInfo from "./ad_pages/AdminStoreInfo";
 
 
 
+
 // 컨텍스트 생성
 export const StoreContext = createContext();
 
@@ -76,8 +77,9 @@ function App() {
     <StoreContext.Provider value={storeValue}>
       <BrowserRouter>
         <GlobalStyle />
+       
         {/* 로그인 상태에 따른 헤더 렌더링 */}
-      
+        
         {/* 라우트 설정 */}
         <Routes>
 
