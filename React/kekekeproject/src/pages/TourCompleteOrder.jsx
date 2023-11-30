@@ -11,7 +11,7 @@ const TourCompleteOrder = () => {
   const [storeInfo, setStoreInfo] = useState(null); // 가게 정보 상태 추가
   const location = useLocation();
   const orderData = location.state?.orderData;
-  const [cust_id, setCustId] = useState()
+  const [custid, setCustId] = useState()
   const [customInfo, setCustomInfo] = useState(null);
   const [sellerInfo, setSellerInfo] = useState();
  
@@ -51,22 +51,22 @@ const TourCompleteOrder = () => {
  }
   }, [prd_id]); // prd_id를 의존성 배열에 추가하여 prd_id 값이 변경될 때마다 실행
 
-//   useEffect(() => { //cust_id를가지고  커스텀데이터 조회
-//     const custData = async () => {
-//       try {
-//         const response = await axios.post(`${API_URL}/store/custom`, { cust_id :cust_id });
-//         const data = response.data[0];
-//         setCustomInfo(response.data); // 수정된 부분: 응답 데이터를 상태에 저장
-//         console.log('응답:', response.data);
-//       } catch (error) {
-//         console.error('오류:', error);
-//       }
-//     };
+  useEffect(() => { //cust_id를가지고  커스텀데이터 조회
+    const custData = async () => {
+      try {
+        const response = await axios.post(`${API_URL}/store/custom`, { cust_id :custid });
+        const data = response.data[0];
+        setCustomInfo(response.data); // 수정된 부분: 응답 데이터를 상태에 저장
+        console.log('응답:', response.data);
+      } catch (error) {
+        console.error('오류:', error);
+      }
+    };
    
-//     if (cust_id) {
-//       custData();
-//  }
-//   }, [cust_id]); // custid 의존성 배열에 추가하여 custid 값이 변경될 때마다 실행
+    if (custid) {
+      custData();
+ }
+  }, [custid]); // custid 의존성 배열에 추가하여 custid 값이 변경될 때마다 실행
 
 
   //커스텀 이미지가 널일경우
