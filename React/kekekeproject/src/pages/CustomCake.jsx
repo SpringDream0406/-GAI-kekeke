@@ -79,10 +79,12 @@ const handleTextClick = (index) => {
   };
 
   const handleMouseDown = (e) => {
-    // 도구가 선택되지 않았으면 그리기를 시작하지 않습니다.
     if (!tool) return;
   
+    isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
+    
+    // 새로운 도형을 생성합니다.
     const newElement = {
       id: nextId.current.toString(),
       tool,
@@ -97,19 +99,17 @@ const handleTextClick = (index) => {
     };
     setElements([...elements, newElement]);
     nextId.current += 1;
-    isDrawing.current = true;
   };
   
   
 
   const handleMouseMove = (e) => {
-    
-    if (!isDrawing.current) {
-      return;
-    }
+    if (!isDrawing.current) return;
     const stage = e.target.getStage();
     const point = stage.getPointerPosition();
     const lastElement = elements[elements.length - 1];
+    
+    // 도형을 업데이트합니다.
     if (['pen', 'brush', 'eraser'].includes(tool)) {
       lastElement.points = lastElement.points.concat([point.x, point.y]);
     } else {
@@ -117,7 +117,10 @@ const handleTextClick = (index) => {
       lastElement.height = point.y - lastElement.y;
     }
     setElements(elements.slice(0, -1).concat(lastElement));
-   
+  };
+  
+  const handleMouseUp = () => {
+    isDrawing.current = false;
   };
 
   const handleDragEnd = (e) => {
@@ -141,11 +144,6 @@ const handleTextClick = (index) => {
     setSelectedTextIndex(-1);
   };
 
-  const handleMouseUp = () => {
-   
-    isDrawing.current = false;
-
-  };
 
   const handleColorChange = (e) => {
     setColor(e.target.value);
@@ -283,9 +281,9 @@ setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
                   fill={elem.color}
                   stroke={elem.color}
                   strokeWidth={elem.lineWidth}
-                  draggable
-                  onDragStart={handleDragStart}
-                  onDragEnd={handleDragEnd}
+                 draggable={!['pen', 'brush', 'eraser', 'rectangle', 'circle', 'heart'].includes(tool)}
+  onDragStart={handleDragStart}
+  onDragEnd={handleDragEnd}
                   
                 />
               );
@@ -300,10 +298,9 @@ setSelectedTextIndex(-1); // 선택된 텍스트 없음으로 설정
                   fill={elem.color}
                   stroke={elem.color}
                   strokeWidth={elem.lineWidth}
-                  draggable={tool === null}
-                  
-                  onDragStart={handleDragStart}
-                  onDragEnd={handleDragEnd}
+                  draggable={!['pen', 'brush', 'eraser', 'rectangle', 'circle', 'heart'].includes(tool)}
+  onDragStart={handleDragStart}
+  onDragEnd={handleDragEnd}
                 />
               );
             } else if (elem.type === 'heart') {

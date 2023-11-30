@@ -10,6 +10,7 @@ import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
 import API_URL from '../api_url'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 const PMList = () => {
@@ -455,9 +456,37 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   // 새 상품 등록 함수
   const handleRegister = async () => {
-    if (!productName || !productPrice) {
-      alert("상품명과 가격을 입력해주세요.");
-      return;
+    try {
+      // 서버에 FormData 전송
+      const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      console.log("상품 등록 성공", response.data);
+      onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
+  
+      // 성공 알림 표시
+      Swal.fire({
+        title: '상품 등록 성공!',
+        text: '새로운 상품이 성공적으로 등록되었습니다.',
+        icon: 'success', // 아이콘 타입: 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: '확인'
+      });
+  
+      // 서버 응답 후 페이지 새로고침
+      window.location.reload();
+    } catch (error) {
+      console.error("상품 등록 실패", error);
+      
+      // 실패 알림 표시
+      Swal.fire({
+        title: '상품 등록 실패',
+        text: '상품 등록 중 문제가 발생했습니다.',
+        icon: 'error',
+        confirmButtonText: '닫기'
+      });
     }
   
     // FormData 객체 생성

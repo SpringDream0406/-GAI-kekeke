@@ -10,6 +10,8 @@ import {FaTrash} from 'react-icons/fa';
 import AdHeader from '../component/AdHeader'
 import API_URL from '../api_url';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+
 const PMOption = () => {
 
   const [cakeFlavor, setCakeFlavor] = useState(''); // 케이크 맛 입력 상태
@@ -102,34 +104,51 @@ useEffect(() => {
       letteringGuide: letteringText
     };
   
-    try {
-      // API 요청
-      const response = await fetch(`${API_URL}/order/saveoption`, { // 경로 수정
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-  
-      if (response.ok) {
-        console.log("옵션 저장 성공");
-        // 여기에서 로그를 저장하는 함수를 호출
-        saveLog();
-         // 성공 시 페이지 새로고침
-        window.location.reload();
-        alert("수정되었습니다.");
-     
-      } else {
-        console.error("옵션 저장 실패");
-      }
-    } catch (error) {
-      console.error("API 요청 중 에러 발생:", error);
-    }
-  
-    console.log('Payload:', payload);
+    
+  try {
+    // API 요청
+    const response = await fetch(`${API_URL}/order/saveoption`, { // 경로 수정
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
 
-  };
+    if (response.ok) {
+      console.log("옵션 저장 성공");
+      saveLog(); // 로그 저장 함수 호출
+
+      Swal.fire({
+        title: '성공!',
+        text: '옵션이 성공적으로 수정되었습니다.',
+        icon: 'success',
+        confirmButtonText: '확인'
+      }).then(() => {
+        window.location.reload(); // 팝업 닫힌 후 페이지 새로고침
+      });
+
+    } else {
+      console.error("옵션 저장 실패");
+      Swal.fire({
+        title: '실패!',
+        text: '옵션 저장에 실패했습니다.',
+        icon: 'error',
+        confirmButtonText: '닫기'
+      });
+    }
+  } catch (error) {
+    console.error("API 요청 중 에러 발생:", error);
+    Swal.fire({
+      title: '오류 발생',
+      text: '오류가 발생했습니다.',
+      icon: 'error',
+      confirmButtonText: '닫기'
+    });
+  }
+
+  console.log('Payload:', payload);
+};
 
 
 
