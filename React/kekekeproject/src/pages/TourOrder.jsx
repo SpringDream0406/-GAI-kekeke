@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef} from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Link } from "react-router-dom";
 import "../css/TourOrder.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,18 +17,17 @@ import BlueBg from '../component/BlueBg';
 
 
 export const TourOrder = () => {
-  
+
   const [cakeprice, setCakeprice] = useState(30000); // This sets the initial total cost.
   const [pickup_time, setPickupTime] = useState(new Date());
   const [pickup_date, setPickupDate] = useState(new Date());
   const [cake_flavor, setCakeFlavor] = useState(null);
   const [cake_size, setCakeSize] = useState(null);
   const [cake_name] = useState(null);
-  const [add_require, setAddRequire] = useState(null);
+  const [add_require, setAddRequire] = useState(""); // 초기값을 빈 문자열로 설정
   const [lettering, setLettering] = useState(null);
-  const [order_name, setOrderName] = useState(null);
+  const [order_name, setOrderName] = useState(""); // 초기값을 빈 문자열로 설정
   const [order_num, setOrderNum] = useState(null);
-  const [prd_img, setPrdImg] = useState(null);
 
 
 
@@ -40,9 +39,9 @@ export const TourOrder = () => {
   const [flavorOptions, setFlavorOptions] = useState([]);
   const [sizeOptions, setSizeOptions] = useState([]);
 
-
-  const selectedCake = location.state && JSON.parse(location.state.cake);
-  const cake = selectedCake || {}; // 기본값으로 빈 객체 설정
+// 'flavorOptions'와 'sizeOptions' 변수를 사용하는 코드 추가
+console.log(flavorOptions);
+console.log(sizeOptions);
 
   // 구매자 ID(cust_id불러오기)
   useEffect(() => {
@@ -65,23 +64,23 @@ export const TourOrder = () => {
         const data = response.data[0];
         console.log(data);
         setStoreInfo({
-           CakeLogo :  data.SELLER_PROFILE1,
-           StoreName : data.STORE_NAME,
-           StoreAddr1 : data.SHOP_ADDR1,
-           StoreDetail: data.STORE_DETAIL,
-           prd_name : data.PRD_NAME,
-           cake_detail : data.CAKE_DETAIL,
-           seller_id : data.SELLER_ID,
-           prd_img : `/img/product/${data.IMG_NAME2}`,
-           prd_atm :data.PRD_AMT
+          CakeLogo: data.SELLER_PROFILE1,
+          StoreName: data.STORE_NAME,
+          StoreAddr1: data.SHOP_ADDR1,
+          StoreDetail: data.STORE_DETAIL,
+          prd_name: data.PRD_NAME,
+          cake_detail: data.CAKE_DETAIL,
+          seller_id: data.SELLER_ID,
+          prd_img: `/img/product/${data.IMG_NAME2}`,
+          prd_atm: data.PRD_AMT
         })
-      
+
         console.log('응답:', response.data);
       } catch (error) {
         console.error('오류:', error);
       }
     };
-  
+
     if (prd_id) {
       postData();
     }
@@ -100,22 +99,22 @@ export const TourOrder = () => {
           setFlavorOptions(response.data.flavors);
 
           setSizeOptions(response.data.sizes);
-        } catch(error) {
+        } catch (error) {
           console.log("옵션 불러오기 오류", error);
         }
       }
     };
-  
+
     if (storeInfo && storeInfo.seller_id) {
       fetchOptions();
     }
-  
+
   }, [storeInfo]);
- 
 
- 
 
- // 빈 의존성 배열을 전달하여 이 효과가 초기 렌더링 중에만 실행되도록 합니다.
+
+
+  // 빈 의존성 배열을 전달하여 이 효과가 초기 렌더링 중에만 실행되도록 합니다.
 
   const [additionalCosts] = useState({
     vanilla: 0,
@@ -133,7 +132,7 @@ export const TourOrder = () => {
     oreo: '오레오',
     fruit: '생과일'
   };
-  
+
   const sizeMapping = {
     do: '도시락',
     one: '1호',
@@ -169,7 +168,7 @@ export const TourOrder = () => {
     const costToSubtract = cake_size ? additionalCosts[cake_size] : 0;
     return costToAdd - costToSubtract;
   };
-  
+
 
   // 맛 선택 핸들러
   const handleFlavorChange = (flavor) => {
@@ -192,14 +191,14 @@ export const TourOrder = () => {
   };
 
 
-    // TourOrder->order.js데이터보낼려고사용했음
+  // TourOrder->order.js데이터보낼려고사용했음
   const navigate = useNavigate();
 
   // 요청하기 눌렀을때, 상품 주문내역 DB테이블에 저장
-  const submitOrder = async() => {
-    if (cust_id === null){
+  const submitOrder = async () => {
+    if (cust_id === null) {
       Swal.fire({
-      
+
         title: "로그인을 완료 한 후 다시 오세요!",
         icon: "error"
       }).then(() => {
@@ -223,13 +222,13 @@ export const TourOrder = () => {
       pickup_time: pickup_time.toISOString(),
       prd_id: prd_id,
       seller_id: storeInfo ? storeInfo.seller_id : null
-      
+
     };
-    
+
     try {
       const response = await axios.post(url, orderData);
       console.log("서버 응답:", response.data); // 서버 응답 확인
-  
+
       // 서버 응답을 navigate 함수에 전달
       navigate('/tour-complete-order', { state: { orderData } });
     } catch (error) {
@@ -240,183 +239,184 @@ export const TourOrder = () => {
 
   return (
     <div>
-   
+
       <TourDetContainer storeInfo={storeInfo}>
-      <div className='to-bg-container'>
-    <div className="to-container">
-    <div className="to-div">
-      <div>
-      <img  src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1'/>
-   
-    <div className="to-cakename"
-    value={cake_name}
-    > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
-    </div>
+        <div className='to-bg-container'>
+          <div className="to-container">
+            <div className="to-div">
+              <div>
+                <img src={storeInfo ? storeInfo.prd_img : 'Loading...'} className='to-cakeimg1' alt='cake1' />
 
-    <div>
-      <div className='co-cakesmct'
-      >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
-    </div>
+                <div className="to-cakename"
+                  value={cake_name}
+                > {storeInfo ? storeInfo.prd_name : 'Loading...'}</div>
+              </div>
 
-      <div className="to-cakeflavortitle">케이크 맛 선택
-      </div>
-      <div className='to-cf-container'>
-      <div className='to-cakeflavor'>
-          <div className="to-cf-1">
-            <Checkbox
-            checked={cake_flavor === 'vanilla'}
-            onChange={() => handleFlavorChange('vanilla')}
-            value={cake_flavor}
-            ></Checkbox>
-            <div className="to-cf-txt">바닐라</div>
-           <div className='cf-st'>추가요금 : {additionalCosts.vanilla} 원</div>
-          </div>
-          <div className="to-cf-2">
-          <Checkbox
-          checked={cake_flavor === 'chocolate'}
-          onChange={() => handleFlavorChange('chocolate')}
-          ></Checkbox>
-            <div className="to-cf-txt1" >초콜릿</div>
-            <div className='cf-st'>추가요금 : {additionalCosts.chocolate}원</div>
-          </div>
-          <div className="to-cf-3">
-          <Checkbox
-         checked={cake_flavor === 'oreo'}
-         onChange={() => handleFlavorChange('oreo')}
-          ></Checkbox>
-            <div className="to-cf-txt2" >오레오</div>
-            <div className='cf-st'>추가요금 : {additionalCosts.oreo}원</div>
-          </div>
-          <div className="to-cf-4">
-          <Checkbox 
-          checked={cake_flavor === 'fruit'}
-          onChange={() => handleFlavorChange('fruit')}
-          ></Checkbox>
-            <div className="to-cf-txt3" >생과일</div>
-            <div className='cf-st'>추가요금 : {additionalCosts.fruit}원</div>
-          </div>
-          
-       
-          </div>
-        </div>
-     
-      <p className="to-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
-      <div className="to-reqbtn">
-        <div className="to-overlap-group">
-          <Link className="to-reqtxt" to={`/tour-complete-order?prd_id=${prd_id}`}
-          onClick={submitOrder}>요청하기</Link>
-        </div>
-      </div>
-      <div className="to-cakeplusttitle">케이크 추가 요청사항</div>
-      <textarea className="to-cakeplus"
-                    type='text'
-                    placeholder='요청사항을 입력하세요'
-                    value={add_require}
-                    onChange={(e)=>setAddRequire(e.target.value)}
-                  />
-      <div className="to-caketxttitle">케이크 위 문구</div>
-      <input className="to-caketxt"
-                    type='text'
-                    placeholder='문구를 입력하세요'
-                    value={lettering}
-                    onChange={(e)=>setLettering(e.target.value)}
-                    maxLength={50}
-                  />
-      <div className="to-cakesizetitle">케이크 크기선택</div>
-   
-       <div className='to-check-container'>
-          <div className="to-check-1">
-            <Checkbox
-           checked={cake_size === 'do'}
-           onChange={() => handleSizeChange('do')}
-           value={cake_size}
-            ></Checkbox>
-            <div className="to-check1-txt" >도시락</div>
-            <div className='check1-st'>추가요금 : {additionalCosts.do}원</div>
-          </div>
-          <div className="to-check-2">
-          <Checkbox 
-         checked={cake_size === 'one'}
-         onChange={() => handleSizeChange('one')}
-          ></Checkbox>
-            <div className="to-check-txt1">1호</div>
-            <div className='check1-st'>추가요금 :{additionalCosts.one}원</div>
-          </div>
-          <div className="to-check-3">
-          <Checkbox 
-          checked={cake_size === 'two'}
-          onChange={() => handleSizeChange('two')}
-          ></Checkbox>
-            <div className="to-check-txt2" >2호</div>
-            <div className='check1-st'>추가요금 : {additionalCosts.two}원</div>
-          </div>
-          <div className="to-check-4">
-          <Checkbox 
-          checked={cake_size === 'three'}
-          onChange={() => handleSizeChange('three')}
-          ></Checkbox>
-            <div className="to-check-txt3" >3호</div>
-            <div className='check1-st'>추가요금 : {additionalCosts.three}원</div>
-          </div>
-       </div>
-      <div className="rectangle" />
-      <div className="to-userphonetitle">예약자 번호</div>
-      <input className="to-userphone"
-                    type='text'
-                    placeholder='전화번호를 입력하세요'
-                    value={order_num}
-                    onChange={(e)=>setOrderNum(e.target.value)}
-                  />
-      <div className="to-time">픽업 시간</div>
-      <DatePicker
-        selected={pickup_time}
-        onChange={(date) => setPickupTime(date)}
-        showTimeSelect
-        showTimeSelectOnly // Add this prop to only show the time picker
-        timeFormat="HH:mm"
-        timeIntervals={15}
-        timeCaption="Time"
-        dateFormat="h:mm aa"
-        className="to-timetitle"
-        value={pickup_time}
-        customInput={<TimeInput />} // Use the TimeInput component for time picker
-      />
-      
-   
-      <div className="to-daytitle">픽업 날짜</div>
-      <div className='to-datepicker-container'>
-      <DatePicker 
-        selected={pickup_date} 
-        onChange={(date) => setPickupDate(date)}
-        className="to-day"
-        value={pickup_date}
-        dateFormat="yyyy/MM/dd"
-        customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
-      />
-      </div>
+              <div>
+                <div className='co-cakesmct'
+                >{storeInfo ? storeInfo.cake_detail : 'Loading...'}</div >
+              </div>
 
-      </div>
-      
-      <div className="to-usernametitle">예약자 성함</div>
-      <input className="to-username"
-                    type='text'
-                    placeholder='이름을 입력하세요'
-                    value={order_name}
-                    onChange={(e)=>setOrderName(e.target.value)}
-                  />
+              <div className="to-cakeflavortitle">케이크 맛 선택
+              </div>
+              <div className='to-cf-container'>
+                <div className='to-cakeflavor'>
+                  <div className="to-cf-1">
+                    <Checkbox
+                      checked={cake_flavor === 'vanilla'}
+                      onChange={() => handleFlavorChange('vanilla')}
+                      value={cake_flavor}
+                    ></Checkbox>
+                    <div className="to-cf-txt">바닐라</div>
+                    <div className='cf-st'>추가요금 : {additionalCosts.vanilla} 원</div>
+                  </div>
+                  <div className="to-cf-2">
+                    <Checkbox
+                      checked={cake_flavor === 'chocolate'}
+                      onChange={() => handleFlavorChange('chocolate')}
+                    ></Checkbox>
+                    <div className="to-cf-txt1" >초콜릿</div>
+                    <div className='cf-st'>추가요금 : {additionalCosts.chocolate}원</div>
+                  </div>
+                  <div className="to-cf-3">
+                    <Checkbox
+                      checked={cake_flavor === 'oreo'}
+                      onChange={() => handleFlavorChange('oreo')}
+                    ></Checkbox>
+                    <div className="to-cf-txt2" >오레오</div>
+                    <div className='cf-st'>추가요금 : {additionalCosts.oreo}원</div>
+                  </div>
+                  <div className="to-cf-4">
+                    <Checkbox
+                      checked={cake_flavor === 'fruit'}
+                      onChange={() => handleFlavorChange('fruit')}
+                    ></Checkbox>
+                    <div className="to-cf-txt3" >생과일</div>
+                    <div className='cf-st'>추가요금 : {additionalCosts.fruit}원</div>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <p className="to-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
+              <div className="to-reqbtn">
+                <div className="to-overlap-group">
+                  <Link className="to-reqtxt" to={`/tour-complete-order?prd_id=${prd_id}`}
+                    onClick={submitOrder}>요청하기</Link>
+                </div>
+              </div>
+              <div className="to-cakeplusttitle">케이크 추가 요청사항</div>
+              <textarea className="to-cakeplus"
+                type='text'
+                placeholder='요청사항을 입력하세요'
+                value={add_require}
+                onChange={(e) => setAddRequire(e.target.value)}
+              />
+              <div className="to-caketxttitle">케이크 위 문구</div>
+              <input className="to-caketxt"
+                type='text'
+                placeholder='문구를 입력하세요'
+                value={lettering}
+                onChange={(e) => setLettering(e.target.value)}
+                maxLength={50}
+              />
+              <div className="to-cakesizetitle">케이크 크기선택</div>
+
+              <div className='to-check-container'>
+                <div className="to-check-1">
+                  <Checkbox
+                    checked={cake_size === 'do'}
+                    onChange={() => handleSizeChange('do')}
+                    value={cake_size}
+                  ></Checkbox>
+                  <div className="to-check1-txt" >도시락</div>
+                  <div className='check1-st'>추가요금 : {additionalCosts.do}원</div>
+                </div>
+                <div className="to-check-2">
+                  <Checkbox
+                    checked={cake_size === 'one'}
+                    onChange={() => handleSizeChange('one')}
+                  ></Checkbox>
+                  <div className="to-check-txt1">1호</div>
+                  <div className='check1-st'>추가요금 :{additionalCosts.one}원</div>
+                </div>
+                <div className="to-check-3">
+                  <Checkbox
+                    checked={cake_size === 'two'}
+                    onChange={() => handleSizeChange('two')}
+                  ></Checkbox>
+                  <div className="to-check-txt2" >2호</div>
+                  <div className='check1-st'>추가요금 : {additionalCosts.two}원</div>
+                </div>
+                <div className="to-check-4">
+                  <Checkbox
+                    checked={cake_size === 'three'}
+                    onChange={() => handleSizeChange('three')}
+                  ></Checkbox>
+                  <div className="to-check-txt3" >3호</div>
+                  <div className='check1-st'>추가요금 : {additionalCosts.three}원</div>
+                </div>
+              </div>
+              <div className="rectangle" />
+              <div className="to-userphonetitle">예약자 번호</div>
+              <input className="to-userphone"
+                type='text'
+                placeholder='전화번호를 입력하세요'
+                value={order_num}
+                onChange={(e) => setOrderNum(e.target.value)}
+              />
+              <div className="to-time">픽업 시간</div>
+              <DatePicker
+                selected={pickup_time}
+                onChange={(date) => setPickupTime(date)}
+                showTimeSelect
+                showTimeSelectOnly // Add this prop to only show the time picker
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
+                className="to-timetitle"
+                value={pickup_time}
+                customInput={<TimeInput />} // Use the TimeInput component for time picker
+              />
+
+
+              <div className="to-daytitle">픽업 날짜</div>
+              <div className='to-datepicker-container'>
+                <DatePicker
+                  selected={pickup_date}
+                  onChange={(date) => setPickupDate(date)}
+                  className="to-day"
+                  value={pickup_date}
+                  dateFormat="yyyy/MM/dd"
+                  customInput={<CustomInput />} // 여기에 커스텀 인풋을 추가합니다.
+                />
+              </div>
+
+            </div>
+
+            <div className="to-usernametitle">예약자 성함</div>
+            <input
+              className="to-username"
+              type='text'
+              placeholder='이름을 입력하세요'
+              value={order_name}
+              onChange={(e) => setOrderName(e.target.value)}
+            />
           </div>
           <div className="co-cakemoneytt">가격</div>
           <div className='co-cakemn' value={cakeprice}>{cakeprice}</div>
           <div className='co-cakemoney'>원</div>
-      
+
+        </div>
+
+
+      </TourDetContainer>
+      <BlueBg top={-1900} />
     </div>
 
-     
-    </TourDetContainer>
-  <BlueBg top={-1900}/>
-    </div>
-            
-              
+
   );
 };
 
