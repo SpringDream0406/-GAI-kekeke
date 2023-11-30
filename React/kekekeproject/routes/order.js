@@ -32,6 +32,8 @@ router.post('/orders', async (req, res) => {
             pickup_time,//
         } = req.body;
 
+        console.log(req.body);
+
            // 클라이언트에서 ISO 8601 형식 ('YYYY-MM-DDTHH:mm:ss.sssZ')으로 받은 pickup_date와 pickup_time
             const pickupDateTime = new Date(pickup_date);
             const pickupTimeTime = new Date(pickup_time);
@@ -104,9 +106,9 @@ const upload = multer({ storage: storage }).fields([
 
         // 주문 데이터를 데이터베이스에 삽입하는 로직
         const insertQuery = `INSERT INTO TB_CUSTOM_PRODUCT (CLIENT_NUM,CAKE_SIZE,CLIENT_NAME,CAKE_FLAVOR,CKAE_DETAIL,ADD_DETAIL,PICKUP_DATE,PICKUP_TIME,CUST_ID,CUST_ADDR, CUSTOM_IMG,CUST_DRAW) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
-        await query(insertQuery, [clientNum, cakeSize, clientName, cakeFlavor, cakeDetail, addDetail, formattedPickupDate, formattedPickupTime, custId, custAddr, cakeImagePath,previewImagePath]);
-
-        res.status(200).send({ message: '주문이 성공적으로 처리되었습니다.', cakeImagePath, previewImagePath });
+        let rows = await query(insertQuery, [clientNum, cakeSize, clientName, cakeFlavor, cakeDetail, addDetail, formattedPickupDate, formattedPickupTime, custId, custAddr, cakeImagePath,previewImagePath]);
+        if (rows.affectedRows > 0){
+        res.status(200).send({ message: '주문이 성공적으로 처리되었습니다.', cakeImagePath, previewImagePath })};
         } catch (error) {
         console.error(`주문 처리 중 오류 발생: ${error}`);
         res.status(500).send({ error: '서버 오류 발생' });

@@ -1,0 +1,154 @@
+.tour-detail-container1{
+    position: absolute; /* 현재 요소를 부모 요소를 기준으로 위치 조정 */
+    background-size: 100% 100%;
+    display: flex;
+  
+    justify-content: center;
+    align-items: center;
+    margin: 305px auto 0; 
+    height: 1840px;
+    width: 1293px;
+    left: 100px;
+  }
+  
+  .tco-mt12{
+    font-family: 'Pretendard-bold';
+    font-size: 50px;
+    position: absolute;
+    top: 220px;
+    left: 650px;
+
+  }
+  
+  .tco-cakeimg4{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 500px;
+    border-radius: 20px;
+    left: 800px;
+  }
+  
+  .tco-cakeimg3 {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    position: relative; /* 또는 absolute, 부모 요소에 따라 다름 */
+    top: -210px;
+    background-color: white;
+    left: 700px;
+  }
+  .tco-st-container{
+    position: absolute;
+    text-align: right;
+    font-family: 'Pretendard-Regular';
+    font-size: 24px;
+    display: flex; /* or display: grid; depending on your layout */
+    flex-direction: column; /* Stack children vertically */
+    gap: 50px; /* Adjust the gap size as needed */
+    z-index: 9999;
+    top: 1100px;
+    left: 730px;
+  }
+  
+  .tco-st-container{
+    position: absolute;
+    text-align: right;
+    font-family: 'Pretendard-Regular';
+    font-size: 24px;
+    display: flex; /* or display: grid; depending on your layout */
+    flex-direction: column; /* Stack children vertically */
+    gap: 50px; /* Adjust the gap size as needed */
+    z-index: 9999;
+    top: 1100px;
+    left: 730px;
+  }
+  
+  
+  .tco-mt-container12{
+    position: absolute;
+    text-align: left;
+    font-family: 'Pretendard-Semibold';
+    font-size: 24px;
+    display: flex; /* or display: grid; depending on your layout */
+    flex-direction: column; /* Stack children vertically */
+    gap: 50px; /* Adjust the gap size as needed */
+    z-index: 999;
+    top: 1100px;
+    outline: none;
+    border: none;
+    left: 400px;
+  }
+  .tco-mt-11 {
+    display: flex;
+    justify-content: space-between; /* 좌우 간격을 늘립니다. */
+    align-items: center; /* 텍스트를 세로 중앙 정렬합니다. */
+}
+  
+  .tco-st-6 .tco-st-7{
+    margin-bottom: 90px;
+    outline: none;
+    border: none;
+  }
+  .tco-st-6 {
+    width: 400px;
+    height: 150px;
+  }
+  
+  .tco-mt-6{
+    height: 150px;
+  }
+  .tco-st-7 {
+    margin-bottom: 0;
+  }
+  
+  /* 버튼코드 */
+  .tco-btn-container1{
+    display: flex;
+    text-decoration: none;
+    position: absolute; /* 현재 요소를 부모 요소를 기준으로 위치 조정 */
+    justify-content: space-around;
+    top: 1900px;
+    margin: 20px;
+    padding-bottom: 300px;
+    left: 600px;
+   
+  }
+  
+  .tco-msgbtn1{
+    margin-right: 20px;
+    text-decoration: none;
+    font-family: 'Pretendard-Semibold';
+    font-size: 20px;
+    color: rgb(185, 184, 184);
+    padding: 30px 50px;
+    border: 3px solid rgb(229, 229, 229);
+    background-color: rgb(229, 229, 229);
+    border-radius: 20px;
+  
+  }
+  
+  .tco-okbtn1{
+    text-decoration: none;
+    font-family: 'Pretendard-Semibold';
+    font-size: 24px;
+    color: white;
+    padding: 26px 100px;
+    border: 3px solid #FFA0B7;
+    background-color: #FFA0B7;
+    border-radius: 20px;
+  }
+  
+  .tco-okbtn1:hover{
+    border: 3px solid #f37896;
+    background-color: #f37896;
+    color: white;
+  }
+  
+  .tco-msgbtn1:hover{
+    border: 3px solid rgb(188, 188, 188);
+    background-color: rgb(188, 188, 188);
+    color: white;
+  }
+  
+  

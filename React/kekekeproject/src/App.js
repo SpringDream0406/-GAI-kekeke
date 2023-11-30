@@ -18,6 +18,8 @@ import Login from "./pages/Login";
 import UserMessage from "./pages/UserMessage";
 import Capture from "./pages/Capture";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
+import CustomcompleteOrder from "./pages/CustomcompleteOrder";
+
 
 // Admin import
 import AdMain from "./ad_pages/AdMain";
@@ -42,6 +44,7 @@ import PMOption from "./ad_pages/PMOption";
 import AdCustomCake from "./ad_pages/AdCustomCake";
 import AdCustom2 from "./ad_pages/AdCustom2";
 import AdminStoreInfo from "./ad_pages/AdminStoreInfo";
+
 
 
 
@@ -76,8 +79,9 @@ function App() {
     <StoreContext.Provider value={storeValue}>
       <BrowserRouter>
         <GlobalStyle />
+       
         {/* 로그인 상태에 따른 헤더 렌더링 */}
-      
+        
         {/* 라우트 설정 */}
         <Routes>
 
@@ -114,6 +118,8 @@ function App() {
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />
           <Route path="/capture" element={<Layout><Capture /></Layout>} />
           <Route path="/customcake/order" element={<Layout><CustomCakeOrder /></Layout>} />
+          <Route path="/CustomcompleteOrder" element={<Layout><CustomcompleteOrder /></Layout>} />
+
           <Route path="*" element={<Layout />} />
 
           {/* 기타 필요한 라우트 */}

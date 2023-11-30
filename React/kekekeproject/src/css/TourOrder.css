@@ -1,6 +1,13 @@
+.react-datepicker__tab-loop{
+
+  position: absolute;
+  left: 1500px;
+  height: 300px;
+  width: 300px;
+}
 
 .to-bg-container {
-  background-image: url('/public/assets/images/bluebox.png');
+  
   background-size: 100% 100%;
   display: flex;
 
@@ -128,7 +135,7 @@ width: 428px;
   position: absolute;
   top: 850px;
   min-height: 100px;
-  z-index: 999;
+  z-index: 99;
 }
 
 .to-cf-1{
@@ -565,7 +572,7 @@ margin-left: 40px;
   position: absolute;
   top: 711px;
   width: 489px;
-  z-index: 99999;
+  z-index:999;
 }
 
 .to-container .to-usernametitle {
@@ -601,7 +608,10 @@ margin-left: 40px;
 
 }
 /* .react-datepicker__time-container .react-datepicker__header--time--only{
+
+.react-datepicker__time-container .react-datepicker__header--time--only{
   display: none;
+  z-index: 99999999;
 }
 
 .react-datepicker__triangle{
@@ -658,7 +668,7 @@ margin-left: 40px;
   position: absolute;
   top: 1818px; /* 실제 위치에 맞게 조정해야 할 수 있음 */
   left: 177px;
-  z-index: 999; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+  z-index: 99999999999; /* 다른 요소들 위에 표시되도록 z-index 설정 */
 }
 
 
@@ -852,7 +862,7 @@ top: 920px;
 
   letter-spacing: 0;;
   line-height: normal;
- z-index: 99999;
+ z-index: 99;
   position: absolute;
   top: 1920px;
   left:160px;
@@ -864,7 +874,7 @@ top: 920px;
   font-size: 24px;
   top: 2003px;
 left: 340px;
-z-index: 9999;
+z-index: 99;
 }
 .co-cakemoney{
   color: gray;
