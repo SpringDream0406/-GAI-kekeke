@@ -64,6 +64,7 @@ const formatTime = (timeString) => {
   }
   return ""; // timeString이 없을 때는 빈 문자열 반환
 };
+window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
     return (
       <div>

@@ -153,6 +153,7 @@ const formatImagePath = (path) => {
   return path.replace('public\\', '').replace(/\\/g, '/');
 };
 
+window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
 
 
@@ -162,6 +163,7 @@ const openPopup = (orderDetail, orderType) => {
   setIsPopupOpen(true);
 };
 
+window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
     return (
       <div className="order-list-container">

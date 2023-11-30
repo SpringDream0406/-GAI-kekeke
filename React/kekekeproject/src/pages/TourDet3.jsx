@@ -143,6 +143,7 @@ export const TourDet3 = () => {
       console.log("현재 리뷰 데이터:11", reviewData);
     }, [reviewData]);
  
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
   return (
     <div>

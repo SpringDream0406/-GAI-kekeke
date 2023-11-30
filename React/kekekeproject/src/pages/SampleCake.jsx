@@ -76,6 +76,7 @@ const SampleCake = () => {
     console.log('선택한 케이크의 prd_id:', prd_id);
     navigate(`/tour-order?prd_id=${prd_id}`);
   }
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   
   return (
     <div className="Sample__Container">
