@@ -141,6 +141,7 @@ const CustomCakeOrder = () => {
      const blob = await response.blob();
      const file = new File([blob], "custom_cake_preview.jpg", { type: "image/jpeg" });
      customdata.append('previewImage', file);
+     
     
    } catch (error) {
      console.error('로컬 스토리지 이미지 처리 중 오류 발생:', error);
@@ -154,7 +155,10 @@ const CustomCakeOrder = () => {
      headers: { 'Content-Type': 'multipart/form-data' }
      
    });
-   navigate('/tour-complete-order', { state: { orderResponse: response.data } });
+   
+  
+   window.location.href = `/CustomcompleteOrder?orderResponse=${encodeURIComponent(JSON.stringify(response.data))}`;
+   //navigate('/CustomcompleteOrder', { state: { orderResponse: response.data } });
   
  } catch (error) {
    alert(error.response.data.message);
@@ -187,7 +191,7 @@ const CustomCakeOrder = () => {
       <p className="co-btntxt">주문완료 후 일정 및 레터링 변경 불가능 합니다</p>
       <div className="co-reqbtn">
         <div className="co-overlap-group">
-          <Link className="co-reqtxt" to={'/tour-complete-order'} onClick={submitOrder}>요청하기</Link>
+          <Link className="co-reqtxt" to={'/CustomcompleteOrder'} onClick={submitOrder}>요청하기</Link>
         </div>
       </div>
       <div className="co-cakeplusttitle">케이크 추가 요청사항</div>
