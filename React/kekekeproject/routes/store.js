@@ -62,7 +62,8 @@ router.post('/custom', (req, res) => {
   const { cust_id } = req.body;
 
   //cust_id를 사용하여 데이터베이스에서 정보를 검색합니다.
-  const sql = 'SELECT * FROM TB_CUSTOM_PRODUCT WHERE cust_id = ? ORDER BY CREATED_AT DESC;'; // 데이터베이스 테이블 및 컬럼명을 설정하세요.
+  const sql = 'SELECT * FROM TB_CUSTOM_PRODUCT WHERE cust_id = ? ORDER BY CUSTOM_ID DESC LIMIT 1;';
+ // 데이터베이스 테이블 및 컬럼명을 설정하세요.
 
   conn.query(sql, [cust_id ], (err, rows) => {
     if (err) {
@@ -74,10 +75,14 @@ router.post('/custom', (req, res) => {
       return res.status(404).json({ error: '제품을 찾을 수 없음' });
     }
 
+    
+
     // 제품 정보를 클라이언트에게 응답합니다.
     const custData = rows[0]; // 예시로 첫 번째 행을 가져옴
 
     res.json(custData);
+    //res.status(200).send(rows)
+   // console.log(rows);
   });
 });
 

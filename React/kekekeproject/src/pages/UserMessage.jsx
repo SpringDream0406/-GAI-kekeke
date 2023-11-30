@@ -13,8 +13,6 @@ const UserMessage = () => {
   const [prdId, setPrdId] = useState(null);
   const [chatStore, setChatStore] = useState([]);
 
-  const userRoodId = ''
-
  // 시작 시간과 종료 시간을 초까지 포함된 형식에서 시간만 표시하는 함수
  const formatTime = (timeString) => {
   if (timeString) {

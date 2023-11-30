@@ -56,9 +56,7 @@ const TourCompleteOrder = () => {
       try {
         const response = await axios.post(`${API_URL}/store/custom`, { cust_id :custid });
         const data = response.data[0];
-      
         setCustomInfo(response.data); // 수정된 부분: 응답 데이터를 상태에 저장
-        
         console.log('응답:', response.data);
       } catch (error) {
         console.error('오류:', error);
@@ -69,7 +67,8 @@ const TourCompleteOrder = () => {
       custData();
  }
   }, [custid]); // custid 의존성 배열에 추가하여 custid 값이 변경될 때마다 실행
-  
+
+
   //커스텀 이미지가 널일경우
   useEffect(() => {
     const imagePath = customInfo?.CUSTOM_IMG || "/img/cust/pzzzz12.png";
@@ -111,12 +110,12 @@ const handleclickcheck = async () => {
   ) : (
     <>
     <div className="image-container123">
-      {customInfo && customInfo.CUSTOM_IMG && (
+      {/* {customInfo && customInfo.CUSTOM_IMG && (
         <img src={`/${customInfo.CUSTOM_IMG.substring("public/".length)}`} className="tco-cakeimg2" alt="케이크1" />
       )}
       {customInfo && customInfo.CUST_DRAW && (
         <img src={`/${customInfo.CUST_DRAW.substring("public/".length)}`} className="tco-cakeimg2" alt="케이크2" />
-      )}
+      )} */}
     </div>
     </>
   )}
@@ -152,26 +151,26 @@ const handleclickcheck = async () => {
       
       <div className="tco-st-container">
         <div className="tco-st-1">
-        {orderData ? orderData.order_name : (customInfo ? customInfo.CLIENT_NAME : "정보없음")}
+        {orderData ? orderData.order_name :  "정보없음"}
         </div>
        
         <div className="tco-st-2">
-         {orderData ? orderData.order_num : (customInfo ? customInfo.CLIENT_NUM : "정보없음")}
+         {orderData ? orderData.order_num :  "정보없음"}
         </div>
 
         <div className="tco-st-3">
-        {orderData ? orderData.cake_size : (customInfo ? customInfo.CAKE_SIZE : "정보없음")}
+        {orderData ? orderData.cake_size : "정보없음"}
         </div>
 
         <div className="tco-st-4">
-       {orderData ? orderData.cake_flavor : (customInfo ? customInfo.CAKE_FLAVOR : "정보없음")}
+       {orderData ? orderData.cake_flavor  : "정보없음"}
         </div>
         <div className="tco-st-5">
-        {orderData ? orderData.lettering : (customInfo ? customInfo.CKAE_DETAIL : "정보없음")}
+        {orderData ? orderData.lettering  : "정보없음"}
         </div>
 
         <div className="tco-st-6">
-        {orderData ? orderData.add_require : (customInfo ? customInfo.ADD_DETAIL : "정보없음")}
+        {orderData ? orderData.add_require : "정보없음"}
         </div>
 
         <div className="tco-st-7">

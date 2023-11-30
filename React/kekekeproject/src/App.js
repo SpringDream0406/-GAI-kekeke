@@ -18,6 +18,8 @@ import Login from "./pages/Login";
 import UserMessage from "./pages/UserMessage";
 import Capture from "./pages/Capture";
 import CustomCakeOrder from "./pages/CustomCakeOrder";
+import CustomcompleteOrder from "./pages/CustomcompleteOrder";
+
 
 // Admin import
 import AdMain from "./ad_pages/AdMain";
@@ -116,6 +118,8 @@ function App() {
           <Route path="/usermessage" element={<Layout><UserMessage /></Layout>} />
           <Route path="/capture" element={<Layout><Capture /></Layout>} />
           <Route path="/customcake/order" element={<Layout><CustomCakeOrder /></Layout>} />
+          <Route path="/CustomcompleteOrder" element={<Layout><CustomcompleteOrder /></Layout>} />
+
           <Route path="*" element={<Layout />} />
 
           {/* 기타 필요한 라우트 */}

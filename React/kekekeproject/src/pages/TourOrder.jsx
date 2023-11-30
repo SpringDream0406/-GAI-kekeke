@@ -147,14 +147,15 @@ export const TourOrder = () => {
 
 
   const TimeInput = forwardRef(({ value, onClick }, ref) => (
-    <button className="to-time-input to-timetitle" onClick={onClick} ref={ref}>
+    <button className="to-time-input to-timetitle" type='button' onClick={onClick} ref={ref}>
       {value}
       <FontAwesomeIcon icon={faClock} className='to-time-icon' onClick={onClick} />
     </button>
   ));
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className="to-custom-input to-day" onClick={onClick} ref={ref}>
+    <button className="to-custom-input to-day" onClick={onClick} ref={ref}
+    type='button'>
       {value}
       <FontAwesomeIcon icon={faCalendarAlt} className='to-day-icon' onClick={onClick} />
     </button>
@@ -241,7 +242,10 @@ export const TourOrder = () => {
       console.error('주문 전송 에러', error.response);
     }
   };
-
+  const handleDatePickerChange = (date) => {
+    console.log("DatePicker changed:", date);
+    setPickupDate(date); // 상태 업데이트 또는 필요한 작업 수행
+  };
 
 
   return (
@@ -375,9 +379,15 @@ export const TourOrder = () => {
                   />
       <div className="to-time">픽업 시간</div>
       <DatePicker
+
          selected={pickupTime}
          onChange={(date) => setPickupTime(date)}
+
+     
+ 
+
         showTimeSelect
+        onClick = {handleDatePickerChange}
         showTimeSelectOnly // Add this prop to only show the time picker
         timeFormat="HH:mm"
         timeIntervals={15}

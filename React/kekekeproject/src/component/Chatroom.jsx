@@ -29,9 +29,7 @@ const Chatroom = ({ roomId, sender, adminStyle }) => {
         scrollToBottom();
       }
     };
-
     socket.on('receive message', receiveMessage);
-
     // 컴포넌트가 언마운트될 때 실행될 클린업 함수입니다.
     return () => {
       // 'leave room' 이벤트를 서버로 보내어 채팅방에서 나갑니다.
