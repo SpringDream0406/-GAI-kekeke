@@ -62,11 +62,15 @@ export const Cakes = () => {
       } else {
         startPage = currentPage - Math.floor(maxPageNumberDisplay / 2);
         endPage = startPage + maxPageNumberDisplay - 1;
-      }
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+  }
     }
   
-    return Array.from({ length: (endPage - startPage + 1) }, (_, idx) => startPage + idx);
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+    return Array.from({ length: (endPage - startPage + 1) }, (_, idx) => startPage + 
+    idx);
   };
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
   useEffect(() => {
     let filtered = cakesFromServer;
@@ -95,9 +99,11 @@ export const Cakes = () => {
       setLocationModalOpen(!isLocationModalOpen);
     } else {
       setLocationModalOpen(!isLocationModalOpen);
-    }
+    window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
+  }
   };
 
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
 
   /*이전페이지로 가는 로직 */

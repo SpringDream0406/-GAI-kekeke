@@ -62,6 +62,7 @@ const AdminOrderlist = () => {
 
   // 현재 페이지에 따라 표시할 주문 목록을 계산하지 않고, 해당 페이지의 데이터만 표시
   const currentOrders = sellerOrders.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
 
   return (
     <div>
