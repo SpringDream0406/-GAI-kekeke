@@ -69,35 +69,59 @@ console.log("나다",customInfo);
           <img src={`/${customInfo.CUST_DRAW.substring("public/".length)}`} className="tco-cakeimg3" alt="케이크2" />
         )}
       </div>
+      <div className="tco-mt-container2">
+        <div className="tco-mt-1">
+          예약자 성함 :
+        </div>
 
-    <div className="tco-mt-container12">
-    {/* 주문 정보 표시 */}
-    <div className="tco-mt-1">
-        예약자 성함 : {customInfo ? customInfo.CLIENT_NAME : "정보없음"}
-    </div>
+        <div className="tco-mt-2">
+          예약자 번호 :
+        </div>
 
-    <div className="tco-mt-2">
-        예약자 번호 : {customInfo ? customInfo.CLIENT_NUM : "정보없음"}
-    </div>
+        <div className="tco-mt-3">
+          케이크 크기 :
+        </div>
 
-    <div className="tco-mt-3">
-        케이크 크기 : {customInfo ? customInfo.CAKE_SIZE : "정보없음"}
-    </div>
+        <div className="tco-mt-4">
+          케이크 맛 :
+        </div>
+        <div className="tco-mt-5">
+          케이크 위 문구 :
+        </div>
 
-    <div className="tco-mt-4">
-        케이크 맛 : {customInfo ? customInfo.CAKE_FLAVOR : "정보없음"}
-    </div>
+        <div className="tco-mt-6">
+          추가요청사항 :
+        </div>
 
-    <div className="tco-mt-5">
-        케이크 위 문구 : {customInfo ? customInfo.CAKE_DETAIL : "정보없음"}
-    </div>
+       
+      </div>
+      
+      <div className="tco-st-container2">
+        <div className="tco-st-1">
+        {customInfo ? customInfo.CLIENT_NAME : "정보없음"}
+        </div>
+       
+        <div className="tco-st-2">
+        {customInfo ? customInfo.CLIENT_NUM : "정보없음"}
+        </div>
 
-    <div className="tco-mt-6">
-        추가요청사항 : {customInfo ? customInfo.ADD_DETAIL : "정보없음"}
-    </div>
+        <div className="tco-st-3">
+        {customInfo ? customInfo.CAKE_SIZE : "정보없음"}
+        </div>
 
+        <div className="tco-st-4">
+        {customInfo ? customInfo.CAKE_FLAVOR : "정보없음"}
+        </div>
+        <div className="tco-st-5">
+        {customInfo ? customInfo.CAKE_DETAIL : "정보없음"}
+        </div>
 
-    </div>
+        <div className="tco-st-6">
+        {customInfo ? customInfo.ADD_DETAIL : "정보없음"}
+        </div>
+
+       
+      </div>
 
     {/* 버튼 컨테이너 */}
     <div className="tco-btn-container1">
