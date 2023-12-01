@@ -101,7 +101,7 @@ const handleclickcheck = async () => {
       console.error('메시지 전송 오류:', error);
     }
 };
-
+window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
   return (
     <div className="tour-detail-container">
       <div className="tco-mt">주문내역 확인</div>
