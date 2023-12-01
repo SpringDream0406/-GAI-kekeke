@@ -6,7 +6,7 @@ import { AiOutlineCamera } from 'react-icons/ai';
 import axios from 'axios'; // axios 라이브러리 추가
 import API_URL from '../api_url';
 import { useLocation } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 
 const MpOrderList = () => {
 
@@ -308,31 +308,34 @@ const ReviewPopup = ({ onClose, orderDetail, markOrderAsReviewed }) => {
 
         console.log(reviewExistsResponse);
     
-        if (reviewExistsResponse.data.exists) {
-          // 리뷰 업데이트
-          const response = await axios.put(`${API_URL}/store/updateReview`, formData, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-          });
-          console.log("수정1",formData);
-          alert('리뷰가 수정되었습니다.');
-        } else {
-          // 새 리뷰 등록
-          const response = await axios.post(`${API_URL}/store/reviewcust`, formData, {
-            headers: { 'Content-Type': 'multipart/form-data' },
-          });
-          console.log("수정2",formData);
-          alert('리뷰가 등록되었습니다.');
-        }
+        Swal.fire({
+          title: '리뷰가 등록되었습니다!',
+          text: '고객님의 소중한 리뷰를 등록했습니다.',
+          icon: 'success',
+          confirmButtonText: '확인',
+          customClass: {
+            confirmButton: 'custom-swal-button',
+          },
+        }).then(() => {
+          onClose(); // Close the popup
+          window.location.reload(); // Reload the page or redirect as needed
+        });
     
         markOrderAsReviewed(orderDetail.id);
-        onClose();
-        window.scrollTo(0, 0);
+    
       } catch (error) {
         console.error('리뷰 등록 또는 수정 실패:', error);
-        alert('리뷰 처리 중 오류가 발생했습니다.');
+        Swal.fire({
+          title: '오류 발생',
+          text: '리뷰 처리 중 오류가 발생했습니다.',
+          icon: 'error',
+          confirmButtonText: '닫기',
+          customClass: {
+            confirmButton: 'custom-swal-button',
+          },
+        });
       }
     };
-
 
 
   const handleClose = () => {
