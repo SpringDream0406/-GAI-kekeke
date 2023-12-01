@@ -23,9 +23,9 @@ const AdCustomCake = () => {
 
 
   const fetchPageContent = (pageNumber) => {
-    if (customData && customData.length > 0) {
+    if (pendingOffers && pendingOffers.length > 0) {
       const startIndex = (pageNumber - 1) * itemsPerPage;
-      const newContent = customData.slice(startIndex, startIndex + itemsPerPage);
+      const newContent = pendingOffers.slice(startIndex, startIndex + itemsPerPage);
       setPageContent(newContent);
     }
   };
@@ -34,6 +34,15 @@ const navigate = useNavigate();
 const handleItemClick = (item) => {
   navigate('/admin/customcake/detail', { state: { selectedData: item } });
 };
+
+useEffect(() => {
+  fetchCustomCake(); // 이 함수가 페이지 로드 시 제안대기 데이터를 가져옵니다.
+  fetchPageContent(currentPage); // 초기 페이지 콘텐츠 로드
+}, []);
+
+useEffect(() => {
+  fetchPageContent(currentPage);
+}, [currentPage, pendingOffers]); // currentPage 또는 pendingOffers가 변경될 때 fetchPageContent를 호출
 
 
 // 필터링을 위한 데이터 api 콜
