@@ -58,7 +58,7 @@ const Join = () => {
       .then(response => { // status(200) 인 경우
           console.log(response.data);
           Swal.fire({
-            title: '로그인 성공!',
+            title: '회원가입 성공!',
             text: '케케케에 오신걸 환영합니다~',
             imageUrl:
               'https://cdn.class101.net/images/02279595-b8f5-4753-8d57-0000d8ac64ae',

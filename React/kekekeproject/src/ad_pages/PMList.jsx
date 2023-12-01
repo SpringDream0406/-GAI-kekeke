@@ -10,6 +10,7 @@ import PageButton from '../component/PageButton';
 import AdHeader from '../component/AdHeader';
 import API_URL from '../api_url'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 
 const PMList = () => {
@@ -70,7 +71,12 @@ const PMList = () => {
   //수정핸들러
   const handleEdit = (product) => {
     setEditingProductId(product.PRD_ID);
-    setEditProductDetails({ name: product.PRD_NAME, price: product.PRD_AMT, status: product.SALE_STATUS, sales: product.total_product_orders });
+    setEditProductDetails({ 
+      name: product.PRD_NAME, 
+      price: product.PRD_AMT, 
+      status: product.SALE_STATUS === "Y" ? "판매중" : "품절", // 현재 상태 반영
+      sales: product.total_product_orders 
+    });
   };
   useEffect(() => {
     console.log("업데이트된 editingProductId:", editingProductId,editProductDetails);
@@ -87,6 +93,7 @@ const PMList = () => {
         PRD_ATM: editProductDetails.price,
         PRD_NAME: editProductDetails.name,
       };
+
   
       // 서버 요청
       const response = await axios.put(`${API_URL}/seller/updateprd`, updatedProductData);
@@ -99,14 +106,16 @@ const PMList = () => {
     } catch (error) {
       console.error("업데이트 실패", error);
     }
+   
   
     setEditingProductId(null); // 편집 모드 종료
+   // window.location.reload()
   };
 
   const handleNumberChange = (e, field) => {
     const value = e.target.value;
-    // 입력값이 숫자이고 길이가 7자 이하인 경우에만 상태 업데이트
-    if (field === 'price' && value && value.toString().length <= 7) {
+    // 입력값의 길이가 7자 이하인 경우에만 상태 업데이트 (문자 포함)
+    if (field === 'price' && value.length <= 7) {
       setEditProductDetails(prevDetails => ({ ...prevDetails, [field]: value }));
     }
   };
@@ -117,10 +126,10 @@ const PMList = () => {
   };
 
   // 편집 모드에서 상태 변경 핸들러
-  const handleStatusChange = (e, product) => {
-    setEditProductDetails({ ...editProductDetails, status: e.target.value });
-  };
-
+ const handleStatusChange = (e, product) => {
+  console.log("Status 변경:", e.target.value); // 상태 변경 로깅
+  setEditProductDetails({ ...editProductDetails, status: e.target.value });
+};
 
   // ----------------------------------------------
 
@@ -153,11 +162,25 @@ const PMList = () => {
     setShowDeleteModal(true);
   };
 
-  // 삭제 확인 핸들러
-  const handleDeleteConfirm = () => {
+  const handleDeleteConfirm = async () => {
+    // 클라이언트 측 상태 업데이트
     const updatedProducts = filteredProducts.filter(product => product.PRD_ID !== deleteProductId);
     setFilteredProducts(updatedProducts);
     setShowDeleteModal(false);
+  
+    // 서버에 삭제 요청
+    try {
+      // DELETE 요청에 prd_id 전달
+      const response = await axios.delete(`${API_URL}/seller/prdDelete`, { 
+        data: { prd_id: deleteProductId }
+      });
+  
+      console.log("상품 삭제 성공", response.data);
+      // 추가 상태 업데이트나 사용자 알림이 필요한 경우 여기에 작성합니다.
+    } catch (error) {
+      console.error("상품 삭제 실패", error);
+      // 사용자에게 오류를 알리는 로직을 여기에 작성합니다.
+    }
   };
 
   // 삭제 취소 핸들러
@@ -234,13 +257,6 @@ const handleImageUpdate = (newImageUrl) => {
   setImagePopupVisible(false); // 이미지 팝업 숨김
 };
 
-  // 이미지 경로를 웹 URL로 변환하는 함수
-  const convertImagePathToUrl = (imagePath) => {
-    const pathWithoutPublic = imagePath.split('public\\').pop(); // 'public\' 부분을 제거합니다.
-    return `${API_URL}/${pathWithoutPublic.replace(/\\/g, '/')}`; // 경로 구분자를 웹 표준에 맞게 변경합니다.
-  
-  };
-
 
 
 
@@ -299,13 +315,12 @@ const handleImageUpdate = (newImageUrl) => {
                     maxLength="20"
                   />
                   <input
-                    type="number"
+                    type="text"
                     value={editProductDetails.price}
                     onChange={(e) => handleNumberChange(e, 'price')}
                     className='PM-edit-input PM-edit-price'
-                    step="1" // 소수점 입력 방지
-                    min="0" // 0 이상의 값만 허용
-                    maxLength="5"
+                 
+                    maxLength="10"
                   />
                   <select
                     value={editProductDetails.status}
@@ -455,9 +470,37 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   // 새 상품 등록 함수
   const handleRegister = async () => {
-    if (!productName || !productPrice) {
-      alert("상품명과 가격을 입력해주세요.");
-      return;
+    try {
+      // 서버에 FormData 전송
+      const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      console.log("상품 등록 성공", response.data);
+      onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
+  
+      // 성공 알림 표시
+      Swal.fire({
+        title: '상품 등록 성공!',
+        text: '새로운 상품이 성공적으로 등록되었습니다.',
+        icon: 'success', // 아이콘 타입: 'success', 'error', 'warning', 'info', 'question'
+        confirmButtonText: '확인'
+      });
+  
+      // 서버 응답 후 페이지 새로고침
+      window.location.reload();
+    } catch (error) {
+      console.error("상품 등록 실패", error);
+      
+      // 실패 알림 표시
+      Swal.fire({
+        title: '상품 등록 실패',
+        text: '상품 등록 중 문제가 발생했습니다.',
+        icon: 'error',
+        confirmButtonText: '닫기'
+      });
     }
   
     // FormData 객체 생성

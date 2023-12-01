@@ -42,18 +42,24 @@ const MpOrderList = () => {
     const fetchAdditionalData = async () => {
       try {
         const response = await axios.post(`${API_URL}/store/customorderlist`, { cust_id: custId });
+  
+        // 데이터가 비어있는 경우 확인
+        if (!response.data || response.data.length === 0) {
+          setAdditionalData([]); // 빈 배열을 설정하거나 다른 처리를 할 수 있습니다.
+          return; // 함수를 여기서 종료합니다.
+        }
         const formattedData = response.data.map(item => {
           // 날짜 포매팅
           const formattedDate = item.PICKUP_DATE;
-          
+        
           // 시간 포매팅 (HH:mm 형식)
           const formattedTime = item.PICKUP_TIME.slice(0, 5);
   
           return { ...item, PICKUP_DATE: formattedDate, PICKUP_TIME: formattedTime };
         });
-        
+        console.log("추가 데이터", formattedData);
+        console.log("추가 데이터", formattedData);
         setAdditionalData(formattedData); // 포매팅된 데이터를 상태에 저장
-        console.log("추가데이터", formattedData);
       } catch (error) {
         console.error('추가 데이터 가져오기 실패:', error);
       }
@@ -63,7 +69,6 @@ const MpOrderList = () => {
       fetchAdditionalData();
     }
   }, [custId]);
-
 
 
     //일반상품목록데이터
@@ -124,24 +129,22 @@ const MpOrderList = () => {
 // 일반상품이랑 커스텀상품 배열합침
 const [combinedOrders, setCombinedOrders] = useState([]);
 useEffect(() => {
-  if (userOrders && customOrders) { // userOrders와 customOrders가 둘 다 유효한 경우에만 실행
+  if (userOrders || customOrders) { 
+    // 여기에 포함된 코드는 userOrders 또는 customOrders 중 하나라도 유효할 때 실행됩니다.
 
+    const combinedOrders = [
+      ...(userOrders || []).map(order => ({ ...order, formattedDate: formatDate(order.PICKUP_DATE), orderType: 'user' })),
+      ...(customOrders || []).map(order => ({ ...order, formattedDate: formatDate(order.PICKUP_DATE), orderType: 'custom' }))
+    ];
 
-    
+    combinedOrders.sort((a, b) => new Date(b.formattedDate) - new Date(a.formattedDate));
 
-   // 일반 주문과 커스텀 주문을 하나의 배열로 합칩니다
-   const combinedOrders = [
-    ...userOrders.map(order => ({ ...order, formattedDate: formatDate(order.PICKUP_DATE), orderType: 'user' })),
-    ...customOrders.map(order => ({ ...order, formattedDate: formatDate(order.PICKUP_DATE), orderType: 'custom' }))
-  ];
-
-  // 날짜로 정렬합니다
-  combinedOrders.sort((a, b) => new Date(b.formattedDate) - new Date(a.formattedDate));
-
-  // 합쳐진 목록을 상태로 설정합니다
-  setCombinedOrders(combinedOrders);
-}
+    setCombinedOrders(combinedOrders);
+  }
 }, [userOrders, customOrders]);
+
+
+
 
 useEffect(() => {
   console.log('Combined Orders:', combinedOrders);

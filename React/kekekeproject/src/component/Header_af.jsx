@@ -318,7 +318,7 @@ const Header_af = () => {
           
           <div ref={myPageRef}>
           <li>
-            <Link to={'/'} className="nav-menu-icon" onClick={myPageHandler}>
+            <Link  className="nav-menu-icon" onClick={myPageHandler}>
             <img 
                             src={'/assets/images/mypage-icon.svg'} alt='mypage-icon'/>
             </Link>

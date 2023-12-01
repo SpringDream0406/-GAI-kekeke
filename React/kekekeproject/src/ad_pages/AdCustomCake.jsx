@@ -10,33 +10,31 @@ import axios from 'axios';
 import API_URL from '../api_url';
 
 
-const createDummyData = (numItems) => {
-  return Array.from({ length: numItems }, (_, i) => ({
-    id: i + 1,
-    imgSrc: `/assets/images/cake2.png`, // 예시로 2개의 이미지를 번갈아 사용
-    date: `2023.04.${String(i % 30).padStart(2, '0')}`, // 날짜는 1~30일을 반복
-    time: `${String((i % 12) + 1).padStart(2, '0')}:00 픽업` // 시간은 1시~12시를 반복
-  }));
-};
-
-
-
 const AdCustomCake = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageContent, setPageContent] = useState([]);
   const totalItems = 40; // 가정: 총 40개의 항목이 있다.
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
-  const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
+  
   const [customData, setCustomData] = useState(null);
   const [pendingOffers, setPendingOffers] = useState([]);
   const [completedOffers, setCompletedOffers] = useState([]);
+  const [totalPages, setTotalPages] = useState(Math.ceil(pendingOffers.length / itemsPerPage));
 
+  useEffect(() => {
+    setTotalPages(Math.ceil(pendingOffers.length / itemsPerPage));
+  }, [pendingOffers]);
+  
+  useEffect(() => {
+    setTotalPages(Math.ceil(completedOffers.length / itemsPerPage));
+  }, [completedOffers]);
+  
 
 
   const fetchPageContent = (pageNumber) => {
-    if (customData && customData.length > 0) {
+    if (pendingOffers && pendingOffers.length > 0) {
       const startIndex = (pageNumber - 1) * itemsPerPage;
-      const newContent = customData.slice(startIndex, startIndex + itemsPerPage);
+      const newContent = pendingOffers.slice(startIndex, startIndex + itemsPerPage);
       setPageContent(newContent);
     }
   };
@@ -45,6 +43,15 @@ const navigate = useNavigate();
 const handleItemClick = (item) => {
   navigate('/admin/customcake/detail', { state: { selectedData: item } });
 };
+
+useEffect(() => {
+  fetchCustomCake(); // 이 함수가 페이지 로드 시 제안대기 데이터를 가져옵니다.
+  fetchPageContent(currentPage); // 초기 페이지 콘텐츠 로드
+}, []);
+
+useEffect(() => {
+  fetchPageContent(currentPage);
+}, [currentPage, pendingOffers]); // currentPage 또는 pendingOffers가 변경될 때 fetchPageContent를 호출
 
 
 // 필터링을 위한 데이터 api 콜
@@ -135,6 +142,16 @@ const formatTime = (timeString) => {
 };
 
 
+
+useEffect(() => {
+  setTotalPages(Math.ceil(pendingOffers.length / itemsPerPage));
+}, [pendingOffers]);
+
+useEffect(() => {
+  setTotalPages(Math.ceil(completedOffers.length / itemsPerPage));
+}, [completedOffers]);
+
+
   useEffect(() => {
     fetchPageContent(currentPage);
   }, [currentPage]);
@@ -148,11 +165,13 @@ const formatTime = (timeString) => {
   // 제안대기버튼 핸들러
   const handlePendingClick = () => {
     setCustomData(pendingOffers);
+    setPageContent(pendingOffers.slice(0, itemsPerPage)); // 첫 페이지의 내용을 설정합니다.
   };
-
+  
   // 제안완료버튼 핸들러
   const handleCompletedClick = () => {
     setCustomData(completedOffers);
+    setPageContent(completedOffers.slice(0, itemsPerPage)); // 첫 페이지의 내용을 설정합니다.
   };
 
   return (
