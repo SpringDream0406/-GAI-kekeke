@@ -16,17 +16,18 @@
     font-size: 50px;
     position: absolute;
     top: 220px;
-    left: 650px;
+    left: 710px;
 
   }
-  
+
   .tco-cakeimg4{
     width: 400px;
     height: 400px;
     position: absolute;
-    top: 500px;
+    top: 510px;
     border-radius: 20px;
     left: 800px;
+    margin-left: 70px;
   }
   
   .tco-cakeimg3 {
@@ -36,7 +37,7 @@
     position: relative; /* 또는 absolute, 부모 요소에 따라 다름 */
     top: -210px;
     background-color: white;
-    left: 700px;
+    left: 720px;
   }
   .tco-st-container{
     position: absolute;
