@@ -293,12 +293,12 @@ router.post('/customreivew', async (req, res) => {
 
 router.put('/updateprd', async (req, res) => {
     try {
-      const { PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID } = req.body; // 구조 분해 할당 사용
+      const { PRD_NAME, PRD_ATM, SALE_STATUS, PRD_ID } = req.body; // 구조 분해 할당 사용
         // 여기에서 로그를 추가하여 각 변수의 값을 확인
-        console.log({ PRD_NAME, RPD_ATM,  SALE_STATUS, PRD_ID });
+        console.log({ PRD_NAME, PRD_ATM,  SALE_STATUS, PRD_ID });
   
       let sql = `UPDATE TB_PRODUCT SET prd_name = ?, prd_amt = ?, sale_status = ? WHERE prd_id = ?`;
-      let rows = await query(sql, [PRD_NAME, RPD_ATM, SALE_STATUS, PRD_ID]); // 매개변수 순서 조정
+      let rows = await query(sql, [PRD_NAME, PRD_ATM, SALE_STATUS, PRD_ID]); // 매개변수 순서 조정
   
       res.status(200).send("상품 업데이트 성공");
     } catch (error) {
@@ -345,6 +345,22 @@ router.post('/update', upload2.single('seller_profile1'), async (req, res) => {
   
 
 
+// 상품 삭제 라우트
+router.post('/prdDelete', async (req, res) => {
+    try {
+        const { prd_id } = req.body; // 클라이언트로부터 전달받은 상품 ID
+
+        // 데이터베이스에서 상품 삭제
+        await TB_RPODUCT.destroy({
+            where: { PRD_ID: prd_id }
+        });
+
+        res.status(200).json({ message: '상품이 성공적으로 삭제되었습니다.' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: '서버 오류로 상품 삭제에 실패했습니다.' });
+    }
+});
 
 
 module.exports = router;
