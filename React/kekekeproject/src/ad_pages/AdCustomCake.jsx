@@ -15,11 +15,20 @@ const AdCustomCake = () => {
   const [pageContent, setPageContent] = useState([]);
   const totalItems = 40; // 가정: 총 40개의 항목이 있다.
   const itemsPerPage = 6; // 한 페이지에 6개의 항목을 표시
-  const [totalPages] = useState(Math.ceil(totalItems / itemsPerPage));
+  
   const [customData, setCustomData] = useState(null);
   const [pendingOffers, setPendingOffers] = useState([]);
   const [completedOffers, setCompletedOffers] = useState([]);
+  const [totalPages, setTotalPages] = useState(Math.ceil(pendingOffers.length / itemsPerPage));
 
+  useEffect(() => {
+    setTotalPages(Math.ceil(pendingOffers.length / itemsPerPage));
+  }, [pendingOffers]);
+  
+  useEffect(() => {
+    setTotalPages(Math.ceil(completedOffers.length / itemsPerPage));
+  }, [completedOffers]);
+  
 
 
   const fetchPageContent = (pageNumber) => {
@@ -133,6 +142,16 @@ const formatTime = (timeString) => {
 };
 
 
+
+useEffect(() => {
+  setTotalPages(Math.ceil(pendingOffers.length / itemsPerPage));
+}, [pendingOffers]);
+
+useEffect(() => {
+  setTotalPages(Math.ceil(completedOffers.length / itemsPerPage));
+}, [completedOffers]);
+
+
   useEffect(() => {
     fetchPageContent(currentPage);
   }, [currentPage]);
@@ -146,11 +165,13 @@ const formatTime = (timeString) => {
   // 제안대기버튼 핸들러
   const handlePendingClick = () => {
     setCustomData(pendingOffers);
+    setPageContent(pendingOffers.slice(0, itemsPerPage)); // 첫 페이지의 내용을 설정합니다.
   };
-
+  
   // 제안완료버튼 핸들러
   const handleCompletedClick = () => {
     setCustomData(completedOffers);
+    setPageContent(completedOffers.slice(0, itemsPerPage)); // 첫 페이지의 내용을 설정합니다.
   };
 
   return (
