@@ -10,14 +10,7 @@ import axios from 'axios';
 import API_URL from '../api_url';
 
 
-const createDummyData = (numItems) => {
-  return Array.from({ length: numItems }, (_, i) => ({
-    id: i + 1,
-    imgSrc: `/assets/images/cake2.png`, // 예시로 2개의 이미지를 번갈아 사용
-    date: `2023.04.${String(i % 30).padStart(2, '0')}`, // 날짜는 1~30일을 반복
-    time: `${String((i % 12) + 1).padStart(2, '0')}:00 픽업` // 시간은 1시~12시를 반복
-  }));
-};
+
 
 
 
@@ -34,9 +27,9 @@ const AdCustomCake = () => {
 
 
   const fetchPageContent = (pageNumber) => {
-    if (customData && customData.length > 0) {
+    if (pendingOffers && pendingOffers.length > 0) {
       const startIndex = (pageNumber - 1) * itemsPerPage;
-      const newContent = customData.slice(startIndex, startIndex + itemsPerPage);
+      const newContent = pendingOffers.slice(startIndex, startIndex + itemsPerPage);
       setPageContent(newContent);
     }
   };
@@ -45,6 +38,15 @@ const navigate = useNavigate();
 const handleItemClick = (item) => {
   navigate('/admin/customcake/detail', { state: { selectedData: item } });
 };
+
+useEffect(() => {
+  fetchCustomCake(); // 이 함수가 페이지 로드 시 제안대기 데이터를 가져옵니다.
+  fetchPageContent(currentPage); // 초기 페이지 콘텐츠 로드
+}, []);
+
+useEffect(() => {
+  fetchPageContent(currentPage);
+}, [currentPage, pendingOffers]); // currentPage 또는 pendingOffers가 변경될 때 fetchPageContent를 호출
 
 
 // 필터링을 위한 데이터 api 콜
