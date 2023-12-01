@@ -147,7 +147,7 @@ const upload = multer({ storage: storage }).single('image');
 
 // 리뷰 데이터를 데이터베이스에 저장하는 API 엔드포인트
 router.post('/reviewcust', upload, async (req, res) => {
-  console.log("Received data:", req.body);
+
   try {
     // 폼 데이터에서 정보 추출 및 널 체크 적용
     
@@ -208,8 +208,7 @@ router.put('/updateReview', multer().single('image'), async (req, res) => {
     const imagePath = image ? image.path : null;
 
     let deleteSql, insertSql, queryParams;
-    console.log(reviewMsg,DEAL_ID,CUSTOM_ID);
-
+    
     // 먼저 기존 리뷰 삭제
     if (DEAL_ID) {
       deleteSql = `DELETE FROM TB_REVIEW WHERE deal_id = ?`;
@@ -257,7 +256,7 @@ router.post('/createchat', async (req, res) => {
         console.error('SQL 에러:', err);
         res.status(500).send({ message: '서버 에러' });
       } else {
-        console.log('데이터 저장 완료');
+       
         res.status(200).send({ message: '데이터 저장 완료' });
       }
     });
