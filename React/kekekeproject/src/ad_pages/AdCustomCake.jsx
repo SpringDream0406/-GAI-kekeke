@@ -10,17 +10,6 @@ import axios from 'axios';
 import API_URL from '../api_url';
 
 
-const createDummyData = (numItems) => {
-  return Array.from({ length: numItems }, (_, i) => ({
-    id: i + 1,
-    imgSrc: `/assets/images/cake2.png`, // 예시로 2개의 이미지를 번갈아 사용
-    date: `2023.04.${String(i % 30).padStart(2, '0')}`, // 날짜는 1~30일을 반복
-    time: `${String((i % 12) + 1).padStart(2, '0')}:00 픽업` // 시간은 1시~12시를 반복
-  }));
-};
-
-
-
 const AdCustomCake = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageContent, setPageContent] = useState([]);

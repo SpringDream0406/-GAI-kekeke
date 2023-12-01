@@ -97,6 +97,7 @@ useEffect(() => {
     const adminData = JSON.parse(adminStorageData);
     setSellerInfo(adminData);
     setSellerImg(adminData.seller_profile1);
+    console.log(adminData);
   }
 }, []);
 
@@ -138,7 +139,7 @@ const [isDropdownOpen, setDropdownOpen] = useState(false);
               <div className="text-wrapper">사장님</div>
               </div>
             <div className="view-2">
-              <div className="text-wrapper2">{sellerinfo.seller_id}</div>
+              <div className="text-wrapper2">{sellerinfo.store_name}</div>
             </div>
             <Link to={'/admin'}>
             <div className="view-3" />

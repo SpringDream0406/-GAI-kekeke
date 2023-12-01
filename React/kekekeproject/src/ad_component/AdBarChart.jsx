@@ -3,39 +3,33 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,Cell, Legend, Respo
 import '../ad_css/AdBG.css'
 const data = [
   {
-    name: 'ㄱㄱ케이크',
+    name: '키치케이크',
    
-    판매량: 30,
-    
-  },
-  {
-    name: 'ㄴㄴ케이크',
- 
-    판매량: 20,
- 
-  },
-  {
-    name: 'ㄷㄷ케이크',
-   
-    판매량: 12,
-   
-  },
-  {
-    name: 'ㅂㅂ케이크',
-  
-    판매량: 15,
- 
-  },
-  {
-    name: 'ㅌㅌ케이크',
-
     판매량: 7,
+    
+  },
+  {
+    name: '체리케이크',
+ 
+    판매량: 5,
+ 
+  },
+  {
+    name: '물감케이크',
+   
+    판매량: 3,
    
   },
   {
-    name: 'ㅎㅎ케이크',
+    name: '얼굴케이크',
+
+    판매량: 1,
+   
+  },
+  {
+    name: '달력케이크',
     
-    판매량: 2,
+    판매량: 1,
 
   },
 
