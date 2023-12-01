@@ -1,4 +1,4 @@
-const { validatePassword_midLv } = require("./validatepassword");
+const { validatePassword_midLv } = require("./validatePassword");
 
 const join_check = (user_id, user_pw, user_pwcheck) => {
     let result

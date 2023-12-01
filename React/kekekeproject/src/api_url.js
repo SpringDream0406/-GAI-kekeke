@@ -5,10 +5,10 @@
 
 
 
-const API_URL = `http://localhost:3333`; // 본인 컴퓨터 서버
+//const API_URL = `http://localhost:3333`; // 본인 컴퓨터 서버
 
 
-// const API_URL = `http://192.168.0.28:3333`; //용민 컴퓨터
+ const API_URL = `http://ec2-15-164-254-147.ap-northeast-2.compute.amazonaws.com:3333`; //용민 컴퓨터
 
 //const API_URL = `http://192.168.100.69:3333`
 

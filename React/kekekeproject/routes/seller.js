@@ -345,22 +345,22 @@ router.post('/update', upload2.single('seller_profile1'), async (req, res) => {
   
 
 
-// 상품 삭제 라우트
-router.post('/prdDelete', async (req, res) => {
-    try {
-        const { prd_id } = req.body; // 클라이언트로부터 전달받은 상품 ID
+// // 상품 삭제 라우트
+// router.post('/prdDelete', async (req, res) => {
+//     try {
+//         const { prd_id } = req.body; // 클라이언트로부터 전달받은 상품 ID
 
-        // 데이터베이스에서 상품 삭제
-        await TB_RPODUCT.destroy({
-            where: { PRD_ID: prd_id }
-        });
+//         // 데이터베이스에서 상품 삭제
+//         await TB_RPODUCT.destroy({
+//             where: { PRD_ID: prd_id }
+//         });
 
-        res.status(200).json({ message: '상품이 성공적으로 삭제되었습니다.' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: '서버 오류로 상품 삭제에 실패했습니다.' });
-    }
-});
+//         res.status(200).json({ message: '상품이 성공적으로 삭제되었습니다.' });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: '서버 오류로 상품 삭제에 실패했습니다.' });
+//     }
+// });
 
 
 module.exports = router;
