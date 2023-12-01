@@ -10,10 +10,6 @@ import axios from 'axios';
 import API_URL from '../api_url';
 
 
-
-
-
-
 const AdCustomCake = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageContent, setPageContent] = useState([]);

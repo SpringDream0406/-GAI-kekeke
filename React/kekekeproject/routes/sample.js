@@ -123,9 +123,10 @@ router.post('/samplecake', async (req, res) => {
 
 router.post('/mainreview', async (req, res) => {
   try {
-    let sql = `SELECT R.REVIEW_MSG, R.CREATED_AT, R.DEAL_ID, PO.CAKE_NAME, CUST.NICK_NAME
+    let sql = `SELECT R.REVIEW_MSG, R.CREATED_AT, R.DEAL_ID, PO.CAKE_NAME, CUST.NICK_NAME, TPI.IMG_NAME2
     FROM TB_REVIEW R
     JOIN TB_PRODUCT_ORDER PO ON R.DEAL_ID = PO.DEAL_ID
+    JOIN TB_PRODUCT_IMG TPI ON PO.PRD_ID = TPI.PRD_ID
     JOIN TB_CUSTOMER CUST ON R.CUST_ID = CUST.CUST_ID;`;
     const mainreview = await query(sql);
     console.log(mainreview);

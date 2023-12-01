@@ -57,7 +57,7 @@ const SimpleSlider = () => {
 <Slider {...settings} className="slider-container">
     {mainReview.map((review, index) => (
       <div key={index} className="slider-bg">
-        <img src={'/assets/images/cake1.jpg'} alt={`Content ${index + 1}`} className="slider-img" />
+        <img src={`/img/product/${review.IMG_NAME2}`} alt={`Content ${index + 1}`} className="slider-img" />
         <div className="slider-rvtxt">
           {review.REVIEW_MSG}
         </div>

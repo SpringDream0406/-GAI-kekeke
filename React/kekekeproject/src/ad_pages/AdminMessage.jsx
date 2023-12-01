@@ -117,8 +117,8 @@ console.log('변환값' , sellerChat);
                 상담 중
               </button>
               <button
-                className={`adminSubBarButton ${activeTab === '주문 완료' ? 'active' : ''}`}
-                onClick={() => setActiveTab('주문 완료')}>
+                className={`adminSubBarButton ${activeTab === 'Y' ? 'active' : ''}`}
+                onClick={() => setActiveTab('Y')}>
                 주문 완료
               </button>
             </div>
@@ -136,7 +136,14 @@ console.log('변환값' , sellerChat);
                 <div className="adminchatItemDetails">
                   <h2 className="adminchatItemName">{chat.NICK_NAME}</h2>
                   <p className="adminchatItemLastMessage">{chat.lastMessage}</p>
-                  <span className="adminchatItemDate">{chat.CREATED_ID}</span>
+                  <span className="adminchatItemDate">
+  {new Date(chat.CREATED_ID).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour12: false, // 24시간 표시
+  })}
+</span>
                 </div>
               </div>
             ))}

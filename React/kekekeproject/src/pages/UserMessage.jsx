@@ -96,7 +96,12 @@ const UserMessage = () => {
                 <div className="chatItemDetails">
                   <h2 className="chatItemName">{chat.STORE_NAME}</h2>
                   {/* <p className="chatItemLastMessage">{chat.CHAT_MSG || "메시지가 없습니다."}</p> */}
-                  <span className="chatItemDate">{chat.LAST_MESSAGE_DATE || `${formatTime(chat.START_TIME)} - ${formatTime(chat.END_TIME)}`}</span>
+                  <span className="chatItemDate">{new Date(chat.CREATED_ID).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour12: false, // 24시간 표시
+  })}</span>
                 </div>
               </div>
             ))}

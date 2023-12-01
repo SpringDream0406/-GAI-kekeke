@@ -165,7 +165,6 @@ const CustomCakeOrder = () => {
     window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
  }
 };
-window.scrollTo(0, 0); // 화면 상단으로 스크롤 이동
    
 
 
