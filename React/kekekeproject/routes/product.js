@@ -94,8 +94,9 @@ router.post('/prdreg', update2.single('image'), async (req, res) => {
       console.log("121313",result2);
     }
     
-
+    
     res.status(200).send("상품 및 이미지 등록 성공");
+    
   } catch (error) {
     console.error("상품 및 이미지 등록 실패", error);
     res.status(500).send("상품 및 이미지 등록 오류 발생");

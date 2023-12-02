@@ -470,6 +470,20 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
 
   // 새 상품 등록 함수
   const handleRegister = async () => {
+    // FormData 객체 생성
+    const formData = new FormData();
+    // 상품 정보 추가
+    formData.append('name', productName);
+    formData.append('price', productPrice);
+    formData.append('seller_id', sellerinfo.seller_id);
+  
+    // 이미지 파일 추가
+    if (images.length > 0) {
+      formData.append('image', images[0]);
+    } else {
+      formData.append('image', '/assets/images/placeholder.png');
+    }
+  
     try {
       // 서버에 FormData 전송
       const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
@@ -477,7 +491,7 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      
+  
       console.log("상품 등록 성공", response.data);
       onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
   
@@ -485,11 +499,11 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
       Swal.fire({
         title: '상품 등록 성공!',
         text: '새로운 상품이 성공적으로 등록되었습니다.',
-        icon: 'success', // 아이콘 타입: 'success', 'error', 'warning', 'info', 'question'
+        icon: 'success',
         confirmButtonText: '확인'
       });
   
-      // 서버 응답 후 페이지 새로고침
+      // 페이지 새로고침
       window.location.reload();
     } catch (error) {
       console.error("상품 등록 실패", error);
@@ -503,48 +517,11 @@ const ProductRegisterPopup = ({ onClose, onAddProduct }) => {
       });
     }
   
-    // FormData 객체 생성
-    const formData = new FormData();
-  
-   
-    // 상품 정보 추가
-    formData.append('name', productName);
-    formData.append('price', productPrice);
-    formData.append('seller_id', sellerinfo.seller_id);
-
-     // 이미지 파일 추가
-    if (images.length > 0) {
-      formData.append('image', images[0]); // 'imagePreviews[0]'가 실제 이미지 파일
-    } else {
-      formData.append('image', '/assets/images/placeholder.png');
-    }
-
-    console.log("들어와라",images);
-  
-  
-    // 서버에 FormData 전송
-    try {
-      const response = await axios.post(`${API_URL}/product/prdreg`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log("상품 등록 성공", response.data);
-      onAddProduct({ name: productName, price: productPrice, imageUrl: response.data.imageUrl });
-
-    // 서버 응답 후 페이지 새로고침
-    window.location.reload();
-    } catch (error) {
-      console.error("상품 등록 실패", error);
-      return;
-    }
-  
     setProductName('');
     setProductPrice('');
     setImagePreviews([]);
     onClose();
   };
-
   return (
     <div className="adminPopupOverlay">
       <div className="adminPopupContainer">
